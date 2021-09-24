@@ -36,7 +36,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/tlchicken.md)]
 
 * Role: Scheduling and Tracking
-* Responsibilities: 
+* Responsibilities:
 
 ### Jean Doe
 
