@@ -40,7 +40,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Joel Sung
 
-<img src="images/Joel.png" width="200px">
+<img src="images/joel-sung.png" width="200px">
 
 [[github](http://github.com/joelsung)]
 [[portfolio](team/joelsung.md)]
