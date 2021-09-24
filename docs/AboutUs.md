@@ -48,12 +48,13 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Sun Yu Pei
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/syoopie.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/syoopie)]
+[[portfolio](team/syoopie.md)]
 
-* Role: Developer
-* Responsibilities: UI
+* Role: Integration
+* Responsibilities: In charge of versioning of the code, maintaining the code repository, integrating various parts of the software to create a whole.
+
