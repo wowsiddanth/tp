@@ -30,10 +30,10 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Elvis Teo
 
-<img src="images/TLChicken.png" width="200px">
+<img src="images/tlchicken.png" width="200px" height="236px">
 
 [[github](http://github.com/TLChicken)]
-[[portfolio](team/TLChicken.md)]
+[[portfolio](team/tlchicken.md)]
 
 * Role: Scheduling and Tracking
 * Responsibilities: 
