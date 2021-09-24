@@ -21,10 +21,10 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Rehad
 
-<img src="images/rehad.png" width="200px">
+<img src="images/rehad-a.png" width="200px">
 
 [[github](http://github.com/rehad-a)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/rehad-a.md)]
 
 * Role: Testing
 
