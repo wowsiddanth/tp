@@ -17,8 +17,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/johndoe.md)]
 
 * Role: Code Quality
-* Responsibilities: Ensure code is elegant, and efficient by 
-maintaining the code according to the module's conventions.
+* Responsibilities: Ensure code is elegant and meets the coding conventions.
 
 ### Jane Doe
 
