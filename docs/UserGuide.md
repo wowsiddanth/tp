@@ -131,13 +131,13 @@ Deletes the specified student from the address book.
 
 Format: `delete INDEX`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the student at the specified `INDEX`.
+* The index refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in the address book.
-* `find John` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `find John` followed by `delete 1` deletes the first student in the results of the `find` command.
 
 ### Clearing all entries : `clear`
 
