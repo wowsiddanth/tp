@@ -13,5 +13,5 @@ We present NUSTracker. This application targets events directors / administrativ
 We aim to address these problems:
 1. Easier management of NUS’s huge undergraduate base.
 2. Store event details and attendance information all in 1 app.
-3. Convenient UG Event management.
+3. Convenient event management.
 
