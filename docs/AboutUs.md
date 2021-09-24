@@ -16,7 +16,9 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](https://github.com/wowsiddanth)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Undecided
+* Role: Code Quality
+* Responsibilities: Ensure code is elegant, and efficient by 
+maintaining the code according to the module's conventions.
 
 ### Jane Doe
 
