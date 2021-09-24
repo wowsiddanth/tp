@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Siddanth
 
-<img src="images/siddanth.png" width="200px">
+<img src="images/wowsiddanth.png" width="200px">
 
 [[github](https://github.com/wowsiddanth)]
 [[portfolio](team/johndoe.md)]
