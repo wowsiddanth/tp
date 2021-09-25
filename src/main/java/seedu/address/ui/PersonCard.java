@@ -35,8 +35,6 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label phone;
     @FXML
-    private Label address;
-    @FXML
     private Label email;
     @FXML
     private Label nusNetId;
@@ -52,7 +50,6 @@ public class PersonCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText("Phone number: " + person.getPhone().value);
-        address.setText(person.getAddress().value);
         email.setText("Email: " + person.getEmail().value);
         nusNetId.setText("NUS NetID: " + person.getNusNetId().value);
         person.getTags().stream()

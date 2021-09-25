@@ -3,7 +3,7 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-public class NUSNetId {
+public class NusNetId {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Id should only contains alphanumeric characters and space, and it should not be blank!";
@@ -21,7 +21,7 @@ public class NUSNetId {
      *
      * @param nusNetId A valid NUS net id
      */
-    public NUSNetId(String nusNetId) {
+    public NusNetId(String nusNetId) {
         requireNonNull(nusNetId);
         checkArgument(isValidNusNetId(nusNetId), MESSAGE_CONSTRAINTS);
         value = nusNetId;
@@ -42,8 +42,8 @@ public class NUSNetId {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof NUSNetId // instanceof handles nulls
-                && value.equals(((NUSNetId) other).value)); //Check internal attributes
+                || (other instanceof NusNetId // instanceof handles nulls
+                && value.equals(((NusNetId) other).value)); //Check internal attributes
     }
 
     @Override

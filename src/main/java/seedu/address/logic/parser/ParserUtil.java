@@ -98,13 +98,13 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code email} is invalid.
      */
-    public static NUSNetId parseNusNetId(String nusNetId) throws ParseException {
+    public static NusNetId parseNusNetId(String nusNetId) throws ParseException {
         requireNonNull(nusNetId);
         String trimmedNusNetId = nusNetId.trim();
-        if (!NUSNetId.isValidNusNetId(trimmedNusNetId)) {
-            throw new ParseException(NUSNetId.MESSAGE_CONSTRAINTS);
+        if (!NusNetId.isValidNusNetId(trimmedNusNetId)) {
+            throw new ParseException(NusNetId.MESSAGE_CONSTRAINTS);
         }
-        return new NUSNetId(trimmedNusNetId);
+        return new NusNetId(trimmedNusNetId);
     }
 
     /**

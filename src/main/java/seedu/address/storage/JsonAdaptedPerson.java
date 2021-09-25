@@ -24,7 +24,6 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String nusNetId;
-    private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -38,7 +37,6 @@ class JsonAdaptedPerson {
         this.phone = phone;
         this.email = email;
         this.nusNetId = nusNetId;
-        this.address = address;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -52,7 +50,6 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         nusNetId = source.getNusNetId().value;
-        address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -94,23 +91,15 @@ class JsonAdaptedPerson {
         final Email modelEmail = new Email(email);
 
         if (nusNetId == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, NUSNetId.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, NusNetId.class.getSimpleName()));
         }
-        if (!NUSNetId.isValidNusNetId(nusNetId)) {
-            throw new IllegalValueException(NUSNetId.MESSAGE_CONSTRAINTS);
+        if (!NusNetId.isValidNusNetId(nusNetId)) {
+            throw new IllegalValueException(NusNetId.MESSAGE_CONSTRAINTS);
         }
-        final NUSNetId modelNusNetId = new NUSNetId(nusNetId);
-
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
-        }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
-        }
-        final Address modelAddress = new Address(address);
+        final NusNetId modelNusNetId = new NusNetId(nusNetId);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelNusNetId, modelAddress, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelNusNetId, modelTags);
     }
 
 }
