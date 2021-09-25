@@ -78,6 +78,21 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String year} into an {@code Year}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code year} is invalid.
+     */
+    public static Year parseYear(String year) throws ParseException {
+        requireNonNull(year);
+        String trimmedYear = year.trim();
+        if (!Year.isValidYear(trimmedYear)) {
+            throw new ParseException(Year.MESSAGE_CONSTRAINTS);
+        }
+        return new Year(trimmedYear);
+    }
+
+    /**
      * Parses a {@code String major} into an {@code Major}.
      * Leading and trailing whitespaces will be trimmed.
      *

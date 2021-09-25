@@ -89,11 +89,12 @@ public class EditCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
+        Year updatedYear = editPersonDescriptor.getYear().orElse(personToEdit.getYear());
         Major updatedMajor = editPersonDescriptor.getMajor().orElse(personToEdit.getMajor());
         NusNetId updatedNusNetId = editPersonDescriptor.getNusNetId().orElse(personToEdit.getNusNetId());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedMajor, updatedNusNetId, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedYear, updatedMajor, updatedNusNetId, updatedTags);
     }
 
     @Override
@@ -122,6 +123,7 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
+        private Year year;
         private Major major;
         private NusNetId nusNetId;
         private Set<Tag> tags;
@@ -136,6 +138,7 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
+            setYear(toCopy.year);
             setMajor(toCopy.major);
             setNusNetId(toCopy.nusNetId);
             setTags(toCopy.tags);
@@ -170,6 +173,14 @@ public class EditCommand extends Command {
 
         public Optional<Email> getEmail() {
             return Optional.ofNullable(email);
+        }
+
+        public void setYear(Year year) {
+            this.year = year;
+        }
+
+        public Optional<Year> getYear() {
+            return Optional.ofNullable(year);
         }
 
         public void setMajor(Major major) {
@@ -223,6 +234,7 @@ public class EditCommand extends Command {
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
+                    && getYear().equals(e.getYear())
                     && getNusNetId().equals(e.getNusNetId())
                     && getMajor().equals(e.getMajor())
                     && getTags().equals(e.getTags());

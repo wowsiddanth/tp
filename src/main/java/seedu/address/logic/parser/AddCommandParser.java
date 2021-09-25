@@ -33,11 +33,12 @@ public class AddCommandParser implements Parser<AddCommand> {
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
+        Year year = ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get());
         Major major = ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get());
         NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_NUSNETID).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, major, nusNetId, tagList);
+        Person person = new Person(name, phone, email, year, major, nusNetId, tagList);
 
         return new AddCommand(person);
     }

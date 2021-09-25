@@ -19,6 +19,7 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Year year;
     private final Major major;
     private final NusNetId nusNetId;
 
@@ -28,12 +29,13 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Major major, NusNetId nusNetId, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Year year, Major major, NusNetId nusNetId, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.major = major; //TODO: CHANGE THIS!
+        this.year = year;
+        this.major = major;
         this.nusNetId = nusNetId;
         this.tags.addAll(tags);
         Major.addStudent(this);
@@ -49,6 +51,10 @@ public class Person {
 
     public Email getEmail() {
         return email;
+    }
+
+    public Year getYear() {
+        return year;
     }
 
     public Major getMajor() {
@@ -98,6 +104,7 @@ public class Person {
         return otherPerson.getName().equals(getName())
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
+                && otherPerson.getYear().equals(getYear())
                 && otherPerson.getNusNetId().equals(getNusNetId())
                 && otherPerson.getTags().equals(getTags());
     }
@@ -105,7 +112,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, tags);
+        return Objects.hash(name, phone, email, year, nusNetId, tags);
     }
 
     @Override
@@ -115,8 +122,11 @@ public class Person {
                 .append("; Phone: ")
                 .append(getPhone())
                 .append("; Email: ")
-                .append(getEmail());
-
+                .append(getEmail())
+                .append("; Year: ")
+                .append(getYear())
+                .append("; NUSNetId: ")
+                .append(getNusNetId());
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
