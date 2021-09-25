@@ -19,13 +19,15 @@ public class AddCommand extends Command {
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
+            + PREFIX_MAJOR + "MAJOR "
             + PREFIX_NUSNETID + "NUSNETID "
             + "[" + PREFIX_TAG + "TAG]\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
-            + PREFIX_NUSNETID + "e1234567"
+            + PREFIX_MAJOR + "CS "
+            + PREFIX_NUSNETID + "e1234567 "
             + PREFIX_TAG + "friends ";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";

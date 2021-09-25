@@ -19,6 +19,7 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Major major;
     private final NusNetId nusNetId;
 
     // Data fields
@@ -27,13 +28,15 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, NusNetId nusNetId, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Major major, NusNetId nusNetId, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.major = major; //TODO: CHANGE THIS!
         this.nusNetId = nusNetId;
         this.tags.addAll(tags);
+        Major.addStudent(this);
     }
 
     public Name getName() {
@@ -46,6 +49,10 @@ public class Person {
 
     public Email getEmail() {
         return email;
+    }
+
+    public Major getMajor() {
+        return major;
     }
 
     public NusNetId getNusNetId() {
