@@ -21,7 +21,7 @@ public class PersonBuilder {
     private Name name;
     private Phone phone;
     private Email email;
-    private NUSNetId nusNetId;
+    private NusNetId nusNetId;
     private Address address;
     private Set<Tag> tags;
 
@@ -32,7 +32,7 @@ public class PersonBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
-        nusNetId = new NUSNetId(DEFAULT_NUSNETID);
+        nusNetId = new NusNetId(DEFAULT_NUSNETID);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -45,7 +45,6 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         nusNetId = personToCopy.getNusNetId();
-        address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -90,12 +89,12 @@ public class PersonBuilder {
     }
 
     public PersonBuilder withNusNetId(String nusNetId) {
-        this.nusNetId = new NUSNetId(nusNetId);
+        this.nusNetId = new NusNetId(nusNetId);
         return this;
     }
 
     public Person build() {
-        return new Person(name, phone, email, nusNetId, address, tags);
+        return new Person(name, phone, email, nusNetId, tags);
     }
 
 }

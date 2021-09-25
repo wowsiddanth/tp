@@ -92,11 +92,10 @@ public class EditCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
-        NUSNetId updatedNusNetId = editPersonDescriptor.getNusNetId().orElse(personToEdit.getNusNetId());
-        Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        NusNetId updatedNusNetId = editPersonDescriptor.getNusNetId().orElse(personToEdit.getNusNetId());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedNusNetId,updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedNusNetId, updatedTags);
     }
 
     @Override
@@ -125,8 +124,7 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private NUSNetId nusNetId;
-        private Address address;
+        private NusNetId nusNetId;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -140,7 +138,6 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setNusNetId(toCopy.nusNetId);
-            setAddress(toCopy.address);
             setTags(toCopy.tags);
         }
 
@@ -148,7 +145,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, tags);
         }
 
         public void setName(Name name) {
@@ -175,20 +172,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setNusNetId(NUSNetId nusNetId) {
+        public void setNusNetId(NusNetId nusNetId) {
             this.nusNetId = nusNetId;
         }
 
-        public Optional<NUSNetId> getNusNetId() {
+        public Optional<NusNetId> getNusNetId() {
             return Optional.ofNullable(nusNetId);
-        }
-
-        public void setAddress(Address address) {
-            this.address = address;
-        }
-
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
         }
 
         /**
@@ -226,7 +215,6 @@ public class EditCommand extends Command {
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
-                    && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());
         }
     }
