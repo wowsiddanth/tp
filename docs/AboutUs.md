@@ -9,51 +9,52 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Siddanth
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/wowsiddanth.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
+[[github](https://github.com/wowsiddanth)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Project Advisor
+* Role: Code Quality
+* Responsibilities: Ensure code is elegant and meets the coding conventions.
 
-### Jane Doe
+### Rehad
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/rehad-a.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/rehad-a)]
+[[portfolio](team/rehad-a.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Testing
 
-### Johnny Doe
+### Elvis Teo
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/tlchicken.png" width="200px" height="236px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/TLChicken)]
+[[portfolio](team/tlchicken.md)]
 
-* Role: Developer
-* Responsibilities: Data
+* Role: Scheduling and Tracking
+* Responsibilities:
 
-### Jean Doe
+### Joel Sung
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/joel-sung.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/joelsung)]
+[[portfolio](team/joelsung.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Team lead
+* Responsibilities: Overall project coordination + Project documentation quality
 
-### James Doe
+### Sun Yu Pei
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/syoopie.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/syoopie)]
+[[portfolio](team/syoopie.md)]
 
-* Role: Developer
-* Responsibilities: UI
+* Role: Integration
+* Responsibilities: In charge of versioning of the code, maintaining the code repository, integrating various parts of the software to create a whole.
+
