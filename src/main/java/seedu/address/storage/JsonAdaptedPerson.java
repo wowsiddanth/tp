@@ -23,6 +23,7 @@ class JsonAdaptedPerson {
     private final String name;
     private final String phone;
     private final String email;
+    private final String year;
     private final String major;
     private final String nusNetId;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
@@ -33,11 +34,13 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("nusNetId") String nusNetId,
+            @JsonProperty("year") String year,
             @JsonProperty("major") String major,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.year = year;
         this.major = major;
         this.nusNetId = nusNetId;
         if (tagged != null) {
@@ -52,6 +55,7 @@ class JsonAdaptedPerson {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
+        year = source.getYear().value;
         major = source.getMajor().value;
         nusNetId = source.getNusNetId().value;
         tagged.addAll(source.getTags().stream()
@@ -94,6 +98,14 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
+        if (year == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Year.class.getSimpleName()));
+        }
+        if (!Year.isValidYear(year)) {
+            throw new IllegalValueException(Year.MESSAGE_CONSTRAINTS);
+        }
+        final Year modelYear = new Year(year);
+
         if (major == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Major.class.getSimpleName()));
         }
@@ -111,7 +123,7 @@ class JsonAdaptedPerson {
         final NusNetId modelNusNetId = new NusNetId(nusNetId);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelMajor, modelNusNetId, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelYear, modelMajor, modelNusNetId, modelTags);
     }
 
 }
