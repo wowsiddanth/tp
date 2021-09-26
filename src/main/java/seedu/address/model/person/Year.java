@@ -37,7 +37,6 @@ public class Year {
         return year.matches(VALIDATION_REGEX);
     }
 
-
     @Override
     public String toString() {
         return value;
@@ -54,5 +53,4 @@ public class Year {
     public int hashCode() {
         return value.hashCode();
     }
-
 }

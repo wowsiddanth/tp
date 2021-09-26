@@ -105,6 +105,7 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getYear().equals(getYear())
+                && otherPerson.getMajor().equals(getMajor())
                 && otherPerson.getNusNetId().equals(getNusNetId())
                 && otherPerson.getTags().equals(getTags());
     }

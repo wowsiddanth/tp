@@ -10,7 +10,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.NusNetId;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,9 +39,10 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("nusNetId") String nusNetId,
+            @JsonProperty("email") String email,
             @JsonProperty("year") String year,
             @JsonProperty("major") String major,
+            @JsonProperty("nusNetId") String nusNetId,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
@@ -115,7 +122,8 @@ class JsonAdaptedPerson {
         final Major modelMajor = new Major(major);
 
         if (nusNetId == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, NusNetId.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    NusNetId.class.getSimpleName()));
         }
         if (!NusNetId.isValidNusNetId(nusNetId)) {
             throw new IllegalValueException(NusNetId.MESSAGE_CONSTRAINTS);

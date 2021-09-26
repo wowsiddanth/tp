@@ -1,11 +1,12 @@
 package seedu.address.model.person;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Person's name in the address book.
@@ -14,8 +15,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Major {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Majors should only contain alphabets, and is case sensitive!" +
-            "\n The valid computing majors are: CS, IS, ISEC, BZA";
+            "Majors should only contain alphabets, and is case sensitive!"
+            + "\n The valid computing majors are: CS (Computer Science), IS (Information Systems)"
+            + ", ISEC (Information Security), and BZA (Business Analytics)";
 
     /*
      * The first character of the address must not be a whitespace,
@@ -27,7 +29,7 @@ public class Major {
      * The HashMap that maps the major, to the list of students that are currently
      * in that major.
      */
-    public static HashMap<Major, ArrayList<Person>> studentsToMajors = new HashMap<>();
+    private static HashMap<Major, ArrayList<Person>> studentsToMajors = new HashMap<>();
 
     public final String value;
 
@@ -76,7 +78,7 @@ public class Major {
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidMajor(String test) {
-        boolean matchesRegex =  test.matches(VALIDATION_REGEX);
+        boolean matchesRegex = test.matches(VALIDATION_REGEX);
         boolean validCourse = isValidMajorName(test);
         return matchesRegex && validCourse;
     }
@@ -98,13 +100,12 @@ public class Major {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Name // instanceof handles nulls
-                && value.equals(((Name) other).fullName)); // state check
+                || (other instanceof Major // instanceof handles nulls
+                && value.equals(((Major) other).value)); // state check
     }
 
     @Override
     public int hashCode() {
         return value.hashCode();
     }
-
 }

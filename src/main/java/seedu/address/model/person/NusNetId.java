@@ -6,13 +6,13 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class NusNetId {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Id should only contains alphanumeric characters and space, and it should not be blank!";
+            "NUS NetId should start with 'e', should be followed by 7 digits, and it should not be blank!";
 
     /*
      * The first character of the address must a lowercase 'e', in line with
-     * the NUS policy for ids
+     * current NUS guidelines for ids, followed by 7 numerical digits
      */
-    public static final String VALIDATION_REGEX = "e[\\p{Nd}]*";
+    public static final String VALIDATION_REGEX = "e[\\p{Nd}]{7}";
 
     public final String value;
 
