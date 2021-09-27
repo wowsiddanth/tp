@@ -197,7 +197,7 @@ The following sequence diagram shows how the undo operation works:
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div m**arkdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
 
@@ -283,11 +283,34 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the **user**, unless specified otherwise)
 
-**Use case: Delete a person**
+**<u>Use case UC1 - Add a student</u>**
 
-**MSS**
+**Preconditions:** -
+
+**Guarantees:** New student info is saved, and displayed.
+
+**MSS:**
+1. User types in command
+2. AddressBook adds the user to the address book
+3. AddressBook displays that user has been added, and corresponding details
+    
+    Use case ends
+
+**Extensions:**
+* 1a. User types in an invalid format
+    * 1a1. AddressBook shows an error messages, and displays the correct format to use.
+    
+       Use case ends.
+
+**<u>Use case UC2 - Delete a student</u>**
+
+**Preconditions:** - 
+
+**Guarantees:** Student is deleted from program, and saved data
+
+**MSS:**
 
 1.  User requests to list persons
 2.  AddressBook shows a list of persons
@@ -296,8 +319,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-**Extensions**
-
+**Extensions:**
 * 2a. The list is empty.
 
   Use case ends.

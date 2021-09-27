@@ -7,15 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
-
 /**
- * Represents a Person's name in the address book.
+ * Represents a Student's name in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidMajor(String)}
  */
 public class Major {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Majors should only contain alphabets, and is case sensitive!"
+    public static final String MESSAGE_CONSTRAINTS = "Majors should only contain alphabets, and is case sensitive!"
             + "\n The valid computing majors are: CS (Computer Science), IS (Information Systems)"
             + ", ISEC (Information Security), and BZA (Business Analytics)";
 
@@ -23,13 +21,13 @@ public class Major {
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String VALIDATION_REGEX = "[\\p{Alnum}]*";
 
     /*
      * The HashMap that maps the major, to the list of students that are currently
      * in that major.
      */
-    private static HashMap<Major, ArrayList<Person>> studentsToMajors = new HashMap<>();
+    private static final HashMap<Major, ArrayList<Person>> studentsToMajors = new HashMap<>();
 
     public final String value;
 
@@ -85,6 +83,7 @@ public class Major {
 
     /**
      * Checks if the given major string is a valid major name
+     *
      * @param major The major given
      * @return True if valid, false if invalid
      */
