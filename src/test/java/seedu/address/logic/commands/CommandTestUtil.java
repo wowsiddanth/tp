@@ -3,10 +3,12 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -26,6 +28,7 @@ import seedu.address.testutil.EditPersonDescriptorBuilder;
  */
 public class CommandTestUtil {
 
+    // For Persons
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_PHONE_AMY = "11111111";
@@ -36,8 +39,7 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
-    public static final String VALID_EVENT_AMY = "Amy's event";
-    public static final String VALID_EVENT_BOB = "Bob's event";
+    public static final String VALID_EVENT_BOB = "to remove later";
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
@@ -61,6 +63,27 @@ public class CommandTestUtil {
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
+
+    // For Events
+    public static final String VALID_EVENTNAME_TEST = "Test event";
+    public static final String VALID_EVENTNAME_FINAL = "Final event";
+    public static final String VALID_EVENTDATE_TEST = "2021-09-26";
+    public static final String VALID_EVENTDATE_FINAL = "2030-09-26";
+    public static final String VALID_EVENTTIME_TEST = "1800";
+    public static final String VALID_EVENTTIME_FINAL = "2010";
+    public static final String VALID_PARTICIPANT_TEST = "Joel";
+    public static final String VALID_PARTICIPANT_FINAL = "Sung";
+
+    public static final String NAME_DESC_TEST = " " + PREFIX_NAME + VALID_EVENTNAME_TEST;
+    public static final String NAME_DESC_FINAL = " " + PREFIX_NAME + VALID_EVENTNAME_FINAL;
+    public static final String DATE_DESC_TEST = " " + PREFIX_DATE + VALID_EVENTDATE_TEST;
+    public static final String DATE_DESC_FINAL = " " + PREFIX_DATE + VALID_EVENTDATE_FINAL;
+    public static final String TIME_DESC_TEST = " " + PREFIX_TIME + VALID_EVENTTIME_TEST;
+    public static final String TIME_DESC_FINAL = " " + PREFIX_TIME + VALID_EVENTTIME_FINAL;
+
+    public static final String INVALID_EVENTNAME_DESC = " " + PREFIX_NAME + "Event&"; // '&' not allowed in names
+    public static final String INVALID_EVENTDATE_DESC = " " + PREFIX_DATE + "20210926"; // missing dashes
+    public static final String INVALID_EVENTTIME_DESC = " " + PREFIX_TIME + "12:30 pm"; // needs to be 24hr format
 
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)

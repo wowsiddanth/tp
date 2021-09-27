@@ -21,7 +21,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
-import seedu.address.model.person.Event;
+import seedu.address.model.person.EnrolledEvents;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -99,9 +99,9 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
-        Event updatedEvent = editPersonDescriptor.getEvent().orElse(personToEdit.getEvent());
+        EnrolledEvents updatedEnrolledEvents = editPersonDescriptor.getEvent().orElse(personToEdit.getEvent());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedEvent);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedEnrolledEvents);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
-        private Event event;
+        private EnrolledEvents enrolledEvents;
 
         public EditPersonDescriptor() {}
 
@@ -146,7 +146,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
-            setEvent(toCopy.event);
+            setEvent(toCopy.enrolledEvents);
         }
 
         /**
@@ -188,12 +188,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(address);
         }
 
-        public void setEvent(Event event) {
-            this.event = event;
+        public void setEvent(EnrolledEvents enrolledEvents) {
+            this.enrolledEvents = enrolledEvents;
         }
 
-        public Optional<Event> getEvent() {
-            return Optional.ofNullable(event);
+        public Optional<EnrolledEvents> getEvent() {
+            return Optional.ofNullable(enrolledEvents);
         }
 
         /**

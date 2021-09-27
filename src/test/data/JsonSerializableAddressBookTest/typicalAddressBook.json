@@ -42,5 +42,16 @@
     "email" : "anna@example.com",
     "address" : "4th street",
     "tagged" : [ ]
-  } ]
+  } ],
+  "events": [ {
+    "name": "Orientation Camp",
+    "date": "2022-08-01",
+    "time": "0900",
+    "participants": [ "Freshman 1", "Freshman 2" ]
+  }, {
+    "name": "Sports Camp",
+    "date": "2022-09-15",
+    "time": "1200",
+    "participants": [ "Athlete 1", "Athlete 2", "Athlete 3" ]
+  }]
 }

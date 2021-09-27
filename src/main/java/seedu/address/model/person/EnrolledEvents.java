@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * This class represents an event that a person is a part of.
  */
-public class Event {
+public class EnrolledEvents {
 
     public static final String MESSAGE_CONSTRAINTS = "Events can take any values, and it should not be blank";
 
@@ -16,7 +16,7 @@ public class Event {
      *
      * @param event A valid address.
      */
-    public Event(String event) {
+    public EnrolledEvents(String event) {
         requireNonNull(event);
         value = event;
     }
@@ -29,8 +29,8 @@ public class Event {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Event // instanceof handles nulls
-                && value.equals(((Event) other).value)); // state check
+                || (other instanceof EnrolledEvents // instanceof handles nulls
+                && value.equals(((EnrolledEvents) other).value)); // state check
     }
 
     @Override

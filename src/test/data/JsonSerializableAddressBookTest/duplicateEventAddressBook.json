@@ -1,0 +1,18 @@
+{
+  "persons": [ {
+    "name": "Alice Pauline",
+    "phone": "94351253",
+    "email": "alice@example.com",
+    "address": "123, Jurong West Ave 6, #08-111",
+    "tagged": [ "friends" ]
+  }],
+  "events": [ {
+    "name": "Valid event",
+    "date": "2021-09-27",
+    "time": "1900"
+  }, {
+    "name": "Valid event",
+    "date": "2021-09-27",
+    "time": "1900"
+  }]
+}

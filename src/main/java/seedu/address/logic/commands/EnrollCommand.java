@@ -9,15 +9,15 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Event;
+import seedu.address.model.person.EnrolledEvents;
 import seedu.address.model.person.Person;
 
 /**
  * Adds an existing person to an event.
  */
-public class EventCommand extends Command {
+public class EnrollCommand extends Command {
 
-    public static final String COMMAND_WORD = "event";
+    public static final String COMMAND_WORD = "enroll";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Adds the person identified to an event "
             + "by the index number used in the last person listing. "
@@ -30,17 +30,17 @@ public class EventCommand extends Command {
     public static final String MESSAGE_DELETE_EVENT_SUCCESS = "Removed event from Person: %1$s";
 
     private final Index index;
-    private final Event event;
+    private final EnrolledEvents enrolledEvents;
 
     /**
      * @param index of the person in the filtered person list to edit the remark
-     * @param event the person is to be added to
+     * @param enrolledEvents the person is to be added to
      */
-    public EventCommand(Index index, Event event) {
-        requireAllNonNull(index, event);
+    public EnrollCommand(Index index, EnrolledEvents enrolledEvents) {
+        requireAllNonNull(index, enrolledEvents);
 
         this.index = index;
-        this.event = event;
+        this.enrolledEvents = enrolledEvents;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class EventCommand extends Command {
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
-                personToEdit.getAddress(), personToEdit.getTags(), event);
+                personToEdit.getAddress(), personToEdit.getTags(), enrolledEvents);
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -68,7 +68,7 @@ public class EventCommand extends Command {
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !event.value.isEmpty() ? MESSAGE_ADD_EVENT_SUCCESS : MESSAGE_DELETE_EVENT_SUCCESS;
+        String message = !enrolledEvents.value.isEmpty() ? MESSAGE_ADD_EVENT_SUCCESS : MESSAGE_DELETE_EVENT_SUCCESS;
         return String.format(message, personToEdit);
     }
 
@@ -80,13 +80,13 @@ public class EventCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof EventCommand)) {
+        if (!(other instanceof EnrollCommand)) {
             return false;
         }
 
         // state check
-        EventCommand e = (EventCommand) other;
+        EnrollCommand e = (EnrollCommand) other;
         return index.equals(e.index)
-                && event.equals(e.event);
+                && enrolledEvents.equals(e.enrolledEvents);
     }
 }

@@ -1,0 +1,14 @@
+{
+  "persons": [ {
+    "name": "Alice Pauline",
+    "phone": "94351253",
+    "email": "alice@example.com",
+    "address": "123, Jurong West Ave 6, #08-111",
+    "tagged": [ "friends" ]
+  }],
+  "events": [ {
+    "name": "Invalid event",
+    "date": "@20213127",
+    "time": "abcd"
+  }]
+}

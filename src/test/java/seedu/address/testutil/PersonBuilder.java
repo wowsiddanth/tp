@@ -5,7 +5,7 @@ import java.util.Set;
 
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
-import seedu.address.model.person.Event;
+import seedu.address.model.person.EnrolledEvents;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -28,7 +28,7 @@ public class PersonBuilder {
     private Email email;
     private Address address;
     private Set<Tag> tags;
-    private Event event;
+    private EnrolledEvents enrolledEvents;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -39,7 +39,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
-        event = new Event(DEFAULT_EVENT);
+        enrolledEvents = new EnrolledEvents(DEFAULT_EVENT);
     }
 
     /**
@@ -51,7 +51,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
-        event = personToCopy.getEvent();
+        enrolledEvents = personToCopy.getEvent();
     }
 
     /**
@@ -98,12 +98,12 @@ public class PersonBuilder {
      * Sets the {@code Event} of the {@code Person} that we are building.
      */
     public PersonBuilder withEvent(String event) {
-        this.event = new Event(event);
+        this.enrolledEvents = new EnrolledEvents(event);
         return this;
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, tags, event);
+        return new Person(name, phone, email, address, tags, enrolledEvents);
     }
 
 }
