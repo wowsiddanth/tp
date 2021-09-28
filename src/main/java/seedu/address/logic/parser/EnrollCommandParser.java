@@ -10,7 +10,7 @@ import seedu.address.logic.commands.EnrollCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.EnrolledEvents;
 
-public class EventCommandParser implements Parser<EnrollCommand> {
+public class EnrollCommandParser implements Parser<EnrollCommand> {
 
     @Override
     public EnrollCommand parse(String args) throws ParseException {

@@ -71,7 +71,7 @@ public class AddressBookParser {
             return new HelpCommand();
 
         case EnrollCommand.COMMAND_WORD:
-            return new EventCommandParser().parse(arguments);
+            return new EnrollCommandParser().parse(arguments);
 
         case CreateCommand.COMMAND_WORD:
             return new CreateCommandParser().parse(arguments);
