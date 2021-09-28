@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.event.Event;
+import seedu.address.model.event.EventName;
 import seedu.address.model.person.Person;
 
 /**
@@ -109,6 +110,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void deleteEvent(Event event) {
+        addressBook.removeEvent(event);
+    }
+
+    @Override
     public void addPerson(Person person) {
         addressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -117,7 +123,12 @@ public class ModelManager implements Model {
     @Override
     public void addEvent(Event event) {
         addressBook.addEvent(event);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS); // Check if this line of code is needed
+        updateFilteredPersonList(PREDICATE_SHOW_ALL_EVENTS);
+    }
+
+    @Override
+    public Event getEvent(EventName name) {
+        return addressBook.getEvent(name);
     }
 
     @Override
@@ -151,6 +162,12 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    @Override
+    public void updateFilteredEventList(Predicate<Event> predicate) {
+        requireNonNull(predicate);
+        filteredEvents.setPredicate(predicate);
     }
 
     @Override

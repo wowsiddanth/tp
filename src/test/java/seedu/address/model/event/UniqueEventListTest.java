@@ -1,5 +1,6 @@
 package seedu.address.model.event;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EVENTDATE_FINAL;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EVENTTIME_FINAL;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -57,6 +58,22 @@ class UniqueEventListTest {
     }
 
     @Test
+    public void get_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> uniqueEventList.get(null));
+    }
+
+    @Test
+    public void get_existingEvent_returnsTest() {
+        uniqueEventList.add(TEST);
+        assertEquals(TEST, uniqueEventList.get(TEST.getName()));
+    }
+
+    @Test
+    public void get_nonExistingEvent_returnsNull() {
+        assertEquals(null, uniqueEventList.get(new EventName("event name does not exist")));
+    }
+
+    @Test
     public void setEvent_nullTargetEvent_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniqueEventList.setEvent(null, TEST));
     }
@@ -77,7 +94,7 @@ class UniqueEventListTest {
         uniqueEventList.setEvent(TEST, TEST);
         UniqueEventList expectedUniqueEventList = new UniqueEventList();
         expectedUniqueEventList.add(TEST);
-        Assertions.assertEquals(expectedUniqueEventList, uniqueEventList);
+        assertEquals(expectedUniqueEventList, uniqueEventList);
     }
 
     @Test
@@ -88,7 +105,7 @@ class UniqueEventListTest {
         uniqueEventList.setEvent(TEST, editedTest);
         UniqueEventList expectedUniqueEventList = new UniqueEventList();
         expectedUniqueEventList.add(editedTest);
-        Assertions.assertEquals(expectedUniqueEventList, uniqueEventList);
+        assertEquals(expectedUniqueEventList, uniqueEventList);
     }
 
     @Test
@@ -97,7 +114,7 @@ class UniqueEventListTest {
         uniqueEventList.setEvent(TEST, FINAL);
         UniqueEventList expectedUniqueEventList = new UniqueEventList();
         expectedUniqueEventList.add(FINAL);
-        Assertions.assertEquals(expectedUniqueEventList, uniqueEventList);
+        assertEquals(expectedUniqueEventList, uniqueEventList);
     }
 
     @Test
@@ -122,7 +139,7 @@ class UniqueEventListTest {
         uniqueEventList.add(TEST);
         uniqueEventList.remove(TEST);
         UniqueEventList expectedUniqueEventList = new UniqueEventList();
-        Assertions.assertEquals(expectedUniqueEventList, uniqueEventList);
+        assertEquals(expectedUniqueEventList, uniqueEventList);
     }
 
     @Test
@@ -136,7 +153,7 @@ class UniqueEventListTest {
         UniqueEventList expectedUniqueEventList = new UniqueEventList();
         expectedUniqueEventList.add(FINAL);
         uniqueEventList.setEvents(expectedUniqueEventList);
-        Assertions.assertEquals(expectedUniqueEventList, uniqueEventList);
+        assertEquals(expectedUniqueEventList, uniqueEventList);
     }
 
     @Test
@@ -151,7 +168,7 @@ class UniqueEventListTest {
         uniqueEventList.setEvents(eventList);
         UniqueEventList expectedUniqueEventList = new UniqueEventList();
         expectedUniqueEventList.add(FINAL);
-        Assertions.assertEquals(expectedUniqueEventList, uniqueEventList);
+        assertEquals(expectedUniqueEventList, uniqueEventList);
     }
 
     @Test

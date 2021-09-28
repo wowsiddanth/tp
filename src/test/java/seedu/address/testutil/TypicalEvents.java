@@ -10,6 +10,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PARTICIPANT_FIN
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PARTICIPANT_TEST;
 
 import seedu.address.model.event.Event;
+import seedu.address.model.event.EventName;
 
 /**
  * A utility class containing a list of {@code Event} objects to be used in tests.
@@ -24,6 +25,11 @@ public class TypicalEvents {
             .withDate("2022-09-15")
             .withTime("1200")
             .withParticipants("Athlete 1", "Athlete 2", "Athlete 3").build();
+
+    // For delete event tests
+    public static final EventName EVENTNAME_ONE = new EventName("Orientation Camp");
+    public static final EventName EVENTNAME_TWO = new EventName("Sports Camp");
+    public static final EventName EVENTNAME_INVALID = new EventName("does not exist");
 
     // Manually added - Event's details found in {@code CommandTestUtil}
     public static final Event TEST = new EventBuilder().withName(VALID_EVENTNAME_TEST).withDate(VALID_EVENTDATE_TEST)

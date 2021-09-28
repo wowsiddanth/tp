@@ -6,6 +6,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.event.Event;
+import seedu.address.model.event.EventName;
 import seedu.address.model.event.UniqueEventList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
@@ -101,6 +102,14 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void addEvent(Event e) {
         events.add(e);
+    }
+
+    /**
+     * Gets an event from the address book by its name.
+     * Returns null if event does not exist.
+     */
+    public Event getEvent(EventName name) {
+        return events.get(name);
     }
 
     /**

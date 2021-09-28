@@ -49,6 +49,24 @@ public class UniqueEventList implements Iterable<Event> {
     }
 
     /**
+     * Gets an event from the list by its name.
+     * Returns null if event does not exist.
+     *
+     * @param name The name of the Event
+     * @return The event from the list that has the same EventName as the given name.
+     */
+    public Event get(EventName name) {
+        requireNonNull(name);
+        Event pseudoEvent = Event.pseudoEvent(name);
+        for (int i = 0; i < internalList.size(); i++) {
+            if (internalList.get(i).isSameEvent(pseudoEvent)) {
+                return internalList.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
      * Replaces the event {@code target} in the list with {@code editedEvent}.
      * {@code target} must exist in the list.
      * The event identity of {@code editedEvent} must not be the same as another existing event in the list.

@@ -1,5 +1,6 @@
 package seedu.address.model.event;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collections;
@@ -76,6 +77,22 @@ public class Event {
 
         return otherEvent != null
                 && otherEvent.getName().equals(getName());
+    }
+
+    /**
+     * Wraps the EventName in an Event for easy re-usability with other methods.
+     *
+     * @param eventName The event name
+     * @return An Event with the given EventName, and a pseudo EventDate and EventTime.
+     */
+    public static Event pseudoEvent(EventName eventName) {
+        requireNonNull(eventName);
+
+        String validEventDate = "2021-09-28";
+        String validEventTime = "1115";
+        return new Event(eventName,
+                new EventDate(validEventDate),
+                new EventTime(validEventTime));
     }
 
     /**
