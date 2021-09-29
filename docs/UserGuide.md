@@ -26,7 +26,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * **`add`**`add n/John Doe m/CS id/e1283011 y/2 p/8123 1293 email/johndoe@gmail.com event/IFG ` : Adds a contact named `John Doe` to the Address Book.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -66,9 +66,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
-
-![help message](images/helpMessage.png)
+Shows a message explaining how to access the help page.
 
 Format: `help`
 
@@ -77,35 +75,48 @@ Format: `help`
 
 Adds a student to NUSTracker
 
-Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER email/EMAIL'
+Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL ev/event`
 
 Examples:
-* add n/John Doe m/Computer Science id/e1283011 y/2 p/81231293
+* add n/John Doe m/CS id/e1283011 y/2 p/8123 1293 e/johndoe@gmail.com ev/IFG
+
+**Formatting**:
+
+- Major are to be specified via acronyms. The following acronyms are valid:
+  1. CS (Computer Science)
+  2. BZA (Business Analytics)
+  3. IS (Information Systems)
+  4. ISEC (Information Security)
+
+- The NUS NetID must be specified exactly.
+  
+    1. e.g e1234567
+
+- Year must be specified as a single number.
+
 
 _**Coming soon:** Additional field ev/EVENT_NAME so the user can directly tag an event to a student._
 
-### Lisiting all student
+### Listing all student
 
 Shows a list of all persons in the address book.
 
 Format: `list`
 
-### Editing a person : `edit`
+### Editing a student : `edit`
 
-Edits an existing person in the address book.
+Edits an existing student in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 2 n/Betsy Crower m/betsycrower@example.com` Edits the name of the 2nd person to be `Betsy Crower` and edits email.
 
 ### Locating persons by name: `find`
 
