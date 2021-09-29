@@ -77,7 +77,7 @@ Format: `help`
 
 Adds a student to NUSTracker
 
-Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER email/EMAIL`
+Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL`
 
 Examples:
 * add n/John Doe m/Computer Science id/e1283011 y/2 p/81231293
