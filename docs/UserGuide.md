@@ -94,7 +94,7 @@ Examples:
 - Year must be specified as a single number.
 
 
-_**Coming soon:** Additional field ev/EVENT_NAME so the user can directly tag an event to a student._
+_**Coming soon:** Additional field ev/EVENT so the user can directly tag an event to a student._
 
 ### Listing all student
 
