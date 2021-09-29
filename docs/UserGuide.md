@@ -102,7 +102,23 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
-### Editing a student : `edit`
+### Filter students by tags: `filter`
+
+Filters students whose data contains the given field.
+
+Command: `filter [id/STUDENT_ID] [ev/EVENT_NAME]`
+
+* You can only filter by one field (i.e. filter only by student id or event name).
+* The search is case-insensitive. e.g. `ev/ifg` will match `ev/IFG`
+
+Examples:
+* `filter id/e1234567` returns the information of the student with the id e1234567.
+* `filter ev/IFG` returns a list of students who are tagged to the IFG event.
+
+_**Coming soon:** Additional fields to filter by._  
+_**Coming soon:** Filter by multiple fields._
+
+### Editing a person : `edit`
 
 Edits an existing student in the address book.
 
