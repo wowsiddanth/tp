@@ -16,7 +16,7 @@ NUSTracker is a standalone desktop app that aims to help event directors and adm
 NUS student organisations to manage the organisation of undergraduate student events more easily. 
 
 As this app is geared towards the tech-literate generation, it is designed to use
-a Command Line Interface (CLI) to speed up usage for fast typists, while still making use of a
+a Command-Line Interface (CLI) to speed up usage for fast typists, while still making use of a
 clean Graphical User Interface (GUI).
 
 NUSTracker allows event directors to manage student events attendance information of the large undergraduate
@@ -369,15 +369,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1.  Should be able to hold up to 40000 students and still be able to respond to user input within 2 seconds.
+1.  Should be able to hold a reasonable amount of events without any degradation in performance.
+1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1.  Should be able to save all data on local storage.
+1.  The application should work without having to be installed first.
 
 *{More to be added}*
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Command-Line Interface**: A text-based user interface allowing users to interact with applications by typing commands.
+* **Graphical User Interface**: A graphical user interface that allows users to interact with applications through the use of interactive visuals.
+* **NUS**: An abbreviation for National University of Singapore.
 
 --------------------------------------------------------------------------------------------------------------------
 
