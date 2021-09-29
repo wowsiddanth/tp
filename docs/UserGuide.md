@@ -94,14 +94,14 @@ Format: `list`
 
 Filters students whose data contains the given field.
 
-Command Format: `filter [id/STUDENT_ID] [e/EVENT_NAME]`
+Command Format: `filter [id/STUDENT_ID] [ev/EVENT_NAME]`
 
 * You can only filter by one field (i.e. only by student id or event name).
-* The search is case-insensitive. e.g. `n/ifg` will match `n/IFG`
+* The search is case-insensitive. e.g. `ev/ifg` will match `ev/IFG`
 
 Examples:
 * `filter id/e1234567` returns the information of the student with the id e1234567.
-* `filter e/IFG` returns a list of students who are tagged to the IFG event.
+* `filter ev/IFG` returns a list of students who are tagged to the IFG event.
 
 _**Coming soon:** Additional tags to filter by._  
 _**Coming soon:** Filter by multiple tags._
