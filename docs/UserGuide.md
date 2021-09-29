@@ -26,7 +26,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
    * **`list`** : Lists all contacts.
 
-   * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com ev/IFG`** : Adds a contact named `John Doe` to the Address Book.
+   * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` to the Address Book.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -68,17 +68,16 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 Shows a message explaining how to access the help page.
 
-Format: `help`
-
+Command: `help`
 
 ### Adding a student: `add`
 
 Adds a student to NUSTracker
 
-Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL ev/event`
+Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT] [t/TAGS]`
 
 Examples:
-* add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com ev/IFG
+* add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com 
 
 **Formatting**:
 
@@ -107,7 +106,7 @@ Format: `list`
 
 Edits an existing student in the address book.
 
-Format: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]…​`
+Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -122,7 +121,7 @@ Examples:
 
 Finds persons whose names contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Command: `find KEYWORD [MORE_KEYWORDS]`
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
@@ -140,7 +139,7 @@ Examples:
 
 Deletes the specified student from the address book.
 
-Format: `delete INDEX`
+Command: `delete INDEX`
 
 * Deletes the student at the specified `INDEX`.
 * The index refers to the index number shown in the displayed student list.
@@ -154,13 +153,13 @@ Examples:
 
 Clears all entries from the address book.
 
-Format: `clear`
+Command: `clear`
 
 ### Exiting the program : `exit`
 
 Exits the program.
 
-Format: `exit`
+Command: `exit`
 
 ### Saving the data
 
