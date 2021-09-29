@@ -92,20 +92,19 @@ Format: `list`
 
 ### Filter students by tags: `filter`
 
-Filters students who have a given tag.
+Filters students whose data contains the given field.
 
-Format: `filter t/TAG`
+Command Format: `filter [id/STUDENT_ID] [e/EVENT_NAME]`
 
-* The tags that can be used are: `n/STUDENT_NAME` and `ev/EVENT_NAME`
-* The tag should replace `t/TAG`
-* The search is case-insensitive. e.g `n/john` will match `n/John`
-* Only full words will be matched e.g. `n/Han` will not match `n/Hans`
+* You can only filter by one field (i.e. only by student id or event name).
+* The search is case-insensitive. e.g. `n/ifg` will match `n/IFG`
 
 Examples:
-* `filter n/John` returns a list of students whose name contains John.
+* `filter id/e1234567` returns the information of the student with the id e1234567.
+* `filter e/IFG` returns a list of students who are tagged to the IFG event.
 
 _**Coming soon:** Additional tags to filter by._  
-_**Coming soon:** The ability to filter by multiple tags._
+_**Coming soon:** Filter by multiple tags._
 
 ### Editing a person : `edit`
 
