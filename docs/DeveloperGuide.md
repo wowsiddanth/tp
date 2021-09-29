@@ -12,6 +12,15 @@ title: Developer Guide
 
 ## **Introduction**
 
+NUSTracker is a standalone desktop app that aims to help event directors and administrative personnel of 
+NUS student organisations to manage the organisation of undergraduate student events more easily. 
+
+As this app is geared towards the tech-literate generation, it is designed to use
+a Command Line Interface (CLI) to speed up usage for fast typists, while still making use of a
+clean Graphical User Interface (GUI).
+
+NUSTracker allows event directors to manage student events attendance information of the large undergraduate
+student base.
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -266,13 +275,21 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* manpower and administrative personnel of student organisations.
+* has a need to manage a significant number of NUS undergraduate students attendance information.
+* needs an app to collate NUS student events and their corresponding manpower
+  information in one place.
+* prefer desktop apps over other types.
+* can type fast.
+* prefers typing to mouse interactions.
+* is reasonably comfortable using CLI apps.
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: 
+
+* able to store NUS undergraduate student information.
+* create and track attendance for NUS student events.
+* manage attendance more efficiently and faster than a typical mouse/GUI driven app.
+* automates a bulk of attendance management processes.
 
 
 ### User stories
