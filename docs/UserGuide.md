@@ -77,7 +77,7 @@ Format: `help`
 
 Adds a student to NUSTracker
 
-Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER email/EMAIL'
+Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER email/EMAIL`
 
 Examples:
 * add n/John Doe m/Computer Science id/e1283011 y/2 p/81231293
@@ -89,6 +89,23 @@ _**Coming soon:** Additional field ev/EVENT_NAME so the user can directly tag an
 Shows a list of all persons in the address book.
 
 Format: `list`
+
+### Filter students by tags: `filter`
+
+Filters students who have a given tag.
+
+Format: `filter t/TAG`
+
+* The tags that can be used are: `n/STUDENT_NAME` and `ev/EVENT_NAME`
+* The tag should replace `t/TAG`
+* The search is case-insensitive. e.g `n/john` will match `n/John`
+* Only full words will be matched e.g. `n/Han` will not match `n/Hans`
+
+Examples:
+* `filter n/John` returns a list of students whose name contains John.
+
+_**Coming soon:** Additional tags to filter by._  
+_**Coming soon:** The ability to filter by multiple tags._
 
 ### Editing a person : `edit`
 
