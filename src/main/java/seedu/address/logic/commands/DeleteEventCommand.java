@@ -16,7 +16,7 @@ public class DeleteEventCommand extends DeleteCommand {
 
     public static final String MESSAGE_USAGE = DeleteCommand.COMMAND_WORD
             + ": Deletes an event by name.\n"
-            + "Parameters: e/[Event name] (must not be empty)\n"
+            + "Parameters: " + DeleteCommand.COMMAND_WORD + "[Event name] (must not be empty)\n"
             + "Example: " + DeleteCommand.COMMAND_WORD + PREFIX_EVENT + "Orientation";
 
     public static final String MESSAGE_DELETE_EVENT_SUCCESS = "Deleted Event: %1$s";

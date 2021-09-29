@@ -18,7 +18,7 @@ public class DeleteStudentCommand extends DeleteCommand {
 
     public static final String MESSAGE_USAGE = DeleteCommand.COMMAND_WORD
             + ": Deletes a student identified by index.\n"
-            + "Parameters: s/[Student index] (must be a positive integer)\n"
+            + "Parameters: " + DeleteCommand.COMMAND_WORD + "[Student index] (must be a positive integer)\n"
             + "Example: " + DeleteCommand.COMMAND_WORD + PREFIX_STUDENT + "1";
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";

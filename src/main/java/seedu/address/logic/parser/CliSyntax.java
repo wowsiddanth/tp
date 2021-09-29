@@ -16,6 +16,6 @@ public class CliSyntax {
     public static final Prefix PREFIX_TIME = new Prefix("t/");
     // For delete command
     public static final Prefix PREFIX_STUDENT = new Prefix("s/");
-    public static final Prefix PREFIX_EVENT = new Prefix("e/");
+    public static final Prefix PREFIX_EVENT = new Prefix("ev/");
 
 }
