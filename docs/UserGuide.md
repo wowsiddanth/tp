@@ -26,7 +26,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`add n/John Doe m/CS id/e1283011 y/2 p/8123 1293 email/johndoe@gmail.com event/IFG ` : Adds a contact named `John Doe` to the Address Book.
+   * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com ev/IFG`** : Adds a contact named `John Doe` to the Address Book.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -78,7 +78,7 @@ Adds a student to NUSTracker
 Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL ev/event`
 
 Examples:
-* add n/John Doe m/CS id/e1283011 y/2 p/8123 1293 e/johndoe@gmail.com ev/IFG
+* add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com ev/IFG
 
 **Formatting**:
 
@@ -116,7 +116,7 @@ Format: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMA
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower m/betsycrower@example.com` Edits the name of the 2nd person to be `Betsy Crower` and edits email.
+*  `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd person to be `Betsy Crower` and edits email.
 
 ### Locating persons by name: `find`
 
