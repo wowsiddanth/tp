@@ -298,12 +298,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| `* * *`  | potential user                             | easily get the app running                  | quickly start using the App                 |
+| `* * *`  | new user                                   | view a tutorial of basic commands           | learn how to use the software quickly |
+| `* * *`  | new user                                   | view help screen                            | quickly refer to commands |
+| `* * *`  | user                                       | view all the student data                   | keep track of all NUS undergraduate students                                   |
+| `* * *`  | user                                       | view all events                             | keep track of the student events that the user manages                                   |
+| `* * *`  | user                                       | exit the software                           | close the software |
+| `* * *`  | user                                       | create a new student                        | add students newly admitted to NUS into the database |
+| `* * *`  | user                                       | delete a student                            | delete students who have graduated from the database |
+| `* * *`  | user                                       | create a new event                          | add new events to be managed using the app |
+| `* * *`  | user                                       | delete an event                             | remove events that are no longer relevant |
+| `* * *`  | user                                       | test the app using sample data              | test the app and its commands easily before loading in real student data |
+| `* *  `  | user                                       | archive an event                            | remove events that have passed but are still relevant |
+| `* *  `  | intermediate user                          | mass delete certain students                | delete students more efficiently |
+| `* *  `  | intermediate user                          | edit student data                           | update previous mistake in data entry or update a change in student data |
+| `* *  `  | expert user                                | export email of selected students           | use the email list to mass email relevant students |
+| `* *  `  | expert user                                | export event data file                      | easily share or transfer event data to load in another computer |
+| `* *  `  | expert user                                | export student data file                    | easily share or transfer the student database to load in another computer |
+| `* *  `  | user                                       | tag a student                               | group students according to a particular tag |
+| `* *  `  | user                                       | remove a tag                                | delete a tag from the selected student |
+| `* *  `  | user                                       | delete a tag                                | delete a tag from the database |
+| `* *  `  | user                                       | blacklist students from events              | track which students are blacklisted from attending events |
+| `* *  `  | user                                       | tag students automatically based on rsvp    | do less manual work when adding students to events |
+| `* *  `  | user                                       | load student data from external file        | quickly add a large number of students |
+| `* *  `  | user                                       | load event data file                        | update the list of events being managed in database |
+| `* *  `  | user                                       | filter students by event                    | find students attending a particular event |
+| `* *  `  | user                                       | view list of Telegram ID                    | get a list of Telegram IDs corresponding to selected students |
+| `* *  `  | user                                       | filter students by location                 | view addresses of students attending an event to help plan a convenient location |
+| `* *  `  | user                                       | filter students by year                     | select students who have certain years of seniority in NUS |
+| `* *  `  | user                                       | view event list of student                  | see what events a student has attended before or are attending |
+| `* *  `  | user                                       | filter students by major                    | find students of a particular major |
+| `* *  `  | user                                       | filter students by faculty                  | find students from a particular faculty |
+| `* *  `  | user                                       | open settings menu                          | adjust settings |
+| `* *  `  | user                                       | toggle autosave                             | choose whether to save data automatically or manually             |
+| `* *  `  | user                                       | use autosave                                | save the database constantly and automatically                             |
+| `*    `  | expert user                                | mass edit student data         | update data of similar students more efficiently |
+
 
 *{More to be added}*
 
