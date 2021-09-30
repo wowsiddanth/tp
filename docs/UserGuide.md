@@ -103,17 +103,18 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
-### Filter students by tags: `filter`
+### Filter students: `filter`
 
 Filters students whose data contains the given field.
 
-Command: `filter [id/STUDENT_ID] [ev/EVENT_NAME]`
+Command: `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]`
 
 * You can only filter by one field (i.e. filter only by student id or event name).
 * The search is case-insensitive. e.g. `ev/ifg` will match `ev/IFG`
 
 Examples:
 * `filter id/e1234567` returns the information of the student with the id e1234567.
+* `filter n/John` returns the students with the name John.
 * `filter ev/IFG` returns a list of students who are tagged to the IFG event.
 
 _**Coming soon:** Additional fields to filter by._  
@@ -131,27 +132,9 @@ Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EM
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd person to be `Betsy Crower` and edits email.
-
-### Locating persons by name: `find`
-
-Finds persons whose names contain any of the given keywords.
-
-Command: `find KEYWORD [MORE_KEYWORDS]`
-
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
-
+* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+* `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd person to be `Betsy Crower` and edits email.
+ 
 ### Deleting a student : `delete`
 
 Deletes the specified student from the address book.
@@ -165,13 +148,6 @@ Command: `delete INDEX`
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in the address book.
 * `find John` followed by `delete 1` deletes the first student in the results of the `find` command.
-
-### Clearing all entries : `clear`
-
-Clears all entries from the address book.
-
-Command: `clear`
-
 ### Exiting the program : `exit`
 
 Exits the program.
@@ -180,26 +156,20 @@ Command: `exit`
 
 ### Saving the data
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+NUSTracker data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
-AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+NUSTracker data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
-</div>
-
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
+_Please edit carefully! NUSTracker will start a fresh run if errors are present!_
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSTracker home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -207,10 +177,12 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+**Add** | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]`
+**List** | `students`
+**Create event** | `create n/ training d/2021-09-14 t/1800`
+**Add student to event** | `enroll id/STUDENT_ID ev/EVENT_NAME`
+**Delete student from event** | `remove id/STUDENT_ID ev/EVENT_NAME`
+**List events** | `events`
+**Delete event** | `delete ev/EVENT_NAME`
+**Display commands** | `help`
+**Exit** | `exit`
