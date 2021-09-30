@@ -10,12 +10,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Year {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Year must be a single digit number, that is between 1 and 4!";
+            "Year must be a single digit number, that is between 1 and 6!";
 
     /*
-     * Year must be a number that is between 1 and 4, inclusive
+     * Year must be a number that is between 1 and 6, inclusive
      */
-    public static final String VALIDATION_REGEX = "^[1-4]";
+    public static final String VALIDATION_REGEX = "^[1-6]";
 
     public final String value;
 

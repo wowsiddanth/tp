@@ -39,7 +39,7 @@ public class Major {
     public Major(String major) {
         requireNonNull(major);
         checkArgument(isValidMajor(major), MESSAGE_CONSTRAINTS);
-        value = major;
+        value = major.toUpperCase();
     }
 
     /**
@@ -88,7 +88,9 @@ public class Major {
      * @return True if valid, false if invalid
      */
     public static boolean isValidMajorName(String major) {
-        return major.equals("CS") || major.equals("IS") || major.equals("ISEC") || major.equals("BZA");
+        String nameOfMajor = major.toUpperCase(); //Not case-sensitive
+        return nameOfMajor.equals("CS") || nameOfMajor.equals("IS")
+                || nameOfMajor.equals("ISEC") || nameOfMajor.equals("BZA");
     }
 
     @Override
