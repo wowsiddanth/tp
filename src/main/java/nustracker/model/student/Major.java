@@ -1,12 +1,14 @@
 package nustracker.model.student;
 
-import nustracker.commons.util.AppUtil;
+import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
-import static java.util.Objects.requireNonNull;
+import nustracker.commons.util.AppUtil;
+
+
 
 /**
  * Represents a Student's name in the address book.

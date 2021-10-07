@@ -22,7 +22,6 @@ import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.*;
 import nustracker.model.tag.Tag;
-import nustracker.model.student.Student;
 
 /**
  * Edits the details of an existing student in the address book.

@@ -1,9 +1,8 @@
 package nustracker.model.tag;
 
-import nustracker.commons.util.AppUtil;
-
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.util.AppUtil.checkArgument;
+
+import nustracker.commons.util.AppUtil;
 
 /**
  * Represents a Tag in the address book.

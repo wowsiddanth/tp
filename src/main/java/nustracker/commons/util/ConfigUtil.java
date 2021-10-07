@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
 
-import nustracker.commons.exceptions.DataConversionException;
 import nustracker.commons.core.Config;
+import nustracker.commons.exceptions.DataConversionException;
+
 
 /**
  * A class for accessing the Config File.

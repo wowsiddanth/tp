@@ -9,8 +9,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import nustracker.commons.core.LogsCenter;
 import nustracker.commons.util.StringUtil;
-import nustracker.logic.Logic;
 import nustracker.MainApp;
+import nustracker.logic.Logic;
 
 /**
  * The manager of the UI component.
