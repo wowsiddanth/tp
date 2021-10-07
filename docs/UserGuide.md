@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-**NUSTracker** is a desktop application for managing large NUS-based student organizations, and is optimized for use via the CLI or Command Line Interface. Nonetheless, it is supported by a detailed and elegant Graphical User Interface (GUI). 
+**NUSTracker** is a desktop application for managing large NUS-based student organizations, and is optimized for use via the CLI or Command Line Interface. Nonetheless, it is supported by a detailed and elegant Graphical User Interface (GUI).
 
 
 * Table of Contents
@@ -78,7 +78,7 @@ Adds a student to NUSTracker
 Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT] [t/TAGS]`
 
 Examples:
-* add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com 
+* add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com
 
 **Formatting**:
 
@@ -88,9 +88,7 @@ Examples:
   3. IS (Information Systems)
   4. ISEC (Information Security)
 
-- The NUS NetID must be specified exactly.
-  
-    1. e.g e1234567
+- The NUS NetID must be specified exactly. {e0XXXXXX}
 
 - Year must be specified as a single number.
 
@@ -117,7 +115,8 @@ Examples:
 * `filter n/John` returns the students with the name John.
 * `filter ev/IFG` returns a list of students who are tagged to the IFG event.
 
-_**Coming soon:** Additional fields to filter by._  
+_**Coming soon:** Additional fields to filter by._
+
 _**Coming soon:** Filter by multiple fields._
 
 ### Editing a student : `edit`
@@ -134,7 +133,7 @@ Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EM
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 * `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd student to be `Betsy Crower` and edits email.
- 
+
 ### Deleting a student : `delete`
 
 Deletes the specified student from the address book.
