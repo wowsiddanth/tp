@@ -1,6 +1,6 @@
 ---
 layout: page
-title: NUS Tracker
+title: NUSTracker
 ---
 
 [![CI Status](https://github.com/AY2122S1-CS2103T-T11-1/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S1-CS2103T-T11-1/tp/actions)
@@ -10,8 +10,8 @@ title: NUS Tracker
 
 **NUSTracker is a desktop application for managing NUS student events.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
-* If you are interested in using NUS Tracker, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
-* If you are interested about developing NUS Tracker, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
+* If you are interested in using NUSTracker, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
+* If you are interested about developing NUSTracker, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
 
 
 **Acknowledgements**
