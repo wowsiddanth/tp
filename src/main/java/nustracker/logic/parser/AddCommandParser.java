@@ -16,7 +16,6 @@ import nustracker.logic.commands.AddCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.*;
 import nustracker.model.tag.Tag;
-import nustracker.model.student.Student;
 
 /**
  * Parses input arguments and creates a new AddCommand object

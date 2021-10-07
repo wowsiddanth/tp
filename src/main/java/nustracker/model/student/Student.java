@@ -1,7 +1,5 @@
 package nustracker.model.student;
 
-import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;

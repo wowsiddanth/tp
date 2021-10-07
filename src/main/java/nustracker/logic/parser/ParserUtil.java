@@ -8,7 +8,6 @@ import java.util.Set;
 
 import nustracker.commons.core.index.Index;
 import nustracker.commons.util.StringUtil;
-import nustracker.model.tag.Tag;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
@@ -16,6 +15,7 @@ import nustracker.model.student.Name;
 import nustracker.model.student.NusNetId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Year;
+import nustracker.model.tag.Tag;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.

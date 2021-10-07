@@ -1,9 +1,7 @@
 package nustracker.model.student;
 
 import nustracker.commons.util.AppUtil;
-
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Student's email in the address book.

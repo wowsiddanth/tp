@@ -1,7 +1,6 @@
 package nustracker.model.student;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Iterator;
 import java.util.List;

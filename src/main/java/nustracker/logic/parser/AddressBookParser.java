@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import nustracker.commons.core.Messages;
-import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.ClearCommand;
 import nustracker.logic.commands.Command;
@@ -14,6 +13,7 @@ import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.FindCommand;
 import nustracker.logic.commands.HelpCommand;
 import nustracker.logic.commands.ListCommand;
+import nustracker.logic.parser.exceptions.ParseException;
 
 /**
  * Parses user input.
