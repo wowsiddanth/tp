@@ -1,11 +1,13 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNETID;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_YEAR;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Collections;
@@ -19,11 +21,13 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.NusNetId;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -40,7 +44,9 @@ public class EditCommand extends Command {
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_YEAR + "YEAR] "
+            + "[" + PREFIX_MAJOR + "MAJOR] "
+            + "[" + PREFIX_NUSNETID + "MAJOR] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -77,7 +83,7 @@ public class EditCommand extends Command {
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
 
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+        if (!personToEdit.hasDuplicateCredentials(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
@@ -96,10 +102,13 @@ public class EditCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
-        Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Year updatedYear = editPersonDescriptor.getYear().orElse(personToEdit.getYear());
+        Major updatedMajor = editPersonDescriptor.getMajor().orElse(personToEdit.getMajor());
+        NusNetId updatedNusNetId = editPersonDescriptor.getNusNetId().orElse(personToEdit.getNusNetId());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail,
+                updatedYear, updatedMajor, updatedNusNetId, updatedTags);
     }
 
     @Override
@@ -128,7 +137,9 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private Address address;
+        private Year year;
+        private Major major;
+        private NusNetId nusNetId;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -141,7 +152,9 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
-            setAddress(toCopy.address);
+            setYear(toCopy.year);
+            setMajor(toCopy.major);
+            setNusNetId(toCopy.nusNetId);
             setTags(toCopy.tags);
         }
 
@@ -149,7 +162,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, tags);
         }
 
         public void setName(Name name) {
@@ -176,12 +189,28 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setAddress(Address address) {
-            this.address = address;
+        public void setYear(Year year) {
+            this.year = year;
         }
 
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
+        public Optional<Year> getYear() {
+            return Optional.ofNullable(year);
+        }
+
+        public void setMajor(Major major) {
+            this.major = major;
+        }
+
+        public Optional<Major> getMajor() {
+            return Optional.ofNullable(major);
+        }
+
+        public void setNusNetId(NusNetId nusNetId) {
+            this.nusNetId = nusNetId;
+        }
+
+        public Optional<NusNetId> getNusNetId() {
+            return Optional.ofNullable(nusNetId);
         }
 
         /**
@@ -219,7 +248,9 @@ public class EditCommand extends Command {
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
-                    && getAddress().equals(e.getAddress())
+                    && getYear().equals(e.getYear())
+                    && getNusNetId().equals(e.getNusNetId())
+                    && getMajor().equals(e.getMajor())
                     && getTags().equals(e.getTags());
         }
     }
