@@ -1,9 +1,9 @@
 package nustracker.logic.parser;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import nustracker.logic.commands.Command;
 import nustracker.logic.parser.exceptions.ParseException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Contains helper methods for testing command parsers.

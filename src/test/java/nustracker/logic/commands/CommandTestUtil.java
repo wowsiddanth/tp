@@ -1,5 +1,12 @@
 package nustracker.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import nustracker.commons.core.index.Index;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.CliSyntax;
@@ -9,13 +16,6 @@ import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Contains helper methods for testing commands.
@@ -56,7 +56,8 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + CliSyntax.PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + CliSyntax.PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_YEAR_DESC = " " + CliSyntax.PREFIX_YEAR + "a"; //letters not allowed
-    public static final String INVALID_MAJOR_DESC = " " + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
+    public static final String INVALID_MAJOR_DESC = " "
+            + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
     public static final String INVALID_NUSNETID_DESC = " " + CliSyntax.PREFIX_NUSNETID + "e123123123"; //e and 7 digits
     public static final String INVALID_TAG_DESC = " " + CliSyntax.PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 

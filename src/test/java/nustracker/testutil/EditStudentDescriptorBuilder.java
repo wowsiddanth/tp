@@ -1,5 +1,9 @@
 package nustracker.testutil;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import nustracker.logic.commands.EditCommand;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
@@ -9,10 +13,6 @@ import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
 import nustracker.model.tag.Tag;
-
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * A utility class to help with building EditStudentDescriptor objects.

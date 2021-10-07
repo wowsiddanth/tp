@@ -1,5 +1,10 @@
 package nustracker.logic.parser;
 
+import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
+import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
+
+import org.junit.jupiter.api.Test;
+
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.CommandTestUtil;
@@ -10,10 +15,6 @@ import nustracker.model.student.Student;
 import nustracker.model.tag.Tag;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Test;
-
-import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
-import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 
 public class AddCommandParserTest {
@@ -91,8 +92,8 @@ public class AddCommandParserTest {
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple tags - all accepted
-        Student expectedStudentMultipleTags = new StudentBuilder(TypicalStudents.BOB).withTags(CommandTestUtil.VALID_TAG_FRIEND, CommandTestUtil.VALID_TAG_HUSBAND)
-                .build();
+        Student expectedStudentMultipleTags = new StudentBuilder(TypicalStudents.BOB).withTags(
+                CommandTestUtil.VALID_TAG_FRIEND, CommandTestUtil.VALID_TAG_HUSBAND).build();
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB

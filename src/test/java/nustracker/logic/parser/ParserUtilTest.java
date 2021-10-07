@@ -1,5 +1,16 @@
 package nustracker.logic.parser;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.Email;
 import nustracker.model.student.Name;
@@ -7,16 +18,6 @@ import nustracker.model.student.Phone;
 import nustracker.model.tag.Tag;
 import nustracker.testutil.Assert;
 import nustracker.testutil.TypicalIndexes;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
@@ -41,8 +42,8 @@ public class ParserUtilTest {
 
     @Test
     public void parseIndex_outOfRangeInput_throwsParseException() {
-        Assert.assertThrows(ParseException.class, ParserUtil.MESSAGE_INVALID_INDEX, ()
-                -> ParserUtil.parseIndex(Long.toString(Integer.MAX_VALUE + 1)));
+        Assert.assertThrows(ParseException.class, ParserUtil.MESSAGE_INVALID_INDEX, () ->
+                ParserUtil.parseIndex(Long.toString(Integer.MAX_VALUE + 1)));
     }
 
     @Test

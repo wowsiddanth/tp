@@ -1,8 +1,9 @@
 package nustracker.logic.commands;
 
+import org.junit.jupiter.api.Test;
+
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
-import org.junit.jupiter.api.Test;
 
 
 public class HelpCommandTest {

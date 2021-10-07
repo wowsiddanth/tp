@@ -1,11 +1,12 @@
 package nustracker.logic.parser;
 
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.FindCommand;
 import nustracker.model.student.NameContainsKeywordsPredicate;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 public class FindCommandParserTest {
 
@@ -13,7 +14,8 @@ public class FindCommandParserTest {
 
     @Test
     public void parse_emptyArg_throwsParseException() {
-        CommandParserTestUtil.assertParseFailure(parser, "     ", String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        CommandParserTestUtil.assertParseFailure(parser, "     ",
+                String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
     }
 
     @Test

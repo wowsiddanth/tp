@@ -1,18 +1,19 @@
 package nustracker.storage;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.nio.file.Path;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
 import nustracker.commons.core.GuiSettings;
 import nustracker.model.AddressBook;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.UserPrefs;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
-
-import java.nio.file.Path;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class StorageManagerTest {
 

@@ -1,5 +1,8 @@
 package nustracker.testutil;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
@@ -9,9 +12,6 @@ import nustracker.model.student.Student;
 import nustracker.model.student.Year;
 import nustracker.model.tag.Tag;
 import nustracker.model.util.SampleDataUtil;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A utility class to help with building Student objects.

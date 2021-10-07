@@ -1,9 +1,10 @@
 package nustracker.logic.parser;
 
+import org.junit.jupiter.api.Test;
+
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.DeleteCommand;
 import nustracker.testutil.TypicalIndexes;
-import org.junit.jupiter.api.Test;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
@@ -18,11 +19,13 @@ public class DeleteCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteCommand() {
-        CommandParserTestUtil.assertParseSuccess(parser, "1", new DeleteCommand(TypicalIndexes.INDEX_FIRST_STUDENT));
+        CommandParserTestUtil.assertParseSuccess(parser, "1",
+                new DeleteCommand(TypicalIndexes.INDEX_FIRST_STUDENT));
     }
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
-        CommandParserTestUtil.assertParseFailure(parser, "a", String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+        CommandParserTestUtil.assertParseFailure(parser,
+                "a", String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
     }
 }

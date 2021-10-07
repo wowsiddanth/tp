@@ -1,5 +1,10 @@
 package nustracker.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
 import nustracker.commons.core.Messages;
 import nustracker.commons.core.index.Index;
 import nustracker.model.AddressBook;
@@ -11,10 +16,6 @@ import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalIndexes;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**

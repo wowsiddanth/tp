@@ -1,9 +1,10 @@
 package nustracker.commons.util;
 
-import nustracker.testutil.Assert;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import nustracker.testutil.Assert;
 
 public class AppUtilTest {
 

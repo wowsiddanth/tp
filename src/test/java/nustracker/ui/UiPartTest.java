@@ -1,16 +1,17 @@
 package nustracker.ui;
 
-import javafx.fxml.FXML;
-import nustracker.MainApp;
-import nustracker.testutil.Assert;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.net.URL;
 import java.nio.file.Path;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import javafx.fxml.FXML;
+import nustracker.MainApp;
+import nustracker.testutil.Assert;
 
 public class UiPartTest {
 

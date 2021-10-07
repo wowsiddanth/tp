@@ -1,13 +1,14 @@
 package nustracker.logic.commands;
 
+import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+
+import org.junit.jupiter.api.Test;
+
 import nustracker.model.AddressBook;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Test;
-
-import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 
 
 public class ClearCommandTest {

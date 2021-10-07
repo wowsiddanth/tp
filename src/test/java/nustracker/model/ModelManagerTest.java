@@ -1,20 +1,21 @@
 package nustracker.model;
 
-import nustracker.commons.core.GuiSettings;
-import nustracker.model.student.NameContainsKeywordsPredicate;
-import nustracker.testutil.AddressBookBuilder;
-import nustracker.testutil.Assert;
-import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import nustracker.commons.core.GuiSettings;
+import nustracker.model.student.NameContainsKeywordsPredicate;
+import nustracker.testutil.AddressBookBuilder;
+import nustracker.testutil.Assert;
+import nustracker.testutil.TypicalStudents;
 
 public class ModelManagerTest {
 
@@ -88,12 +89,14 @@ public class ModelManagerTest {
 
     @Test
     public void getFilteredStudentList_modifyList_throwsUnsupportedOperationException() {
-        Assert.assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredStudentList().remove(0));
+        Assert.assertThrows(UnsupportedOperationException.class, () ->
+                modelManager.getFilteredStudentList().remove(0));
     }
 
     @Test
     public void equals() {
-        AddressBook addressBook = new AddressBookBuilder().withStudent(TypicalStudents.ALICE).withStudent(TypicalStudents.BENSON).build();
+        AddressBook addressBook = new AddressBookBuilder().withStudent(TypicalStudents.ALICE)
+                .withStudent(TypicalStudents.BENSON).build();
         AddressBook differentAddressBook = new AddressBook();
         UserPrefs userPrefs = new UserPrefs();
 

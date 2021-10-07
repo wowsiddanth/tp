@@ -1,5 +1,12 @@
 package nustracker.storage;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import nustracker.commons.exceptions.IllegalValueException;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
@@ -9,12 +16,6 @@ import nustracker.model.student.Phone;
 import nustracker.model.student.Year;
 import nustracker.testutil.Assert;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class JsonAdaptedStudentTest {

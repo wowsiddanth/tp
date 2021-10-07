@@ -1,19 +1,20 @@
 package nustracker.storage;
 
-import nustracker.commons.exceptions.DataConversionException;
-import nustracker.model.AddressBook;
-import nustracker.model.ReadOnlyAddressBook;
-import nustracker.testutil.Assert;
-import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import nustracker.commons.exceptions.DataConversionException;
+import nustracker.model.AddressBook;
+import nustracker.model.ReadOnlyAddressBook;
+import nustracker.testutil.Assert;
+import nustracker.testutil.TypicalStudents;
 
 
 public class JsonAddressBookStorageTest {
@@ -46,22 +47,22 @@ public class JsonAddressBookStorageTest {
     @Test
     public void read_notJsonFormat_exceptionThrown() {
         Assert.assertThrows(
-                DataConversionException.class,
-                () -> readAddressBook("notJsonFormatAddressBook.json"));
+                DataConversionException.class, () ->
+                        readAddressBook("notJsonFormatAddressBook.json"));
     }
 
     @Test
     public void readAddressBook_invalidStudentAddressBook_throwDataConversionException() {
         Assert.assertThrows(
-                DataConversionException.class,
-                () -> readAddressBook("invalidStudentAddressBook.json"));
+                DataConversionException.class, () ->
+                        readAddressBook("invalidStudentAddressBook.json"));
     }
 
     @Test
     public void readAddressBook_invalidAndValidStudentAddressBook_throwDataConversionException() {
         Assert.assertThrows(
-                DataConversionException.class,
-                () -> readAddressBook("invalidAndValidStudentAddressBook.json"));
+                DataConversionException.class, () ->
+                        readAddressBook("invalidAndValidStudentAddressBook.json"));
     }
 
     @Test

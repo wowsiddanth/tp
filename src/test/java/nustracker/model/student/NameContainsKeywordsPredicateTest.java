@@ -1,14 +1,15 @@
 package nustracker.model.student;
 
-import nustracker.testutil.StudentBuilder;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import nustracker.testutil.StudentBuilder;
 
 public class NameContainsKeywordsPredicateTest {
 

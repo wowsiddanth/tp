@@ -1,10 +1,7 @@
 package nustracker.commons.util;
 
-import nustracker.commons.core.Config;
-import nustracker.commons.exceptions.DataConversionException;
-import nustracker.testutil.Assert;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -12,8 +9,12 @@ import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.logging.Level;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import nustracker.commons.core.Config;
+import nustracker.commons.exceptions.DataConversionException;
+import nustracker.testutil.Assert;
 
 public class ConfigUtilTest {
 

@@ -1,5 +1,7 @@
 package nustracker.logic.parser;
 
+import org.junit.jupiter.api.Test;
+
 import nustracker.commons.core.Messages;
 import nustracker.commons.core.index.Index;
 import nustracker.logic.commands.CommandTestUtil;
@@ -10,7 +12,6 @@ import nustracker.model.student.Phone;
 import nustracker.model.tag.Tag;
 import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.TypicalIndexes;
-import org.junit.jupiter.api.Test;
 
 
 public class EditCommandParserTest {
@@ -92,8 +93,8 @@ public class EditCommandParserTest {
     @Test
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = TypicalIndexes.INDEX_SECOND_STUDENT;
-        String userInput = targetIndex.getOneBased() +
-                CommandTestUtil.PHONE_DESC_BOB
+        String userInput = targetIndex.getOneBased()
+                + CommandTestUtil.PHONE_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.EMAIL_DESC_AMY + CommandTestUtil.NAME_DESC_AMY + CommandTestUtil.TAG_DESC_FRIEND;
 

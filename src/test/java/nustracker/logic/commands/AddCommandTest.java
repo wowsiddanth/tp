@@ -1,5 +1,18 @@
 package nustracker.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static nustracker.testutil.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.function.Predicate;
+
+import org.junit.jupiter.api.Test;
+
 import javafx.collections.ObservableList;
 import nustracker.commons.core.GuiSettings;
 import nustracker.logic.commands.exceptions.CommandException;
@@ -10,18 +23,6 @@ import nustracker.model.ReadOnlyUserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
-import org.junit.jupiter.api.Test;
-
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.function.Predicate;
-
-import static java.util.Objects.requireNonNull;
-import static nustracker.testutil.Assert.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AddCommandTest {
 

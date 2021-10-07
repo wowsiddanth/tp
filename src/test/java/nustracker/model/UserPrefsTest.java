@@ -1,7 +1,8 @@
 package nustracker.model;
 
-import nustracker.testutil.Assert;
 import org.junit.jupiter.api.Test;
+
+import nustracker.testutil.Assert;
 
 public class UserPrefsTest {
 
