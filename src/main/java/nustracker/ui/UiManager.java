@@ -7,9 +7,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import nustracker.MainApp;
 import nustracker.commons.core.LogsCenter;
 import nustracker.commons.util.StringUtil;
-import nustracker.MainApp;
 import nustracker.logic.Logic;
 
 /**
