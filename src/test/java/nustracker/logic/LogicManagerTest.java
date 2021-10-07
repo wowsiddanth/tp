@@ -1,10 +1,12 @@
 package nustracker.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static nustracker.testutil.Assert.assertThrows;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
@@ -24,9 +26,8 @@ import nustracker.storage.StorageManager;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+
+
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy exception");
@@ -75,7 +76,8 @@ public class LogicManagerTest {
         logic = new LogicManager(model, storage);
 
         // Execute add command
-        String addCommand = AddCommand.COMMAND_WORD + CommandTestUtil.NAME_DESC_AMY + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY
+        String addCommand = AddCommand.COMMAND_WORD + CommandTestUtil.NAME_DESC_AMY
+                + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_AMY
                 + CommandTestUtil.NUSNETID_DESC_AMY;

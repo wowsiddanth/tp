@@ -1,14 +1,14 @@
 package nustracker.logic.commands;
 
-import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.testutil.TypicalIndexes;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for ListCommand.

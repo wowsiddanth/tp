@@ -1,7 +1,5 @@
 package nustracker.model.student;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static nustracker.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_MAJOR_AMY;
@@ -14,13 +12,14 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
-import static nustracker.testutil.Assert.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+
 
 public class StudentTest {
 

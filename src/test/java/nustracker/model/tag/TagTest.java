@@ -1,9 +1,9 @@
 package nustracker.model.tag;
 
-import static nustracker.testutil.Assert.assertThrows;
+import org.junit.jupiter.api.Test;
 
 import nustracker.testutil.Assert;
-import org.junit.jupiter.api.Test;
+
 
 public class TagTest {
 

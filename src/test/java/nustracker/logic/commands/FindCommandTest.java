@@ -8,13 +8,14 @@ import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.junit.jupiter.api.Test;
+
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Test;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
@@ -67,7 +68,8 @@ public class FindCommandTest {
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredStudentList(predicate);
         CommandTestUtil.assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(TypicalStudents.CARL, TypicalStudents.ELLE, TypicalStudents.FIONA), model.getFilteredStudentList());
+        assertEquals(Arrays.asList(TypicalStudents.CARL, TypicalStudents.ELLE, TypicalStudents.FIONA),
+                model.getFilteredStudentList());
     }
 
     /**

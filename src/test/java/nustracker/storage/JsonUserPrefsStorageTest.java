@@ -2,19 +2,19 @@ package nustracker.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static nustracker.testutil.Assert.assertThrows;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
 import nustracker.commons.core.GuiSettings;
 import nustracker.commons.exceptions.DataConversionException;
 import nustracker.model.UserPrefs;
 import nustracker.testutil.Assert;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
 
 public class JsonUserPrefsStorageTest {
 

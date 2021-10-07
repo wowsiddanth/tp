@@ -4,18 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static nustracker.testutil.Assert.assertThrows;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import org.junit.jupiter.api.Test;
 
 import nustracker.model.student.exceptions.DuplicateStudentException;
 import nustracker.model.student.exceptions.StudentNotFoundException;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Test;
 
 public class UniqueStudentListTest {
 

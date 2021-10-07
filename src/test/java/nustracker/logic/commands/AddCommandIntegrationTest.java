@@ -3,14 +3,16 @@ package nustracker.logic.commands;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
 
 /**
  * Contains integration tests (interaction with the Model) for {@code AddCommand}.
