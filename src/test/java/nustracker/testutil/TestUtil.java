@@ -1,13 +1,13 @@
 package nustracker.testutil;
 
+import nustracker.commons.core.index.Index;
+import nustracker.model.Model;
+import nustracker.model.student.Student;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import nustracker.commons.core.index.Index;
-import nustracker.model.Model;
-import nustracker.model.student.Student;
 
 /**
  * A utility class for test cases.

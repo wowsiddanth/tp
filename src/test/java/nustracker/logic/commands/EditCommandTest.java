@@ -1,10 +1,5 @@
 package nustracker.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
-
 import nustracker.commons.core.Messages;
 import nustracker.commons.core.index.Index;
 import nustracker.model.AddressBook;
@@ -16,6 +11,10 @@ import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalIndexes;
 import nustracker.testutil.TypicalStudents;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
@@ -46,11 +45,11 @@ public class EditCommandTest {
 
         StudentBuilder studentInList = new StudentBuilder(lastStudent);
         Student editedStudent = studentInList.withName(CommandTestUtil.VALID_NAME_BOB).withPhone(
-                CommandTestUtil.VALID_PHONE_BOB)
+                        CommandTestUtil.VALID_PHONE_BOB)
                 .withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
 
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withName(
-                CommandTestUtil.VALID_NAME_BOB)
+                        CommandTestUtil.VALID_NAME_BOB)
                 .withPhone(CommandTestUtil.VALID_PHONE_BOB).withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 

@@ -1,6 +1,5 @@
 package nustracker.logic.parser;
 
-import org.junit.jupiter.api.Test;
 import nustracker.commons.core.Messages;
 import nustracker.commons.core.index.Index;
 import nustracker.logic.commands.CommandTestUtil;
@@ -11,6 +10,7 @@ import nustracker.model.student.Phone;
 import nustracker.model.tag.Tag;
 import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.TypicalIndexes;
+import org.junit.jupiter.api.Test;
 
 
 public class EditCommandParserTest {
@@ -98,7 +98,7 @@ public class EditCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_AMY + CommandTestUtil.NAME_DESC_AMY + CommandTestUtil.TAG_DESC_FRIEND;
 
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withName(
-                CommandTestUtil.VALID_NAME_AMY)
+                        CommandTestUtil.VALID_NAME_AMY)
                 .withPhone(CommandTestUtil.VALID_PHONE_BOB).withEmail(CommandTestUtil.VALID_EMAIL_AMY)
                 .withTags(CommandTestUtil.VALID_TAG_HUSBAND, CommandTestUtil.VALID_TAG_FRIEND).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
@@ -113,7 +113,7 @@ public class EditCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_AMY;
 
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withPhone(
-                CommandTestUtil.VALID_PHONE_BOB)
+                        CommandTestUtil.VALID_PHONE_BOB)
                 .withEmail(CommandTestUtil.VALID_EMAIL_AMY).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
@@ -160,7 +160,7 @@ public class EditCommandParserTest {
                 + CommandTestUtil.TAG_DESC_HUSBAND;
 
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withPhone(
-                CommandTestUtil.VALID_PHONE_BOB)
+                        CommandTestUtil.VALID_PHONE_BOB)
                 .withEmail(CommandTestUtil.VALID_EMAIL_BOB).withTags(CommandTestUtil.VALID_TAG_FRIEND,
                         CommandTestUtil.VALID_TAG_HUSBAND)
                 .build();

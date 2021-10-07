@@ -1,12 +1,12 @@
 package nustracker.testutil;
 
-import java.util.Set;
-
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.parser.CliSyntax;
 import nustracker.model.student.Student;
 import nustracker.model.tag.Tag;
+
+import java.util.Set;
 
 /**
  * A utility class for Student.
@@ -32,7 +32,7 @@ public class StudentUtil {
         sb.append(CliSyntax.PREFIX_MAJOR + student.getMajor().value + " ");
         sb.append(CliSyntax.PREFIX_NUSNETID + student.getNusNetId().value + " ");
         student.getTags().stream().forEach(
-            s -> sb.append(CliSyntax.PREFIX_TAG + s.tagName + " ")
+                s -> sb.append(CliSyntax.PREFIX_TAG + s.tagName + " ")
         );
         return sb.toString();
     }

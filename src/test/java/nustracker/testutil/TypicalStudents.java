@@ -1,5 +1,12 @@
 package nustracker.testutil;
 
+import nustracker.model.AddressBook;
+import nustracker.model.student.Student;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static nustracker.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_MAJOR_AMY;
@@ -14,13 +21,6 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import nustracker.model.AddressBook;
-import nustracker.model.student.Student;
 
 /**
  * A utility class containing a list of {@code Student} objects to be used in tests.
@@ -101,7 +101,8 @@ public class TypicalStudents {
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
-    private TypicalStudents() {} // prevents instantiation
+    private TypicalStudents() {
+    } // prevents instantiation
 
     /**
      * Returns an {@code AddressBook} with all the typical students.

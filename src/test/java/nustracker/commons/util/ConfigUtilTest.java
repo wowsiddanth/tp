@@ -1,8 +1,10 @@
 package nustracker.commons.util;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static nustracker.testutil.Assert.assertThrows;
+import nustracker.commons.core.Config;
+import nustracker.commons.exceptions.DataConversionException;
+import nustracker.testutil.Assert;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -10,11 +12,8 @@ import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.logging.Level;
 
-import nustracker.commons.core.Config;
-import nustracker.commons.exceptions.DataConversionException;
-import nustracker.testutil.Assert;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class ConfigUtilTest {
 
@@ -108,8 +107,8 @@ public class ConfigUtilTest {
 
     private Path addToTestDataPathIfNotNull(String configFileInTestDataFolder) {
         return configFileInTestDataFolder != null
-                                  ? TEST_DATA_FOLDER.resolve(configFileInTestDataFolder)
-                                  : null;
+                ? TEST_DATA_FOLDER.resolve(configFileInTestDataFolder)
+                : null;
     }
 
 

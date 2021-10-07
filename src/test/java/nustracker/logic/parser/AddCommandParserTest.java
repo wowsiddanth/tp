@@ -1,20 +1,19 @@
 package nustracker.logic.parser;
 
-import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
-import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
-
-import org.junit.jupiter.api.Test;
-
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.CommandTestUtil;
 import nustracker.model.student.Email;
 import nustracker.model.student.Name;
-import nustracker.model.student.Student;
 import nustracker.model.student.Phone;
+import nustracker.model.student.Student;
 import nustracker.model.tag.Tag;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
+import org.junit.jupiter.api.Test;
+
+import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
+import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 
 public class AddCommandParserTest {
@@ -242,6 +241,6 @@ public class AddCommandParserTest {
                 + CommandTestUtil.NUSNETID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, String.format(
-                        Messages.MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+                Messages.MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }

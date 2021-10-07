@@ -1,13 +1,13 @@
 package nustracker.commons.util;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import nustracker.testutil.SerializableTestClass;
+import nustracker.testutil.TestUtil;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
-import nustracker.testutil.SerializableTestClass;
-import nustracker.testutil.TestUtil;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests JSON Read and Write

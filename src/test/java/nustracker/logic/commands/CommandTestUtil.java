@@ -1,12 +1,5 @@
 package nustracker.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import nustracker.commons.core.index.Index;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.CliSyntax;
@@ -16,6 +9,13 @@ import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Contains helper methods for testing commands.
@@ -102,7 +102,7 @@ public class CommandTestUtil {
      * that takes a string {@code expectedMessage}.
      */
     public static void assertCommandSuccess(Command command, Model actualModel, String expectedMessage,
-            Model expectedModel) {
+                                            Model expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
@@ -123,6 +123,7 @@ public class CommandTestUtil {
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
     }
+
     /**
      * Updates {@code model}'s filtered list to show only the student at the given {@code targetIndex} in the
      * {@code model}'s address book.

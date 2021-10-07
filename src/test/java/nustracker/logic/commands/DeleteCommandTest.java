@@ -1,13 +1,5 @@
 package nustracker.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
-import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
-
-import org.junit.jupiter.api.Test;
-
 import nustracker.commons.core.Messages;
 import nustracker.commons.core.index.Index;
 import nustracker.model.Model;
@@ -16,6 +8,13 @@ import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.TypicalIndexes;
 import nustracker.testutil.TypicalStudents;
+import org.junit.jupiter.api.Test;
+
+import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
+import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**

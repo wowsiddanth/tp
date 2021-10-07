@@ -1,11 +1,11 @@
 package nustracker.logic.parser;
 
-import java.util.Arrays;
-
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.FindCommand;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 public class FindCommandParserTest {
 

@@ -1,8 +1,7 @@
 package nustracker.model.tag;
 
-import org.junit.jupiter.api.Test;
-
 import nustracker.testutil.Assert;
+import org.junit.jupiter.api.Test;
 
 
 public class TagTest {

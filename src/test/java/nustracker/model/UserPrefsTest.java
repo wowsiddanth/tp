@@ -1,7 +1,5 @@
 package nustracker.model;
 
-import static nustracker.testutil.Assert.assertThrows;
-
 import nustracker.testutil.Assert;
 import org.junit.jupiter.api.Test;
 

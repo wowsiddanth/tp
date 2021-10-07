@@ -1,9 +1,8 @@
 package nustracker.logic.commands;
 
-import org.junit.jupiter.api.Test;
-
 import nustracker.testutil.EditStudentDescriptorBuilder;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 public class EditStudentDescriptorTest {

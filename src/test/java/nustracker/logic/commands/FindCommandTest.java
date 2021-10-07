@@ -1,21 +1,20 @@
 package nustracker.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
-
-import java.util.Arrays;
-import java.util.Collections;
-
-import org.junit.jupiter.api.Test;
-
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.testutil.TypicalStudents;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.

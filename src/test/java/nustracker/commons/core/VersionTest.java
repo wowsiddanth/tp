@@ -1,11 +1,10 @@
 package nustracker.commons.core;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static nustracker.testutil.Assert.assertThrows;
-
 import nustracker.testutil.Assert;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VersionTest {
 
@@ -130,7 +129,7 @@ public class VersionTest {
     }
 
     private void verifyVersionParsedCorrectly(String versionString,
-            int major, int minor, int patch, boolean isEarlyAccess) {
+                                              int major, int minor, int patch, boolean isEarlyAccess) {
         assertEquals(new Version(major, minor, patch, isEarlyAccess), Version.fromString(versionString));
     }
 }

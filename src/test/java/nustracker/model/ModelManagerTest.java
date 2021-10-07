@@ -1,14 +1,5 @@
 package nustracker.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static nustracker.testutil.Assert.assertThrows;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
-
 import nustracker.commons.core.GuiSettings;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.testutil.AddressBookBuilder;
@@ -16,6 +7,14 @@ import nustracker.testutil.Assert;
 import nustracker.testutil.TypicalStudents;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ModelManagerTest {
 

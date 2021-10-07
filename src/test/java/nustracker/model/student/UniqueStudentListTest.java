@@ -1,21 +1,20 @@
 package nustracker.model.student;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import org.junit.jupiter.api.Test;
-
 import nustracker.model.student.exceptions.DuplicateStudentException;
 import nustracker.model.student.exceptions.StudentNotFoundException;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UniqueStudentListTest {
 
@@ -163,6 +162,6 @@ public class UniqueStudentListTest {
     @Test
     public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
         Assert.assertThrows(UnsupportedOperationException.class, ()
-            -> uniqueStudentList.asUnmodifiableObservableList().remove(0));
+                -> uniqueStudentList.asUnmodifiableObservableList().remove(0));
     }
 }

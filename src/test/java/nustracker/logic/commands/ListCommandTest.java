@@ -1,13 +1,12 @@
 package nustracker.logic.commands;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.testutil.TypicalIndexes;
 import nustracker.testutil.TypicalStudents;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 
 /**
