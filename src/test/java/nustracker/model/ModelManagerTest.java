@@ -13,7 +13,7 @@ import nustracker.commons.core.GuiSettings;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.testutil.AddressBookBuilder;
 import nustracker.testutil.Assert;
-import nustracker.testutil.TypicalPersons;
+import nustracker.testutil.TypicalStudents;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -72,29 +72,29 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void hasPerson_nullPerson_throwsNullPointerException() {
+    public void hasStudent_nullStudent_throwsNullPointerException() {
         Assert.assertThrows(NullPointerException.class, () -> modelManager.hasStudent(null));
     }
 
     @Test
-    public void hasPerson_personNotInAddressBook_returnsFalse() {
-        assertFalse(modelManager.hasStudent(TypicalPersons.ALICE));
+    public void hasStudent_studentNotInAddressBook_returnsFalse() {
+        assertFalse(modelManager.hasStudent(TypicalStudents.ALICE));
     }
 
     @Test
-    public void hasPerson_personInAddressBook_returnsTrue() {
-        modelManager.addStudent(TypicalPersons.ALICE);
-        assertTrue(modelManager.hasStudent(TypicalPersons.ALICE));
+    public void hasStudent_studentInAddressBook_returnsTrue() {
+        modelManager.addStudent(TypicalStudents.ALICE);
+        assertTrue(modelManager.hasStudent(TypicalStudents.ALICE));
     }
 
     @Test
-    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
+    public void getFilteredStudentList_modifyList_throwsUnsupportedOperationException() {
         Assert.assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredStudentList().remove(0));
     }
 
     @Test
     public void equals() {
-        AddressBook addressBook = new AddressBookBuilder().withPerson(TypicalPersons.ALICE).withPerson(TypicalPersons.BENSON).build();
+        AddressBook addressBook = new AddressBookBuilder().withStudent(TypicalStudents.ALICE).withStudent(TypicalStudents.BENSON).build();
         AddressBook differentAddressBook = new AddressBook();
         UserPrefs userPrefs = new UserPrefs();
 
@@ -116,7 +116,7 @@ public class ModelManagerTest {
         assertFalse(modelManager.equals(new ModelManager(differentAddressBook, userPrefs)));
 
         // different filteredList -> returns false
-        String[] keywords = TypicalPersons.ALICE.getName().fullName.split("\\s+");
+        String[] keywords = TypicalStudents.ALICE.getName().fullName.split("\\s+");
         modelManager.updateFilteredStudentList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
 

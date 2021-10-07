@@ -11,8 +11,8 @@ import nustracker.model.student.Name;
 import nustracker.model.student.Student;
 import nustracker.model.student.Phone;
 import nustracker.model.tag.Tag;
-import nustracker.testutil.PersonBuilder;
-import nustracker.testutil.TypicalPersons;
+import nustracker.testutil.StudentBuilder;
+import nustracker.testutil.TypicalStudents;
 import org.junit.jupiter.api.Test;
 
 public class AddCommandParserTest {
@@ -20,7 +20,7 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Student expectedStudent = new PersonBuilder(TypicalPersons.BOB).withTags(CommandTestUtil.VALID_TAG_FRIEND).build();
+        Student expectedStudent = new StudentBuilder(TypicalStudents.BOB).withTags(CommandTestUtil.VALID_TAG_FRIEND).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, CommandTestUtil.PREAMBLE_WHITESPACE + CommandTestUtil.NAME_DESC_BOB + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
@@ -75,7 +75,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple tags - all accepted
-        Student expectedStudentMultipleTags = new PersonBuilder(TypicalPersons.BOB).withTags(CommandTestUtil.VALID_TAG_FRIEND, CommandTestUtil.VALID_TAG_HUSBAND)
+        Student expectedStudentMultipleTags = new StudentBuilder(TypicalStudents.BOB).withTags(CommandTestUtil.VALID_TAG_FRIEND, CommandTestUtil.VALID_TAG_HUSBAND)
                 .build();
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
@@ -88,7 +88,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Student expectedStudent = new PersonBuilder(TypicalPersons.AMY).withTags().build();
+        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).withTags().build();
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_AMY + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_AMY

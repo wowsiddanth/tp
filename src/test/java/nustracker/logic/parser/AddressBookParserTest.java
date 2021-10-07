@@ -23,9 +23,9 @@ import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.FindCommand;
 import nustracker.logic.commands.HelpCommand;
 import nustracker.logic.commands.ListCommand;
-import nustracker.testutil.EditPersonDescriptorBuilder;
-import nustracker.testutil.PersonBuilder;
-import nustracker.testutil.PersonUtil;
+import nustracker.testutil.EditStudentDescriptorBuilder;
+import nustracker.testutil.StudentBuilder;
+import nustracker.testutil.StudentUtil;
 
 public class AddressBookParserTest {
 
@@ -33,8 +33,8 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_add() throws Exception {
-        Student student = new PersonBuilder().build();
-        AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(student));
+        Student student = new StudentBuilder().build();
+        AddCommand command = (AddCommand) parser.parseCommand(StudentUtil.getAddCommand(student));
         assertEquals(new AddCommand(student), command);
     }
 
@@ -47,17 +47,17 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_delete() throws Exception {
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
-                DeleteCommand.COMMAND_WORD + " " + TypicalIndexes.INDEX_FIRST_PERSON.getOneBased());
-        assertEquals(new DeleteCommand(TypicalIndexes.INDEX_FIRST_PERSON), command);
+                DeleteCommand.COMMAND_WORD + " " + TypicalIndexes.INDEX_FIRST_STUDENT.getOneBased());
+        assertEquals(new DeleteCommand(TypicalIndexes.INDEX_FIRST_STUDENT), command);
     }
 
     @Test
     public void parseCommand_edit() throws Exception {
-        Student student = new PersonBuilder().build();
-        EditCommand.EditStudentDescriptor descriptor = new EditPersonDescriptorBuilder(student).build();
+        Student student = new StudentBuilder().build();
+        EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(student).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + TypicalIndexes.INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(TypicalIndexes.INDEX_FIRST_PERSON, descriptor), command);
+                + TypicalIndexes.INDEX_FIRST_STUDENT.getOneBased() + " " + StudentUtil.getEditStudentDescriptorDetails(descriptor));
+        assertEquals(new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT, descriptor), command);
     }
 
     @Test

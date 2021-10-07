@@ -12,7 +12,7 @@ import nustracker.commons.exceptions.DataConversionException;
 import nustracker.model.AddressBook;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.testutil.Assert;
-import nustracker.testutil.TypicalPersons;
+import nustracker.testutil.TypicalStudents;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
@@ -44,23 +44,29 @@ public class JsonAddressBookStorageTest {
 
     @Test
     public void read_notJsonFormat_exceptionThrown() {
-        Assert.assertThrows(DataConversionException.class, () -> readAddressBook("notJsonFormatAddressBook.json"));
+        Assert.assertThrows(
+                DataConversionException.class,
+                () -> readAddressBook("notJsonFormatAddressBook.json"));
     }
 
     @Test
-    public void readAddressBook_invalidPersonAddressBook_throwDataConversionException() {
-        Assert.assertThrows(DataConversionException.class, () -> readAddressBook("invalidPersonAddressBook.json"));
+    public void readAddressBook_invalidStudentAddressBook_throwDataConversionException() {
+        Assert.assertThrows(
+                DataConversionException.class,
+                () -> readAddressBook("invalidStudentAddressBook.json"));
     }
 
     @Test
-    public void readAddressBook_invalidAndValidPersonAddressBook_throwDataConversionException() {
-        Assert.assertThrows(DataConversionException.class, () -> readAddressBook("invalidAndValidPersonAddressBook.json"));
+    public void readAddressBook_invalidAndValidStudentAddressBook_throwDataConversionException() {
+        Assert.assertThrows(
+                DataConversionException.class,
+                () -> readAddressBook("invalidAndValidStudentAddressBook.json"));
     }
 
     @Test
     public void readAndSaveAddressBook_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
-        AddressBook original = TypicalPersons.getTypicalAddressBook();
+        AddressBook original = TypicalStudents.getTypicalAddressBook();
         JsonAddressBookStorage jsonAddressBookStorage = new JsonAddressBookStorage(filePath);
 
         // Save in new file and read back
@@ -69,14 +75,14 @@ public class JsonAddressBookStorageTest {
         assertEquals(original, new AddressBook(readBack));
 
         // Modify data, overwrite exiting file, and read back
-        original.addStudent(TypicalPersons.HOON);
-        original.removeStudent(TypicalPersons.ALICE);
+        original.addStudent(TypicalStudents.HOON);
+        original.removeStudent(TypicalStudents.ALICE);
         jsonAddressBookStorage.saveAddressBook(original, filePath);
         readBack = jsonAddressBookStorage.readAddressBook(filePath).get();
         assertEquals(original, new AddressBook(readBack));
 
         // Save and read without specifying file path
-        original.addStudent(TypicalPersons.IDA);
+        original.addStudent(TypicalStudents.IDA);
         jsonAddressBookStorage.saveAddressBook(original); // file path not specified
         readBack = jsonAddressBookStorage.readAddressBook().get(); // file path not specified
         assertEquals(original, new AddressBook(readBack));

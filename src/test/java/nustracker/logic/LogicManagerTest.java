@@ -22,8 +22,8 @@ import nustracker.storage.JsonAddressBookStorage;
 import nustracker.storage.JsonUserPrefsStorage;
 import nustracker.storage.StorageManager;
 import nustracker.testutil.Assert;
-import nustracker.testutil.PersonBuilder;
-import nustracker.testutil.TypicalPersons;
+import nustracker.testutil.StudentBuilder;
+import nustracker.testutil.TypicalStudents;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -55,7 +55,7 @@ public class LogicManagerTest {
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
         String deleteCommand = "delete 9";
-        assertCommandException(deleteCommand, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandException(deleteCommand, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class LogicManagerTest {
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_AMY
                 + CommandTestUtil.NUSNETID_DESC_AMY;
-        Student expectedStudent = new PersonBuilder(TypicalPersons.AMY).withTags().build();
+        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addStudent(expectedStudent);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
@@ -87,8 +87,8 @@ public class LogicManagerTest {
     }
 
     @Test
-    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
-        Assert.assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredPersonList().remove(0));
+    public void getFilteredStudentList_modifyList_throwsUnsupportedOperationException() {
+        Assert.assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredStudentList().remove(0));
     }
 
     /**
