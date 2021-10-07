@@ -74,16 +74,20 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons have the same name.
-     * This defines a weaker notion of equality between two persons.
+     * Returns true if the other person has the same credentials in the fields
+     * where having the same ones is not allowed like the NUS NetId, email, & phone.
      */
-    public boolean isSamePerson(Person otherPerson) {
+    public boolean hasDuplicateCredentials(Person otherPerson) {
         if (otherPerson == this) {
             return true;
         }
 
-        return otherPerson != null
-                && otherPerson.getName().equals(getName());
+        boolean notNull = otherPerson != null;
+        boolean sameId = notNull && otherPerson.getNusNetId().equals(getNusNetId());
+        boolean sameEmail = notNull && otherPerson.getEmail().equals(getEmail());
+        boolean samePhone = notNull && otherPerson.getPhone().equals(getPhone());
+
+        return sameId || sameEmail || samePhone;
     }
 
     /**

@@ -38,8 +38,8 @@ public class CommandTestUtil {
     public static final String VALID_YEAR_BOB = "2";
     public static final String VALID_MAJOR_AMY = "CS";
     public static final String VALID_MAJOR_BOB = "IS";
-    public static final String VALID_NUSNETID_AMY = "e1234567";
-    public static final String VALID_NUSNETID_BOB = "e1234567";
+    public static final String VALID_NUSNETID_AMY = "e1283901";
+    public static final String VALID_NUSNETID_BOB = "e1238010";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
 

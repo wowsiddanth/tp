@@ -6,7 +6,7 @@
     "email" : "alice@example.com",
     "year" : "1",
     "major" : "CS",
-    "nusNetId" : "e1234678",
+    "nusNetId" : "e9034800",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -14,14 +14,14 @@
     "email" : "johnd@example.com",
     "year" : "3",
     "major": "IS",
-    "nusNetId" : "e1234567",
+    "nusNetId" : "e8123198",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "year" : "4",
     "major": "ISEC",
-    "nusNetId" : "e1234567",
+    "nusNetId" : "e8123081",
     "email" : "heinz@example.com",
     "tagged" : [ ]
   }, {
@@ -30,31 +30,31 @@
     "email" : "cornelia@example.com",
     "year" : "2",
     "major": "BZA",
-    "nusNetId" : "e1234567",
+    "nusNetId" : "e9012390",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
-    "phone" : "9482224",
+    "phone" : "94822248",
     "email" : "werner@example.com",
     "year" : "3",
     "major": "CS",
-    "nusNetId" : "e1234567",
+    "nusNetId" : "e9831818",
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
-    "phone" : "9482427",
+    "phone" : "94824271",
     "email" : "lydia@example.com",
     "year" : "4",
     "major": "CS",
-    "nusNetId" : "e1234567",
+    "nusNetId" : "e9192390",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
-    "phone" : "9482442",
+    "phone" : "94824112",
     "email" : "anna@example.com",
     "year" : "2",
     "major": "IS",
-    "nusNetId" : "e1234567",
+    "nusNetId" : "e9123119",
     "tagged" : [ ]
   } ]
 }
