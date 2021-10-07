@@ -20,7 +20,7 @@ import seedu.address.model.person.exceptions.PersonNotFoundException;
  *
  * Supports a minimal set of list operations.
  *
- * @see Person#isSamePerson(Person)
+ * @see Person#hasDuplicateCredentials(Person)
  */
 public class UniquePersonList implements Iterable<Person> {
 
@@ -33,7 +33,7 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSamePerson);
+        return internalList.stream().anyMatch(toCheck::hasDuplicateCredentials);
     }
 
     /**
@@ -61,7 +61,7 @@ public class UniquePersonList implements Iterable<Person> {
             throw new PersonNotFoundException();
         }
 
-        if (!target.isSamePerson(editedPerson) && contains(editedPerson)) {
+        if (!target.hasDuplicateCredentials(editedPerson) && contains(editedPerson)) {
             throw new DuplicatePersonException();
         }
 
@@ -127,7 +127,7 @@ public class UniquePersonList implements Iterable<Person> {
     private boolean personsAreUnique(List<Person> persons) {
         for (int i = 0; i < persons.size() - 1; i++) {
             for (int j = i + 1; j < persons.size(); j++) {
-                if (persons.get(i).isSamePerson(persons.get(j))) {
+                if (persons.get(i).hasDuplicateCredentials(persons.get(j))) {
                     return false;
                 }
             }

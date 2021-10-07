@@ -9,10 +9,12 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.NusNetId;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -66,21 +68,6 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code address} is invalid.
-     */
-    public static Address parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Address.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
-        }
-        return new Address(trimmedAddress);
-    }
-
-    /**
      * Parses a {@code String email} into an {@code Email}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -93,6 +80,51 @@ public class ParserUtil {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
+    }
+
+    /**
+     * Parses a {@code String year} into an {@code Year}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code year} is invalid.
+     */
+    public static Year parseYear(String year) throws ParseException {
+        requireNonNull(year);
+        String trimmedYear = year.trim();
+        if (!Year.isValidYear(trimmedYear)) {
+            throw new ParseException(Year.MESSAGE_CONSTRAINTS);
+        }
+        return new Year(trimmedYear);
+    }
+
+    /**
+     * Parses a {@code String major} into an {@code Major}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code major} is invalid.
+     */
+    public static Major parseMajor(String major) throws ParseException {
+        requireNonNull(major);
+        String trimmedMajor = major.trim();
+        if (!Major.isValidMajor(trimmedMajor)) {
+            throw new ParseException(Major.MESSAGE_CONSTRAINTS);
+        }
+        return new Major(trimmedMajor);
+    }
+
+    /**
+     * Parses a {@code String nusNetId} into an {@code NusNetId}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code nusNetId} is invalid.
+     */
+    public static NusNetId parseNusNetId(String nusNetId) throws ParseException {
+        requireNonNull(nusNetId);
+        String trimmedNusNetId = nusNetId.trim();
+        if (!NusNetId.isValidNusNetId(trimmedNusNetId)) {
+            throw new ParseException(NusNetId.MESSAGE_CONSTRAINTS);
+        }
+        return new NusNetId(trimmedNusNetId);
     }
 
     /**

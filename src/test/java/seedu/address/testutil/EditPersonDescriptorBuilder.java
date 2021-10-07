@@ -5,11 +5,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.NusNetId;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -35,7 +37,9 @@ public class EditPersonDescriptorBuilder {
         descriptor.setName(person.getName());
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
-        descriptor.setAddress(person.getAddress());
+        descriptor.setYear(person.getYear());
+        descriptor.setMajor(person.getMajor());
+        descriptor.setNusNetId(person.getNusNetId());
         descriptor.setTags(person.getTags());
     }
 
@@ -64,10 +68,26 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Year} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
+    public EditPersonDescriptorBuilder withYear(String year) {
+        descriptor.setYear(new Year(year));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Major} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withMajor(String major) {
+        descriptor.setMajor(new Major(major));
+        return this;
+    }
+
+    /**
+     * Sets the {@code NusNetId} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withNusNetId(String nusNetId) {
+        descriptor.setNusNetId(new NusNetId(nusNetId));
         return this;
     }
 
