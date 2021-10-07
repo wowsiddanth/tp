@@ -99,7 +99,7 @@ _**Coming soon:** Additional field ev/EVENT so the user can directly tag an even
 
 ### Listing all student
 
-Shows a list of all persons in the address book.
+Shows a list of all students in the address book.
 
 Format: `list`
 
@@ -120,20 +120,20 @@ Examples:
 _**Coming soon:** Additional fields to filter by._  
 _**Coming soon:** Filter by multiple fields._
 
-### Editing a person : `edit`
+### Editing a student : `edit`
 
 Edits an existing student in the address book.
 
 Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]…​`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd person to be `Betsy Crower` and edits email.
+* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
+* `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd student to be `Betsy Crower` and edits email.
  
 ### Deleting a student : `delete`
 
