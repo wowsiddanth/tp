@@ -6,7 +6,13 @@ import java.util.stream.Collectors;
 
 import nustracker.model.AddressBook;
 import nustracker.model.ReadOnlyAddressBook;
-import nustracker.model.student.*;
+import nustracker.model.student.Email;
+import nustracker.model.student.Major;
+import nustracker.model.student.Name;
+import nustracker.model.student.NusNetId;
+import nustracker.model.student.Phone;
+import nustracker.model.student.Student;
+import nustracker.model.student.Year;
 import nustracker.model.tag.Tag;
 
 /**

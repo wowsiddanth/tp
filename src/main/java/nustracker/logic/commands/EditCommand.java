@@ -20,7 +20,14 @@ import nustracker.commons.core.index.Index;
 import nustracker.commons.util.CollectionUtil;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
-import nustracker.model.student.*;
+
+import nustracker.model.student.Email;
+import nustracker.model.student.Major;
+import nustracker.model.student.Name;
+import nustracker.model.student.NusNetId;
+import nustracker.model.student.Phone;
+import nustracker.model.student.Student;
+import nustracker.model.student.Year;
 import nustracker.model.tag.Tag;
 
 /**

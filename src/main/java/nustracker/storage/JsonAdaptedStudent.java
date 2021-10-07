@@ -10,7 +10,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import nustracker.commons.exceptions.IllegalValueException;
-import nustracker.model.student.*;
+import nustracker.model.student.Email;
+import nustracker.model.student.Major;
+import nustracker.model.student.Name;
+import nustracker.model.student.NusNetId;
+import nustracker.model.student.Phone;
+import nustracker.model.student.Student;
+import nustracker.model.student.Year;
 import nustracker.model.tag.Tag;
 
 /**
