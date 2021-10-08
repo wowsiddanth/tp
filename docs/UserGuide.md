@@ -88,7 +88,7 @@ Examples:
   3. IS (Information Systems)
   4. ISEC (Information Security)
 
-- The NUS NetID must be specified exactly. {e0XXXXXX}
+- The NUS NetID must be specified exactly. {eXXXXXXX}
 
 - Year must be specified as a single number.
 
