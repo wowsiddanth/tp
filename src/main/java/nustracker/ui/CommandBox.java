@@ -4,7 +4,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import nustracker.logic.Logic;
 import nustracker.logic.commands.CommandResult;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.exceptions.ParseException;
