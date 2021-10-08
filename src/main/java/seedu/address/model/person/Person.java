@@ -54,7 +54,7 @@ public class Person {
         return address;
     }
 
-    public EnrolledEvents getEvent() {
+    public EnrolledEvents getEvents() {
         return enrolledEvents;
     }
 
@@ -117,8 +117,8 @@ public class Person {
                 .append(getEmail())
                 .append("; Address: ")
                 .append(getAddress())
-                .append("; Event: ")
-                .append(getEvent());
+                .append("; Events: ")
+                .append(getEvents());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {

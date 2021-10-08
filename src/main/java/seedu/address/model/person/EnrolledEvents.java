@@ -3,7 +3,7 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 
 /**
- * This class represents an event that a person is a part of.
+ * This class represent any event(s) that a person is a part of.
  */
 public class EnrolledEvents {
 
@@ -12,9 +12,9 @@ public class EnrolledEvents {
     public final String value;
 
     /**
-     * Constructs an {@code Address}.
+     * Constructs an {@code EnrolledEvents}.
      *
-     * @param event A valid address.
+     * @param event A valid event.
      */
     public EnrolledEvents(String event) {
         requireNonNull(event);

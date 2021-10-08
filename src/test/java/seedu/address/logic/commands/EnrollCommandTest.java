@@ -36,7 +36,7 @@ class EnrollCommandTest {
         Person editedPerson = new PersonBuilder(firstPerson).withEvent(EVENT_STUB).build();
 
         EnrollCommand enrollCommand = new EnrollCommand(INDEX_FIRST_PERSON,
-                new EnrolledEvents(editedPerson.getEvent().value));
+                new EnrolledEvents(editedPerson.getEvents().value));
 
         String expectedMessage = String.format(EnrollCommand.MESSAGE_ADD_EVENT_SUCCESS, editedPerson);
 
@@ -52,7 +52,7 @@ class EnrollCommandTest {
         Person editedPerson = new PersonBuilder(firstPerson).withEvent("").build();
 
         EnrollCommand enrollCommand = new EnrollCommand(INDEX_FIRST_PERSON,
-                new EnrolledEvents(editedPerson.getEvent().toString()));
+                new EnrolledEvents(editedPerson.getEvents().toString()));
 
         String expectedMessage = String.format(EnrollCommand.MESSAGE_DELETE_EVENT_SUCCESS, editedPerson);
 
@@ -71,7 +71,7 @@ class EnrollCommandTest {
                 .withEvent(EVENT_STUB).build();
 
         EnrollCommand enrollCommand = new EnrollCommand(INDEX_FIRST_PERSON,
-                new EnrolledEvents(editedPerson.getEvent().value));
+                new EnrolledEvents(editedPerson.getEvents().value));
 
         String expectedMessage = String.format(EnrollCommand.MESSAGE_ADD_EVENT_SUCCESS, editedPerson);
 

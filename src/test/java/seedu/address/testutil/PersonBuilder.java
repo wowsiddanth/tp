@@ -51,7 +51,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
-        enrolledEvents = personToCopy.getEvent();
+        enrolledEvents = personToCopy.getEvents();
     }
 
     /**
