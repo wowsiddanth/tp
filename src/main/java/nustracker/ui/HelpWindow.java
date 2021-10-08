@@ -15,8 +15,28 @@ import nustracker.commons.core.LogsCenter;
  */
 public class HelpWindow extends UiPart<Stage> {
 
-    public static final String USERGUIDE_URL = "https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html";
-    public static final String HELP_MESSAGE = "Refer to the user guide: " + USERGUIDE_URL;
+    public static final String USER_GUIDE_URL = "https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html";
+    public static final String HELP_MESSAGE = "Refer to the user guide: " + USER_GUIDE_URL;
+
+    public static final String ADD_COMMAND =
+            "add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT] [t/TAGS]";
+    public static final String ADD_COMMAND_MESSAGE = "ADD COMMAND: " + ADD_COMMAND;
+
+    public static final String LIST_COMMAND = "list";
+    public static final String LIST_COMMAND_MESSAGE = "LIST COMMAND: " + LIST_COMMAND;
+
+    public static final String FILTER_COMMAND = "filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]";
+    public static final String FILTER_COMMAND_MESSAGE = "FILTER COMMAND: " + FILTER_COMMAND;
+
+    public static final String EDIT_COMMAND =
+            "edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]";
+    public static final String EDIT_COMMAND_MESSAGE = "EDIT COMMAND: " + EDIT_COMMAND;
+
+    public static final String DELETE_COMMAND = "delete INDEX";
+    public static final String DELETE_COMMAND_MESSAGE = "DELETE COMMAND: " + DELETE_COMMAND;
+
+    public static final String EXIT_COMMAND = "exit";
+    public static final String EXIT_COMMAND_MESSAGE = "EXIT COMMAND: " + EXIT_COMMAND;
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
@@ -27,6 +47,24 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Label helpMessage;
 
+    @FXML
+    private Label addCommandMessage;
+
+    @FXML
+    private Label listCommandMessage;
+
+    @FXML
+    private Label filterCommandMessage;
+
+    @FXML
+    private Label editCommandMessage;
+
+    @FXML
+    private Label deleteCommandMessage;
+
+    @FXML
+    private Label exitCommandMessage;
+
     /**
      * Creates a new HelpWindow.
      *
@@ -35,6 +73,12 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessage.setText(HELP_MESSAGE);
+        addCommandMessage.setText(ADD_COMMAND_MESSAGE);
+        listCommandMessage.setText(LIST_COMMAND_MESSAGE);
+        filterCommandMessage.setText(FILTER_COMMAND_MESSAGE);
+        editCommandMessage.setText(EDIT_COMMAND_MESSAGE);
+        deleteCommandMessage.setText(DELETE_COMMAND_MESSAGE);
+        exitCommandMessage.setText(EXIT_COMMAND_MESSAGE);
     }
 
     /**
@@ -96,7 +140,73 @@ public class HelpWindow extends UiPart<Stage> {
     private void copyUrl() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
-        url.putString(USERGUIDE_URL);
+        url.putString(USER_GUIDE_URL);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the AddCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyAddCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(ADD_COMMAND);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the ListCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyListCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(LIST_COMMAND);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the FilterCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyFilterCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(FILTER_COMMAND);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the EditCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyEditCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(EDIT_COMMAND);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the DeleteCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyDeleteCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(DELETE_COMMAND);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the ExitCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyExitCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(EXIT_COMMAND);
         clipboard.setContent(url);
     }
 }
