@@ -66,14 +66,22 @@
           </padding>
         </StackPane>
 
+<<<<<<< HEAD
+        <VBox fx:id="studentList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
+=======
         <VBox fx:id="personList" minWidth="340" prefWidth="340" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+>>>>>>> design-button
           <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
           </padding>
+<<<<<<< HEAD
+          <StackPane fx:id="studentListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+=======
           <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+>>>>>>> design-button
         </VBox>
 
-        <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
+        <StackPane fx:id="statusBarPlaceholder" VBox.vgrow="NEVER" />
       </VBox>
     </Scene>
   </scene>
