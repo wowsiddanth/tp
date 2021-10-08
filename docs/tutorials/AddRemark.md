@@ -25,7 +25,7 @@ For now, let’s keep `RemarkCommand` as simple as possible and print some outpu
 ``` java
 package nustracker.logic.commands;
 
-import Model;
+import nustracker.model.Model;
 
 /**
  * Changes the remark of an existing student in the address book.
@@ -91,7 +91,7 @@ Let’s change `RemarkCommand` to parse input from the user.
 We start by modifying the constructor of `RemarkCommand` to accept an `Index` and a `String`. While we are at it, let’s change the error message to echo the values. While this is not a replacement for tests, it is an obvious way to tell if our code is functioning as intended.
 
 ``` java
-import static CollectionUtil.requireAllNonNull;
+import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 //...
 public class RemarkCommand extends Command {
     //...
