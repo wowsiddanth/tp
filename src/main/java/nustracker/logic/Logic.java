@@ -7,7 +7,6 @@ import nustracker.commons.core.GuiSettings;
 import nustracker.logic.commands.CommandResult;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.exceptions.ParseException;
-import nustracker.model.Model;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.student.Student;
 
