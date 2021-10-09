@@ -88,7 +88,7 @@ public class Event {
     public static Event pseudoEvent(EventName eventName) {
         requireNonNull(eventName);
 
-        String validEventDate = "2021-09-28";
+        String validEventDate = "09-10-2021";
         String validEventTime = "1115";
         return new Event(eventName,
                 new EventDate(validEventDate),

@@ -18,11 +18,11 @@ import nustracker.model.event.EventName;
 public class TypicalEvents {
 
     public static final Event ORIENTATION = new EventBuilder().withName("Orientation Camp")
-            .withDate("2022-08-01")
+            .withDate("01-08-2022")
             .withTime("0900")
             .withParticipants("e1234567", "e0544182").build();
     public static final Event SPORTS_CAMP = new EventBuilder().withName("Sports Camp")
-            .withDate("2022-09-15")
+            .withDate("10-09-2021")
             .withTime("1200")
             .withParticipants("e7654321").build();
 

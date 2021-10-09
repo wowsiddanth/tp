@@ -1,5 +1,5 @@
 {
-  "_comment": "AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook()",
+  "_comment": "AddressBook save file which contains the same Student values as in TypicalStudents#getTypicalAddressBook()",
   "students" : [ {
     "name" : "Alice Pauline",
     "phone" : "94351253",
@@ -59,12 +59,12 @@
   } ],
   "events": [ {
     "name": "Orientation Camp",
-    "date": "2022-08-01",
+    "date": "01-08-2022",
     "time": "0900",
     "participants": [ "e9123119", "e9192390" ]
   }, {
     "name": "Sports Camp",
-    "date": "2022-09-15",
+    "date": "10-09-2021",
     "time": "1200",
     "participants": [ "e9831818" ]
   }]

@@ -13,9 +13,9 @@ import java.time.format.DateTimeParseException;
 public class EventDate {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "EventDates should be in the format YYYY-MM-DD. E.g. 2021-09-26.";
+            "EventDates should be in the format DD-MM-YYYY. E.g. 09-10-2021.";
 
-    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy");
 
     public final LocalDate eventDate;

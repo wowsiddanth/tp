@@ -19,24 +19,24 @@ class EventDateTest {
 
     @Test
     public void isValidDate() {
-        // null phone number
+        // null event dates
         assertThrows(NullPointerException.class, () -> EventDate.isValidDate(null));
 
-        // invalid phone numbers
+        // invalid event dates
         Assertions.assertFalse(EventDate.isValidDate("")); // empty string
         Assertions.assertFalse(EventDate.isValidDate(" ")); // spaces only
-        Assertions.assertFalse(EventDate.isValidDate("2021 09 27")); // spaces instead of dash
-        Assertions.assertFalse(EventDate.isValidDate("20210927")); // no dashes
-        Assertions.assertFalse(EventDate.isValidDate("2021-ab-27")); // alphabets within digits
-        Assertions.assertFalse(EventDate.isValidDate("2021-13-21")); // invalid month
-        Assertions.assertFalse(EventDate.isValidDate("2021-00-21")); // invalid month
-        Assertions.assertFalse(EventDate.isValidDate("2021-10-32")); // invalid day
-        Assertions.assertFalse(EventDate.isValidDate("2021-10-00")); // invalid day
+        Assertions.assertFalse(EventDate.isValidDate("09 10 2021")); // spaces instead of dash
+        Assertions.assertFalse(EventDate.isValidDate("09102021")); // no dashes
+        Assertions.assertFalse(EventDate.isValidDate("09-ab-2021")); // alphabets within digits
+        Assertions.assertFalse(EventDate.isValidDate("09-13-2021")); // invalid month
+        Assertions.assertFalse(EventDate.isValidDate("09-00-2021")); // invalid month
+        Assertions.assertFalse(EventDate.isValidDate("32-10-2021")); // invalid day
+        Assertions.assertFalse(EventDate.isValidDate("00-10-2021")); // invalid day
 
-        // valid phone numbers
-        Assertions.assertTrue(EventDate.isValidDate("2021-09-27")); // current date
-        Assertions.assertTrue(EventDate.isValidDate("3000-12-31")); // late date
-        Assertions.assertTrue(EventDate.isValidDate("1900-01-01")); // early date
+        // valid event dates
+        Assertions.assertTrue(EventDate.isValidDate("09-10-2021")); // current date
+        Assertions.assertTrue(EventDate.isValidDate("31-12-3000")); // late date
+        Assertions.assertTrue(EventDate.isValidDate("01-01-1900")); // early date
     }
 
 }

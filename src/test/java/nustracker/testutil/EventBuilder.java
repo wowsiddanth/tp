@@ -16,7 +16,7 @@ import nustracker.model.util.SampleDataUtil;
 public class EventBuilder {
 
     public static final String DEFAULT_NAME = "Test event";
-    public static final String DEFAULT_DATE = "2021-09-26";
+    public static final String DEFAULT_DATE = "09-10-2021";
     public static final String DEFAULT_TIME = "1530";
 
     private EventName name;

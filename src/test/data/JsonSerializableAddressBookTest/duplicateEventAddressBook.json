@@ -1,5 +1,5 @@
 {
-  "persons": [ {
+  "students": [ {
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "alice@example.com",
@@ -10,12 +10,12 @@
   }],
   "events": [ {
     "name": "Valid event",
-    "date": "2021-09-27",
+    "date": "09-10-2021",
     "time": "1900",
     "participants": [ "e9034800" ]
   }, {
     "name": "Valid event",
-    "date": "2021-09-27",
+    "date": "09-10-2021",
     "time": "1900",
     "participants": [ "e9034800" ]
   }]

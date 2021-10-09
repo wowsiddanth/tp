@@ -73,8 +73,8 @@ public class CommandTestUtil {
     // For Events
     public static final String VALID_EVENTNAME_TEST = "Test event";
     public static final String VALID_EVENTNAME_FINAL = "Final event";
-    public static final String VALID_EVENTDATE_TEST = "2021-09-26";
-    public static final String VALID_EVENTDATE_FINAL = "2030-09-26";
+    public static final String VALID_EVENTDATE_TEST = "09-10-2021";
+    public static final String VALID_EVENTDATE_FINAL = "20-11-2021";
     public static final String VALID_EVENTTIME_TEST = "1800";
     public static final String VALID_EVENTTIME_FINAL = "2010";
     public static final String VALID_PARTICIPANT_TEST = "Joel";
@@ -88,7 +88,7 @@ public class CommandTestUtil {
     public static final String TIME_DESC_FINAL = " " + PREFIX_TIME + VALID_EVENTTIME_FINAL;
 
     public static final String INVALID_EVENTNAME_DESC = " " + PREFIX_NAME + "Event&"; // '&' not allowed in names
-    public static final String INVALID_EVENTDATE_DESC = " " + PREFIX_DATE + "20210926"; // missing dashes
+    public static final String INVALID_EVENTDATE_DESC = " " + PREFIX_DATE + "09102021"; // missing dashes
     public static final String INVALID_EVENTTIME_DESC = " " + PREFIX_TIME + "12:30 pm"; // needs to be 24hr format
 
     static {
