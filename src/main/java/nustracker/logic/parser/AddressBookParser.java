@@ -7,8 +7,10 @@ import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.ClearCommand;
 import nustracker.logic.commands.Command;
+import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.EditCommand;
+import nustracker.logic.commands.EnrollCommand;
 import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.FindCommand;
 import nustracker.logic.commands.HelpCommand;
@@ -65,6 +67,12 @@ public class AddressBookParser {
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
+
+        case EnrollCommand.COMMAND_WORD:
+            return new EnrollCommandParser().parse(arguments);
+
+        case CreateCommand.COMMAND_WORD:
+            return new CreateCommandParser().parse(arguments);
 
         default:
             throw new ParseException(Messages.MESSAGE_UNKNOWN_COMMAND);

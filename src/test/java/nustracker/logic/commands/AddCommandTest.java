@@ -20,6 +20,8 @@ import nustracker.model.AddressBook;
 import nustracker.model.Model;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.ReadOnlyUserPrefs;
+import nustracker.model.event.Event;
+import nustracker.model.event.EventName;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
@@ -115,6 +117,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public void addEvent(Event event) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Event getEvent(EventName name) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ReadOnlyAddressBook getAddressBook() {
             throw new AssertionError("This method should not be called.");
         }
@@ -130,7 +142,17 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasEvent(Event event) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deleteStudent(Student target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteEvent(Event event) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -145,8 +167,18 @@ public class AddCommandTest {
         }
 
         @Override
+        public ObservableList<Event> getFilteredEventList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateFilteredStudentList(Predicate<Student> predicate) {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredEventList(Predicate<Event> predicate) {
+
         }
     }
 
