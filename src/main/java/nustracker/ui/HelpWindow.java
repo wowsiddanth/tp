@@ -16,54 +16,62 @@ import nustracker.commons.core.LogsCenter;
 public class HelpWindow extends UiPart<Stage> {
 
     public static final String USER_GUIDE_URL = "https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html";
-    public static final String HELP_MESSAGE = "Refer to the user guide: " + USER_GUIDE_URL;
+    public static final String HELP_MESSAGE = "Refer to the user guide:   " + USER_GUIDE_URL;
+    public static final String COPY_LINK_TEXT = "Copy Link";
 
-    public static final String ADD_COMMAND =
-            "add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT] [t/TAGS]";
-    public static final String ADD_COMMAND_MESSAGE = "ADD COMMAND: " + ADD_COMMAND;
+    public static final String ADD_COMMAND = "add";
+    public static final String ADD_COMMAND_EXAMPLE =
+            ADD_COMMAND + " n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT] [t/TAGS]";
+
+    public static final String FILTER_COMMAND = "filter";
+    public static final String FILTER_COMMAND_EXAMPLE = FILTER_COMMAND
+            + " [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]";
+
+    public static final String EDIT_COMMAND = "edit";
+    public static final String EDIT_COMMAND_EXAMPLE = EDIT_COMMAND
+            + " INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]";
+
+    public static final String CREATE_COMMAND = "create";
+    public static final String CREATE_COMMAND_EXAMPLE = CREATE_COMMAND;
+
+    public static final String ENROLL_COMMAND = "enroll";
+    public static final String ENROLL_COMMAND_EXAMPLE = ENROLL_COMMAND;
+
+    public static final String DELETE_COMMAND = "delete";
+    public static final String DELETE_COMMAND_EXAMPLE = DELETE_COMMAND + " INDEX";
 
     public static final String LIST_COMMAND = "list";
-    public static final String LIST_COMMAND_MESSAGE = "LIST COMMAND: " + LIST_COMMAND;
-
-    public static final String FILTER_COMMAND = "filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]";
-    public static final String FILTER_COMMAND_MESSAGE = "FILTER COMMAND: " + FILTER_COMMAND;
-
-    public static final String EDIT_COMMAND =
-            "edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]";
-    public static final String EDIT_COMMAND_MESSAGE = "EDIT COMMAND: " + EDIT_COMMAND;
-
-    public static final String DELETE_COMMAND = "delete INDEX";
-    public static final String DELETE_COMMAND_MESSAGE = "DELETE COMMAND: " + DELETE_COMMAND;
+    public static final String LIST_COMMAND_EXAMPLE = LIST_COMMAND;
 
     public static final String EXIT_COMMAND = "exit";
-    public static final String EXIT_COMMAND_MESSAGE = "EXIT COMMAND: " + EXIT_COMMAND;
+    public static final String EXIT_COMMAND_EXAMPLE = EXIT_COMMAND;
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
     @FXML
-    private Button copyButton;
+    private Button copyLinkButton;
 
     @FXML
     private Label helpMessage;
 
     @FXML
-    private Label addCommandMessage;
+    private Label addCommandExample;
 
     @FXML
-    private Label listCommandMessage;
+    private Label listCommandExample;
 
     @FXML
-    private Label filterCommandMessage;
+    private Label filterCommandExample;
 
     @FXML
-    private Label editCommandMessage;
+    private Label editCommandExample;
 
     @FXML
-    private Label deleteCommandMessage;
+    private Label deleteCommandExample;
 
     @FXML
-    private Label exitCommandMessage;
+    private Label exitCommandExample;
 
     /**
      * Creates a new HelpWindow.
@@ -72,13 +80,14 @@ public class HelpWindow extends UiPart<Stage> {
      */
     public HelpWindow(Stage root) {
         super(FXML, root);
+        copyLinkButton.setText(COPY_LINK_TEXT);
         helpMessage.setText(HELP_MESSAGE);
-        addCommandMessage.setText(ADD_COMMAND_MESSAGE);
-        listCommandMessage.setText(LIST_COMMAND_MESSAGE);
-        filterCommandMessage.setText(FILTER_COMMAND_MESSAGE);
-        editCommandMessage.setText(EDIT_COMMAND_MESSAGE);
-        deleteCommandMessage.setText(DELETE_COMMAND_MESSAGE);
-        exitCommandMessage.setText(EXIT_COMMAND_MESSAGE);
+        addCommandExample.setText(ADD_COMMAND_EXAMPLE);
+        listCommandExample.setText(LIST_COMMAND_EXAMPLE);
+        filterCommandExample.setText(FILTER_COMMAND_EXAMPLE);
+        editCommandExample.setText(EDIT_COMMAND_EXAMPLE);
+        deleteCommandExample.setText(DELETE_COMMAND_EXAMPLE);
+        exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
     }
 
     /**
@@ -151,7 +160,7 @@ public class HelpWindow extends UiPart<Stage> {
     private void copyAddCommand() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
-        url.putString(ADD_COMMAND);
+        url.putString(ADD_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 
@@ -162,7 +171,7 @@ public class HelpWindow extends UiPart<Stage> {
     private void copyListCommand() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
-        url.putString(LIST_COMMAND);
+        url.putString(LIST_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 
@@ -173,7 +182,7 @@ public class HelpWindow extends UiPart<Stage> {
     private void copyFilterCommand() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
-        url.putString(FILTER_COMMAND);
+        url.putString(FILTER_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 
@@ -184,7 +193,7 @@ public class HelpWindow extends UiPart<Stage> {
     private void copyEditCommand() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
-        url.putString(EDIT_COMMAND);
+        url.putString(EDIT_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 
@@ -195,7 +204,7 @@ public class HelpWindow extends UiPart<Stage> {
     private void copyDeleteCommand() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
-        url.putString(DELETE_COMMAND);
+        url.putString(DELETE_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 
@@ -206,7 +215,7 @@ public class HelpWindow extends UiPart<Stage> {
     private void copyExitCommand() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
-        url.putString(EXIT_COMMAND);
+        url.putString(EXIT_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 }
