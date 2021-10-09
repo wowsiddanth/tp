@@ -95,6 +95,29 @@ Examples:
 
 _**Coming soon:** Additional field ev/EVENT so the user can directly tag an event to a student._
 
+### Creating an event: `create`
+
+Adds an event to NUSTracker
+
+Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
+
+Examples:
+* create n/Orientation Camp d/01-08-2022 t/1000
+
+**Formatting**:
+
+- Event name cannot be empty.
+
+- Event date is in the format `DD-MM-YYYY`.
+  - DD represents the day (from 01-31 inclusive)
+  - MM represents the month (from 01-12 inclusive)
+  - YYYY represents the year
+
+- Event time is in 24 hour time `HHMM`.
+  - HH represents the hour (from 00-24 inclusive)
+  - MM represents the minute (from 00-59 inclusive)
+  - **Note:** if HH is `24`, MM has to be `00`. (`2400`)
+
 ### Listing all student
 
 Shows a list of all students in the address book.
@@ -134,19 +157,32 @@ Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 * `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd student to be `Betsy Crower` and edits email.
 
-### Deleting a student : `delete`
+### Deleting a student : `delete s/`
 
 Deletes the specified student from the address book.
 
-Command: `delete INDEX`
+Command: `delete s/INDEX`
 
 * Deletes the student at the specified `INDEX`.
 * The index refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd student in the address book.
-* `find John` followed by `delete 1` deletes the first student in the results of the `find` command.
+* `list` followed by `delete s/2` deletes the 2nd student in the address book.
+* `find John` followed by `delete s/1` deletes the first student in the results of the `find` command.
+
+### Deleting an event : `delete ev/`
+
+Deletes the specified event from the address book.
+
+Command: `delete ev/EVENT_NAME`
+
+* Deletes the event with the specified `EVENT_NAME`.
+
+Examples:
+* `delete ev/Orientation` deletes the event with the name `Orientation`.
+* `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
+
 ### Exiting the program : `exit`
 
 Exits the program.
@@ -177,11 +213,12 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]`
-**List** | `students`
-**Create event** | `create n/ training d/2021-09-14 t/1800`
+**Create event** | `create n/training d/09-10-2021 t/1800`
+**List students** | `students`
+**List events** | `events`
 **Add student to event** | `enroll id/STUDENT_ID ev/EVENT_NAME`
 **Delete student from event** | `remove id/STUDENT_ID ev/EVENT_NAME`
-**List events** | `events`
+**Delete student** | `delete s/INDEX`
 **Delete event** | `delete ev/EVENT_NAME`
 **Display commands** | `help`
 **Exit** | `exit`
