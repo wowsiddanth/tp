@@ -73,6 +73,12 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Label exitCommandExample;
 
+    @FXML
+    private Label createCommandExample;
+
+    @FXML
+    private Label enrollCommandExample;
+
     /**
      * Creates a new HelpWindow.
      *
@@ -88,6 +94,8 @@ public class HelpWindow extends UiPart<Stage> {
         editCommandExample.setText(EDIT_COMMAND_EXAMPLE);
         deleteCommandExample.setText(DELETE_COMMAND_EXAMPLE);
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
+        createCommandExample.setText(CREATE_COMMAND_EXAMPLE);
+        enrollCommandExample.setText(ENROLL_COMMAND_EXAMPLE);
     }
 
     /**
@@ -216,6 +224,28 @@ public class HelpWindow extends UiPart<Stage> {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
         url.putString(EXIT_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the CreateCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyCreateCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(CREATE_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the EnrollCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyEnrollCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(ENROLL_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 }

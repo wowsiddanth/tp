@@ -80,11 +80,11 @@
                      <Label fx:id="exitCommandExample" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      <Button mnemonicParsing="false" onAction="#copyExitCommand" text="Copy Command" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                      <Label text=" create" GridPane.rowIndex="7" />
-                     <Label fx:id="exitCommandMessage1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                     <Button mnemonicParsing="false" onAction="#copyExitCommand" text="Copy Command" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                     <Label fx:id="createCommandExample" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     <Button mnemonicParsing="false" onAction="#copyCreateCommand" text="Copy Command" GridPane.columnIndex="2" GridPane.rowIndex="7" />
                      <Label text=" enroll" GridPane.rowIndex="8" />
-                     <Label fx:id="exitCommandMessage2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                     <Button mnemonicParsing="false" onAction="#copyExitCommand" text="Copy Command" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                     <Label fx:id="enrollCommandExample" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     <Button mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                   </children>
                </GridPane>
             </children>
