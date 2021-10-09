@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import nustracker.commons.core.GuiSettings;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 
 /**
@@ -90,6 +91,15 @@ public interface Model {
      * {@code event} must not already exist in the address book.
      */
     void addEvent(Event event);
+
+    /**
+     * Gets a Student by his/her NUS NetId.
+     * Null is returned if {@code nusNetId} does not exist in the address book.
+     *
+     * @param nusNetId The student's NUS NetId
+     * @return The student that has the same NUS NetId as the given ID.
+     */
+    Student getStudent(NusNetId nusNetId);
 
     /**
      * Gets an event by its name.

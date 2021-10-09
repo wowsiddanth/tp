@@ -4,6 +4,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
+import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -56,8 +57,8 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_delete() throws Exception {
         DeleteStudentCommand studentCommand = (DeleteStudentCommand) parser.parseCommand(
-                DeleteCommand.COMMAND_WORD + " " + PREFIX_STUDENT + INDEX_FIRST_STUDENT.getOneBased());
-        assertEquals(new DeleteStudentCommand(INDEX_FIRST_STUDENT), studentCommand);
+                DeleteCommand.COMMAND_WORD + " " + PREFIX_STUDENT + NUSNETID_ONE);
+        assertEquals(new DeleteStudentCommand(NUSNETID_ONE), studentCommand);
 
         DeleteEventCommand eventCommand = (DeleteEventCommand) parser.parseCommand(
                 DeleteCommand.COMMAND_WORD + " " + PREFIX_EVENT + EVENTNAME_ONE);
