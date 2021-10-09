@@ -1,11 +1,10 @@
 package nustracker.ui;
 
-import java.awt.*;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuButton;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -22,12 +21,9 @@ import nustracker.logic.commands.CommandResult;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.exceptions.ParseException;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-
 /**
  * The Main Window. Provides the basic application layout containing
- * a menu bar and space where other JavaFX elements can be placed.
+ * the top bar and space where other JavaFX elements can be placed.
  */
 public class MainWindow extends UiPart<Stage> {
 
@@ -44,14 +40,17 @@ public class MainWindow extends UiPart<Stage> {
     private HelpWindow helpWindow;
 
     @FXML
-    private StackPane commandBoxPlaceholder;
+    private Button helpButton;
 
-//    @FXML
-//    private MenuItem helpMenuItem;
+    @FXML
+    private StackPane commandBoxPlaceholder;
 
     @FXML
     private StackPane studentListPanelPlaceholder;
 
+    /**
+     * This space is for the NUSTracker logo, and the help and exit button
+     */
     @FXML
     private HBox topContainer;
 
@@ -62,7 +61,7 @@ public class MainWindow extends UiPart<Stage> {
     private Text tracker;
 
     @FXML
-    private Button helpButton;
+    private Button exitButton;
 
     @FXML
     private Pane spacer;
@@ -86,7 +85,6 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
 
- //       setAccelerators();
 
         helpWindow = new HelpWindow();
 
@@ -95,10 +93,6 @@ public class MainWindow extends UiPart<Stage> {
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-
-//    private void setAccelerators() {
-//        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
-//    }
 
     /**
      * Sets the accelerator of a MenuItem.

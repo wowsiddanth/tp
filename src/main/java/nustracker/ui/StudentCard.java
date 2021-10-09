@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import nustracker.model.student.Student;
 
 /**
@@ -29,19 +31,17 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
-    private Label name;
+    private Text name;
     @FXML
-    private Label id;
+    private Text phone;
     @FXML
-    private Label phone;
+    private Text email;
     @FXML
-    private Label email;
+    private Text year;
     @FXML
-    private Label year;
+    private Text major;
     @FXML
-    private Label major;
-    @FXML
-    private Label nusNetId;
+    private Text nusNetId;
     @FXML
     private FlowPane tags;
 
@@ -51,13 +51,12 @@ public class StudentCard extends UiPart<Region> {
     public StudentCard(Student student, int displayedIndex) {
         super(FXML);
         this.student = student;
-        id.setText(displayedIndex + ". ");
         name.setText(student.getName().fullName);
-        phone.setText("Phone number: " + student.getPhone().value);
-        email.setText("Email: " + student.getEmail().value);
-        year.setText("Year: " + student.getYear().value);
-        major.setText("Major: " + student.getMajor().value);
-        nusNetId.setText("NUS NetID: " + student.getNusNetId().value);
+        phone.setText(student.getPhone().value);
+        email.setText(student.getEmail().value);
+        year.setText(student.getYear().value);
+        major.setText(student.getMajor().value);
+        nusNetId.setText(student.getNusNetId().value);
         student.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
@@ -77,7 +76,6 @@ public class StudentCard extends UiPart<Region> {
 
         // state check
         StudentCard card = (StudentCard) other;
-        return id.getText().equals(card.id.getText())
-                && student.equals(card.student);
+        return student.equals(card.student);
     }
 }

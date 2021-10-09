@@ -73,7 +73,7 @@
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;
+   U-fx-background-color: -fx-focus-color;
 }
 
 .split-pane:horizontal .split-pane-divider {
@@ -87,6 +87,7 @@
     -fx-background-color: derive(#1d1d1d, 20%);
 }
 
+/* The container for the student card cells */
 .list-view {
     -fx-background-insets: 0;
     -fx-padding: 0;
@@ -100,11 +101,11 @@
 }
 
 .list-cell:filled:even {
-    -fx-background-color: #3c3e3f;
+    -fx-background-color: #515151;
 }
 
 .list-cell:filled:odd {
-    -fx-background-color: #515658;
+    -fx-background-color: #515151;
 }
 
 .list-cell:filled:selected {
@@ -112,15 +113,16 @@
 }
 
 .list-cell:filled:selected #cardPane {
-    -fx-border-color: #3e7b91;
-    -fx-border-width: 1;
+    -fx-border-color: #FDB703;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
 }
 
-.list-cell .label {
-    -fx-text-fill: white;
+.student-label-name {
+    -fx-font-family: Roboto-Bold;
 }
 
-.cell_big_label {
+.cell_big_label { /*maybe need to remove later*/
     -fx-font-family: "Open Sans Semibold";
     -fx-font-size: 16px;
     -fx-text-fill: #010504;
@@ -139,6 +141,7 @@
 .pane-with-border {
      -fx-background-color: derive(#1d1d1d, 20%);
      -fx-border-color: derive(#1d1d1d, 10%);
+     -fx-border-radius: 10px;
      -fx-border-top-width: 1px;
 }
 
@@ -282,12 +285,14 @@
 }
 
 .scroll-bar {
-    -fx-background-color: derive(#1d1d1d, 20%);
+    -fx-background-color: derive(#C4C4C4, 20%);
+    -fx-border-radius: 4px;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: derive(#1d1d1d, 50%);
+    -fx-background-color: derive(#ffffff, 100%);
     -fx-background-insets: 3;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
 
 .scroll-bar .increment-button, .scroll-bar .decrement-button {

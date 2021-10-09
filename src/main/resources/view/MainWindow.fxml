@@ -13,7 +13,8 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="Address App" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.effect.Glow?>
+<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="Address App" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/address_book_32.png" />
   </icons>
@@ -23,6 +24,7 @@
         <URL value="@Fonts.css" />
         <URL value="@DarkTheme.css" />
         <URL value="@Extensions.css" />
+        <URL value="@Button.css" />
         <URL value="@NusLogo.css" />
       </stylesheets>
       <VBox>
@@ -44,16 +46,10 @@
             </font>
           </Text>
           <Pane prefHeight="54.0" prefWidth="59.0" HBox.hgrow="ALWAYS" />
-               <Button mnemonicParsing="false" style="-fx-background-radius: 50; -fx-background-color: 515151; -fx-border-radius: 8; -fx-border-width: 1;" text="Exit" translateX="-2.0" translateY="8.0" onAction="#handleHelp" />
+          <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExit" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Exit" translateX="-6.0" translateY="8.0" />
+          <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 0; -fx-border-width: 0; -fx-font-size: 20;" text="Help" translateX="-2.0" translateY="8.0" />
         </HBox>
-        <!--        <MenuBar fx:id="menuBar" nodeOrientation="RIGHT_TO_LEFT" VBox.vgrow="NEVER">-->
-<!--          <Menu mnemonicParsing="false" style="-fx-font-family: 'Roboto Thin'" text="Help">-->
-<!--            <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" style="-fx-font-family: 'Roboto Thin'" text="Help" />-->
-<!--          </Menu>-->
-<!--          <Menu mnemonicParsing="false" style="-fx-font-family: 'Roboto Thin'" text="File">-->
-<!--            <MenuItem mnemonicParsing="false" onAction="#handleExit" style="-fx-font-family: 'Roboto Thin'" text="Exit" />-->
-<!--          </Menu>-->
-<!--        </MenuBar>-->
+
         <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border" VBox.vgrow="NEVER">
           <padding>
             <Insets bottom="5" left="10" right="10" top="5" />
@@ -66,14 +62,14 @@
           </padding>
         </StackPane>
 
-        <VBox fx:id="personList" minWidth="340" prefWidth="340" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+        <VBox fx:id="studentList" minWidth="340" prefWidth="340" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
           <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
           </padding>
-          <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+          <StackPane fx:id="studentListPanelPlaceholder" VBox.vgrow="ALWAYS" />
         </VBox>
 
-        <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
+        <StackPane fx:id="statusBarPlaceholder" VBox.vgrow="NEVER" />
       </VBox>
     </Scene>
   </scene>
