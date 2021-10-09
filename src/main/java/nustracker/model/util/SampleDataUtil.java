@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import nustracker.model.AddressBook;
 import nustracker.model.ReadOnlyAddressBook;
+import nustracker.model.event.Participant;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
@@ -71,4 +72,12 @@ public class SampleDataUtil {
                 .collect(Collectors.toSet());
     }
 
+    /**
+     * Returns a nus net id set containing the list of strings given.
+     */
+    public static Set<Participant> getParticipantSet(String... strings) {
+        return Arrays.stream(strings)
+                .map(Participant::new)
+                .collect(Collectors.toSet());
+    }
 }

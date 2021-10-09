@@ -34,6 +34,7 @@
       <Label fx:id="year" style="-fx-text-fill: #E9AFFF;" styleClass="cell_small_label" text="\$year" />
       <Label fx:id="nusNetId" style="-fx-text-fill: #E9AFFF;" styleClass="cell_small_label" text="\$nusnetid" />
       <Label fx:id="email" style="-fx-text-fill: #E9AFFF;" styleClass="cell_small_label" text="\$email" />
+        <Label fx:id="enrolledEvents" styleClass="cell_small_label" text="\$enrolledEvents" />
     </VBox>
       <rowConstraints>
          <RowConstraints />

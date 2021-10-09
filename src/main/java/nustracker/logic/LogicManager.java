@@ -14,6 +14,7 @@ import nustracker.logic.parser.AddressBookParser;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.Model;
 import nustracker.model.ReadOnlyAddressBook;
+import nustracker.model.event.Event;
 import nustracker.model.student.Student;
 import nustracker.storage.Storage;
 
@@ -62,6 +63,11 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Student> getFilteredStudentList() {
         return model.getFilteredStudentList();
+    }
+
+    @Override
+    public ObservableList<Event> getFilteredEventList() {
+        return model.getFilteredEventList();
     }
 
     @Override
