@@ -21,6 +21,7 @@ public class Student {
     private final Year year;
     private final Major major;
     private final NusNetId nusNetId;
+    private final EnrolledEvents events;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -37,6 +38,7 @@ public class Student {
         this.major = major;
         this.nusNetId = nusNetId;
         this.tags.addAll(tags);
+        this.events = new EnrolledEvents("To edit later");
         Major.addStudent(this);
     }
 
@@ -62,6 +64,10 @@ public class Student {
 
     public NusNetId getNusNetId() {
         return nusNetId;
+    }
+
+    public EnrolledEvents getEvents() {
+        return events;
     }
 
     /**

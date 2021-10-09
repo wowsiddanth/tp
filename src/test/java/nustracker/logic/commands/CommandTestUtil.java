@@ -1,5 +1,8 @@
 package nustracker.logic.commands;
 
+import static nustracker.logic.parser.CliSyntax.PREFIX_DATE;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
+import static nustracker.logic.parser.CliSyntax.PREFIX_TIME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -37,8 +40,8 @@ public class CommandTestUtil {
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
 
-    public static final String NAME_DESC_AMY = " " + CliSyntax.PREFIX_NAME + VALID_NAME_AMY;
-    public static final String NAME_DESC_BOB = " " + CliSyntax.PREFIX_NAME + VALID_NAME_BOB;
+    public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
+    public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String PHONE_DESC_AMY = " " + CliSyntax.PREFIX_PHONE + VALID_PHONE_AMY;
     public static final String PHONE_DESC_BOB = " " + CliSyntax.PREFIX_PHONE + VALID_PHONE_BOB;
     public static final String EMAIL_DESC_AMY = " " + CliSyntax.PREFIX_EMAIL + VALID_EMAIL_AMY;
@@ -52,7 +55,7 @@ public class CommandTestUtil {
     public static final String TAG_DESC_FRIEND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_HUSBAND;
 
-    public static final String INVALID_NAME_DESC = " " + CliSyntax.PREFIX_NAME + "James&"; // '&' not allowed in names
+    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + CliSyntax.PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + CliSyntax.PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_YEAR_DESC = " " + CliSyntax.PREFIX_YEAR + "a"; //letters not allowed
@@ -66,6 +69,27 @@ public class CommandTestUtil {
 
     public static final EditCommand.EditStudentDescriptor DESC_AMY;
     public static final EditCommand.EditStudentDescriptor DESC_BOB;
+
+    // For Events
+    public static final String VALID_EVENTNAME_TEST = "Test event";
+    public static final String VALID_EVENTNAME_FINAL = "Final event";
+    public static final String VALID_EVENTDATE_TEST = "09-10-2021";
+    public static final String VALID_EVENTDATE_FINAL = "20-11-2021";
+    public static final String VALID_EVENTTIME_TEST = "1800";
+    public static final String VALID_EVENTTIME_FINAL = "2010";
+    public static final String VALID_PARTICIPANT_TEST = "Joel";
+    public static final String VALID_PARTICIPANT_FINAL = "Sung";
+
+    public static final String NAME_DESC_TEST = " " + PREFIX_NAME + VALID_EVENTNAME_TEST;
+    public static final String NAME_DESC_FINAL = " " + PREFIX_NAME + VALID_EVENTNAME_FINAL;
+    public static final String DATE_DESC_TEST = " " + PREFIX_DATE + VALID_EVENTDATE_TEST;
+    public static final String DATE_DESC_FINAL = " " + PREFIX_DATE + VALID_EVENTDATE_FINAL;
+    public static final String TIME_DESC_TEST = " " + PREFIX_TIME + VALID_EVENTTIME_TEST;
+    public static final String TIME_DESC_FINAL = " " + PREFIX_TIME + VALID_EVENTTIME_FINAL;
+
+    public static final String INVALID_EVENTNAME_DESC = " " + PREFIX_NAME + "Event&"; // '&' not allowed in names
+    public static final String INVALID_EVENTDATE_DESC = " " + PREFIX_DATE + "09102021"; // missing dashes
+    public static final String INVALID_EVENTTIME_DESC = " " + PREFIX_TIME + "12:30 pm"; // needs to be 24hr format
 
     static {
         DESC_AMY = new EditStudentDescriptorBuilder().withName(VALID_NAME_AMY)

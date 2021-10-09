@@ -15,5 +15,11 @@
     "major" : "CS",
     "nusNetId" : "e1234567",
     "tagged" : [ "friends"]
-  } ]
+  } ],
+  "events": [ {
+    "name": "Valid event",
+    "date": "09-10-2021",
+    "time": "1900",
+    "participants" : [ "e1234567" ]
+  }]
 }

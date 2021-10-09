@@ -38,7 +38,8 @@ class JsonAdaptedStudent {
      * Constructs a {@code JsonAdaptedStudent} with the given student details.
      */
     @JsonCreator
-    public JsonAdaptedStudent(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
+    public JsonAdaptedStudent(@JsonProperty("name") String name,
+                              @JsonProperty("phone") String phone,
                               @JsonProperty("email") String email,
                               @JsonProperty("year") String year,
                               @JsonProperty("major") String major,
