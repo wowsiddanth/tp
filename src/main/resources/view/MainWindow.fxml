@@ -14,6 +14,7 @@
 <?import javafx.stage.Stage?>
 
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.chart.StackedAreaChart?>
 <fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="Address App" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/address_book_32.png" />
@@ -46,8 +47,10 @@
             </font>
           </Text>
           <Pane prefHeight="54.0" prefWidth="59.0" HBox.hgrow="ALWAYS" />
+          <Button fx:id="studentsButton" mnemonicParsing="false" onAction="#handleStudents" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Students" translateX="-18.0" translateY="8.0" />
+          <Button fx:id="eventsButton" mnemonicParsing="false" onAction="#handleEvents" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Events" translateX="-14.0" translateY="8.0" />
+          <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Help" translateX="-10.0" translateY="8.0" />
           <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExit" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Exit" translateX="-6.0" translateY="8.0" />
-          <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 0; -fx-border-width: 0; -fx-font-size: 20;" text="Help" translateX="-2.0" translateY="8.0" />
         </HBox>
 
         <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border" VBox.vgrow="NEVER">
@@ -66,7 +69,7 @@
           <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
           </padding>
-          <StackPane fx:id="studentListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+          <StackPane fx:id="listPanelPlaceholder" VBox.vgrow="ALWAYS" />
         </VBox>
 
         <StackPane fx:id="statusBarPlaceholder" VBox.vgrow="NEVER" />

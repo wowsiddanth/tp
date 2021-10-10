@@ -42,8 +42,6 @@ public class StudentCard extends UiPart<Region> {
     private Text major;
     @FXML
     private Text nusNetId;
-    @FXML
-    private FlowPane tags;
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
@@ -57,9 +55,6 @@ public class StudentCard extends UiPart<Region> {
         year.setText(student.getYear().value);
         major.setText(student.getMajor().value);
         nusNetId.setText(student.getNusNetId().value);
-        student.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
 
     @Override

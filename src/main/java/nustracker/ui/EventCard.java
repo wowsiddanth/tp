@@ -7,10 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import nustracker.model.event.Event;
 
 /**
- * An UI component that displays information of an {@code Event}.
+ * A UI component that displays information of an {@code Event}.
  */
 public class EventCard extends UiPart<Region> {
 
@@ -21,13 +23,12 @@ public class EventCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
-    private Label name;
+    private Text name;
+
     @FXML
-    private Label id;
+    private Text date;
     @FXML
-    private Label date;
-    @FXML
-    private Label time;
+    private Text time;
     @FXML
     private FlowPane participants;
 
@@ -37,14 +38,16 @@ public class EventCard extends UiPart<Region> {
     public EventCard(Event event, int displayedIndex) {
         super(FXML);
         this.event = event;
-        id.setText(displayedIndex + ". ");
         name.setText(event.getName().getEventName());
         date.setText(event.getDate().toString());
         time.setText(event.getTime().toString());
+
         event.getParticipants().stream()
                 .sorted(Comparator.comparing(participant -> participant.nusNetId))
                 .forEach(participant -> participants.getChildren().add(
-                        new Label(participant.nusNetId + ", ")));
+                        new Label(participant.nusNetId)));
+        participants.setVgap(4.0);
+        participants.setHgap(4.0);
     }
 
     @Override
@@ -61,7 +64,6 @@ public class EventCard extends UiPart<Region> {
 
         // state check
         EventCard card = (EventCard) other;
-        return id.getText().equals(card.id.getText())
-                && event.equals(card.event);
+        return event.equals(card.event);
     }
 }

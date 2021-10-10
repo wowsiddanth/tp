@@ -46,7 +46,7 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane commandBoxPlaceholder;
 
     @FXML
-    private StackPane studentListPanelPlaceholder;
+    private StackPane listPanelPlaceholder;
 
     /**
      * This space is for the NUSTracker logo, and the help and exit button
@@ -64,7 +64,10 @@ public class MainWindow extends UiPart<Stage> {
     private Button exitButton;
 
     @FXML
-    private StackPane eventListPanelPlaceholder;
+    private Button eventsButton;
+
+    @FXML
+    private Button studentsButton;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -78,6 +81,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
+
+        //Minimum possible size the program can take
+        primaryStage.setMinHeight(747);
+        primaryStage.setMinWidth(747);
 
         // Set dependencies
         this.primaryStage = primaryStage;
@@ -134,13 +141,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
-        studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
-        studentListPanelPlaceholder.managedProperty().bind(studentListPanelPlaceholder.visibleProperty());
+        listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
+        listPanelPlaceholder.managedProperty().bind(listPanelPlaceholder.visibleProperty());
 
-//        eventListPanel = new EventListPanel(logic.getFilteredEventList());
-//        eventListPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
-//        eventListPanelPlaceholder.managedProperty().bind(eventListPanelPlaceholder.visibleProperty());
-//        eventListPanelPlaceholder.setVisible(false);
+        eventListPanel = new EventListPanel(logic.getFilteredEventList());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -185,8 +189,8 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleStudents() {
-        studentListPanelPlaceholder.setVisible(true);
-        eventListPanelPlaceholder.setVisible(false);
+        listPanelPlaceholder.getChildren().clear();
+        listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
     }
 
     /**
@@ -194,8 +198,8 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleEvents() {
-        studentListPanelPlaceholder.setVisible(false);
-        eventListPanelPlaceholder.setVisible(true);
+        listPanelPlaceholder.getChildren().clear();
+        listPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
     }
 
     /**

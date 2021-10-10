@@ -26,7 +26,6 @@
                </font></Text>
 
       </HBox>
-      <FlowPane fx:id="tags" />
       <HBox>
         <Text fill="#e9afff" text="Phone number: ">
                <font>
