@@ -9,7 +9,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import nustracker.commons.core.GuiSettings;
 import nustracker.commons.core.LogsCenter;
@@ -84,7 +86,7 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
 
-        setAccelerators();
+       // setAccelerators();
 
         helpWindow = new HelpWindow();
     }
@@ -135,10 +137,10 @@ public class MainWindow extends UiPart<Stage> {
         studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
         studentListPanelPlaceholder.managedProperty().bind(studentListPanelPlaceholder.visibleProperty());
 
-        eventListPanel = new EventListPanel(logic.getFilteredEventList());
-        eventListPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
-        eventListPanelPlaceholder.managedProperty().bind(eventListPanelPlaceholder.visibleProperty());
-        eventListPanelPlaceholder.setVisible(false);
+//        eventListPanel = new EventListPanel(logic.getFilteredEventList());
+//        eventListPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
+//        eventListPanelPlaceholder.managedProperty().bind(eventListPanelPlaceholder.visibleProperty());
+//        eventListPanelPlaceholder.setVisible(false);
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
