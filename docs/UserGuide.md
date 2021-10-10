@@ -147,6 +147,19 @@ Command: `delete INDEX`
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in the address book.
 * `find John` followed by `delete 1` deletes the first student in the results of the `find` command.
+
+### Enroll a student : `enroll`
+
+Enrolls the specified student into the specified event.
+
+Command: `enroll id/STUDENT_ID ev/EVENT`
+
+* Enrolls the student specified by NUS NetID into the event specified by its event name.
+
+Examples:
+* `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with NUS NetId e0544111 into the event "CS1101S Mock PE".
+* `enroll id/0322322 ev/Orientation Camp` enrolls the specified student with NUS NetId e0322322 into the event "Orientation Camp".
+
 ### Exiting the program : `exit`
 
 Exits the program.
