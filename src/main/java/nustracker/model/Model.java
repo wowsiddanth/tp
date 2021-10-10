@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import nustracker.commons.core.GuiSettings;
+import nustracker.model.event.Event;
+import nustracker.model.event.EventName;
 import nustracker.model.student.Student;
 
 /**
@@ -13,6 +15,9 @@ import nustracker.model.student.Student;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Student> PREDICATE_SHOW_ALL_STUDENTS = unused -> true;
+
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<Event> PREDICATE_SHOW_ALL_EVENTS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -58,16 +63,42 @@ public interface Model {
     boolean hasStudent(Student student);
 
     /**
+     * Returns true if an event with the same identity as {@code event} exists in the address book.
+     */
+    boolean hasEvent(Event event);
+
+    /**
      * Deletes the given student.
      * The student must exist in the address book.
      */
     void deleteStudent(Student target);
 
     /**
+     * Deletes the given event.
+     * The event must exist in the address book.
+     */
+    void deleteEvent(Event event);
+
+    /**
      * Adds the given student.
      * {@code student} must not already exist in the address book.
      */
     void addStudent(Student student);
+
+    /**
+     * Adds the given event.
+     * {@code event} must not already exist in the address book.
+     */
+    void addEvent(Event event);
+
+    /**
+     * Gets an event by its name.
+     * Null is returned if {@code name} does not exist in the address book.
+     *
+     * @param name The name of the event
+     * @return The event that has the same EventName as the given name.
+     */
+    Event getEvent(EventName name);
 
     /**
      * Replaces the given student {@code target} with {@code editedStudent}.
@@ -80,9 +111,18 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered student list */
     ObservableList<Student> getFilteredStudentList();
 
+    /** Returns an unmodifiable view of the filtered event list */
+    ObservableList<Event> getFilteredEventList();
+
     /**
      * Updates the filter of the filtered student list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredStudentList(Predicate<Student> predicate);
+
+    /**
+     * Updates the filter of the filtered event list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredEventList(Predicate<Event> predicate);
 }

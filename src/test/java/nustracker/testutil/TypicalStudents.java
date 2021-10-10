@@ -14,12 +14,14 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
+import static nustracker.testutil.TypicalAddressBook.getTypicalEvents;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import nustracker.model.AddressBook;
+import nustracker.model.event.Event;
 import nustracker.model.student.Student;
 
 /**
@@ -111,6 +113,9 @@ public class TypicalStudents {
         AddressBook ab = new AddressBook();
         for (Student student : getTypicalStudents()) {
             ab.addStudent(student);
+        }
+        for (Event event : getTypicalEvents()) {
+            ab.addEvent(event);
         }
         return ab;
     }
