@@ -11,6 +11,8 @@ import javafx.collections.transformation.FilteredList;
 import nustracker.commons.core.GuiSettings;
 import nustracker.commons.core.LogsCenter;
 import nustracker.commons.util.CollectionUtil;
+import nustracker.model.event.Event;
+import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
 import nustracker.model.student.Student;
 
@@ -23,6 +25,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Student> filteredStudents;
+    private final FilteredList<Event> filteredEvents;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -36,6 +39,7 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredStudents = new FilteredList<>(this.addressBook.getStudentList());
+        filteredEvents = new FilteredList<>(this.addressBook.getEventList());
     }
 
     public ModelManager() {
@@ -96,9 +100,20 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasEvent(Event event) {
+        requireNonNull(event);
+        return addressBook.hasEvent(event);
+    }
+
+    @Override
     public void deleteStudent(Student target) {
         addressBook.removeStudent(target);
         Major.removeStudent(target);
+    }
+
+    @Override
+    public void deleteEvent(Event event) {
+        addressBook.removeEvent(event);
     }
 
     @Override
@@ -108,9 +123,19 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void addEvent(Event event) {
+        addressBook.addEvent(event);
+        updateFilteredEventList(PREDICATE_SHOW_ALL_EVENTS);
+    }
+
+    @Override
+    public Event getEvent(EventName name) {
+        return addressBook.getEvent(name);
+    }
+
+    @Override
     public void setStudent(Student target, Student editedStudent) {
         CollectionUtil.requireAllNonNull(target, editedStudent);
-
         addressBook.setStudent(target, editedStudent);
     }
 
@@ -125,10 +150,25 @@ public class ModelManager implements Model {
         return filteredStudents;
     }
 
+    /**
+     * Returns an unmodifiable view of the list of {@code Event} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Event> getFilteredEventList() {
+        return filteredEvents;
+    }
+
     @Override
     public void updateFilteredStudentList(Predicate<Student> predicate) {
         requireNonNull(predicate);
         filteredStudents.setPredicate(predicate);
+    }
+
+    @Override
+    public void updateFilteredEventList(Predicate<Event> predicate) {
+        requireNonNull(predicate);
+        filteredEvents.setPredicate(predicate);
     }
 
     @Override

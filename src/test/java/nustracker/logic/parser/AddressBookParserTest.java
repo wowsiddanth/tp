@@ -1,5 +1,9 @@
 package nustracker.logic.parser;
 
+import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
+import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
+import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -12,21 +16,25 @@ import org.junit.jupiter.api.Test;
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.ClearCommand;
+import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
+import nustracker.logic.commands.DeleteEventCommand;
+import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.FindCommand;
 import nustracker.logic.commands.HelpCommand;
 import nustracker.logic.commands.ListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
+import nustracker.model.event.Event;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
+import nustracker.testutil.EventBuilder;
+import nustracker.testutil.EventUtil;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.StudentUtil;
-import nustracker.testutil.TypicalIndexes;
-
 
 public class AddressBookParserTest {
 
@@ -47,9 +55,13 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_delete() throws Exception {
-        DeleteCommand command = (DeleteCommand) parser.parseCommand(
-                DeleteCommand.COMMAND_WORD + " " + TypicalIndexes.INDEX_FIRST_STUDENT.getOneBased());
-        assertEquals(new DeleteCommand(TypicalIndexes.INDEX_FIRST_STUDENT), command);
+        DeleteStudentCommand studentCommand = (DeleteStudentCommand) parser.parseCommand(
+                DeleteCommand.COMMAND_WORD + " " + PREFIX_STUDENT + INDEX_FIRST_STUDENT.getOneBased());
+        assertEquals(new DeleteStudentCommand(INDEX_FIRST_STUDENT), studentCommand);
+
+        DeleteEventCommand eventCommand = (DeleteEventCommand) parser.parseCommand(
+                DeleteCommand.COMMAND_WORD + " " + PREFIX_EVENT + EVENTNAME_ONE);
+        assertEquals(new DeleteEventCommand(EVENTNAME_ONE), eventCommand);
     }
 
     @Test
@@ -57,9 +69,9 @@ public class AddressBookParserTest {
         Student student = new StudentBuilder().build();
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(student).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + TypicalIndexes.INDEX_FIRST_STUDENT.getOneBased() + " "
+                + INDEX_FIRST_STUDENT.getOneBased() + " "
                 + StudentUtil.getEditStudentDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT, descriptor), command);
+        assertEquals(new EditCommand(INDEX_FIRST_STUDENT, descriptor), command);
     }
 
     @Test
@@ -86,6 +98,13 @@ public class AddressBookParserTest {
     public void parseCommand_list() throws Exception {
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + " 3") instanceof ListCommand);
+    }
+
+    @Test
+    public void parseCommand_create() throws Exception {
+        Event event = new EventBuilder().build();
+        CreateCommand command = (CreateCommand) parser.parseCommand(EventUtil.getCreateCommand(event));
+        assertEquals(new CreateCommand(event), command);
     }
 
     @Test

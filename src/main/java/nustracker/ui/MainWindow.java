@@ -9,10 +9,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import nustracker.commons.core.GuiSettings;
 import nustracker.commons.core.LogsCenter;
@@ -36,6 +33,7 @@ public class MainWindow extends UiPart<Stage> {
 
     // Independent Ui parts residing in this Ui container
     private StudentListPanel studentListPanel;
+    private EventListPanel eventListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -58,19 +56,20 @@ public class MainWindow extends UiPart<Stage> {
     private Text nus;
 
     @FXML
-    private Text tracker;
+    private MenuItem helpMenuItem;
 
     @FXML
     private Button exitButton;
 
     @FXML
-    private Pane spacer;
+    private StackPane eventListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
 
     @FXML
     private StackPane statusBarPlaceholder;
+
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -85,13 +84,17 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
 
+        setAccelerators();
 
         helpWindow = new HelpWindow();
-
     }
 
     public Stage getPrimaryStage() {
         return primaryStage;
+    }
+
+    private void setAccelerators() {
+        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
     }
 
     /**
@@ -130,6 +133,12 @@ public class MainWindow extends UiPart<Stage> {
     void fillInnerParts() {
         studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
         studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
+        studentListPanelPlaceholder.managedProperty().bind(studentListPanelPlaceholder.visibleProperty());
+
+        eventListPanel = new EventListPanel(logic.getFilteredEventList());
+        eventListPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
+        eventListPanelPlaceholder.managedProperty().bind(eventListPanelPlaceholder.visibleProperty());
+        eventListPanelPlaceholder.setVisible(false);
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -167,6 +176,24 @@ public class MainWindow extends UiPart<Stage> {
 
     void show() {
         primaryStage.show();
+    }
+
+    /**
+     * Toggles the students list.
+     */
+    @FXML
+    public void handleStudents() {
+        studentListPanelPlaceholder.setVisible(true);
+        eventListPanelPlaceholder.setVisible(false);
+    }
+
+    /**
+     * Toggles the events list.
+     */
+    @FXML
+    public void handleEvents() {
+        studentListPanelPlaceholder.setVisible(false);
+        eventListPanelPlaceholder.setVisible(true);
     }
 
     /**

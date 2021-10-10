@@ -9,7 +9,11 @@ import java.util.Set;
 import nustracker.commons.core.index.Index;
 import nustracker.commons.util.StringUtil;
 import nustracker.logic.parser.exceptions.ParseException;
+import nustracker.model.event.EventDate;
+import nustracker.model.event.EventName;
+import nustracker.model.event.EventTime;
 import nustracker.model.student.Email;
+import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
 import nustracker.model.student.NusNetId;
@@ -152,5 +156,56 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String address} into an {@code Address}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static EnrolledEvents parseEvent(String event) {
+        requireNonNull(event);
+        String trimmedEvent = event.trim();
+        return new EnrolledEvents(trimmedEvent);
+    }
+
+    /**
+     * Parses a {@code String name} into a {@code EventName}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static EventName parseEventName(String name) throws ParseException {
+        requireNonNull(name);
+        String trimmedName = name.trim();
+        if (!EventName.isValidName(trimmedName)) {
+            throw new ParseException(EventName.MESSAGE_CONSTRAINTS);
+        }
+        return new EventName(trimmedName);
+    }
+
+    /**
+     * Parses a {@code String date} into a {@code EventDate}.
+     *
+     * @throws ParseException if the given {@code date} is invalid.
+     */
+    public static EventDate parseEventDate(String date) throws ParseException {
+        requireNonNull(date);
+        if (!EventDate.isValidDate(date)) {
+            throw new ParseException(EventDate.MESSAGE_CONSTRAINTS);
+        }
+        return new EventDate(date);
+    }
+
+    /**
+     * Parses a {@code String time} into a {@code EventTime}.
+     *
+     * @throws ParseException if the given {@code time} is invalid.
+     */
+    public static EventTime parseEventTime(String time) throws ParseException {
+        requireNonNull(time);
+        if (!EventTime.isValidTime(time)) {
+            throw new ParseException(EventTime.MESSAGE_CONSTRAINTS);
+        }
+        return new EventTime(time);
     }
 }
