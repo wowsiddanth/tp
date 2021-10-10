@@ -1,19 +1,14 @@
 package nustracker.ui;
 
-import java.awt.*;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import nustracker.commons.core.GuiSettings;
 import nustracker.commons.core.LogsCenter;
@@ -21,9 +16,6 @@ import nustracker.logic.Logic;
 import nustracker.logic.commands.CommandResult;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.exceptions.ParseException;
-
-import javax.swing.*;
-import javax.swing.border.Border;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -47,26 +39,13 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane commandBoxPlaceholder;
 
-//    @FXML
-//    private MenuItem helpMenuItem;
+    @FXML
+    private MenuItem helpMenuItem;
 
     @FXML
     private StackPane studentListPanelPlaceholder;
 
     @FXML
-    private HBox topContainer;
-
-    @FXML
-    private Text nus;
-
-    @FXML
-    private Text tracker;
-
-    @FXML
-    private Button helpButton;
-
-    @FXML
-    private Pane spacer;
     private StackPane eventListPanelPlaceholder;
 
     @FXML
@@ -89,19 +68,18 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
 
- //       setAccelerators();
+        setAccelerators();
 
         helpWindow = new HelpWindow();
-
     }
 
     public Stage getPrimaryStage() {
         return primaryStage;
     }
 
-//    private void setAccelerators() {
-//        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
-//    }
+    private void setAccelerators() {
+        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
+    }
 
     /**
      * Sets the accelerator of a MenuItem.
