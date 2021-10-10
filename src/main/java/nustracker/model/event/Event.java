@@ -66,6 +66,8 @@ public class Event {
         return Collections.unmodifiableSet(participants);
     }
 
+
+
     /**
      * Returns true if both events have the same name.
      * This defines a weaker notion of equality between two events.

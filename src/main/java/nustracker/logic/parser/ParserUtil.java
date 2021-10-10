@@ -159,16 +159,6 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
-     */
-    public static EnrolledEvents parseEvent(String event) {
-        requireNonNull(event);
-        String trimmedEvent = event.trim();
-        return new EnrolledEvents(trimmedEvent);
-    }
-
-    /**
      * Parses a {@code String name} into a {@code EventName}.
      * Leading and trailing whitespaces will be trimmed.
      *

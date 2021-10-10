@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.UniqueEventList;
+import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 import nustracker.model.student.UniqueStudentList;
 
@@ -103,6 +104,16 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void addEvent(Event e) {
         events.add(e);
+    }
+
+    /**
+     * Gets a student from the address book by his/her NUS NetId.
+     *
+     * @param nusNetId the relevant NUS NetId.
+     * @return the {@code Student} with this nusNetId, null if the student does not exist.
+     */
+    public Student getStudent(NusNetId nusNetId) {
+        return students.get(nusNetId);
     }
 
     /**

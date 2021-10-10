@@ -158,7 +158,7 @@ Command: `enroll id/STUDENT_ID ev/EVENT`
 
 Examples:
 * `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with NUS NetId e0544111 into the event "CS1101S Mock PE".
-* `enroll id/0322322 ev/Orientation Camp` enrolls the specified student with NUS NetId e0322322 into the event "Orientation Camp".
+* `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with NUS NetId e0322322 into the event "Orientation Camp".
 
 ### Exiting the program : `exit`
 
