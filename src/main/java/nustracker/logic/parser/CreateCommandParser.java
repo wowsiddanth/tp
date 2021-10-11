@@ -5,8 +5,6 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_DATE;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TIME;
 
-import java.util.stream.Stream;
-
 import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;

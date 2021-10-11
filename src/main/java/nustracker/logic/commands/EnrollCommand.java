@@ -118,7 +118,9 @@ public class EnrollCommand extends Command {
 
         model.setEvent(currEvent, updatedEvent);
 
-        return new CommandResult(String.format(MESSAGE_ADD_EVENT_SUCCESS, currStudent, currEvent));
+        return new CommandResult(String.format(MESSAGE_ADD_EVENT_SUCCESS,
+                editedStudent.getNusNetId().getNusNetIdString(),
+                updatedEvent.getName().getEventName()));
     }
 
 

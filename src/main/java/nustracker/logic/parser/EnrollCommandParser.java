@@ -23,8 +23,8 @@ public class EnrollCommandParser implements Parser<EnrollCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EnrollCommand.MESSAGE_USAGE));
         }
 
-        NusNetId nusNetId = new NusNetId(argMultimap.getValue(PREFIX_NUSNETID).get());
-        EventName eventName = new EventName(argMultimap.getValue(PREFIX_EVENT).get());
+        NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_NUSNETID).get());
+        EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
 
         return new EnrollCommand(nusNetId, eventName);
     }

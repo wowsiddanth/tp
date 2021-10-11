@@ -87,7 +87,8 @@ public class EnrolledEvents {
      * @return the String with event names delimited using commas.
      */
     public String getEventNamesString() {
-        return eventsEnrolledIn.values().stream().map(Object::toString).collect(Collectors.joining(","));
+        return eventsEnrolledIn.values().stream().map(Event::getName).map(EventName::getEventName)
+                .collect(Collectors.joining(", "));
     }
 
 

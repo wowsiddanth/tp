@@ -9,7 +9,6 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import java.util.Set;
-import java.util.stream.Stream;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;

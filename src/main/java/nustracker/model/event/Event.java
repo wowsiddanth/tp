@@ -92,9 +92,12 @@ public class Event {
      * @return true if the student is currently enrolled, false otherwise.
      */
     public boolean isInEvent(NusNetId nusNetId) {
-        Participant pseudoParticipant = new Participant(nusNetId.getNusNetIdString());
-
-        return participants.contains(pseudoParticipant);
+        for (Participant currParticipant : participants) {
+            if (currParticipant.getNusNetId().equals(nusNetId)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
