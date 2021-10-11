@@ -29,7 +29,9 @@ public class EditCommandTest {
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         Student editedStudent = new StudentBuilder().build();
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent).build();
-        EditCommand editCommand = new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT, descriptor);
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased()).getNusNetId(),
+                descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS, editedStudent);
 
@@ -52,7 +54,9 @@ public class EditCommandTest {
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withName(
                         CommandTestUtil.VALID_NAME_BOB)
                 .withPhone(CommandTestUtil.VALID_PHONE_BOB).withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
-        EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(indexLastStudent.getZeroBased()).getNusNetId(),
+                descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS, editedStudent);
 
@@ -64,7 +68,8 @@ public class EditCommandTest {
 
     @Test
     public void execute_noFieldSpecifiedUnfilteredList_success() {
-        EditCommand editCommand = new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT,
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased()).getNusNetId(),
                 new EditCommand.EditStudentDescriptor());
         Student editedStudent = model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased());
 
@@ -83,7 +88,8 @@ public class EditCommandTest {
                 TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased());
         Student editedStudent = new StudentBuilder(studentInFilteredList).withName(
                 CommandTestUtil.VALID_NAME_BOB).build();
-        EditCommand editCommand = new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT,
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased()).getNusNetId(),
                 new EditStudentDescriptorBuilder().withName(CommandTestUtil.VALID_NAME_BOB).build());
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS, editedStudent);
@@ -98,7 +104,9 @@ public class EditCommandTest {
     public void execute_duplicateStudentUnfilteredList_failure() {
         Student firstStudent = model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased());
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(firstStudent).build();
-        EditCommand editCommand = new EditCommand(TypicalIndexes.INDEX_SECOND_STUDENT, descriptor);
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_SECOND_STUDENT.getZeroBased()).getNusNetId(),
+                descriptor);
 
         CommandTestUtil.assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
     }
@@ -110,7 +118,8 @@ public class EditCommandTest {
         // edit student in filtered list into a duplicate in address book
         Student studentInList = model.getAddressBook().getStudentList().get(
                 TypicalIndexes.INDEX_SECOND_STUDENT.getZeroBased());
-        EditCommand editCommand = new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT,
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased()).getNusNetId(),
                 new EditStudentDescriptorBuilder(studentInList).build());
 
         CommandTestUtil.assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
@@ -121,7 +130,9 @@ public class EditCommandTest {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredStudentList().size() + 1);
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withName(
                 CommandTestUtil.VALID_NAME_BOB).build();
-        EditCommand editCommand = new EditCommand(outOfBoundIndex, descriptor);
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(outOfBoundIndex.getZeroBased()).getNusNetId(),
+                descriptor);
 
         CommandTestUtil.assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     }
@@ -137,7 +148,8 @@ public class EditCommandTest {
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getStudentList().size());
 
-        EditCommand editCommand = new EditCommand(outOfBoundIndex,
+        EditCommand editCommand = new EditCommand(
+                model.getFilteredStudentList().get(outOfBoundIndex.getZeroBased()).getNusNetId(),
                 new EditStudentDescriptorBuilder().withName(CommandTestUtil.VALID_NAME_BOB).build());
 
         CommandTestUtil.assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
@@ -145,13 +157,16 @@ public class EditCommandTest {
 
     @Test
     public void equals() {
-        final EditCommand standardCommand = new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT,
+        final EditCommand standardCommand = new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased()).getNusNetId(),
                 CommandTestUtil.DESC_AMY);
 
         // same values -> returns true
         EditCommand.EditStudentDescriptor copyDescriptor = new EditCommand.EditStudentDescriptor(
                 CommandTestUtil.DESC_AMY);
-        EditCommand commandWithSameValues = new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT, copyDescriptor);
+        EditCommand commandWithSameValues = new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased()).getNusNetId(),
+                copyDescriptor);
         assertTrue(standardCommand.equals(commandWithSameValues));
 
         // same object -> returns true
@@ -164,11 +179,13 @@ public class EditCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different index -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(TypicalIndexes.INDEX_SECOND_STUDENT,
+        assertFalse(standardCommand.equals(new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_SECOND_STUDENT.getZeroBased()).getNusNetId(),
                 CommandTestUtil.DESC_AMY)));
 
         // different descriptor -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(TypicalIndexes.INDEX_FIRST_STUDENT,
+        assertFalse(standardCommand.equals(new EditCommand(
+                model.getFilteredStudentList().get(TypicalIndexes.INDEX_FIRST_STUDENT.getZeroBased()).getNusNetId(),
                 CommandTestUtil.DESC_BOB)));
     }
 

@@ -1,6 +1,7 @@
 package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
@@ -38,15 +39,16 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the student identified "
-            + "by the index number used in the displayed student list. "
+            + "by the student's Nus NetId. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: "
+            + PREFIX_NUSNETID + "NUS_NETID_TO_EDIT "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_YEAR + "YEAR] "
             + "[" + PREFIX_MAJOR + "MAJOR] "
-            + "[" + PREFIX_NUSNETID + "MAJOR] "
+            + "[" + PREFIX_NUSNETID + "NEW_NUS_NETID] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -56,31 +58,32 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book.";
 
-    private final Index index;
+    private final NusNetId nusNetIdToEdit;
     private final EditStudentDescriptor editStudentDescriptor;
 
     /**
-     * @param index of the student in the filtered student list to edit
-     * @param editStudentDescriptor details to edit the student with
+     * @param nusNetId the Nus NetId of the student to be edited.
+     * @param editStudentDescriptor details to edit the student with.
      */
-    public EditCommand(Index index, EditStudentDescriptor editStudentDescriptor) {
-        requireNonNull(index);
+    public EditCommand(NusNetId nusNetId, EditStudentDescriptor editStudentDescriptor) {
+        requireNonNull(nusNetId);
         requireNonNull(editStudentDescriptor);
 
-        this.index = index;
+        this.nusNetIdToEdit = nusNetId;
         this.editStudentDescriptor = new EditStudentDescriptor(editStudentDescriptor);
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Student> lastShownList = model.getFilteredStudentList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+        Student studentToEdit = model.getStudent(nusNetIdToEdit);
+
+        if (studentToEdit == null) {
+            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID,
+                    nusNetIdToEdit.getNusNetIdString()));
         }
 
-        Student studentToEdit = lastShownList.get(index.getZeroBased());
         Student editedStudent = createEditedStudent(studentToEdit, editStudentDescriptor);
 
         if (!studentToEdit.hasDuplicateCredentials(editedStudent) && model.hasStudent(editedStudent)) {
@@ -128,7 +131,7 @@ public class EditCommand extends Command {
 
         // state check
         EditCommand e = (EditCommand) other;
-        return index.equals(e.index)
+        return nusNetIdToEdit.equals(e.nusNetIdToEdit)
                 && editStudentDescriptor.equals(e.editStudentDescriptor);
     }
 

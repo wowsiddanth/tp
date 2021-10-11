@@ -15,8 +15,7 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
 import static nustracker.testutil.TypicalAddressBook.getTypicalEvents;
-import static nustracker.testutil.TypicalEvents.ORIENTATION;
-import static nustracker.testutil.TypicalEvents.SPORTS_CAMP;
+import static nustracker.testutil.TypicalEvents.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -88,6 +87,23 @@ public class TypicalStudents {
             .withNusNetId("e9131111")
             .build();
 
+    // Manually added - Students already enrolled in Math Olympiad - To Test Remove Command
+    public static final Student GOD = new StudentBuilder().withName("God Water").withPhone("96227231")
+            .withEmail("god@example.com")
+            .withYear("6")
+            .withMajor("CS")
+            .withNusNetId("e0123456")
+            .withEvent(MATH_OLYMPIAD)
+            .build();
+
+    public static final Student HANS = new StudentBuilder().withName("Hans Thrower").withPhone("96322322")
+            .withEmail("hans@example.com")
+            .withYear("1")
+            .withMajor("CS")
+            .withNusNetId("e0322322")
+            .withEvent(MATH_OLYMPIAD)
+            .build();
+
     // Manually added - Student's details found in {@code CommandTestUtil}
     public static final Student AMY = new StudentBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY)
@@ -129,11 +145,11 @@ public class TypicalStudents {
     }
 
     public static List<Student> getTypicalStudents() {
-        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, GOD, HANS));
     }
 
     public static List<Event> getTypicalEvents() {
-        return new ArrayList<>(Arrays.asList(ORIENTATION, SPORTS_CAMP));
+        return new ArrayList<>(Arrays.asList(ORIENTATION, SPORTS_CAMP, MATH_OLYMPIAD));
     }
 
 }

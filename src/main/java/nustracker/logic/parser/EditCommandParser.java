@@ -1,23 +1,18 @@
 package nustracker.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
-import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
-import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
-import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static nustracker.logic.parser.CliSyntax.*;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import nustracker.commons.core.Messages;
-import nustracker.commons.core.index.Index;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.parser.exceptions.ParseException;
+import nustracker.model.student.NusNetId;
 import nustracker.model.tag.Tag;
 
 /**
@@ -36,14 +31,12 @@ public class EditCommandParser implements Parser<EditCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_YEAR, PREFIX_NUSNETID, PREFIX_MAJOR, PREFIX_TAG);
 
-        Index index;
-
-        try {
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
-        } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE), pe);
+        if (!argMultimap.arePrefixesPresent(PREFIX_NUSNETID) || !argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
+
+        NusNetId nusNetIdToEdit = ParserUtil.parseNusNetId(argMultimap.getAllValues(PREFIX_NUSNETID).get(0));
+
 
         EditCommand.EditStudentDescriptor editStudentDescriptor = new EditCommand.EditStudentDescriptor();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
@@ -70,7 +63,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
 
-        return new EditCommand(index, editStudentDescriptor);
+        return new EditCommand(nusNetIdToEdit, editStudentDescriptor);
     }
 
     /**
