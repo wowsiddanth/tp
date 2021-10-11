@@ -160,6 +160,20 @@ Examples:
 * `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with NUS NetId e0544111 into the event "CS1101S Mock PE".
 * `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with NUS NetId e0322322 into the event "Orientation Camp".
 
+
+### Remove a student : `remove`
+
+Removes the specified student from the specified event.
+
+Command: `remove id/STUDENT_ID ev/EVENT`
+
+* Removes the student specified by NUS NetID from the event specified by its event name.
+
+Examples:
+* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with NUS NetId e0986472 from the event "Tea Making Workshop".
+* `remove id/e0264853 ev/Fun Run` removes the specified student with NUS NetId e0264853 into the event "Fun Run".
+
+
 ### Exiting the program : `exit`
 
 Exits the program.
