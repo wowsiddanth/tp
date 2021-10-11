@@ -43,6 +43,8 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Label nusNetId;
     @FXML
+    private Label enrolledEvents;
+    @FXML
     private FlowPane tags;
 
     /**
@@ -61,6 +63,7 @@ public class StudentCard extends UiPart<Region> {
         student.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        enrolledEvents.setText("Enrolled Events: " + student.getEvents().getEventNamesString());
     }
 
     @Override
