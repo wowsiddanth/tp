@@ -21,6 +21,7 @@ import nustracker.commons.util.CollectionUtil;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.Email;
+import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
 import nustracker.model.student.NusNetId;
@@ -106,8 +107,11 @@ public class EditCommand extends Command {
         NusNetId updatedNusNetId = editStudentDescriptor.getNusNetId().orElse(studentToEdit.getNusNetId());
         Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
 
+        // Enrolled Events should not be updated using Edit Command
+        EnrolledEvents notUpdatedEvents = studentToEdit.getEvents();
+
         return new Student(updatedName, updatedPhone, updatedEmail,
-                updatedYear, updatedMajor, updatedNusNetId, updatedTags);
+                updatedYear, updatedMajor, updatedNusNetId, updatedTags, notUpdatedEvents);
     }
 
     @Override

@@ -15,6 +15,7 @@ import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.Email;
+import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
 import nustracker.model.student.NusNetId;
@@ -52,7 +53,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_NUSNETID).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Student student = new Student(name, phone, email, year, major, nusNetId, tagList);
+        EnrolledEvents enrolledEvents = new EnrolledEvents();
+
+        Student student = new Student(name, phone, email, year, major, nusNetId, tagList, enrolledEvents);
 
         return new AddCommand(student);
     }

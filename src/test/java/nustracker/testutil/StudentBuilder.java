@@ -3,6 +3,7 @@ package nustracker.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
+import nustracker.model.event.Event;
 import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
@@ -33,7 +34,7 @@ public class StudentBuilder {
     private Major major;
     private NusNetId nusNetId;
     private Set<Tag> tags;
-    private EnrolledEvents events;
+    private EnrolledEvents enrolledEvents;
 
     /**
      * Creates a {@code StudentBuilder} with the default details.
@@ -46,7 +47,7 @@ public class StudentBuilder {
         major = new Major(DEFAULT_MAJOR);
         nusNetId = new NusNetId(DEFAULT_NUSNETID);
         tags = new HashSet<>();
-        events = new EnrolledEvents("To edit later");
+        enrolledEvents = new EnrolledEvents();
     }
 
     /**
@@ -60,6 +61,7 @@ public class StudentBuilder {
         major = studentToCopy.getMajor();
         nusNetId = studentToCopy.getNusNetId();
         tags = new HashSet<>(studentToCopy.getTags());
+        enrolledEvents = studentToCopy.getEvents();
     }
 
     /**
@@ -121,13 +123,13 @@ public class StudentBuilder {
     /**
      * Sets the {@code EnrolledEvents} of the {@code Student} that we are building.
      */
-    public StudentBuilder withEvent(String event) {
-        this.events = new EnrolledEvents(event);
+    public StudentBuilder withEvent(Event event) {
+        this.enrolledEvents.enrollIntoEvent(event);
         return this;
     }
 
     public Student build() {
-        return new Student(name, phone, email, year, major, nusNetId, tags);
+        return new Student(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
     }
 
 }

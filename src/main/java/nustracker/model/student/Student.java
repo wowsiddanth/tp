@@ -29,8 +29,8 @@ public class Student {
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Year year, Major major, NusNetId nusNetId, Set<Tag> tags) {
-        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags);
+    public Student(Name name, Phone phone, Email email, Year year, Major major, NusNetId nusNetId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
+        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -38,7 +38,7 @@ public class Student {
         this.major = major;
         this.nusNetId = nusNetId;
         this.tags.addAll(tags);
-        this.enrolledEvents = new EnrolledEvents();
+        this.enrolledEvents = enrolledEvents;
         Major.addStudent(this);
     }
 
@@ -116,7 +116,8 @@ public class Student {
                 && otherStudent.getYear().equals(getYear())
                 && otherStudent.getMajor().equals(getMajor())
                 && otherStudent.getNusNetId().equals(getNusNetId())
-                && otherStudent.getTags().equals(getTags());
+                && otherStudent.getTags().equals(getTags())
+                && otherStudent.getEvents().equals(getEvents());
     }
 
     @Override
@@ -143,6 +144,11 @@ public class Student {
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
+        }
+
+        if (enrolledEvents.hasEvents()) {
+            builder.append("; Events:");
+            builder.append(enrolledEvents.getEventNamesString());
         }
         return builder.toString();
     }
