@@ -71,7 +71,7 @@ public class FilterEventCommandTest {
     //        FilterCommand command = new FilterEventCommand(predicate);
     //        expectedModel.updateFilteredStudentList(predicate);
     //        CommandTestUtil.assertCommandSuccess(command, model, expectedMessage, expectedModel);
-    //        assertEquals(Arrays.asList(TypicalStudents.JOHN, TypicalStudents.KACY, TypicalStudents.LAURA),
+    //        assertEquals(Arrays.asList(TypicalStudents.CARL, TypicalStudents.FIONA, TypicalStudents.IDA),
     //                model.getFilteredStudentList());
     //    }
 

@@ -48,6 +48,7 @@ public class TypicalStudents {
             .withPhone("95352563")
             .withYear("4")
             .withMajor("ISEC")
+            .withEvent("Orientation")
             .withNusNetId("e8123081").build();
     public static final Student DANIEL = new StudentBuilder().withName("Daniel Meier")
             .withPhone("87652533")
@@ -64,6 +65,7 @@ public class TypicalStudents {
             .withYear("4")
             .withMajor("CS")
             .withNusNetId("e9192390")
+            .withEvent("Orientation")
             .withEmail("lydia@example.com").build();
     public static final Student GEORGE = new StudentBuilder().withName("George Best").withPhone("94824112")
             .withYear("2")
@@ -83,30 +85,9 @@ public class TypicalStudents {
             .withYear("3")
             .withMajor("CS")
             .withNusNetId("e9131111")
+            .withEvent("Orientation")
             .build();
 
-    //fix after enrolled events is implemented
-    //    public static final Student JOHN = new StudentBuilder().withName("John Henson").withPhone("8782100")
-    //            .withEmail("johnh@example.com")
-    //            .withYear("1")
-    //            .withMajor("CS")
-    //            .withNusNetId("e9131881")
-    //            .withEvent("Orientation")
-    //            .build();
-    //    public static final Student KACY = new StudentBuilder().withName("Kacy Rich").withPhone("8482131")
-    //            .withEmail("hans@example.com")
-    //            .withYear("3")
-    //            .withMajor("CS")
-    //            .withNusNetId("e9141411")
-    //            .withEvent("Orientation")
-    //            .build();
-    //    public static final Student LAURA = new StudentBuilder().withName("Laura Patrick").withPhone("8780031")
-    //            .withEmail("laurapa@example.com")
-    //            .withYear("3")
-    //            .withMajor("CS")
-    //            .withNusNetId("e9132311")
-    //            .withEvent("Orientation")
-    //            .build();
 
     // Manually added - Student's details found in {@code CommandTestUtil}
     public static final Student AMY = new StudentBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
