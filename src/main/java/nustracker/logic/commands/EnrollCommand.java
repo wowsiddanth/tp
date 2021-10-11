@@ -1,5 +1,6 @@
 package nustracker.logic.commands;
 
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
@@ -10,6 +11,7 @@ import nustracker.commons.core.Messages;
 import nustracker.commons.core.index.Index;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
+import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.NusNetId;
@@ -61,8 +63,14 @@ public class EnrollCommand extends Command {
         //4. Student already in event
 
         // Check if a student with this NUS NetID exists in the list here
+        Student currStudent = model.getStudent(nusNetId);
+
+        if (currStudent == null) {
+            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID, nusNetId.toString()));
+        }
 
         // Check if an event with this event name exists here
+        Event currEvent = model.getEvent(eventName);
 
         // Check if student is already in event
 
@@ -100,8 +108,8 @@ public class EnrollCommand extends Command {
         }
 
         // state check
-//        EnrollCommand e = (EnrollCommand) other;
-//        return index.equals(e.index)
-//                && enrolledEvents.equals(e.enrolledEvents);
+        EnrollCommand e = (EnrollCommand) other;
+        return nusNetId.equals(e.nusNetId)
+                && eventName.equals(e.eventName);
     }
 }
