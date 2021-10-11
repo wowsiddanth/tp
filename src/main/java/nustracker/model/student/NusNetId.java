@@ -24,7 +24,7 @@ public class NusNetId {
     /**
      * Constructs a {@code Id}.
      *
-     * @param nusNetId A valid NUS net id
+     * @param nusNetId A valid NUS NetId
      */
     public NusNetId(String nusNetId) {
         requireNonNull(nusNetId);

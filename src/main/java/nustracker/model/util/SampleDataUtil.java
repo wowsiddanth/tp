@@ -80,7 +80,7 @@ public class SampleDataUtil {
     }
 
     /**
-     * Returns a nus net id set containing the list of strings given.
+     * Returns a NUS NetId set containing the list of strings given.
      */
     public static Set<Participant> getParticipantSet(String... strings) {
         return Arrays.stream(strings)

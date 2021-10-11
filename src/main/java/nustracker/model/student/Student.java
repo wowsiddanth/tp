@@ -1,5 +1,7 @@
 package nustracker.model.student;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -93,6 +95,30 @@ public class Student {
         boolean samePhone = notNull && otherStudent.getPhone().equals(getPhone());
 
         return sameId || sameEmail || samePhone;
+    }
+
+    /**
+     * Wraps the NusNetId in a Student for easy re-usability with other methods.
+     *
+     * @param nusNetId The NUS NetId
+     * @return A Student with the given NusNetId, and pseudo details.
+     */
+    public static Student pseudoStudent(NusNetId nusNetId) {
+        requireNonNull(nusNetId);
+
+        String validName = "Pseudo Student";
+        String validPhone = "00000000";
+        String validEmail = "pseudoStudent@gmail.com";
+        String validYear = "1";
+        String validMajor = "CS";
+        new EnrolledEvents("To edit later");
+        return new Student(new Name(validName),
+                new Phone(validPhone),
+                new Email(validEmail),
+                new Year(validYear),
+                new Major(validMajor),
+                nusNetId,
+                new HashSet<>());
     }
 
     /**

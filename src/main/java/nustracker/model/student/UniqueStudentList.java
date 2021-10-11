@@ -71,6 +71,24 @@ public class UniqueStudentList implements Iterable<Student> {
     }
 
     /**
+     * Gets a student from the address book by his/her NUS NetId.
+     * Returns null if student does not exist.
+     *
+     * @param nusNetId The student's NUS NetId
+     * @return The student from the list that has the same NusNetId as the given ID.
+     */
+    public Student get(NusNetId nusNetId) {
+        requireNonNull(nusNetId);
+        Student pseudoStudent = Student.pseudoStudent(nusNetId);
+        for (int i = 0; i < internalList.size(); i++) {
+            if (internalList.get(i).hasDuplicateCredentials(pseudoStudent)) {
+                return internalList.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
      * Replaces the student {@code target} in the list with {@code editedStudent}.
      * {@code target} must exist in the list.
      * The student identity of {@code editedStudent} must not be the same as another existing student in the list.
@@ -165,4 +183,5 @@ public class UniqueStudentList implements Iterable<Student> {
         }
         return true;
     }
+
 }

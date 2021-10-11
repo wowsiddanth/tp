@@ -14,14 +14,15 @@ Given below are my contributions to the project.
  
 
 * **New Feature**: Added the ability to delete Events
-  * Hightlights: The DeleteCommand was made into an abstract class which DeleteStudentCommand and DeleteEventCommand inherit from. The DeleteCommandParser had to now account for the difference.
+  * Highlights: The DeleteCommand was made into an abstract class which DeleteStudentCommand and DeleteEventCommand inherit from. The DeleteCommandParser had to now account for the difference.
 
 
 * **Code contributed**:
 
 * **Project management**:
 
-* **Enhancements to existing features**:
+* **Enhancements to existing features**: Changed delete student by index to by NUS Net ID
+  * Highlights: Whole implementation of delete student command had to be changed. New variables for testing were created to accommodate the new changes.
 
 * **Documentation**:
 
