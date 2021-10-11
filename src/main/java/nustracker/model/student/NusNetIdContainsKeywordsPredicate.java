@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * Tests that a {@code Student}'s {@code NusNextId} matches any of the keywords given.
+ * Tests that a {@code Student}'s {@code NusNetId} matches any of the keywords given.
  */
 public class NusNetIdContainsKeywordsPredicate implements Predicate<Student> {
     private final List<String> keywords;
