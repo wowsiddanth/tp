@@ -111,14 +111,14 @@ public class Student {
         String validEmail = "pseudoStudent@gmail.com";
         String validYear = "1";
         String validMajor = "CS";
-        new EnrolledEvents("To edit later");
+        EnrolledEvents validEnrolledEvents = new EnrolledEvents();
         return new Student(new Name(validName),
                 new Phone(validPhone),
                 new Email(validEmail),
                 new Year(validYear),
                 new Major(validMajor),
                 nusNetId,
-                new HashSet<>());
+                new HashSet<>(), validEnrolledEvents);
     }
 
     /**
