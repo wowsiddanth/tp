@@ -1,11 +1,14 @@
 package nustracker.logic.commands;
 
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import nustracker.commons.core.Messages;
 import nustracker.commons.core.index.Index;
@@ -13,6 +16,7 @@ import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.event.Participant;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
@@ -33,6 +37,8 @@ public class EnrollCommand extends Command {
             + PREFIX_NUSNETID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_ADD_EVENT_SUCCESS = "Enrolled Student: %1$s into the Event: %2$s";
+    public static final String MESSAGE_STUDENT_ALREADY_ENROLLED =
+            "The Student %1$s is already enrolled into the event: %2$s";
 
     private final NusNetId nusNetId;
     private final EventName eventName;
@@ -66,29 +72,51 @@ public class EnrollCommand extends Command {
         Student currStudent = model.getStudent(nusNetId);
 
         if (currStudent == null) {
-            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID, nusNetId.toString()));
+            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID, nusNetId.getNusNetIdString()));
         }
 
         // Check if an event with this event name exists here
         Event currEvent = model.getEvent(eventName);
 
+        if (currEvent == null) {
+            throw new CommandException(String.format(MESSAGE_INVALID_EVENT_NAME, eventName.getEventName()));
+        }
+
         // Check if student is already in event
+        boolean isAlreadyInEvent = currEvent.isInEvent(nusNetId);
 
-
+        if (isAlreadyInEvent) {
+            throw new CommandException(String.format(MESSAGE_STUDENT_ALREADY_ENROLLED,
+                    currStudent.getName().toString(), currEvent.getName().getEventName()));
+        }
 
         // Enroll the student into the event by:
         // 1. Add into this student's EnrolledEvents in model
         // 2. Add to event list
         // 3. If there is an error then remove from this student's EnrolledEvents in model (PREVENT BUGS)
 
-        Student studentToEdit = lastShownList.get(0);
-        Student editedStudent = new Student(
-                studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
-                studentToEdit.getYear(), studentToEdit.getMajor(), studentToEdit.getNusNetId(),
-                studentToEdit.getTags());
+        EnrolledEvents currentlyEnrolledEvents = currStudent.getEvents();
+        EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(currEvent);
 
-        model.setStudent(studentToEdit, editedStudent);
+        Student editedStudent = new Student(
+                currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
+                currStudent.getYear(), currStudent.getMajor(), currStudent.getNusNetId(),
+                currStudent.getTags(), updatedEnrolledEvents);
+
+        model.setStudent(currStudent, editedStudent);
         model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
+
+
+        Set<Participant> oldParticipants = currEvent.getParticipants();
+
+        Set<Participant> updatedParticipants = new HashSet<>(oldParticipants);
+        updatedParticipants.add(new Participant(currStudent.getNusNetId().getNusNetIdString()));
+
+        Event updatedEvent = new Event(
+                currEvent.getName(), currEvent.getDate(), currEvent.getTime(), updatedParticipants
+        );
+
+        model.setEvent(currEvent, updatedEvent);
 
         return new CommandResult(String.format(MESSAGE_ADD_EVENT_SUCCESS, currStudent, currEvent));
     }
