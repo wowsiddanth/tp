@@ -38,7 +38,7 @@ class EnrollCommandTest {
         EnrollCommand enrollCommand = new EnrollCommand(INDEX_FIRST_STUDENT,
                 new EnrolledEvents(editedStudent.getEvents().value));
 
-        String expectedMessage = String.format(EnrollCommand.MESSAGE_ADD_EVENT_SUCCESS, editedStudent);
+        String expectedMessage = String.format(EnrollCommand.MESSAGE_ADD_TO_EVENT_SUCCESS, editedStudent);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -74,7 +74,7 @@ class EnrollCommandTest {
         EnrollCommand enrollCommand = new EnrollCommand(INDEX_FIRST_STUDENT,
                 new EnrolledEvents(editedStudent.getEvents().value));
 
-        String expectedMessage = String.format(EnrollCommand.MESSAGE_ADD_EVENT_SUCCESS, editedStudent);
+        String expectedMessage = String.format(EnrollCommand.MESSAGE_ADD_TO_EVENT_SUCCESS, editedStudent);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
