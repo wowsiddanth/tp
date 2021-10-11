@@ -4,19 +4,20 @@ import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
 import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
-import static nustracker.testutil.TypicalIndexes.INDEX_SECOND_STUDENT;
+import static nustracker.testutil.TypicalStudents.NUSNETID_MISSING;
+import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
+import static nustracker.testutil.TypicalStudents.NUSNETID_TWO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 import nustracker.commons.core.Messages;
-import nustracker.commons.core.index.Index;
+import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
-import nustracker.testutil.TypicalIndexes;
 import nustracker.testutil.TypicalStudents;
 
 
@@ -29,9 +30,9 @@ public class DeleteStudentCommandTest {
     private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
 
     @Test
-    public void execute_validIndexUnfilteredList_success() {
-        Student studentToDelete = model.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
-        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(INDEX_FIRST_STUDENT);
+    public void execute_validNusNetIdUnfilteredList_success() {
+        Student studentToDelete = model.getStudent(NUSNETID_ONE);
+        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(NUSNETID_ONE);
 
         String expectedMessage = String.format(DeleteStudentCommand.MESSAGE_DELETE_STUDENT_SUCCESS, studentToDelete);
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
@@ -41,23 +42,26 @@ public class DeleteStudentCommandTest {
     }
 
     @Test
-    public void execute_invalidIndexUnfilteredList_throwsCommandException() {
-        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredStudentList().size() + 1);
-        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(outOfBoundIndex);
-
-        assertCommandFailure(deleteStudentCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+    public void execute_invalidNusNetIdUnfilteredList_throwsCommandException() {
+        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(NUSNETID_MISSING);
+        try {
+            deleteStudentCommand.execute(model);
+        } catch (CommandException e) {
+            e.printStackTrace();
+        }
+        assertCommandFailure(deleteStudentCommand, model,
+                String.format(Messages.MESSAGE_INVALID_STUDENT_NUSNETID, NUSNETID_MISSING));
     }
 
     @Test
-    public void execute_validIndexFilteredList_success() {
+    public void execute_validNusNetIdFilteredList_success() {
         showStudentAtIndex(model, INDEX_FIRST_STUDENT);
 
-        Student studentToDelete = model.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
-        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(INDEX_FIRST_STUDENT);
+        Student studentToDelete = model.getStudent(NUSNETID_ONE);
+        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(NUSNETID_ONE);
 
         String expectedMessage = String.format(DeleteStudentCommand.MESSAGE_DELETE_STUDENT_SUCCESS, studentToDelete);
-
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.deleteStudent(studentToDelete);
         showNoStudent(expectedModel);
 
@@ -65,28 +69,25 @@ public class DeleteStudentCommandTest {
     }
 
     @Test
-    public void execute_invalidIndexFilteredList_throwsCommandException() {
+    public void execute_invalidNusNetIdFilteredList_throwsCommandException() {
         showStudentAtIndex(model, INDEX_FIRST_STUDENT);
 
-        Index outOfBoundIndex = TypicalIndexes.INDEX_SECOND_STUDENT;
-        // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getStudentList().size());
+        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(NUSNETID_MISSING);
 
-        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(outOfBoundIndex);
-
-        assertCommandFailure(deleteStudentCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+        assertCommandFailure(deleteStudentCommand, model,
+                String.format(Messages.MESSAGE_INVALID_STUDENT_NUSNETID, NUSNETID_MISSING));
     }
 
     @Test
     public void equals() {
-        DeleteStudentCommand deleteFirstCommand = new DeleteStudentCommand(INDEX_FIRST_STUDENT);
-        DeleteStudentCommand deleteSecondCommand = new DeleteStudentCommand(INDEX_SECOND_STUDENT);
+        DeleteStudentCommand deleteFirstCommand = new DeleteStudentCommand(NUSNETID_ONE);
+        DeleteStudentCommand deleteSecondCommand = new DeleteStudentCommand(NUSNETID_TWO);
 
         // same object -> returns true
         assertTrue(deleteFirstCommand.equals(deleteFirstCommand));
 
         // same values -> returns true
-        DeleteStudentCommand deleteFirstCommandCopy = new DeleteStudentCommand(INDEX_FIRST_STUDENT);
+        DeleteStudentCommand deleteFirstCommandCopy = new DeleteStudentCommand(NUSNETID_ONE);
         assertTrue(deleteFirstCommand.equals(deleteFirstCommandCopy));
 
         // different types -> returns false

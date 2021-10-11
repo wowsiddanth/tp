@@ -146,7 +146,7 @@ _**Coming soon:** Filter by multiple fields._
 
 Edits an existing student in the address book.
 
-Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]…​`
+Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]…​`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -161,15 +161,14 @@ Examples:
 
 Deletes the specified student from the address book.
 
-Command: `delete s/INDEX`
+Command: `delete s/NUS_NetID`
 
-* Deletes the student at the specified `INDEX`.
-* The index refers to the index number shown in the displayed student list.
-* The index **must be a positive integer** 1, 2, 3, …​
+* Deletes the student with the specified `NUS_NetID`.
 
 Examples:
-* `list` followed by `delete s/2` deletes the 2nd student in the address book.
-* `find John` followed by `delete s/1` deletes the first student in the results of the `find` command.
+* `delete s/e1234567` deletes the student with the NUS NetID `e1234567`.
+* `delete s/0589162` deletes the student with the NUS NetID `e0589162`.
+
 
 ### Deleting an event : `delete ev/`
 
@@ -218,7 +217,8 @@ Action | Format, Examples
 **List events** | `events`
 **Add student to event** | `enroll id/STUDENT_ID ev/EVENT_NAME`
 **Delete student from event** | `remove id/STUDENT_ID ev/EVENT_NAME`
-**Delete student** | `delete s/INDEX`
+**List events** | `events`
+**Delete student** | `delete s/NUS_NETID`
 **Delete event** | `delete ev/EVENT_NAME`
 **Display commands** | `help`
 **Exit** | `exit`
