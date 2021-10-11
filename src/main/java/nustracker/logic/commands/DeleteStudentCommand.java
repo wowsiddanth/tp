@@ -17,7 +17,7 @@ import nustracker.model.student.Student;
 public class DeleteStudentCommand extends DeleteCommand {
 
     public static final String MESSAGE_USAGE = DeleteCommand.COMMAND_WORD
-            + ": Deletes a student identified by index.\n"
+            + ": Deletes a student identified by NUS Net ID.\n"
             + "Parameters: " + DeleteCommand.COMMAND_WORD + "[Student index] (must be a positive integer)\n"
             + "Example: " + DeleteCommand.COMMAND_WORD + PREFIX_STUDENT + "1";
 
