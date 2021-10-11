@@ -6,9 +6,9 @@ import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
 import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 import static nustracker.testutil.TypicalIndexes.INDEX_SECOND_STUDENT;
-import static nustracker.testutil.TypicalStudents.getTypicalAddressBook;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import nustracker.testutil.TypicalStudents;
 import org.junit.jupiter.api.Test;
 
 import nustracker.commons.core.Messages;
@@ -28,7 +28,7 @@ class EnrollCommandTest {
 
     private static final String EVENT_STUB = "Some event";
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
 
     @Test
     void execute_addEventUnfilteredList_success() {

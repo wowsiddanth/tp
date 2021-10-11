@@ -69,7 +69,6 @@ class JsonSerializableAddressBook {
             }
             addressBook.addEvent(event);
 
-            // TODO: Load Enrolled Events here
             Set<Student> studentParticipants = event.getParticipantsAsStudents(addressBook);
             for (Student currStudent : studentParticipants) {
 

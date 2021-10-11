@@ -121,10 +121,19 @@ public class StudentBuilder {
     }
 
     /**
-     * Sets the {@code EnrolledEvents} of the {@code Student} that we are building.
+     * Sets the {@code EnrolledEvents} of the {@code Student} that we are building to contain {@code event}.
      */
     public StudentBuilder withEvent(Event event) {
         this.enrolledEvents.enrollIntoEvent(event);
+        return this;
+    }
+
+    /**
+     * Sets the {@code EnrolledEvents} of the {@code Student} that we are building
+     * to the provided {@code enrolledEvents}.
+     */
+    public StudentBuilder withEvents(EnrolledEvents enrolledEvents) {
+        this.enrolledEvents = enrolledEvents;
         return this;
     }
 
