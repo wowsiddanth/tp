@@ -29,37 +29,72 @@ public class EnrolledEvents {
     }
 
     /**
-     * Adds an {@code Event} into this student's enrolled events.
+     * Gets a new EnrolledEvents with this student's enrolled events as well as the specified {@code Event} added.
      *
      * @param event A valid event to be added.
+     * @return new instance of EnrolledEvents that contains the new event.
      */
-    public void enrollIntoEvent(Event event) {
+    public EnrolledEvents enrollIntoEvent(Event event) {
         requireNonNull(event);
         EventName eventName = event.getName();
 
-        // Enroll student into Event object here
+        HashMap<EventName, Event> updatedEventHashMap = new HashMap<>();
+        for (Event currEvent : eventsEnrolledIn.values()) {
+            updatedEventHashMap.put(currEvent.getName(), currEvent);
+        }
 
-        eventsEnrolledIn.put(eventName,event);
+        updatedEventHashMap.put(eventName,event);
+        return of(updatedEventHashMap);
+    }
+
+    private EnrolledEvents of(HashMap eventsEnrolledIn) {
+        EnrolledEvents enrolledEvents = new EnrolledEvents();
+        enrolledEvents.eventsEnrolledIn = eventsEnrolledIn;
+
+        return enrolledEvents;
     }
 
     /**
-     * Removes an {@code Event} from this student's enrolled events.
+     * Gets a new EnrolledEvents with the specified {@code Event} removed.
      *
      * @param event A valid event to be removed.
+     * @return the new instance of EnrolledEvents.
      */
-    public void removeFromEvent(Event event) {
+    public EnrolledEvents removeFromEvent(Event event) {
         requireNonNull(event);
         EventName eventName = event.getName();
-        eventsEnrolledIn.remove(eventName);
 
-        // Remove student from Event object here
+        HashMap<EventName, Event> updatedEventHashMap = new HashMap<>();
+        for (Event currEvent : eventsEnrolledIn.values()) {
+            updatedEventHashMap.put(currEvent.getName(), currEvent);
+        }
+
+        updatedEventHashMap.remove(eventName);
+        return of(updatedEventHashMap);
 
     }
+
+    /**
+     * Checks if there are enrolled events.
+     * @return true if there is 1 or more events enrolled.
+     */
+    public boolean hasEvents() {
+        return eventsEnrolledIn.size() > 0;
+    }
+
+    /**
+     * Gets a String that lists out all the events that are enrolled in.
+     * @return the String with event names delimited using commas.
+     */
+    public String getEventNamesString() {
+        return eventsEnrolledIn.values().stream().map(Object::toString).collect(Collectors.joining(","));
+    }
+
 
     @Override
     public String toString() {
         // Prints list of events nicely separated by commas
-        return eventsEnrolledIn.values().stream().map(Object::toString).collect(Collectors.joining(","));
+        return getEventNamesString();
     }
 
     @Override
