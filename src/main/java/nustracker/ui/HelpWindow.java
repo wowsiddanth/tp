@@ -1,8 +1,5 @@
 package nustracker.ui;
 
-import java.io.IOException;
-import java.net.URI;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
@@ -10,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import java.awt.Desktop;
 import javafx.stage.Stage;
 import nustracker.commons.core.LogsCenter;
 

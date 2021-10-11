@@ -76,6 +76,14 @@
    U-fx-background-color: -fx-focus-color;
 }
 
+#studentsButton, #eventsButton, #helpButton, #exitButton {
+    -fx-background-radius: 50;
+    -fx-background-color: #515151;
+    -fx-border-radius: 20;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+}
+
 .split-pane:horizontal .split-pane-divider {
     -fx-background-color: derive(#1d1d1d, 20%);
     -fx-border-color: transparent transparent transparent #4d4d4d;
@@ -195,21 +203,6 @@
     -fx-text-fill: white;
 }
 
-.menu-bar {
-    -fx-background-color: derive(#1d1d1d, 20%);
-}
-
-.menu-bar .label {
-    -fx-font-size: 14pt;
-    -fx-font-family: "Open Sans Light";
-    -fx-text-fill: white;
-    -fx-opacity: 0.9;
-}
-
-.menu .left-container {
-    -fx-background-color: black;
-}
-
 /*
  * Metro style Push Button
  * Author: Pedro Duque Vieira
@@ -218,30 +211,16 @@
 .button {
     -fx-padding: 5 22 5 22;
     -fx-border-color: #e2e2e2;
-    -fx-border-width: 2;
-    -fx-background-radius: 0;
-    -fx-background-color: #1d1d1d;
-    -fx-font-family: "Open Sans Regular";
+    -fx-font-family: "Roboto Thin";
     -fx-font-size: 11pt;
     -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
-.button:hover {
-    -fx-background-color: #3a3a3a;
-}
-
 .button:pressed, .button:default:hover:pressed {
-  -fx-background-color: white;
-  -fx-text-fill: #1d1d1d;
-}
-
-.button:focused {
-    -fx-border-color: white, white;
-    -fx-border-width: 1, 1;
-    -fx-border-style: solid, segments(1, 1);
-    -fx-border-radius: 0, 0;
-    -fx-border-insets: 1 1 1 1, 0;
+  -fx-text-fill: #779CFF;
+  -fx-font-family: Roboto-Bold;
+  -fx-effect: dropshadow(gaussian, #E9AFFF, 2, 1, 0, 0);
 }
 
 .button:disabled, .button:default:disabled {
@@ -329,22 +308,17 @@
     -fx-border-insets: 0;
     -fx-border-width: 1;
     -fx-font-family: "Open Sans Light";
-    -fx-font-size: 13pt;
+    -fx-font-size: 16pt;
     -fx-text-fill: white;
 }
 
-#filterField, #studentListPanel, #studentWebpage {
+#filterField, #studentListPanel {
     -fx-effect: innershadow(gaussian, black, 10, 0, 0, 0);
 }
 
 #resultDisplay .content {
     -fx-background-color: transparent, #383838, transparent, #383838;
     -fx-background-radius: 0;
-}
-
-#tags {
-    -fx-hgap: 7;
-    -fx-vgap: 3;
 }
 
 #participants .label {

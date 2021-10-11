@@ -13,44 +13,40 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.chart.StackedAreaChart?>
-<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="Address App" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="NUSTracker" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
-    <Image url="@/images/address_book_32.png" />
+    <Image url="@/images/nustracker.png" />
   </icons>
+
   <scene>
     <Scene>
       <stylesheets>
         <URL value="@Fonts.css" />
         <URL value="@DarkTheme.css" />
         <URL value="@Extensions.css" />
-        <URL value="@Button.css" />
-        <URL value="@NusLogo.css" />
       </stylesheets>
       <VBox>
         <HBox fx:id="topContainer" minHeight="50" prefWidth="340" style="-fx-background-color: #383838;">
-
           <padding>
             <Insets left="10" right="5" />
           </padding>
 
-          <Text fx:id="nus" fill="#fdb703" text="nus" translateY="-5.0">
+          <Text fill="#fdb703" text="nus" translateY="-5.0">
                   <font>
                      <Font name="System Bold" size="40.0" />
                   </font>
           </Text>
-
-          <Text fx:id="tracker" fill="#377adf" text="tracker" translateY="-5.0">
+          <Text fill="#377adf" text="tracker" translateY="-5.0">
             <font>
               <Font name="System Bold" size="40.0" />
             </font>
           </Text>
+
           <Pane prefHeight="54.0" prefWidth="59.0" HBox.hgrow="ALWAYS" />
-          <Button fx:id="studentsButton" mnemonicParsing="false" onAction="#handleStudents" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Students" translateX="-18.0" translateY="8.0" />
-          <Button fx:id="eventsButton" mnemonicParsing="false" onAction="#handleEvents" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Events" translateX="-14.0" translateY="8.0" />
-          <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Help" translateX="-10.0" translateY="8.0" />
-          <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExit" style="-fx-background-radius: 50; -fx-background-color: #515151; -fx-border-radius: 20; -fx-border-width: 0; -fx-font-size: 20;" text="Exit" translateX="-6.0" translateY="8.0" />
+          <Button fx:id="studentsButton" mnemonicParsing="false" onAction="#handleStudents" text="Students" translateX="-18.0" translateY="8.0" />
+          <Button fx:id="eventsButton" mnemonicParsing="false" onAction="#handleEvents" text="Events" translateX="-14.0" translateY="8.0" />
+          <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" text="Help" translateX="-10.0" translateY="8.0" />
+          <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExit" text="Exit" translateX="-6.0" translateY="8.0" />
         </HBox>
 
         <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border" VBox.vgrow="NEVER">

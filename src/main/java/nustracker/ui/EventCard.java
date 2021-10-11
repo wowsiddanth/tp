@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import nustracker.model.event.Event;
 
@@ -22,13 +21,16 @@ public class EventCard extends UiPart<Region> {
 
     @FXML
     private HBox cardPane;
+
     @FXML
     private Text name;
 
     @FXML
     private Text date;
+
     @FXML
     private Text time;
+
     @FXML
     private FlowPane participants;
 
@@ -46,6 +48,8 @@ public class EventCard extends UiPart<Region> {
                 .sorted(Comparator.comparing(participant -> participant.nusNetId))
                 .forEach(participant -> participants.getChildren().add(
                         new Label(participant.nusNetId)));
+
+        //Ensures that the participants will be evenly spaced out
         participants.setVgap(4.0);
         participants.setHgap(4.0);
     }
