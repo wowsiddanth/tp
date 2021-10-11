@@ -70,23 +70,23 @@ class JsonSerializableAddressBook {
             addressBook.addEvent(event);
 
             // TODO: Load Enrolled Events here
-//            Set<Student> studentParticipants = event.getParticipantsAsStudents(addressBook);
-//            for (Student currStudent : studentParticipants) {
-//
-//                EnrolledEvents currentlyEnrolledEvents = currStudent.getEvents();
-//                EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(event);
-//
-//                Student enrolledStudent = new Student(
-//                        currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
-//                        currStudent.getYear(), currStudent.getMajor(), currStudent.getNusNetId(),
-//                        currStudent.getTags(), updatedEnrolledEvents);
-//
-//                // Have to set student or GUI will not update
-//                // From documentation of ObservableList:
-//                // "Note that mutation operations made directly to the underlying list are not reported to
-//                // observers of any ObservableList that wraps it."
-//                addressBook.setStudent(currStudent, enrolledStudent);
-//            }
+            Set<Student> studentParticipants = event.getParticipantsAsStudents(addressBook);
+            for (Student currStudent : studentParticipants) {
+
+                EnrolledEvents currentlyEnrolledEvents = currStudent.getEvents();
+                EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(event);
+
+                Student enrolledStudent = new Student(
+                        currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
+                        currStudent.getYear(), currStudent.getMajor(), currStudent.getNusNetId(),
+                        currStudent.getTags(), updatedEnrolledEvents);
+
+                // Have to set student or GUI will not update
+                // From documentation of ObservableList:
+                // "Note that mutation operations made directly to the underlying list are not reported to
+                // observers of any ObservableList that wraps it."
+                addressBook.setStudent(currStudent, enrolledStudent);
+            }
 
         }
         return addressBook;
