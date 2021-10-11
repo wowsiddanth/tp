@@ -1,5 +1,9 @@
 package nustracker.model.event;
 
+import nustracker.model.AddressBook;
+import nustracker.model.student.NusNetId;
+import nustracker.model.student.Student;
+
 import static java.util.Objects.requireNonNull;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 
@@ -65,6 +69,34 @@ public class Event {
     public Set<Participant> getParticipants() {
         return Collections.unmodifiableSet(participants);
     }
+
+    /**
+     * Returns an immutable {@code Student} set, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
+     *
+     * @param addressBook to find the students from.
+     * @return the set of {@code Student} from this model that are in this {@code Event}.
+     */
+    public Set<Student> getParticipantsAsStudents(AddressBook addressBook) {
+        HashSet<Student> returnThis = new HashSet<>();
+        for (Participant currParticipant : participants) {
+            Student currStudent = addressBook.getStudent(currParticipant.getNusNetId());
+            returnThis.add(currStudent);
+        }
+        return returnThis;
+    }
+
+    /**
+     * Checks if a student with a certain Nus NetId is currently enrolled in this event.
+     * @param nusNetId the {@code NusNetId} of the student to check.
+     * @return true if the student is currently enrolled, false otherwise.
+     */
+    public boolean isInEvent(NusNetId nusNetId) {
+        Participant pseudoParticipant = new Participant(nusNetId.getNusNetIdString());
+
+        return participants.contains(pseudoParticipant);
+    }
+
 
 
 

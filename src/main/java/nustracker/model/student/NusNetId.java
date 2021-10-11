@@ -39,6 +39,14 @@ public class NusNetId {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Gets the Nus NetId in String form.
+     * @return the Nus NetId in String form.
+     */
+    public String getNusNetIdString() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return value;
