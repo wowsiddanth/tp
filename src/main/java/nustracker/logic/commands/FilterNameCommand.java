@@ -1,10 +1,10 @@
 package nustracker.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.student.NameContainsKeywordsPredicate;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * Filters and lists all students in address book whose name contains any of the argument keywords.

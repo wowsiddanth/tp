@@ -1,20 +1,20 @@
 package nustracker.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * Filters and lists all students in address book whose NUS NetID contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
-public class FilterIDCommand extends FilterCommand {
+public class FilterIdCommand extends FilterCommand {
 
     private final NusNetIdContainsKeywordsPredicate predicate;
 
-    public FilterIDCommand(NusNetIdContainsKeywordsPredicate predicate) {
+    public FilterIdCommand(NusNetIdContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
@@ -29,7 +29,7 @@ public class FilterIDCommand extends FilterCommand {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof FilterIDCommand // instanceof handles nulls
-                && predicate.equals(((FilterIDCommand) other).predicate)); // state check
+                || (other instanceof FilterIdCommand // instanceof handles nulls
+                && predicate.equals(((FilterIdCommand) other).predicate)); // state check
     }
 }

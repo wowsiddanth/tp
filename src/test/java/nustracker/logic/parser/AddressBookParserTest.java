@@ -26,7 +26,7 @@ import nustracker.logic.commands.EditCommand;
 import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.FilterEventCommand;
-import nustracker.logic.commands.FilterIDCommand;
+import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.HelpCommand;
 import nustracker.logic.commands.ListCommand;
@@ -92,13 +92,13 @@ public class AddressBookParserTest {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
 
         FilterCommand nameCommand = (FilterCommand) parser.parseCommand(
-                FilterCommand.COMMAND_WORD + " " + PREFIX_NAME +keywords.stream().collect(Collectors.joining(" ")));
+                FilterCommand.COMMAND_WORD + " " + PREFIX_NAME + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new FilterNameCommand(new NameContainsKeywordsPredicate(keywords)), nameCommand);
 
         FilterCommand idCommand = (FilterCommand) parser.parseCommand(
-                FilterCommand.COMMAND_WORD + " " + PREFIX_NUSNETID +keywords.stream().collect(
+                FilterCommand.COMMAND_WORD + " " + PREFIX_NUSNETID + keywords.stream().collect(
                         Collectors.joining(" ")));
-        assertEquals(new FilterIDCommand(new NusNetIdContainsKeywordsPredicate(keywords)), idCommand);
+        assertEquals(new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(keywords)), idCommand);
 
         FilterCommand eventCommand = (FilterCommand) parser.parseCommand(
                 FilterCommand.COMMAND_WORD + " " + PREFIX_EVENT + "foo");

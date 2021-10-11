@@ -1,10 +1,10 @@
 package nustracker.logic.commands;
 
-import nustracker.model.Model;
-
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+
+import nustracker.model.Model;
 
 /**
  * Filters and lists all students whose data contain a specific field.

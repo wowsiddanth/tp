@@ -16,8 +16,8 @@ public class EnrolledEventsContainsKeywordsPredicate implements Predicate<Studen
     public boolean test(Student student) {
         //fix after enrolled events is implemented
 
-//        return keyword.stream()
-//                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(student.getNusNetId().value, keyword));
+        //return keyword.stream()
+        //      .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(student.getNusNetId().value, keyword));
         return false;
     }
 

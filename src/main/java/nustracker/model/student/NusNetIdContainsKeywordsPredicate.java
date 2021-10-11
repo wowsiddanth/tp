@@ -1,9 +1,9 @@
 package nustracker.model.student;
 
-import nustracker.commons.util.StringUtil;
-
 import java.util.List;
 import java.util.function.Predicate;
+
+import nustracker.commons.util.StringUtil;
 
 /**
  * Tests that a {@code Student}'s {@code NusNetId} matches any of the keywords given.

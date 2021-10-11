@@ -1,23 +1,23 @@
 package nustracker.logic.parser;
 
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static nustracker.commons.core.Messages.MESSAGE_MULTIPLE_FILTER_FIELDS;
+import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+
 import java.util.Arrays;
 import java.util.List;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.FilterEventCommand;
-import nustracker.logic.commands.FilterIDCommand;
+import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
-
-import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static nustracker.commons.core.Messages.MESSAGE_MULTIPLE_FILTER_FIELDS;
-import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -51,8 +51,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         } else if (argMultimap.getValue(PREFIX_NUSNETID).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_NUSNETID);
             String[] idKeywords = trimmedArgs.split("\\s+");
-            return new FilterIDCommand(new NusNetIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
-        }else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
+            return new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
+        } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_EVENT);
             return new FilterEventCommand(new EnrolledEventsContainsKeywordsPredicate(trimmedArgs));
         } else {
