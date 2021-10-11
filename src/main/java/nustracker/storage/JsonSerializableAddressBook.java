@@ -71,6 +71,9 @@ class JsonSerializableAddressBook {
 
             Set<Student> studentParticipants = event.getParticipantsAsStudents(addressBook);
             for (Student currStudent : studentParticipants) {
+                if (currStudent == null) {
+                    continue;
+                }
 
                 EnrolledEvents currentlyEnrolledEvents = currStudent.getEvents();
                 EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(event);

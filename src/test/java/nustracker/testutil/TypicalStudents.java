@@ -81,7 +81,7 @@ public class TypicalStudents {
             .withNusNetId("e9193111")
             .withTags("friends").build();
     public static final Student IDA = new StudentBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withEmail("hans@example.com")
+            .withEmail("ida@example.com")
             .withYear("3")
             .withMajor("CS")
             .withNusNetId("e9131111")

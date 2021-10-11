@@ -1,9 +1,7 @@
 package nustracker.logic.parser;
 
-import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
-import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
+import static nustracker.logic.parser.CliSyntax.*;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
-import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -70,9 +68,9 @@ public class AddressBookParserTest {
         Student student = new StudentBuilder().build();
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(student).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_STUDENT.getOneBased() + " "
+                + PREFIX_NUSNETID + NUSNETID_ONE.getNusNetIdString() + " "
                 + StudentUtil.getEditStudentDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_STUDENT, descriptor), command);
+        assertEquals(new EditCommand(NUSNETID_ONE, descriptor), command);
     }
 
     @Test
