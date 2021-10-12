@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import nustracker.commons.exceptions.IllegalValueException;
 import nustracker.model.student.Email;
+import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
 import nustracker.model.student.NusNetId;
@@ -132,7 +133,11 @@ class JsonAdaptedStudent {
         final NusNetId modelNusNetId = new NusNetId(nusNetId);
 
         final Set<Tag> modelTags = new HashSet<>(studentTags);
-        return new Student(modelName, modelPhone, modelEmail, modelYear, modelMajor, modelNusNetId, modelTags);
+
+        final EnrolledEvents enrolledEvents = new EnrolledEvents();
+
+        return new Student(modelName, modelPhone, modelEmail, modelYear, modelMajor,
+                modelNusNetId, modelTags, enrolledEvents);
     }
 
 }

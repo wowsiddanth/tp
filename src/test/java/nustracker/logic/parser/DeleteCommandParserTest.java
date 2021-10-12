@@ -5,9 +5,8 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static nustracker.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
-import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
+import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +14,7 @@ import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.model.event.EventName;
+import nustracker.model.student.NusNetId;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
@@ -31,18 +31,18 @@ public class DeleteCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteStudentCommand() {
-        assertParseSuccess(parser, " " + PREFIX_STUDENT + "1",
-                new DeleteStudentCommand(INDEX_FIRST_STUDENT));
+        assertParseSuccess(parser, " " + PREFIX_STUDENT + NUSNETID_ONE,
+                new DeleteStudentCommand(NUSNETID_ONE));
 
         assertParseSuccess(parser, " "
-                        + PREFIX_STUDENT + "1" + " "
+                        + PREFIX_STUDENT + NUSNETID_ONE + " "
                         + PREFIX_EVENT + EVENTNAME_ONE,
-                new DeleteStudentCommand(INDEX_FIRST_STUDENT));
+                new DeleteStudentCommand(NUSNETID_ONE));
 
         assertParseSuccess(parser, " "
                         + PREFIX_EVENT + EVENTNAME_ONE + " "
-                        + PREFIX_STUDENT + "1",
-                new DeleteStudentCommand(INDEX_FIRST_STUDENT));
+                        + PREFIX_STUDENT + NUSNETID_ONE,
+                new DeleteStudentCommand(NUSNETID_ONE));
     }
 
     @Test
@@ -57,11 +57,7 @@ public class DeleteCommandParserTest {
         assertParseFailure(parser, " missing prefixes ",
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
 
-        assertParseFailure(parser, " " + PREFIX_STUDENT + "a", MESSAGE_INVALID_INDEX);
-
-        assertParseFailure(parser, " "
-                        + PREFIX_STUDENT + "a" + " "
-                        + PREFIX_EVENT + EVENTNAME_ONE, MESSAGE_INVALID_INDEX);
+        assertParseFailure(parser, " " + PREFIX_STUDENT, NusNetId.MESSAGE_CONSTRAINTS);
 
         assertParseFailure(parser, " " + PREFIX_EVENT, EventName.MESSAGE_CONSTRAINTS);
     }

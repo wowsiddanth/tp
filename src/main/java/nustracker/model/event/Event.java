@@ -8,6 +8,10 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import nustracker.model.AddressBook;
+import nustracker.model.student.NusNetId;
+import nustracker.model.student.Student;
+
 public class Event {
 
     private final EventName name;
@@ -67,6 +71,39 @@ public class Event {
     }
 
     /**
+     * Returns an immutable {@code Student} set, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
+     *
+     * @param addressBook to find the students from.
+     * @return the set of {@code Student} from this model that are in this {@code Event}.
+     */
+    public Set<Student> getParticipantsAsStudents(AddressBook addressBook) {
+        HashSet<Student> returnThis = new HashSet<>();
+        for (Participant currParticipant : participants) {
+            Student currStudent = addressBook.getStudent(currParticipant.getNusNetId());
+            returnThis.add(currStudent);
+        }
+        return returnThis;
+    }
+
+    /**
+     * Checks if a student with a certain Nus NetId is currently enrolled in this event.
+     * @param nusNetId the {@code NusNetId} of the student to check.
+     * @return true if the student is currently enrolled, false otherwise.
+     */
+    public boolean isInEvent(NusNetId nusNetId) {
+        for (Participant currParticipant : participants) {
+            if (currParticipant.getNusNetId().equals(nusNetId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+    /**
      * Returns true if both events have the same name.
      * This defines a weaker notion of equality between two events.
      */
@@ -120,7 +157,7 @@ public class Event {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, date, time, participants);
+        return Objects.hash(name, date, time);
     }
 
     @Override
