@@ -13,7 +13,6 @@ import nustracker.model.event.EventDate;
 import nustracker.model.event.EventName;
 import nustracker.model.event.EventTime;
 import nustracker.model.student.Email;
-import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
 import nustracker.model.student.NusNetId;
@@ -156,16 +155,6 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
-    }
-
-    /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
-     */
-    public static EnrolledEvents parseEvent(String event) {
-        requireNonNull(event);
-        String trimmedEvent = event.trim();
-        return new EnrolledEvents(trimmedEvent);
     }
 
     /**

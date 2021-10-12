@@ -145,6 +145,12 @@ public class ModelManager implements Model {
         addressBook.setStudent(target, editedStudent);
     }
 
+    @Override
+    public void setEvent(Event target, Event editedEvent) {
+        CollectionUtil.requireAllNonNull(target, editedEvent);
+        addressBook.setEvent(target, editedEvent);
+    }
+
     //=========== Filtered Student List Accessors =============================================================
 
     /**

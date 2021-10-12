@@ -2,6 +2,7 @@ package nustracker.storage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -12,6 +13,7 @@ import nustracker.commons.exceptions.IllegalValueException;
 import nustracker.model.AddressBook;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.event.Event;
+import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Student;
 
 /**
@@ -66,6 +68,28 @@ class JsonSerializableAddressBook {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_EVENT);
             }
             addressBook.addEvent(event);
+
+            Set<Student> studentParticipants = event.getParticipantsAsStudents(addressBook);
+            for (Student currStudent : studentParticipants) {
+                if (currStudent == null) {
+                    continue;
+                }
+
+                EnrolledEvents currentlyEnrolledEvents = currStudent.getEvents();
+                EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(event);
+
+                Student enrolledStudent = new Student(
+                        currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
+                        currStudent.getYear(), currStudent.getMajor(), currStudent.getNusNetId(),
+                        currStudent.getTags(), updatedEnrolledEvents);
+
+                // Have to set student or GUI will not update
+                // From documentation of ObservableList:
+                // "Note that mutation operations made directly to the underlying list are not reported to
+                // observers of any ObservableList that wraps it."
+                addressBook.setStudent(currStudent, enrolledStudent);
+            }
+
         }
         return addressBook;
     }
