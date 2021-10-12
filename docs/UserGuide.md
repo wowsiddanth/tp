@@ -230,17 +230,26 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]`
-**Create event** | `create n/training d/09-10-2021 t/1800`
-**List students** | `students`
-**Edit student** | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]`
-**List events** | `events`
-**Add student to event** | `enroll id/STUDENT_ID ev/EVENT_NAME`
-**Delete student from event** | `remove id/STUDENT_ID ev/EVENT_NAME`
-**List events** | `events`
-**Delete student** | `delete s/NUS_NETID`
-**Delete event** | `delete ev/EVENT_NAME`
-**Display commands** | `help`
-**Exit** | `exit`
+### Students
+| **Command**  | **Description**  | **Example**                                                                                      |
+|--------------|------------------|--------------------------------------------------------------------------------------------------|
+| **add**      | adds a student   | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]`  |
+| **students** | lists students   | `students`                                                                                       |
+| **edit**     | edit a student   | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]` |
+| **delete**   | delete a student | `delete s/NUS_NETID`                                                                             |
+
+
+### Events
+| **Command** | **Description**                 | **Example**                             |
+|-------------|---------------------------------|-----------------------------------------|
+| **create**  | create an event                 | `create n/training d/09-10-2021 t/1800` |
+| **events**  | lists events                    | `events`                                |
+| **enroll**  | adds a student to an event      | `enroll id/STUDENT_ID ev/EVENT_NAME`    |
+| **remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME`    |
+| **delete**  | deletes an event                | `delete ev/EVENT_NAME`                  |
+
+### Others
+| **Command** | **Description** | **Example** |
+|-------------|-----------------|-------------|
+| **exit**    | exits the app   | `exit`      |
+
