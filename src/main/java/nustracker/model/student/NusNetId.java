@@ -29,7 +29,7 @@ public class NusNetId {
     public NusNetId(String nusNetId) {
         requireNonNull(nusNetId);
         AppUtil.checkArgument(isValidNusNetId(nusNetId), MESSAGE_CONSTRAINTS);
-        value = nusNetId;
+        value = nusNetId.trim();
     }
 
     /**

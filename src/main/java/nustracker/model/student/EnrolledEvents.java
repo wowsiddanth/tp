@@ -1,12 +1,12 @@
 package nustracker.model.student;
 
-import nustracker.model.event.Event;
-import nustracker.model.event.EventName;
+import static java.util.Objects.requireNonNull;
 
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
-import static java.util.Objects.requireNonNull;
+import nustracker.model.event.Event;
+import nustracker.model.event.EventName;
 
 /**
  * This class represent any event(s) that a person is a part of.
@@ -43,7 +43,7 @@ public class EnrolledEvents {
             updatedEventHashMap.put(currEvent.getName(), currEvent);
         }
 
-        updatedEventHashMap.put(eventName,event);
+        updatedEventHashMap.put(eventName, event);
         return of(updatedEventHashMap);
     }
 

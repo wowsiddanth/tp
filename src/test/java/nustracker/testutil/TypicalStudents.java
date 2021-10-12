@@ -14,8 +14,9 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
-import static nustracker.testutil.TypicalAddressBook.getTypicalEvents;
-import static nustracker.testutil.TypicalEvents.*;
+import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
+import static nustracker.testutil.TypicalEvents.ORIENTATION;
+import static nustracker.testutil.TypicalEvents.SPORTS_CAMP;
 
 import java.util.ArrayList;
 import java.util.Arrays;

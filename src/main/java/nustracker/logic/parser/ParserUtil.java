@@ -13,7 +13,6 @@ import nustracker.model.event.EventDate;
 import nustracker.model.event.EventName;
 import nustracker.model.event.EventTime;
 import nustracker.model.student.Email;
-import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
 import nustracker.model.student.NusNetId;

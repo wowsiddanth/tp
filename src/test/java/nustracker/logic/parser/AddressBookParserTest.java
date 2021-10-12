@@ -1,6 +1,8 @@
 package nustracker.logic.parser;
 
-import static nustracker.logic.parser.CliSyntax.*;
+import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
 import static org.junit.jupiter.api.Assertions.assertEquals;

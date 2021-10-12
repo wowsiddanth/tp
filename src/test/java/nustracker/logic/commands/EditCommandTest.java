@@ -5,7 +5,6 @@ import static nustracker.testutil.TypicalStudents.NUSNETID_TWO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import nustracker.model.student.NusNetId;
 import org.junit.jupiter.api.Test;
 
 import nustracker.commons.core.Messages;
@@ -14,6 +13,7 @@ import nustracker.model.AddressBook;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
+import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.StudentBuilder;

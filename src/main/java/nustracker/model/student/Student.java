@@ -31,7 +31,8 @@ public class Student {
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Year year, Major major, NusNetId nusNetId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
+    public Student(Name name, Phone phone, Email email, Year year, Major major,
+                   NusNetId nusNetId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
         CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
         this.name = name;
         this.phone = phone;

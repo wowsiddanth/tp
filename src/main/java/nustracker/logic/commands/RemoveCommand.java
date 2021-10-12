@@ -1,5 +1,14 @@
 package nustracker.logic.commands;
 
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
+import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
+import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.event.Event;
@@ -9,14 +18,8 @@ import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 
-import java.util.HashSet;
-import java.util.Set;
 
-import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
-import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
-import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
-import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+
 
 public class RemoveCommand extends Command {
 

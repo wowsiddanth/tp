@@ -1,14 +1,14 @@
 package nustracker.logic.parser;
 
-import nustracker.logic.commands.RemoveCommand;
-import nustracker.logic.parser.exceptions.ParseException;
-import nustracker.model.event.EventName;
-import nustracker.model.student.NusNetId;
-
 import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+
+import nustracker.logic.commands.RemoveCommand;
+import nustracker.logic.parser.exceptions.ParseException;
+import nustracker.model.event.EventName;
+import nustracker.model.student.NusNetId;
 
 public class RemoveCommandParser implements Parser<RemoveCommand> {
 

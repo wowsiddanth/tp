@@ -2,11 +2,16 @@ package nustracker.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static nustracker.logic.parser.CliSyntax.*;
+import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
+import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 

@@ -1,9 +1,5 @@
 package nustracker.model.event;
 
-import nustracker.model.AddressBook;
-import nustracker.model.student.NusNetId;
-import nustracker.model.student.Student;
-
 import static java.util.Objects.requireNonNull;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 
@@ -11,6 +7,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
+import nustracker.model.AddressBook;
+import nustracker.model.student.NusNetId;
+import nustracker.model.student.Student;
 
 public class Event {
 
@@ -157,7 +157,7 @@ public class Event {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, date, time, participants);
+        return Objects.hash(name, date, time);
     }
 
     @Override
