@@ -9,6 +9,8 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
@@ -19,17 +21,25 @@
                 <Insets top="5" right="5" bottom="5" left="15" />
             </padding>
             <HBox spacing="5" alignment="CENTER_LEFT">
-                <Label fx:id="id" styleClass="cell_big_label">
-                    <minWidth>
-                        <!-- Ensures that the label text is never truncated -->
-                        <Region fx:constant="USE_PREF_SIZE" />
-                    </minWidth>
-                </Label>
-                <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+                <Text fx:id="name" fill="#779cff" text="\$first"  >
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font></Text>
             </HBox>
-            <Label fx:id="date" styleClass="cell_small_label" text="\$date" />
-            <Label fx:id="time" styleClass="cell_small_label" text="\$time" />
-            <FlowPane fx:id="participants" />
+            <Text fx:id="date" fill="#e9afff" text="\$date $time" >
+                <font>
+                    <Font name="System Bold" size="22.0" />
+                </font>
+            </Text>
+            <Text fx:id="time" fill="#e9afff" text="\$time" >
+                <font>
+                    <Font size="22.0" />
+                </font>
+            </Text>
+            <FlowPane fx:id="participants"/>
+            <padding>
+                <Insets left="5" bottom="5"/>
+            </padding>
         </VBox>
     </GridPane>
 </HBox>
