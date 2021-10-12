@@ -13,7 +13,7 @@ title: User Guide
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have `Java 11` or above installed in your Computer.
 
 1. Download the latest `nustracker.jar`, found under Releases
 
@@ -28,9 +28,7 @@ title: User Guide
    * **`list`** : Lists all contacts.
 
    * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` to the Address Book.
-
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
-
+   
    * **`clear`** : Deletes all contacts.
 
    * **`exit`** : Exits the app.
@@ -91,9 +89,6 @@ Examples:
 - The NUS NetID must be specified exactly. {eXXXXXXX}
 
 - Year must be specified as a single number.
-
-
-_**Coming soon:** Additional field ev/EVENT so the user can directly tag an event to a student._
 
 ### Creating an event: `create`
 
