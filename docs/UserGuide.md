@@ -279,13 +279,13 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 | **list**     | lists students   | `students`                                                                                       |
 | **edit**     | edit a student   | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]` |
 | **delete**   | delete a student | `delete s/NUS_NETID`                                                                             |
-| **filter**   | filter by field  | `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]` <div style="color:red">**NOT WORKING**</div>|
+| **filter**   | filter by field  | `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]` **NOT WORKING**                        |
 
 ### Event Commands
 | **Command** | **Description**                 | **Example**                             |
 |-------------|---------------------------------|-----------------------------------------|
 | **create**  | create an event                 | `create n/training d/09-10-2021 t/1800` |
-| **events**  | lists events                    | `events` <div style="color:red">**NOT WORKING**</div> |
+| **events**  | lists events                    | `events` **NOT WORKING**                |
 | **enroll**  | adds a student to an event      | `enroll id/STUDENT_ID ev/EVENT_NAME`    |
 | **remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME`    |
 | **delete**  | deletes an event                | `delete ev/EVENT_NAME`                  |
