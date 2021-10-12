@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import nustracker.commons.core.GuiSettings;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 
 /**
@@ -92,6 +93,15 @@ public interface Model {
     void addEvent(Event event);
 
     /**
+     * Gets a Student by his/her NUS NetId.
+     * Null is returned if {@code nusNetId} does not exist in the address book.
+     *
+     * @param nusNetId The student's NUS NetId
+     * @return The student that has the same NUS NetId as the given ID.
+     */
+    Student getStudent(NusNetId nusNetId);
+
+    /**
      * Gets an event by its name.
      * Null is returned if {@code name} does not exist in the address book.
      *
@@ -107,6 +117,13 @@ public interface Model {
      * in the address book.
      */
     void setStudent(Student target, Student editedStudent);
+
+    /**
+     * Replaces the given event {@code target} in the list with {@code editedEvent}.
+     * {@code target} must exist in the address book.
+     * The event identity of {@code editedEvent} must not be the same as another existing event in the address book.
+     */
+    void setEvent(Event target, Event editedEvent);
 
     /** Returns an unmodifiable view of the filtered student list */
     ObservableList<Student> getFilteredStudentList();

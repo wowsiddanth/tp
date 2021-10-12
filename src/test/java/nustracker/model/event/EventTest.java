@@ -46,6 +46,8 @@ class EventTest {
         String nameWithTrailingSpaces = VALID_EVENTNAME_FINAL + " ";
         editedFinal = new EventBuilder(FINAL).withName(nameWithTrailingSpaces).build();
         Assertions.assertFalse(FINAL.isSameEvent(editedFinal));
+
+
     }
 
     @Test

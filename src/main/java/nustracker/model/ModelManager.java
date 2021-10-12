@@ -14,6 +14,7 @@ import nustracker.commons.util.CollectionUtil;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
+import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 
 /**
@@ -129,6 +130,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Student getStudent(NusNetId nusNetId) {
+        return addressBook.getStudent(nusNetId);
+    }
+
+    @Override
     public Event getEvent(EventName name) {
         return addressBook.getEvent(name);
     }
@@ -137,6 +143,12 @@ public class ModelManager implements Model {
     public void setStudent(Student target, Student editedStudent) {
         CollectionUtil.requireAllNonNull(target, editedStudent);
         addressBook.setStudent(target, editedStudent);
+    }
+
+    @Override
+    public void setEvent(Event target, Event editedEvent) {
+        CollectionUtil.requireAllNonNull(target, editedEvent);
+        addressBook.setEvent(target, editedEvent);
     }
 
     //=========== Filtered Student List Accessors =============================================================

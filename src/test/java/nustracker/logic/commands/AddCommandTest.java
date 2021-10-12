@@ -22,6 +22,7 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.ReadOnlyUserPrefs;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
@@ -122,6 +123,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public Student getStudent(NusNetId nusNetId) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public Event getEvent(EventName name) {
             throw new AssertionError("This method should not be called.");
         }
@@ -158,6 +164,11 @@ public class AddCommandTest {
 
         @Override
         public void setStudent(Student target, Student editedStudent) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setEvent(Event target, Event editedEvent) {
             throw new AssertionError("This method should not be called.");
         }
 

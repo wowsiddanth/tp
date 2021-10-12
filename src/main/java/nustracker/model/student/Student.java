@@ -1,5 +1,7 @@
 package nustracker.model.student;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -21,7 +23,7 @@ public class Student {
     private final Year year;
     private final Major major;
     private final NusNetId nusNetId;
-    private final EnrolledEvents events;
+    private final EnrolledEvents enrolledEvents;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -29,8 +31,9 @@ public class Student {
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Year year, Major major, NusNetId nusNetId, Set<Tag> tags) {
-        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags);
+    public Student(Name name, Phone phone, Email email, Year year, Major major,
+                   NusNetId nusNetId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
+        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -38,7 +41,7 @@ public class Student {
         this.major = major;
         this.nusNetId = nusNetId;
         this.tags.addAll(tags);
-        this.events = new EnrolledEvents("To edit later");
+        this.enrolledEvents = enrolledEvents;
         Major.addStudent(this);
     }
 
@@ -67,7 +70,7 @@ public class Student {
     }
 
     public EnrolledEvents getEvents() {
-        return events;
+        return enrolledEvents;
     }
 
     /**
@@ -96,6 +99,30 @@ public class Student {
     }
 
     /**
+     * Wraps the NusNetId in a Student for easy re-usability with other methods.
+     *
+     * @param nusNetId The NUS NetId
+     * @return A Student with the given NusNetId, and pseudo details.
+     */
+    public static Student pseudoStudent(NusNetId nusNetId) {
+        requireNonNull(nusNetId);
+
+        String validName = "Pseudo Student";
+        String validPhone = "00000000";
+        String validEmail = "pseudoStudent@gmail.com";
+        String validYear = "1";
+        String validMajor = "CS";
+        EnrolledEvents validEnrolledEvents = new EnrolledEvents();
+        return new Student(new Name(validName),
+                new Phone(validPhone),
+                new Email(validEmail),
+                new Year(validYear),
+                new Major(validMajor),
+                nusNetId,
+                new HashSet<>(), validEnrolledEvents);
+    }
+
+    /**
      * Returns true if both students have the same identity and data fields.
      * This defines a stronger notion of equality between two students.
      */
@@ -116,7 +143,8 @@ public class Student {
                 && otherStudent.getYear().equals(getYear())
                 && otherStudent.getMajor().equals(getMajor())
                 && otherStudent.getNusNetId().equals(getNusNetId())
-                && otherStudent.getTags().equals(getTags());
+                && otherStudent.getTags().equals(getTags())
+                && otherStudent.getEvents().equals(getEvents());
     }
 
     @Override
@@ -143,6 +171,11 @@ public class Student {
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
+        }
+
+        if (enrolledEvents.hasEvents()) {
+            builder.append("; Events:");
+            builder.append(enrolledEvents.getEventNamesString());
         }
         return builder.toString();
     }

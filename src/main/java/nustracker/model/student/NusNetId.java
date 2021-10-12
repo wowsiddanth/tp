@@ -24,12 +24,12 @@ public class NusNetId {
     /**
      * Constructs a {@code Id}.
      *
-     * @param nusNetId A valid NUS net id
+     * @param nusNetId A valid NUS NetId
      */
     public NusNetId(String nusNetId) {
         requireNonNull(nusNetId);
         AppUtil.checkArgument(isValidNusNetId(nusNetId), MESSAGE_CONSTRAINTS);
-        value = nusNetId;
+        value = nusNetId.trim();
     }
 
     /**
@@ -37,6 +37,14 @@ public class NusNetId {
      */
     public static boolean isValidNusNetId(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    /**
+     * Gets the Nus NetId in String form.
+     * @return the Nus NetId in String form.
+     */
+    public String getNusNetIdString() {
+        return value;
     }
 
     @Override
