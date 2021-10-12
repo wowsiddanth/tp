@@ -1,8 +1,9 @@
 package nustracker.model.student;
 
+import java.util.function.Predicate;
+
 import nustracker.model.event.EventName;
 
-import java.util.function.Predicate;
 
 /**
  * Tests that a {@code Student}'s {@code EnrolledEvents} matches the keyword given.
