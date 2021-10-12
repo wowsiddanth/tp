@@ -273,25 +273,28 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 ## Command summary
 
 ### Student Commands
-| **Command**  | **Description**  | **Example**                                                                                      |
-|--------------|------------------|--------------------------------------------------------------------------------------------------|
-| **add**      | adds a student   | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]`  |
-| **list**     | lists students   | `students`                                                                                       |
-| **edit**     | edit a student   | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]` |
-| **delete**   | delete a student | `delete s/NUS_NETID`                                                                             |
-| **filter**   | filter by field  | `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]` **NOT WORKING**                        |
+
+**Command** | **Description** | **Example** |
+----------------------------|------------------------------|-------------------------------------------------------|
+**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]` |
+**list** | lists students | `students` |
+**edit** | edit a student | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]` |
+**delete** | delete a student | `delete s/NUS_NETID` |
+**filter** | filter by field  | `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]` <div style="color:red">**NOT WORKING**<div> |
 
 ### Event Commands
-| **Command** | **Description**                 | **Example**                             |
-|-------------|---------------------------------|-----------------------------------------|
-| **create**  | create an event                 | `create n/training d/09-10-2021 t/1800` |
-| **events**  | lists events                    | `events` **NOT WORKING**                |
-| **enroll**  | adds a student to an event      | `enroll id/STUDENT_ID ev/EVENT_NAME`    |
-| **remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME`    |
-| **delete**  | deletes an event                | `delete ev/EVENT_NAME`                  |
+
+**Command** | **Description** | **Example** |
+---------------------------------------|---------------------------------|---------------------------|
+**create**  | create an event | `create n/training d/09-10-2021 t/1800` |
+**events**  | lists events | `events` <div style="color:red">**NOT WORKING**<div> |
+**enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
+**remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
+**delete**  | deletes an event | `delete ev/EVENT_NAME` |
 
 ### Other Commands
-| **Command** | **Description**          | **Example** |
-|-------------|--------------------------|-------------|
-| **help**    | opens the help window    | `help`      |
-| **exit**    | exits the app            | `exit`      |
+
+**Command** | **Description** | **Example** |
+-------------------------|------------------------------------------|----------------------------------|
+**help** | opens the help window | `help`      |
+**exit** | exits the app | `exit` |
