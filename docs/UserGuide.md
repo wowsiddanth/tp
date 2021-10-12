@@ -141,7 +141,7 @@ _**Coming soon:** Filter by multiple fields._
 
 Edits an existing student in the address book.
 
-Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]…​`
+Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -235,6 +235,7 @@ Action | Format, Examples
 **Add** | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]`
 **Create event** | `create n/training d/09-10-2021 t/1800`
 **List students** | `students`
+**Edit student** | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]`
 **List events** | `events`
 **Add student to event** | `enroll id/STUDENT_ID ev/EVENT_NAME`
 **Delete student from event** | `remove id/STUDENT_ID ev/EVENT_NAME`
