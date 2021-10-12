@@ -11,6 +11,11 @@ import nustracker.commons.util.StringUtil;
 public class NusNetIdContainsKeywordsPredicate implements Predicate<Student> {
     private final List<String> keywords;
 
+    /**
+     * Constructs an {@code NusNetIdContainsKeywordsPredicate}.
+     *
+     * @param keywords A list of NUS NetIDs as keywords.
+     */
     public NusNetIdContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }

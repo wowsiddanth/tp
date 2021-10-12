@@ -4,11 +4,11 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
 
+import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 
 /**
  * Filters and lists all students whose data contain a specific field.
- * Keyword matching is case insensitive.
  */
 public abstract class FilterCommand extends Command {
 
@@ -24,5 +24,5 @@ public abstract class FilterCommand extends Command {
             + "Example: " + COMMAND_WORD + " " + PREFIX_EVENT + "Orientation\n";
 
     @Override
-    public abstract CommandResult execute(Model model);
+    public abstract CommandResult execute(Model model) throws CommandException;
 }

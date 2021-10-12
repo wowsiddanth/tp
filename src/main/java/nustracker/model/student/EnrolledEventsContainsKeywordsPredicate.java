@@ -1,5 +1,7 @@
 package nustracker.model.student;
 
+import nustracker.model.event.EventName;
+
 import java.util.function.Predicate;
 
 /**
@@ -8,17 +10,27 @@ import java.util.function.Predicate;
 public class EnrolledEventsContainsKeywordsPredicate implements Predicate<Student> {
     private final String keyword;
 
+    /**
+     * Constructs an {@code EnrolledEventsContainsKeywordsPredicate}.
+     *
+     * @param keyword A valid event name.
+     */
     public EnrolledEventsContainsKeywordsPredicate(String keyword) {
         this.keyword = keyword;
     }
 
     @Override
     public boolean test(Student student) {
-        //fix after enrolled events is implemented
+        return student.getEvents().isEnrolledInEvent(new EventName(keyword));
+    }
 
-        //return keyword.stream()
-        //      .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(student.getNusNetId().value, keyword));
-        return false;
+    /**
+     * Returns the keyword.
+     *
+     * @return the keyword.
+     */
+    public String getKeyword() {
+        return keyword;
     }
 
     @Override

@@ -132,19 +132,19 @@ Examples:
 
 <br>
 
-### Filter students: `filter`  NOT IMPLEMENTED YET
+### Filter students: `filter`
 
 Filters students whose data contains the given field.
 
 Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [ev/EVENT_NAME]`
 
 * You can filter by:
-    - Multiple NUS NetIDs.
-    - Multiple Student names.
-    - **A single** Event name.
+    - Multiple NUS NetIDs. (case-insensitive)
+    - Multiple Student names. (case-insensitive)
+    - **A single** Event name. (case-sensitive)
 
 * You can only filter by one field (i.e. filter only by student id, student name, or event name).
-* The search is case-insensitive. e.g. `ev/ifg` will match `ev/IFG`
+* The search is case-insensitive, except for event. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
 * Multiple keyword search is only supported for NUS NetID and Student name.
 
 Examples:

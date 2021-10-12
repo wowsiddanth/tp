@@ -1,14 +1,17 @@
 package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
 
 import nustracker.commons.core.Messages;
+import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
+import nustracker.model.event.Event;
+import nustracker.model.event.EventName;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 
 /**
  * Filters and lists all students in address book attending the event in the argument.
- * Keyword matching is case insensitive.
  */
 public class FilterEventCommand extends FilterCommand {
 
@@ -19,7 +22,14 @@ public class FilterEventCommand extends FilterCommand {
     }
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
+        Event event = model.getEvent(new EventName(predicate.getKeyword()));
+
+        //event does not exist
+        if (event == null) {
+            throw new CommandException(String.format(MESSAGE_INVALID_EVENT_NAME, predicate.getKeyword()));
+        }
+
         requireNonNull(model);
         model.updateFilteredStudentList(predicate);
         return new CommandResult(
