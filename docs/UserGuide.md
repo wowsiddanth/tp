@@ -169,7 +169,6 @@ Examples:
 * `delete s/e1234567` deletes the student with the NUS NetID `e1234567`.
 * `delete s/0589162` deletes the student with the NUS NetID `e0589162`.
 
-
 ### Deleting an event : `delete ev/`
 
 Deletes the specified event from the address book.
@@ -181,6 +180,33 @@ Command: `delete ev/EVENT_NAME`
 Examples:
 * `delete ev/Orientation` deletes the event with the name `Orientation`.
 * `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
+
+### Enroll a student : `enroll`
+
+Enrolls the specified student into the specified event.
+
+Command: `enroll id/STUDENT_ID ev/EVENT`
+
+* Enrolls the student specified by NUS NetID into the event specified by its event name.
+
+Examples:
+* `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with NUS NetId e0544111 into the event "CS1101S Mock PE".
+* `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with NUS NetId e0322322 into the event "Orientation Camp".
+
+
+### Remove a student : `remove`
+
+Removes the specified student from the specified event.
+
+Command: `remove id/STUDENT_ID ev/EVENT`
+
+* Removes the student specified by NUS NetID from the event specified by its event name.
+
+Examples:
+* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with NUS NetId e0986472 from the event "Tea Making Workshop".
+* `remove id/e0264853 ev/Fun Run` removes the specified student with NUS NetId e0264853 into the event "Fun Run".
+
+
 
 ### Exiting the program : `exit`
 

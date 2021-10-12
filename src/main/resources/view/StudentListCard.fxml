@@ -79,7 +79,20 @@
                    <Font size="22.0" />
                </font>
         </Text>
+
       </HBox>
+        <HBox>
+            <Text fill="#e9afff" text="Enrolled Events: ">
+                <font>
+                    <Font name="System Bold" size="22.0" />
+                </font></Text>
+            <Text fx:id="enrolledEvents" fill="WHITE" style="-fx-font-size: 18px" styleClass="cell_small_label" text="\$email" translateY="3.8">
+                <font>
+                    <Font size="22.0" />
+                </font>
+            </Text>
+        </HBox>
+
     </VBox>
       <rowConstraints>
          <RowConstraints />

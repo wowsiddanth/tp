@@ -28,6 +28,14 @@ public class Participant {
         return NusNetId.isValidNusNetId(test);
     }
 
+    /**
+     * Gets the participant's Nus NetId.
+     * @return the Nus NetId object.
+     */
+    public NusNetId getNusNetId() {
+        return new NusNetId(nusNetId);
+    }
+
     @Override
     public String toString() {
         return nusNetId;

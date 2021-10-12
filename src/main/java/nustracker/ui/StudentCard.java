@@ -29,6 +29,9 @@ public class StudentCard extends UiPart<Region> {
     private Text major;
     @FXML
     private Text nusNetId;
+    @FXML
+    private Text enrolledEvents;
+
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
@@ -38,11 +41,14 @@ public class StudentCard extends UiPart<Region> {
 
         this.student = student;
         name.setText(student.getName().fullName);
+
         phone.setText(student.getPhone().value);
         email.setText(student.getEmail().value);
         year.setText(student.getYear().value);
         major.setText(student.getMajor().value);
         nusNetId.setText(student.getNusNetId().value);
+        enrolledEvents.setText(student.getEvents().getEventNamesString());
+
     }
 
     @Override
