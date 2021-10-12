@@ -18,9 +18,9 @@ import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 
-
-
-
+/**
+ * Removes a student from an existing event.
+ */
 public class RemoveCommand extends Command {
 
 

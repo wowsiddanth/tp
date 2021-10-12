@@ -19,14 +19,14 @@ import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
 
 /**
- * Adds an existing person to an event.
+ * Adds a student to an existing event.
  */
 public class EnrollCommand extends Command {
 
     public static final String COMMAND_WORD = "enroll";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Adds the person identified by NUS NetId to an event "
-            + "identified by its name. \n"
+            + "identified by its name.\n"
             + "Parameters: "
             + PREFIX_NUSNETID + "NUSNETID "
             + PREFIX_EVENT + "EVENT_NAME\n"
