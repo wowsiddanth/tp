@@ -4,12 +4,12 @@ import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
 
-import nustracker.commons.core.index.Index;
 import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
+import nustracker.model.student.NusNetId;
 
 /**
  * Parses input arguments and creates a new DeleteCommand object
@@ -31,8 +31,8 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         }
 
         if (argMultimap.getValue(PREFIX_STUDENT).isPresent()) {
-            Index index = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_STUDENT).get());
-            return new DeleteStudentCommand(index);
+            NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_STUDENT).get());
+            return new DeleteStudentCommand(nusNetId);
         } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
             EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
             return new DeleteEventCommand(eventName);

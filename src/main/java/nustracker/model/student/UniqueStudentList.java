@@ -2,6 +2,7 @@ package nustracker.model.student;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,6 +30,9 @@ public class UniqueStudentList implements Iterable<Student> {
     private final ObservableList<Student> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
 
+    /** Fast retrieval of students by NusNetId. */
+    private final HashMap<NusNetId, Student> nusNetIdStudentHashMap = new HashMap<>();
+
     /**
      * Returns true if the list contains an equivalent student as the given argument.
      */
@@ -47,7 +51,25 @@ public class UniqueStudentList implements Iterable<Student> {
             throw new DuplicateStudentException();
         }
         internalList.add(toAdd);
+        nusNetIdStudentHashMap.put(toAdd.getNusNetId(), toAdd);
     }
+
+    /**
+     * Gets a student from the address book by his/her NUS NetId.
+     * Returns null if student does not exist.
+     *
+     * @param nusNetId The student's NUS NetId
+     * @return The student from the list that has the same NusNetId as the given ID.
+     */
+    public Student get(NusNetId nusNetId) {
+        requireNonNull(nusNetId);
+
+        Student returnThis = nusNetIdStudentHashMap.get(nusNetId);
+
+        return returnThis;
+
+    }
+
 
     /**
      * Replaces the student {@code target} in the list with {@code editedStudent}.
@@ -67,6 +89,7 @@ public class UniqueStudentList implements Iterable<Student> {
         }
 
         internalList.set(index, editedStudent);
+        nusNetIdStudentHashMap.put(editedStudent.getNusNetId(), editedStudent);
     }
 
     /**
@@ -75,6 +98,10 @@ public class UniqueStudentList implements Iterable<Student> {
      */
     public void remove(Student toRemove) {
         requireNonNull(toRemove);
+
+        // Does not throw error for missing student so we remove from HashMap first
+        nusNetIdStudentHashMap.remove(toRemove.getNusNetId());
+
         if (!internalList.remove(toRemove)) {
             throw new StudentNotFoundException();
         }
@@ -96,6 +123,10 @@ public class UniqueStudentList implements Iterable<Student> {
         }
 
         internalList.setAll(students);
+
+        // Set to Nus NetId to Student HashMap as well
+        nusNetIdStudentHashMap.clear();
+        internalList.stream().forEach(student -> nusNetIdStudentHashMap.put(student.getNusNetId(), student));
     }
 
     /**
@@ -135,4 +166,5 @@ public class UniqueStudentList implements Iterable<Student> {
         }
         return true;
     }
+
 }

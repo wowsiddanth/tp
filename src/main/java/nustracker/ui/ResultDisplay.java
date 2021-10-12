@@ -16,8 +16,13 @@ public class ResultDisplay extends UiPart<Region> {
     @FXML
     private TextArea resultDisplay;
 
+    /**
+     * Instantiates a ResultDisplay, that contains
+     * the result of a user's command search.
+     */
     public ResultDisplay() {
         super(FXML);
+        resultDisplay.setWrapText(true);
     }
 
     public void setFeedbackToUser(String feedbackToUser) {

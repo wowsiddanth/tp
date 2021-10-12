@@ -62,6 +62,27 @@ public class EventBuilder {
     }
 
     /**
+     * Parses the {@code participantSet} and set it to the {@code Event} that we are
+     * building.
+     */
+    public EventBuilder withParticipantSet(Set<Participant> participantSet) {
+        this.participants = participantSet;
+        return this;
+    }
+
+    /**
+     * Parses the {@code nusNetId} and add it as a {@code Participant} to the {@code Event} that we are
+     * building.
+     */
+    public EventBuilder addParticipant(String nusNetId) {
+        Participant toAdd = new Participant(nusNetId);
+        Set<Participant> updatedParticipants = new HashSet<>(participants);
+        updatedParticipants.add(toAdd);
+        participants = updatedParticipants;
+        return this;
+    }
+
+    /**
      * Sets the {@code Date} of the {@code Event} that we are building.
      */
     public EventBuilder withDate(String date) {

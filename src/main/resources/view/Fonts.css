@@ -42,3 +42,28 @@
     font-family: "Open Sans SemiBold Italic";
     src: url("/fonts/open-sans/OpenSans-SemiBoldItalic.ttf");
 }
+
+@font-face {
+    font-family: "Roboto-Thin";
+    src: url("/fonts/roboto/Roboto-Thin.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("/fonts/roboto/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Bold-Italics";
+    src: url("/fonts/roboto/Roboto-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: "Spartan-Bold";
+    src: url("/fonts/spartan/Spartan-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Spartan-ExtraBold";
+    src: url("/fonts/spartan/Spartan-ExtraBold.ttf");
+}
