@@ -17,25 +17,23 @@ Graphical User Interface (GUI).
 
 1. Ensure you have `Java 11` or above installed in your Computer.
 
-1. Download the latest `nustracker.jar`, found under Releases
+2. Download the latest `nustracker.jar`, found under Releases
 
-1. Copy the file to the folder you want to use as the _home folder_ for NUSTracker.
+3. Copy the file to the folder you want to use as the _home folder_ for NUSTracker.
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui1.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+   * **`list`** : Lists all students.
 
    * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` to the Address Book.
    
-   * **`clear`** : Deletes all contacts.
-
    * **`exit`** : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -74,7 +72,7 @@ Graphical User Interface (GUI).
 
 Adds a student to NUSTracker
 
-Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT] [t/TAGS]`
+Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT]`
 
 Examples:
 * add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com
@@ -87,7 +85,7 @@ Examples:
   3. IS (Information Systems)
   4. ISEC (Information Security)
 
-- The NUS NetID must be specified exactly. {eXXXXXXX}
+- The Student iD must be specified exactly. {eXXXXXXX}
 
 - Year must be specified as a single number.
 
@@ -105,12 +103,12 @@ Format: `list`
 
 Edits an existing student in the address book.
 
-Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]`
+Command: `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]`
 
-* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the student at the specified `STUDENT_ID`.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
+* When editing events, the existing events of the student will be removed i.e adding of events is not cumulative.
 
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
@@ -120,15 +118,15 @@ Examples:
 
 ### Deleting a student : `delete`
 
-Deletes the specified student from the address book.
+Deletes the specified student.
 
-Command: `delete s/NUS_NetID`
+Command: `delete id/STUDENT_ID`
 
-* Deletes the student with the specified `NUS_NetID`.
+* Deletes the student with the specified `STUDENT_ID`.
 
 Examples:
-* `delete s/e1234567` deletes the student with the NUS NetID `e1234567`.
-* `delete s/0589162` deletes the student with the NUS NetID `e0589162`.
+* `delete id/e1234567` deletes the student with the Student ID `e1234567`.
+* `delete id/0589162` deletes the student with the Student ID `e0589162`.
 
 <br>
 
@@ -143,13 +141,13 @@ Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STU
     - Multiple Student names. (case-insensitive)
     - **A single** Event name. (case-sensitive)
 
-* You can only filter by one field (i.e. filter only by student id, student name, or event name).
+* You can only filter by one field (i.e. filter only by student ID, student name, or event name).
 * The search is case-insensitive, except for event. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
-* Multiple keyword search is only supported for NUS NetID and Student name.
+* Multiple keyword search is only supported for Student ID and Student name.
 
 Examples:
-* `filter id/e1234567` returns the student with the id e1234567 if that student exists in the address book.
-* `filter id/e1234567 e2345678` returns two students whose NUS NetIDs are e1234567 and e2345678 if they exist in the address book.
+* `filter id/e1234567` returns the student with the ID e1234567 if that student exists in the address book.
+* `filter id/e1234567 e2345678` returns two students whose Student IDs are e1234567 and e2345678 if they exist in the address book.
 * `filter n/John` returns the students whose names contain John.
 * `filter n/John alice` returns the students whose names contain John OR Alice.
 * `filter ev/IFG` returns a list of students who are tagged to the IFG event.
@@ -202,11 +200,11 @@ Enrolls the specified student into the specified event.
 
 Command: `enroll id/STUDENT_ID ev/EVENT`
 
-* Enrolls the student specified by NUS NetID into the event specified by its event name.
+* Enrolls the student specified by Student ID into the event specified by its event name.
 
 Examples:
-* `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with NUS NetId e0544111 into the event "CS1101S Mock PE".
-* `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with NUS NetId e0322322 into the event "Orientation Camp".
+* `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with Student ID e0544111 into the event "CS1101S Mock PE".
+* `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with Student ID e0322322 into the event "Orientation Camp".
 
 <br>
 
@@ -216,7 +214,7 @@ Removes the specified student from the specified event.
 
 Command: `remove id/STUDENT_ID ev/EVENT`
 
-* Removes the student specified by NUS NetID from the event specified by its event name.
+* Removes the student specified by Student ID from the event specified by its event name.
 
 Examples:
 * `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with NUS NetId e0986472 from the event "Tea Making Workshop".
@@ -284,18 +282,18 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 **Command** | **Description** | **Example** |
 ----------------------------|------------------------------|-------------------------------------------------------|
-**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]` |
-**list** | lists students | `students` |
-**edit** | edit a student | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]` |
-**delete** | delete a student | `delete s/NUS_NETID` |
-**filter** | filter by field  | `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]` <div style="color:red">**NOT WORKING**<div> |
+**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT_NAME]` |
+**list** | lists students | `list` |
+**edit** | edit a student | `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]` |
+**delete** | delete a student | `delete id/STUDENT_ID` |
+**filter** | filter by field  | `filter [n/STUDENT_NAME [MORE_STUDENT_NAMES]...]` <br> `filter [id/STUDENT_ID [MORE_STUDENT_IDS]...]` <br>  `filter [ev/EVENT_NAME]` |
 
 ### Event Commands
 
 **Command** | **Description** | **Example** |
 ---------------------------------------|---------------------------------|---------------------------|
-**create**  | create an event | `create n/training d/09-10-2021 t/1800` |
-**events**  | lists events | `events` <div style="color:red">**NOT WORKING**<div> |
+**create**  | create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
+**events**  | lists events | `events` **NOT WORKING** |
 **enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
 **remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
 **delete**  | deletes an event | `delete ev/EVENT_NAME` |
