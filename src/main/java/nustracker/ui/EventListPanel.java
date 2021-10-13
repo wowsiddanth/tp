@@ -27,7 +27,20 @@ public class EventListPanel extends UiPart<Region> {
         super(FXML);
         eventListView.setItems(eventList);
         eventListView.setCellFactory(listView -> new EventListPanel.EventListViewCell());
+
+        focusOnItem(0);
     }
+
+    /**
+     * Selects the first event, upon execution
+     */
+    public void focusOnItem(int index) {
+        eventListView.getSelectionModel().select(index);
+        eventListView.getFocusModel().focus(index);
+        eventListView.scrollTo(index);
+    }
+
+    /**
 
     /**
      * Custom {@code ListCell} that displays the graphics of an {@code Event} using an {@code EventCard}.

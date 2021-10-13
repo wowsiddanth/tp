@@ -73,7 +73,15 @@
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;
+   U-fx-background-color: -fx-focus-color;
+}
+
+#studentsButton, #eventsButton, #helpButton, #exitButton {
+    -fx-background-radius: 50;
+    -fx-background-color: #515151;
+    -fx-border-radius: 20;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
 }
 
 .split-pane:horizontal .split-pane-divider {
@@ -87,6 +95,7 @@
     -fx-background-color: derive(#1d1d1d, 20%);
 }
 
+/* The container for the student card cells */
 .list-view {
     -fx-background-insets: 0;
     -fx-padding: 0;
@@ -100,11 +109,11 @@
 }
 
 .list-cell:filled:even {
-    -fx-background-color: #3c3e3f;
+    -fx-background-color: #515151;
 }
 
 .list-cell:filled:odd {
-    -fx-background-color: #515658;
+    -fx-background-color: #515151;
 }
 
 .list-cell:filled:selected {
@@ -112,15 +121,16 @@
 }
 
 .list-cell:filled:selected #cardPane {
-    -fx-border-color: #3e7b91;
-    -fx-border-width: 1;
+    -fx-border-color: #FDB703;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
 }
 
-.list-cell .label {
-    -fx-text-fill: white;
+.student-label-name {
+    -fx-font-family: Roboto-Bold;
 }
 
-.cell_big_label {
+.cell_big_label { /*maybe need to remove later*/
     -fx-font-family: "Open Sans Semibold";
     -fx-font-size: 16px;
     -fx-text-fill: #010504;
@@ -139,6 +149,7 @@
 .pane-with-border {
      -fx-background-color: derive(#1d1d1d, 20%);
      -fx-border-color: derive(#1d1d1d, 10%);
+     -fx-border-radius: 10px;
      -fx-border-top-width: 1px;
 }
 
@@ -192,21 +203,6 @@
     -fx-text-fill: white;
 }
 
-.menu-bar {
-    -fx-background-color: derive(#1d1d1d, 20%);
-}
-
-.menu-bar .label {
-    -fx-font-size: 14pt;
-    -fx-font-family: "Open Sans Light";
-    -fx-text-fill: white;
-    -fx-opacity: 0.9;
-}
-
-.menu .left-container {
-    -fx-background-color: black;
-}
-
 /*
  * Metro style Push Button
  * Author: Pedro Duque Vieira
@@ -215,30 +211,16 @@
 .button {
     -fx-padding: 5 22 5 22;
     -fx-border-color: #e2e2e2;
-    -fx-border-width: 2;
-    -fx-background-radius: 0;
-    -fx-background-color: #1d1d1d;
-    -fx-font-family: "Open Sans Regular";
+    -fx-font-family: "Roboto Thin";
     -fx-font-size: 11pt;
     -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
-.button:hover {
-    -fx-background-color: #3a3a3a;
-}
-
 .button:pressed, .button:default:hover:pressed {
-  -fx-background-color: white;
-  -fx-text-fill: #1d1d1d;
-}
-
-.button:focused {
-    -fx-border-color: white, white;
-    -fx-border-width: 1, 1;
-    -fx-border-style: solid, segments(1, 1);
-    -fx-border-radius: 0, 0;
-    -fx-border-insets: 1 1 1 1, 0;
+  -fx-text-fill: #779CFF;
+  -fx-font-family: Roboto-Bold;
+  -fx-effect: dropshadow(gaussian, #E9AFFF, 2, 1, 0, 0);
 }
 
 .button:disabled, .button:default:disabled {
@@ -282,12 +264,14 @@
 }
 
 .scroll-bar {
-    -fx-background-color: derive(#1d1d1d, 20%);
+    -fx-background-color: derive(#C4C4C4, 20%);
+    -fx-border-radius: 4px;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: derive(#1d1d1d, 50%);
+    -fx-background-color: derive(#ffffff, 100%);
     -fx-background-insets: 3;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
 
 .scroll-bar .increment-button, .scroll-bar .decrement-button {
@@ -324,11 +308,11 @@
     -fx-border-insets: 0;
     -fx-border-width: 1;
     -fx-font-family: "Open Sans Light";
-    -fx-font-size: 13pt;
+    -fx-font-size: 16pt;
     -fx-text-fill: white;
 }
 
-#filterField, #studentListPanel, #studentWebpage {
+#filterField, #studentListPanel {
     -fx-effect: innershadow(gaussian, black, 10, 0, 0, 0);
 }
 
@@ -337,12 +321,7 @@
     -fx-background-radius: 0;
 }
 
-#tags {
-    -fx-hgap: 7;
-    -fx-vgap: 3;
-}
-
-#tags .label {
+#participants .label {
     -fx-text-fill: white;
     -fx-background-color: #3e7b91;
     -fx-padding: 1 3 1 3;

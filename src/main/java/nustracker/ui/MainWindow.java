@@ -2,12 +2,10 @@ package nustracker.ui;
 
 import java.util.logging.Logger;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextInputControl;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import nustracker.commons.core.GuiSettings;
@@ -19,7 +17,7 @@ import nustracker.logic.parser.exceptions.ParseException;
 
 /**
  * The Main Window. Provides the basic application layout containing
- * a menu bar and space where other JavaFX elements can be placed.
+ * the top bar and space where other JavaFX elements can be placed.
  */
 public class MainWindow extends UiPart<Stage> {
 
@@ -37,16 +35,31 @@ public class MainWindow extends UiPart<Stage> {
     private HelpWindow helpWindow;
 
     @FXML
+    private Button helpButton;
+
+    @FXML
     private StackPane commandBoxPlaceholder;
+
+    @FXML
+    private StackPane listPanelPlaceholder;
+
+    /**
+     * This space is for the NUSTracker logo, and the help and exit button
+     */
+    @FXML
+    private HBox topContainer;
 
     @FXML
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane studentListPanelPlaceholder;
+    private Button exitButton;
 
     @FXML
-    private StackPane eventListPanelPlaceholder;
+    private Button eventsButton;
+
+    @FXML
+    private Button studentsButton;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -61,14 +74,16 @@ public class MainWindow extends UiPart<Stage> {
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
 
+        //Minimum possible size the program can take
+        primaryStage.setMinHeight(747);
+        primaryStage.setMinWidth(747);
+
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
-
-        setAccelerators();
 
         helpWindow = new HelpWindow();
     }
@@ -77,52 +92,15 @@ public class MainWindow extends UiPart<Stage> {
         return primaryStage;
     }
 
-    private void setAccelerators() {
-        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
-    }
-
-    /**
-     * Sets the accelerator of a MenuItem.
-     * @param keyCombination the KeyCombination value of the accelerator
-     */
-    private void setAccelerator(MenuItem menuItem, KeyCombination keyCombination) {
-        menuItem.setAccelerator(keyCombination);
-
-        /*
-         * TODO: the code below can be removed once the bug reported here
-         * https://bugs.openjdk.java.net/browse/JDK-8131666
-         * is fixed in later version of SDK.
-         *
-         * According to the bug report, TextInputControl (TextField, TextArea) will
-         * consume function-key events. Because CommandBox contains a TextField, and
-         * ResultDisplay contains a TextArea, thus some accelerators (e.g F1) will
-         * not work when the focus is in them because the key event is consumed by
-         * the TextInputControl(s).
-         *
-         * For now, we add following event filter to capture such key events and open
-         * help window purposely so to support accelerators even when focus is
-         * in CommandBox or ResultDisplay.
-         */
-        getRoot().addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getTarget() instanceof TextInputControl && keyCombination.match(event)) {
-                menuItem.getOnAction().handle(new ActionEvent());
-                event.consume();
-            }
-        });
-    }
-
     /**
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
         studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
-        studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
-        studentListPanelPlaceholder.managedProperty().bind(studentListPanelPlaceholder.visibleProperty());
+        listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
+        listPanelPlaceholder.managedProperty().bind(listPanelPlaceholder.visibleProperty());
 
         eventListPanel = new EventListPanel(logic.getFilteredEventList());
-        eventListPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
-        eventListPanelPlaceholder.managedProperty().bind(eventListPanelPlaceholder.visibleProperty());
-        eventListPanelPlaceholder.setVisible(false);
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -167,8 +145,8 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleStudents() {
-        studentListPanelPlaceholder.setVisible(true);
-        eventListPanelPlaceholder.setVisible(false);
+        listPanelPlaceholder.getChildren().clear();
+        listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
     }
 
     /**
@@ -176,8 +154,8 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleEvents() {
-        studentListPanelPlaceholder.setVisible(false);
-        eventListPanelPlaceholder.setVisible(true);
+        listPanelPlaceholder.getChildren().clear();
+        listPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
     }
 
     /**

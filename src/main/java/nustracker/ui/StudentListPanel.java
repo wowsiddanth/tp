@@ -27,6 +27,17 @@ public class StudentListPanel extends UiPart<Region> {
         super(FXML);
         studentListView.setItems(studentList);
         studentListView.setCellFactory(listView -> new StudentListViewCell());
+
+        focusOnItem(0); //Select first item upon startup
+    }
+
+    /**
+     * Selects the first student, upon execution
+     */
+    public void focusOnItem(int index) {
+        studentListView.getSelectionModel().select(index);
+        studentListView.getFocusModel().focus(index);
+        studentListView.scrollTo(index);
     }
 
     /**

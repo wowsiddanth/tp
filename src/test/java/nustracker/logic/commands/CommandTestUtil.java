@@ -51,7 +51,9 @@ public class CommandTestUtil {
     public static final String MAJOR_DESC_AMY = " " + CliSyntax.PREFIX_MAJOR + VALID_MAJOR_AMY;
     public static final String MAJOR_DESC_BOB = " " + CliSyntax.PREFIX_MAJOR + VALID_MAJOR_BOB;
     public static final String NUSNETID_DESC_AMY = " " + CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_AMY;
+    public static final String NUSNETID_DESC_AMY_WO_LEADING_SPACE = CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_AMY;
     public static final String NUSNETID_DESC_BOB = " " + CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_BOB;
+    public static final String NUSNETID_DESC_BOB_WO_LEADING_SPACE = CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_BOB;
     public static final String TAG_DESC_FRIEND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_HUSBAND;
 
