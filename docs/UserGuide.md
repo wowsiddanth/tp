@@ -132,18 +132,26 @@ Examples:
 
 <br>
 
-### Filter students: `filter`  NOT IMPLEMENTED YET
+### Filter students: `filter`
 
 Filters students whose data contains the given field.
 
-Command: `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]`
+Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [ev/EVENT_NAME]`
 
-* You can only filter by one field (i.e. filter only by student id or event name).
-* The search is case-insensitive. e.g. `ev/ifg` will match `ev/IFG`
+* You can filter by:
+    - Multiple NUS NetIDs. (case-insensitive)
+    - Multiple Student names. (case-insensitive)
+    - **A single** Event name. (case-sensitive)
+
+* You can only filter by one field (i.e. filter only by student id, student name, or event name).
+* The search is case-insensitive, except for event. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
+* Multiple keyword search is only supported for NUS NetID and Student name.
 
 Examples:
-* `filter id/e1234567` returns the information of the student with the id e1234567.
-* `filter n/John` returns the students with the name John.
+* `filter id/e1234567` returns the student with the id e1234567 if that student exists in the address book.
+* `filter id/e1234567 e2345678` returns two students whose NUS NetIDs are e1234567 and e2345678 if they exist in the address book.
+* `filter n/John` returns the students whose names contain John.
+* `filter n/John alice` returns the students whose names contain John OR Alice.
 * `filter ev/IFG` returns a list of students who are tagged to the IFG event.
 
 _**Coming soon:** Additional fields to filter by._

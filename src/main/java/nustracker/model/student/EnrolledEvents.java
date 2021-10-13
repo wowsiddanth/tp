@@ -91,6 +91,17 @@ public class EnrolledEvents {
                 .collect(Collectors.joining(", "));
     }
 
+    /**
+     * Checks if the student is enrolled in a specific event.
+     *
+     * @param eventName the name of the event.
+     * @return true if student is enrolled in event, false otherwise.
+     */
+    public boolean isEnrolledInEvent(EventName eventName) {
+        requireNonNull(eventName);
+        return eventsEnrolledIn.containsKey(eventName);
+    }
+
 
     @Override
     public String toString() {

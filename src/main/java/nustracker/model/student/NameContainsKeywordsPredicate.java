@@ -11,6 +11,11 @@ import nustracker.commons.util.StringUtil;
 public class NameContainsKeywordsPredicate implements Predicate<Student> {
     private final List<String> keywords;
 
+    /**
+     * Constructs an {@code NameContainsKeywordsPredicate}.
+     *
+     * @param keywords A list of names as keywords.
+     */
     public NameContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
