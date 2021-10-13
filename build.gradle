@@ -67,7 +67,10 @@ dependencies {
 
 shadowJar {
     archiveName = 'nustracker.jar'
+<<<<<<< HEAD
     archiveVersion = '1.2'
+=======
+>>>>>>> 7e637015beb5cdc950d9dafec4f20afb2bff568b
 }
 
 defaultTasks 'clean', 'test'
