@@ -23,7 +23,7 @@ public class Student {
     private final Year year;
     private final Major major;
     private final NusNetId nusNetId;
-    private final EnrolledEvents events;
+    private final EnrolledEvents enrolledEvents;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -31,8 +31,9 @@ public class Student {
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Year year, Major major, NusNetId nusNetId, Set<Tag> tags) {
-        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags);
+    public Student(Name name, Phone phone, Email email, Year year, Major major,
+                   NusNetId nusNetId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
+        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -40,7 +41,7 @@ public class Student {
         this.major = major;
         this.nusNetId = nusNetId;
         this.tags.addAll(tags);
-        this.events = new EnrolledEvents("To edit later");
+        this.enrolledEvents = enrolledEvents;
         Major.addStudent(this);
     }
 
@@ -69,7 +70,7 @@ public class Student {
     }
 
     public EnrolledEvents getEvents() {
-        return events;
+        return enrolledEvents;
     }
 
     /**
@@ -111,14 +112,14 @@ public class Student {
         String validEmail = "pseudoStudent@gmail.com";
         String validYear = "1";
         String validMajor = "CS";
-        new EnrolledEvents("To edit later");
+        EnrolledEvents validEnrolledEvents = new EnrolledEvents();
         return new Student(new Name(validName),
                 new Phone(validPhone),
                 new Email(validEmail),
                 new Year(validYear),
                 new Major(validMajor),
                 nusNetId,
-                new HashSet<>());
+                new HashSet<>(), validEnrolledEvents);
     }
 
     /**
@@ -142,7 +143,8 @@ public class Student {
                 && otherStudent.getYear().equals(getYear())
                 && otherStudent.getMajor().equals(getMajor())
                 && otherStudent.getNusNetId().equals(getNusNetId())
-                && otherStudent.getTags().equals(getTags());
+                && otherStudent.getTags().equals(getTags())
+                && otherStudent.getEvents().equals(getEvents());
     }
 
     @Override
@@ -169,6 +171,11 @@ public class Student {
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
+        }
+
+        if (enrolledEvents.hasEvents()) {
+            builder.append("; Events:");
+            builder.append(enrolledEvents.getEventNamesString());
         }
         return builder.toString();
     }

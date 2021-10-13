@@ -215,7 +215,7 @@ The following sequence diagram shows how the undo operation works:
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
 
-<div m**arkdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
 
@@ -386,6 +386,37 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+**<u>Use case UC3 - Filter students by name</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The list of students is not altered
+
+**MSS:**
+
+1.  User requests to filter students by multiple names
+2.  AddressBook displays a list of students whose names contain the specified keywords
+
+    Use case ends.
+
+**Extensions:**
+* 2a. The list of students is empty.
+
+  Use case ends.
+  
+* 2b. The AddressBook does not find any students with from the given keywords.
+    
+    * 2b1. AddressBook displays an empty list.
+
+        Use case ends.
+    
+* 2c. User types multiple prefixes to filter by.
+
+    * 2c1. Address book shows an error message.
+    
+        Use case ends.
+      
+      
 *{More to be added}*
 
 ### Non-Functional Requirements

@@ -108,7 +108,9 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     /**
      * Gets a student from the address book by his/her NUS NetId.
-     * Returns null if student does not exist.
+     *
+     * @param nusNetId the relevant NUS NetId.
+     * @return the {@code Student} with this nusNetId, null if the student does not exist.
      */
     public Student getStudent(NusNetId nusNetId) {
         return students.get(nusNetId);

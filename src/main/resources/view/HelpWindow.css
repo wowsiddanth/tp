@@ -1,5 +1,5 @@
-#copyButton, #helpMessage {
-    -fx-font-family: "Open Sans";
+#helpMessage {
+    -fx-font-family: "Spartan-ExtraBold";
 }
 
 .root {

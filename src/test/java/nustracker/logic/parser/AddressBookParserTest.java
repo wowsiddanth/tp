@@ -1,9 +1,10 @@
 package nustracker.logic.parser;
 
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
+import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
-import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -23,12 +24,17 @@ import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.commands.ExitCommand;
-import nustracker.logic.commands.FindCommand;
+import nustracker.logic.commands.FilterCommand;
+import nustracker.logic.commands.FilterEventCommand;
+import nustracker.logic.commands.FilterIdCommand;
+import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.HelpCommand;
 import nustracker.logic.commands.ListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;
+import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
+import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
@@ -70,9 +76,9 @@ public class AddressBookParserTest {
         Student student = new StudentBuilder().build();
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(student).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_STUDENT.getOneBased() + " "
+                + PREFIX_NUSNETID + NUSNETID_ONE.getNusNetIdString() + " "
                 + StudentUtil.getEditStudentDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_STUDENT, descriptor), command);
+        assertEquals(new EditCommand(NUSNETID_ONE, descriptor), command);
     }
 
     @Test
@@ -82,11 +88,21 @@ public class AddressBookParserTest {
     }
 
     @Test
-    public void parseCommand_find() throws Exception {
+    public void parseCommand_filter() throws Exception {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
-        FindCommand command = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-        assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
+
+        FilterCommand nameCommand = (FilterCommand) parser.parseCommand(
+                FilterCommand.COMMAND_WORD + " " + PREFIX_NAME + keywords.stream().collect(Collectors.joining(" ")));
+        assertEquals(new FilterNameCommand(new NameContainsKeywordsPredicate(keywords)), nameCommand);
+
+        FilterCommand idCommand = (FilterCommand) parser.parseCommand(
+                FilterCommand.COMMAND_WORD + " " + PREFIX_NUSNETID + keywords.stream().collect(
+                        Collectors.joining(" ")));
+        assertEquals(new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(keywords)), idCommand);
+
+        FilterCommand eventCommand = (FilterCommand) parser.parseCommand(
+                FilterCommand.COMMAND_WORD + " " + PREFIX_EVENT + "foo");
+        assertEquals(new FilterEventCommand(new EnrolledEventsContainsKeywordsPredicate("foo")), eventCommand);
     }
 
     @Test

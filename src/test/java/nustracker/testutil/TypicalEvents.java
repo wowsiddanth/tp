@@ -25,10 +25,15 @@ public class TypicalEvents {
             .withDate("10-09-2021")
             .withTime("1200")
             .withParticipants("e7654321").build();
+    public static final Event MATH_OLYMPIAD = new EventBuilder().withName("Math Olympiad")
+            .withDate("05-03-2017")
+            .withTime("1615")
+            .withParticipants("e0322322", "e0544224", "e0123456").build();
 
     // For delete event tests
     public static final EventName EVENTNAME_ONE = new EventName("Orientation Camp");
     public static final EventName EVENTNAME_TWO = new EventName("Sports Camp");
+    public static final EventName EVENTNAME_THREE = new EventName("Math Olympiad");
     public static final EventName EVENTNAME_INVALID = new EventName("does not exist");
 
     // Manually added - Event's details found in {@code CommandTestUtil}

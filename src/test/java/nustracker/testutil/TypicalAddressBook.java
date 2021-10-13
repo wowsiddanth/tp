@@ -13,9 +13,11 @@ import static nustracker.testutil.TypicalStudents.GEORGE;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import nustracker.model.AddressBook;
 import nustracker.model.event.Event;
+import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Student;
 
 public class TypicalAddressBook {
@@ -32,6 +34,23 @@ public class TypicalAddressBook {
         }
         for (Event event : getTypicalEvents()) {
             ab.addEvent(event);
+            Set<Student> studentParticipants = event.getParticipantsAsStudents(ab);
+            for (Student currStudent : studentParticipants) {
+                if (currStudent == null) {
+                    continue;
+                }
+
+                EnrolledEvents currentlyEnrolledEvents = currStudent.getEvents();
+                EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(event);
+
+                Student enrolledStudent = new Student(
+                        currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
+                        currStudent.getYear(), currStudent.getMajor(), currStudent.getNusNetId(),
+                        currStudent.getTags(), updatedEnrolledEvents);
+
+                ab.setStudent(currStudent, enrolledStudent);
+            }
+
         }
         return ab;
     }

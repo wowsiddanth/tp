@@ -17,16 +17,15 @@ public class CreateCommand extends Command {
 
     public static final String COMMAND_WORD = "create";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Creates an Event. "
-            + "Students can now be enrolled into this event.\n"
+            + ": Creates an Event. Students can now be enrolled into this event. "
             + "Parameters: "
-            + PREFIX_NAME + "Event Name"
-            + PREFIX_DATE + "Event Date (YYYY-MM-DD)"
-            + PREFIX_TIME + "Event Time (24 hr time)"
+            + PREFIX_NAME + "EVENT_NAME "
+            + PREFIX_DATE + "EVENT_DATE (DD-MM-YYYY) "
+            + PREFIX_TIME + "EVENT_TIME (24HR TIME)\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_NAME + "Orientation"
-            + PREFIX_DATE + "2022-01-01"
-            + PREFIX_TIME + "0900";
+            + PREFIX_NAME + "Orientation "
+            + PREFIX_DATE + "09-10-2022 "
+            + PREFIX_TIME + "2137 ";
 
     public static final String MESSAGE_SUCCESS = "Created event: %1$s";
     public static final String MESSAGE_DUPLICATE_EVENT = "This event already exists in the address book";

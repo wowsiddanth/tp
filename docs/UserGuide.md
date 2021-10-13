@@ -3,7 +3,9 @@ layout: page
 title: User Guide
 ---
 
-**NUSTracker** is a desktop application for managing large NUS-based student organizations, and is optimized for use via the CLI or Command Line Interface. Nonetheless, it is supported by a detailed and elegant Graphical User Interface (GUI).
+**NUSTracker** is a desktop application for managing large NUS-based student organizations, and is optimized
+for use via the CLI or Command Line Interface. Nonetheless, it is supported by a detailed and elegant
+Graphical User Interface (GUI).
 
 
 * Table of Contents
@@ -13,14 +15,14 @@ title: User Guide
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have `Java 11` or above installed in your Computer.
 
 1. Download the latest `nustracker.jar`, found under Releases
 
 1. Copy the file to the folder you want to use as the _home folder_ for NUSTracker.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+   ![Ui](images/Ui1.png)
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -28,9 +30,7 @@ title: User Guide
    * **`list`** : Lists all contacts.
 
    * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` to the Address Book.
-
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
-
+   
    * **`clear`** : Deletes all contacts.
 
    * **`exit`** : Exits the app.
@@ -65,12 +65,11 @@ title: User Guide
 
 </div>
 
-### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
 
-Command: `help`
+<br><br>
 
+## Student Commands
 ### Adding a student: `add`
 
 Adds a student to NUSTracker
@@ -92,38 +91,21 @@ Examples:
 
 - Year must be specified as a single number.
 
+<br>
 
-_**Coming soon:** Additional field ev/EVENT so the user can directly tag an event to a student._
+### Listing all students: `list`
 
-### Listing all student
-
-Shows a list of all students in the address book.
+Shows all students in the app.
 
 Format: `list`
 
-### Filter students: `filter`
-
-Filters students whose data contains the given field.
-
-Command: `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]`
-
-* You can only filter by one field (i.e. filter only by student id or event name).
-* The search is case-insensitive. e.g. `ev/ifg` will match `ev/IFG`
-
-Examples:
-* `filter id/e1234567` returns the information of the student with the id e1234567.
-* `filter n/John` returns the students with the name John.
-* `filter ev/IFG` returns a list of students who are tagged to the IFG event.
-
-_**Coming soon:** Additional fields to filter by._
-
-_**Coming soon:** Filter by multiple fields._
+<br>
 
 ### Editing a student : `edit`
 
 Edits an existing student in the address book.
 
-Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]…​`
+Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -133,6 +115,8 @@ Command: `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EM
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 * `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd student to be `Betsy Crower` and edits email.
+
+<br>
 
 ### Deleting a student : `delete`
 
@@ -146,7 +130,101 @@ Examples:
 * `delete s/e1234567` deletes the student with the NUS NetID `e1234567`.
 * `delete s/0589162` deletes the student with the NUS NetID `e0589162`.
 
-### Deleting an event : `delete ev/`
+<br>
+
+### Filter students: `filter`
+
+Filters students whose data contains the given field.
+
+Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [ev/EVENT_NAME]`
+
+* You can filter by:
+    - Multiple NUS NetIDs. (case-insensitive)
+    - Multiple Student names. (case-insensitive)
+    - **A single** Event name. (case-sensitive)
+
+* You can only filter by one field (i.e. filter only by student id, student name, or event name).
+* The search is case-insensitive, except for event. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
+* Multiple keyword search is only supported for NUS NetID and Student name.
+
+Examples:
+* `filter id/e1234567` returns the student with the id e1234567 if that student exists in the address book.
+* `filter id/e1234567 e2345678` returns two students whose NUS NetIDs are e1234567 and e2345678 if they exist in the address book.
+* `filter n/John` returns the students whose names contain John.
+* `filter n/John alice` returns the students whose names contain John OR Alice.
+* `filter ev/IFG` returns a list of students who are tagged to the IFG event.
+
+_**Coming soon:** Additional fields to filter by._
+
+_**Coming soon:** Filter by multiple fields._
+
+<br><br>
+
+
+## Event Commands
+
+### Creating an event: `create`
+
+Adds an event to NUSTracker
+
+Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
+
+Examples:
+* create n/Orientation Camp d/01-08-2022 t/1000
+
+**Formatting**:
+
+- Event name cannot be empty.
+
+- Event date is in the format `DD-MM-YYYY`.
+    - DD represents the day (from 01-31 inclusive)
+    - MM represents the month (from 01-12 inclusive)
+    - YYYY represents the year
+
+- Event time is in 24 hour time `HHMM`.
+    - HH represents the hour (from 00-24 inclusive)
+    - MM represents the minute (from 00-59 inclusive)
+    - **Note:** if HH is `24`, MM has to be `00`. (`2400`)
+
+<br>
+
+### List all events : `events`
+
+Shows all events in the app.
+
+Format: `events`
+
+<br>
+
+### Enroll a student : `enroll`
+
+Enrolls the specified student into the specified event.
+
+Command: `enroll id/STUDENT_ID ev/EVENT`
+
+* Enrolls the student specified by NUS NetID into the event specified by its event name.
+
+Examples:
+* `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with NUS NetId e0544111 into the event "CS1101S Mock PE".
+* `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with NUS NetId e0322322 into the event "Orientation Camp".
+
+<br>
+
+### Remove a student : `remove`
+
+Removes the specified student from the specified event.
+
+Command: `remove id/STUDENT_ID ev/EVENT`
+
+* Removes the student specified by NUS NetID from the event specified by its event name.
+
+Examples:
+* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with NUS NetId e0986472 from the event "Tea Making Workshop".
+* `remove id/e0264853 ev/Fun Run` removes the specified student with NUS NetId e0264853 into the event "Fun Run".
+
+<br>
+
+### Deleting an event : `delete`
 
 Deletes the specified event from the address book.
 
@@ -158,12 +236,29 @@ Examples:
 * `delete ev/Orientation` deletes the event with the name `Orientation`.
 * `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
 
+
+<br><br>
+
+## Other Commands
+
+### Viewing help : `help`
+
+Shows a message explaining how to access the help page.
+
+Command: `help`
+
+
 ### Exiting the program : `exit`
 
 Exits the program.
 
 Command: `exit`
 
+<br><br><br>
+
+---------------------------------------------------------------------------------------
+
+## Misc
 ### Saving the data
 
 NUSTracker data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -185,15 +280,29 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]`
-**List** | `students`
-**Create event** | `create n/ training d/2021-09-14 t/1800`
-**Add student to event** | `enroll id/STUDENT_ID ev/EVENT_NAME`
-**Delete student from event** | `remove id/STUDENT_ID ev/EVENT_NAME`
-**List events** | `events`
-**Delete student** | `delete s/NUS_NETID`
-**Delete event** | `delete ev/EVENT_NAME`
-**Display commands** | `help`
-**Exit** | `exit`
+### Student Commands
+
+**Command** | **Description** | **Example** |
+----------------------------|------------------------------|-------------------------------------------------------|
+**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDNET_ID y/YEAR p/COUNTRY_CODE NUMBER e/EMAIL [ev/EVENT_NAME]` |
+**list** | lists students | `students` |
+**edit** | edit a student | `edit INDEX [n/NAME] [m/MAJOR] [id/ NUS_NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]` |
+**delete** | delete a student | `delete s/NUS_NETID` |
+**filter** | filter by field  | `filter [id/STUDENT_ID] [ev/EVENT_NAME] [n/STUDENT_NAME]` <div style="color:red">**NOT WORKING**<div> |
+
+### Event Commands
+
+**Command** | **Description** | **Example** |
+---------------------------------------|---------------------------------|---------------------------|
+**create**  | create an event | `create n/training d/09-10-2021 t/1800` |
+**events**  | lists events | `events` <div style="color:red">**NOT WORKING**<div> |
+**enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
+**remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
+**delete**  | deletes an event | `delete ev/EVENT_NAME` |
+
+### Other Commands
+
+**Command** | **Description** | **Example** |
+-------------------------|------------------------------------------|----------------------------------|
+**help** | opens the help window | `help`      |
+**exit** | exits the app | `exit` |
