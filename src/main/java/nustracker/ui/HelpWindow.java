@@ -53,6 +53,30 @@ public class HelpWindow extends UiPart<Stage> {
     private Button copyLinkButton;
 
     @FXML
+    private Button copyAddCommand;
+
+    @FXML
+    private Button copyListCommand;
+
+    @FXML
+    private Button copyFilterCommand;
+
+    @FXML
+    private Button copyEditCommand;
+
+    @FXML
+    private Button copyDeleteCommand;
+
+    @FXML
+    private Button copyExitCommand;
+
+    @FXML
+    private Button copyCreateCommand;
+
+    @FXML
+    private Button copyEnrollCommand;
+
+    @FXML
     private Label helpMessage;
 
     @FXML
