@@ -47,7 +47,7 @@ public class EnrolledEvents {
         return of(updatedEventHashMap);
     }
 
-    private EnrolledEvents of(HashMap eventsEnrolledIn) {
+    private EnrolledEvents of(HashMap<EventName, Event> eventsEnrolledIn) {
         EnrolledEvents enrolledEvents = new EnrolledEvents();
         enrolledEvents.eventsEnrolledIn = eventsEnrolledIn;
 
