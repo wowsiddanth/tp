@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.text.Text?>
@@ -18,7 +16,7 @@
         </columnConstraints>
         <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
             <padding>
-                <Insets top="5" right="5" bottom="5" left="15" />
+                <Insets top="5" right="5" bottom="10" left="15" />
             </padding>
             <HBox spacing="5" alignment="CENTER_LEFT">
                 <Text fx:id="name" fill="#779cff" text="\$first"  >
@@ -37,9 +35,6 @@
                 </font>
             </Text>
             <FlowPane fx:id="participants"/>
-            <padding>
-                <Insets left="5" bottom="5"/>
-            </padding>
         </VBox>
     </GridPane>
 </HBox>

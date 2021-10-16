@@ -84,7 +84,7 @@
     -fx-font-size: 20;
 }
 
-#copyLinkButton, #copyAddCommand, #copyFilterCommand, #copyEditCommand, #copyDeleteCommand, #copyListCommand,
+#userGuideButton, #copyLinkButton, #copyAddCommand, #copyFilterCommand, #copyEditCommand, #copyDeleteCommand, #copyListCommand,
 #copyExitCommand, #copyCreateCommand, #copyEnrollCommand  {
     -fx-background-radius: 50;
     -fx-background-color: #515151;
@@ -258,17 +258,6 @@
 .dialog-pane > *.label.content {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
-}
-
-.dialog-pane:header *.header-panel {
-    -fx-background-color: derive(#1d1d1d, 25%);
-}
-
-.dialog-pane:header *.header-panel *.label {
-    -fx-font-size: 18px;
-    -fx-font-style: italic;
-    -fx-fill: white;
     -fx-text-fill: white;
 }
 

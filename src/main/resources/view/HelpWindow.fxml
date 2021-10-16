@@ -13,6 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.Stage?>
 
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 <fx:root resizable="false" title="Help" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
         <Image url="@/images/help_icon.png" />
@@ -22,7 +24,21 @@
             <stylesheets>
                 <URL value="@DarkTheme.css" />
             </stylesheets>
-            <VBox alignment="CENTER" prefHeight="500.0" prefWidth="1000.0">
+            <VBox alignment="CENTER" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #383838;" >
+
+                <HBox>
+                    <Text fill="#fdb703" text="help" translateY="-5.0" translateX="8.0">
+                        <font>
+                            <Font name="System Bold" size="40.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#377adf" text="window" translateY="-5.0" translateX="8.0">
+                        <font>
+                            <Font name="System Bold" size="40.0" />
+                        </font>
+                    </Text>
+                </HBox>
+
                 <children>
                     <HBox alignment="CENTER" minHeight="70.0" prefWidth="1000.0">
                         <children>
@@ -31,7 +47,7 @@
                                     <Insets right="5.0" />
                                 </HBox.margin>
                             </Label>
-                            <Button fx:id="copyLinkButton" mnemonicParsing="false" onAction="#copyUrl" text="Button" translateX="10.0">
+                            <Button fx:id="userGuideButton" mnemonicParsing="false" onAction="#openUserGuide" translateX="10.0">
                                 <HBox.margin>
                                     <Insets left="5.0" />
                                 </HBox.margin>

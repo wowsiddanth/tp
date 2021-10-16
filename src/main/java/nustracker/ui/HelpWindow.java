@@ -1,5 +1,10 @@
 package nustracker.ui;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
@@ -17,7 +22,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String USER_GUIDE_URL = "https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html";
     public static final String HELP_MESSAGE = "Refer to the user guide:   " + USER_GUIDE_URL;
-    public static final String COPY_LINK_TEXT = "Copy Link";
+    public static final String COPY_LINK_TEXT = "Open User Guide";
 
     public static final String ADD_COMMAND = "add";
     public static final String ADD_COMMAND_EXAMPLE =
@@ -50,7 +55,7 @@ public class HelpWindow extends UiPart<Stage> {
     private static final String FXML = "HelpWindow.fxml";
 
     @FXML
-    private Button copyLinkButton;
+    private Button userGuideButton;
 
     @FXML
     private Button copyAddCommand;
@@ -110,7 +115,7 @@ public class HelpWindow extends UiPart<Stage> {
      */
     public HelpWindow(Stage root) {
         super(FXML, root);
-        copyLinkButton.setText(COPY_LINK_TEXT);
+        userGuideButton.setText(COPY_LINK_TEXT);
         helpMessage.setText(HELP_MESSAGE);
         addCommandExample.setText(ADD_COMMAND_EXAMPLE);
         listCommandExample.setText(LIST_COMMAND_EXAMPLE);
@@ -178,11 +183,14 @@ public class HelpWindow extends UiPart<Stage> {
      * Copies the URL to the user guide to the clipboard.
      */
     @FXML
-    private void copyUrl() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent url = new ClipboardContent();
-        url.putString(USER_GUIDE_URL);
-        clipboard.setContent(url);
+    private void openUserGuide() {
+        Desktop desktop = java.awt.Desktop.getDesktop();
+        try {
+            URI url = new URI(USER_GUIDE_URL);
+            desktop.browse(url);
+        } catch (IOException | URISyntaxException e) {
+            logger.log(Level.SEVERE, "The User Guide could not be open!");
+        }
     }
 
     /**
