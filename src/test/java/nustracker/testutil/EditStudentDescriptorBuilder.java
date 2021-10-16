@@ -1,9 +1,5 @@
 package nustracker.testutil;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import nustracker.logic.commands.EditCommand;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
@@ -12,7 +8,6 @@ import nustracker.model.student.NusNetId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
 
 /**
  * A utility class to help with building EditStudentDescriptor objects.
@@ -40,7 +35,6 @@ public class EditStudentDescriptorBuilder {
         descriptor.setYear(student.getYear());
         descriptor.setMajor(student.getMajor());
         descriptor.setNusNetId(student.getNusNetId());
-        descriptor.setTags(student.getTags());
     }
 
     /**
@@ -88,16 +82,6 @@ public class EditStudentDescriptorBuilder {
      */
     public EditStudentDescriptorBuilder withNusNetId(String nusNetId) {
         descriptor.setNusNetId(new NusNetId(nusNetId));
-        return this;
-    }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditStudentDescriptor}
-     * that we are building.
-     */
-    public EditStudentDescriptorBuilder withTags(String... tags) {
-        Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
-        descriptor.setTags(tagSet);
         return this;
     }
 
