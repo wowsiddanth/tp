@@ -2,7 +2,7 @@ package nustracker.logic.parser;
 
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
-import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
 import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
@@ -24,14 +24,14 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
     public DeleteCommand parse(String args) throws ParseException {
 
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_STUDENT, PREFIX_EVENT);
+                ArgumentTokenizer.tokenize(args, PREFIX_STUDENTID, PREFIX_EVENT);
 
         if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
         }
 
-        if (argMultimap.getValue(PREFIX_STUDENT).isPresent()) {
-            NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_STUDENT).get());
+        if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
+            NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_STUDENTID).get());
             return new DeleteStudentCommand(nusNetId);
         } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
             EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());

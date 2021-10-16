@@ -1,10 +1,10 @@
 package nustracker.logic.commands;
 
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
-import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_ID;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,10 +29,10 @@ public class RemoveCommand extends Command {
             + ": Removes the person identified by NUS NetId from an event "
             + "identified by its name. \n"
             + "Parameters: "
-            + PREFIX_NUSNETID + "NUSNETID "
+            + PREFIX_STUDENTID + "NUSNETID "
             + PREFIX_EVENT + "EVENT_NAME\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_NUSNETID + "e0322322 "
+            + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_REMOVE_EVENT_SUCCESS =
             "Removed Student: %1$s with NUS NetId %2$s from the Event: %3$s";
@@ -66,7 +66,7 @@ public class RemoveCommand extends Command {
         Student currStudent = model.getStudent(nusNetId);
 
         if (currStudent == null) {
-            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID, nusNetId.getNusNetIdString()));
+            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_ID, nusNetId.getNusNetIdString()));
         }
 
         // Check if an event with this event name exists
