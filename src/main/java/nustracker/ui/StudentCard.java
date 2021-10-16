@@ -1,5 +1,8 @@
 package nustracker.ui;
 
+import java.io.File;
+import java.util.Objects;
+
 import javafx.fxml.FXML;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -10,11 +13,6 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import nustracker.model.student.Student;
-
-import java.io.File;
-import java.util.Objects;
-
-import static java.awt.Image.SCALE_DEFAULT;
 
 /**
  * An UI component that displays information of a {@code Student}.
@@ -44,10 +42,14 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Circle profilePicture;
 
+    //Represents the default profile picture for the student to be used
+    private Image studentImage = new Image(Objects.requireNonNull(this.getClass()
+            .getResourceAsStream("/images/default.png")));
+
     /**
-     * Creates a {@code StudentCode} with the given {@code Student} and index to display.
+     * Creates a {@code StudentCode} with the given {@code Student}
      */
-    public StudentCard(Student student, int displayedIndex) {
+    public StudentCard(Student student) {
         super(FXML);
         this.student = student;
 
@@ -55,7 +57,10 @@ public class StudentCard extends UiPart<Region> {
         setProfilePicture();
     }
 
-    public void setStudentFields() {
+    /**
+     * Sets the student's fields to be displayed on the student card
+     */
+    private void setStudentFields() {
         name.setText(student.getName().fullName);
         phone.setText(student.getPhone().value);
         email.setText(student.getEmail().value);
@@ -65,14 +70,30 @@ public class StudentCard extends UiPart<Region> {
         enrolledEvents.setText(student.getEvents().getEventNamesString());
     }
 
+    /**
+     * Sets the profile picture's glow
+     */
+    private void setGlow() {
+        profilePicture.setRadius(60);
 
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.web("E9AFFF"));
+        borderGlow.setWidth(100);
+        borderGlow.setHeight(100);
 
-    public void setProfilePicture() {
+        profilePicture.setEffect(borderGlow);
+    }
 
-        String newStudentName = replaceWhiteSpacesWithUnderscore(student.getName().fullName);
-
-        Image image = new Image(Objects.requireNonNull(this.getClass()
-                .getResourceAsStream("/images/default.png")));
+    /**
+     * Selects the student image to be used as the profile picture.
+     * It checks to see if a profile picture with the student's name exists within the
+     * images folder. If it exists, reassigns image. If not, the image remains as the default image.
+     * Accepts both .png and .jpg file formats.
+     */
+    private void selectStudentImage() {
+        String newStudentName = matchImageName(student.getName().fullName);
 
         String pathOfProfilePictureJpg = "src/main/resources/images/" + newStudentName + ".jpg";
         String pathOfProfilePicturePng = "src/main/resources/images/" + newStudentName + ".png";
@@ -80,30 +101,36 @@ public class StudentCard extends UiPart<Region> {
         File jpg = new File(pathOfProfilePictureJpg);
         File png = new File(pathOfProfilePicturePng);
 
+        //Checks if an image with the student's name exists
         if (jpg.isFile()) {
-            image = new Image(Objects.requireNonNull(getClass()
-                    .getResourceAsStream("/images/" + newStudentName + ".jpg")), 400, 400, true, true);
+            studentImage = new Image(Objects.requireNonNull(getClass()
+                    .getResourceAsStream("/images/" + newStudentName + ".jpg")), 400,
+                    400, true, true);
         } else if (png.isFile()) {
-            image = new Image(Objects.requireNonNull(this.getClass()
-                    .getResourceAsStream("/images/" + newStudentName + ".png")), 400, 400, true,  true);
+            studentImage = new Image(Objects.requireNonNull(this.getClass()
+                    .getResourceAsStream("/images/" + newStudentName + ".png")), 400,
+                   400, true, true);
         }
-
-
-        //Setting glow around picture
-        profilePicture.setRadius(60);
-        DropShadow borderGlow = new DropShadow();
-        borderGlow.setOffsetY(0f);
-        borderGlow.setOffsetX(0f);
-        borderGlow.setColor(Color.web("E9AFFF"));
-        borderGlow.setWidth(100);
-        borderGlow.setHeight(100);
-        profilePicture.setEffect(borderGlow);
-        profilePicture.setFill(new ImagePattern(image));
-
-        profilePicture.setFocusTraversable(true);
     }
 
-    public String replaceWhiteSpacesWithUnderscore(String studentName) {
+    /**
+     * Sets the profile picture with the student image
+     */
+    private void setProfilePicture() {
+        selectStudentImage();
+        setGlow();
+        profilePicture.setFill(new ImagePattern(studentImage));
+    }
+
+    /**
+     * Replaces student's full name to match student image's name (if valid).
+     * For example, if the student's name is John Doe, it changes it to
+     * john-doe.
+     *
+     * @param studentName The student name to be changed
+     * @return Student name but whitespaces are replaced with dashes and is in lowercase
+     */
+    private String matchImageName(String studentName) {
         return studentName.toLowerCase().replace(' ', '-');
     }
 
