@@ -16,10 +16,10 @@
     <scene>
         <Scene>
             <stylesheets>
-                <URL value="@DarkTheme.css" />
+                <URL value="@LightTheme.css" />
             </stylesheets>
 
-            <VBox fx:id="container" prefHeight="500" prefWidth="1000" style="-fx-background-color: #383838">
+            <VBox fx:id="container" prefHeight="500" prefWidth="1000">
 
                 <HBox>
                     <Text fill="#fdb703" text="settings" translateX="8.0" translateY="-5.0">
@@ -53,7 +53,7 @@
                     <Label text="Default startup size" />
                 </HBox>
 
-                <Button fx:id="doneButton" onAction="#hide" scaleX="1.4" scaleY="1.4" text="Done" translateX="467.0" translateY="288.0" />
+                <Button fx:id="doneButton" onAction="#hide" text="Done" translateX="467.0" translateY="288.0" />
             </VBox>
         </Scene>
     </scene>
