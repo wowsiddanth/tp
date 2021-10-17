@@ -76,7 +76,7 @@
    U-fx-background-color: -fx-focus-color;
 }
 
-#studentsButton, #eventsButton, #helpButton, #exitButton {
+#studentsButton, #eventsButton, #helpButton, #settingsButton, #exitButton {
     -fx-background-radius: 50;
     -fx-background-color: #515151;
     -fx-border-radius: 20;
@@ -85,7 +85,7 @@
 }
 
 #userGuideButton, #copyLinkButton, #copyAddCommand, #copyFilterCommand, #copyEditCommand, #copyDeleteCommand, #copyListCommand,
-#copyExitCommand, #copyCreateCommand, #copyEnrollCommand  {
+#copyExitCommand, #copyCreateCommand, #copyEnrollCommand, #doneButton {
     -fx-background-radius: 50;
     -fx-background-color: #515151;
     -fx-border-radius: 20;

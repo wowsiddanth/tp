@@ -25,14 +25,15 @@ public class MainWindow extends UiPart<Stage> {
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
-    private Stage primaryStage;
-    private Logic logic;
+    private final Stage primaryStage;
+    private final Logic logic;
 
     // Independent Ui parts residing in this Ui container
     private StudentListPanel studentListPanel;
     private EventListPanel eventListPanel;
     private ResultDisplay resultDisplay;
-    private HelpWindow helpWindow;
+    private final HelpWindow helpWindow;
+    private final SettingsWindow settingsWindow;
 
     @FXML
     private Button helpButton;
@@ -62,6 +63,9 @@ public class MainWindow extends UiPart<Stage> {
     private Button studentsButton;
 
     @FXML
+    private Button settingsButton;
+
+    @FXML
     private StackPane resultDisplayPlaceholder;
 
     @FXML
@@ -86,6 +90,9 @@ public class MainWindow extends UiPart<Stage> {
         setWindowDefaultSize(logic.getGuiSettings());
 
         helpWindow = new HelpWindow();
+        settingsWindow = new SettingsWindow();
+
+        fillInnerParts(logic.getGuiSettings());
     }
 
     public Stage getPrimaryStage() {
@@ -95,12 +102,14 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Fills up all the placeholders of this window.
      */
-    void fillInnerParts() {
-        studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
+    void fillInnerParts(GuiSettings guiSettings) {
+        studentListPanel = new StudentListPanel(logic.getFilteredStudentList(), guiSettings.getGlowHexCode());
         listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
         listPanelPlaceholder.managedProperty().bind(listPanelPlaceholder.visibleProperty());
 
         eventListPanel = new EventListPanel(logic.getFilteredEventList());
+
+        settingsWindow.setCurrentColor(guiSettings.getGlowHexCode());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -121,6 +130,18 @@ public class MainWindow extends UiPart<Stage> {
         if (guiSettings.getWindowCoordinates() != null) {
             primaryStage.setX(guiSettings.getWindowCoordinates().getX());
             primaryStage.setY(guiSettings.getWindowCoordinates().getY());
+        }
+    }
+
+    /**
+     * Opens the settings window or focuses on it if it's already opened.
+     */
+    @FXML
+    public void handleSettings() {
+        if (!settingsWindow.isShowing()) {
+            settingsWindow.show();
+        } else {
+            settingsWindow.focus();
         }
     }
 
@@ -164,7 +185,7 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private void handleExit() {
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY());
+                (int) primaryStage.getX(), (int) primaryStage.getY(), settingsWindow.getGlowHexCode());
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();

@@ -20,11 +20,16 @@ public class StudentListPanel extends UiPart<Region> {
     @FXML
     private ListView<Student> studentListView;
 
+    private String glowColorHexCode;
+
     /**
      * Creates a {@code StudentListPanel} with the given {@code ObservableList}.
      */
-    public StudentListPanel(ObservableList<Student> studentList) {
+    public StudentListPanel(ObservableList<Student> studentList, String glowColor) {
         super(FXML);
+
+        this.glowColorHexCode = glowColor;
+
         studentListView.setItems(studentList);
         studentListView.setCellFactory(listView -> new StudentListViewCell());
 
@@ -32,7 +37,7 @@ public class StudentListPanel extends UiPart<Region> {
     }
 
     /**
-     * Selects the first student, upon execution
+     * Focuses on the first student, upon execution
      */
     public void focusOnItem(int index) {
         studentListView.getSelectionModel().select(index);
@@ -52,7 +57,9 @@ public class StudentListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new StudentCard(student).getRoot());
+                StudentCard currentStudent = new StudentCard(student);
+                currentStudent.setGlow(glowColorHexCode);
+                setGraphic(currentStudent.getRoot());
             }
         }
     }

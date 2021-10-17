@@ -73,13 +73,13 @@ public class StudentCard extends UiPart<Region> {
     /**
      * Sets the profile picture's glow
      */
-    private void setGlow() {
+    public void setGlow(String hexCode) {
         profilePicture.setRadius(60);
 
         DropShadow borderGlow = new DropShadow();
         borderGlow.setOffsetY(0f);
         borderGlow.setOffsetX(0f);
-        borderGlow.setColor(Color.web("E9AFFF"));
+        borderGlow.setColor(Color.web(hexCode));
         borderGlow.setWidth(100);
         borderGlow.setHeight(100);
 
@@ -118,7 +118,6 @@ public class StudentCard extends UiPart<Region> {
      */
     private void setProfilePicture() {
         selectStudentImage();
-        setGlow();
         profilePicture.setFill(new ImagePattern(studentImage));
     }
 
