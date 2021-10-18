@@ -74,22 +74,22 @@ public class SampleDataUtil {
                     new EventDate("01-08-2022"),
                     new EventTime("0900"),
                     new HashSet<Participant>(List.of(
-                        new Participant("e9123119"),
-                        new Participant("e9192390")))
+                        new Participant("e1111111"),
+                        new Participant("e3223223")))
             ),
             new Event(new EventName("Sports Camp"),
                     new EventDate("10-09-2021"),
                     new EventTime("1200"),
                     new HashSet<Participant>(List.of(
-                            new Participant("e9831818")))
+                            new Participant("e3223223")))
             ),
             new Event(new EventName("Math Olympiad"),
                     new EventDate("05-03-2017"),
                     new EventTime("1615"),
                     new HashSet<Participant>(List.of(
-                            new Participant("e0322322"),
-                            new Participant("e9123119"),
-                            new Participant("e0123456")))
+                            new Participant("e0542362"),
+                            new Participant("e9654321"),
+                            new Participant("e7307307")))
             ),
         };
     }
