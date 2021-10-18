@@ -1,10 +1,10 @@
 package nustracker.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.student.YearContainsKeywordsPredicate;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * Filters and lists all students in address book whose year contains any of the argument keywords.

@@ -14,7 +14,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import nustracker.commons.core.Messages;
-import nustracker.commons.util.AppUtil;
 import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.FilterEventCommand;
 import nustracker.logic.commands.FilterIdCommand;
@@ -42,7 +41,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     public FilterCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_NUSNETID, PREFIX_MAJOR, PREFIX_YEAR,PREFIX_EVENT);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_NUSNETID, PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
 
         if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
@@ -97,7 +96,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
     public Major[] getMajors(String[] splitMajors) throws ParseException {
         Major[] majors = new Major[splitMajors.length];
 
-        for (int i = 0; i < majors.length; i ++) {
+        for (int i = 0; i < majors.length; i++) {
             try {
                 majors[i] = ParserUtil.parseMajor(splitMajors[i]);
             } catch (ParseException e) {
@@ -112,7 +111,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
     public Year[] getYears(String[] splitMajors) throws ParseException {
         Year[] years = new Year[splitMajors.length];
 
-        for (int i = 0; i < years.length; i ++) {
+        for (int i = 0; i < years.length; i++) {
             try {
                 years[i] = ParserUtil.parseYear(splitMajors[i]);
             } catch (ParseException e) {
