@@ -37,6 +37,7 @@ public class JsonAdaptedStudentTest {
     private static final List<JsonAdaptedTag> VALID_TAGS = TypicalStudents.BENSON.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList());
+    private static final String VALID_ENROLLEDEVENTS = TypicalStudents.BENSON.getEvents().toString();
 
     @Test
     public void toModelType_validStudentDetails_returnsStudent() throws Exception {

@@ -21,18 +21,16 @@ public class EventCard extends UiPart<Region> {
 
     @FXML
     private HBox cardPane;
-
     @FXML
     private Text name;
-
     @FXML
     private Text date;
-
     @FXML
     private Text time;
-
     @FXML
     private FlowPane participants;
+    @FXML
+    private FlowPane blacklist;
 
     /**
      * Creates an {@code EventCard} with the given {@code Event} and index to display.
@@ -49,9 +47,16 @@ public class EventCard extends UiPart<Region> {
                 .forEach(participant -> participants.getChildren().add(
                         new Label(participant.nusNetId)));
 
-        //Ensures that the participants will be evenly spaced out
+        event.getBlacklist().stream()
+                .sorted(Comparator.comparing(blacklisted -> blacklisted.nusNetId))
+                .forEach(blacklisted -> blacklist.getChildren().add(
+                        new Label(blacklisted.nusNetId)));
+
+        //Ensures that the participants and blacklist will be evenly spaced out
         participants.setVgap(4.0);
         participants.setHgap(4.0);
+        blacklist.setVgap(4.0);
+        blacklist.setHgap(4.0);
     }
 
     @Override

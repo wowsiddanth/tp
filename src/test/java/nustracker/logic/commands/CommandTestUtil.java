@@ -1,6 +1,7 @@
 package nustracker.logic.commands;
 
 import static nustracker.logic.parser.CliSyntax.PREFIX_DATE;
+import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TIME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -82,14 +83,19 @@ public class CommandTestUtil {
     public static final String VALID_PARTICIPANT_TEST = "Joel";
     public static final String VALID_PARTICIPANT_FINAL = "Sung";
 
+    // With name prefix
     public static final String NAME_DESC_TEST = " " + PREFIX_NAME + VALID_EVENTNAME_TEST;
     public static final String NAME_DESC_FINAL = " " + PREFIX_NAME + VALID_EVENTNAME_FINAL;
+    // With event prefix
+    public static final String EVENTNAME_DESC_TEST = " " + PREFIX_EVENT + VALID_EVENTNAME_TEST;
+    public static final String EVENTNAME_DESC_FINAL = " " + PREFIX_EVENT + VALID_EVENTNAME_FINAL;
+
     public static final String DATE_DESC_TEST = " " + PREFIX_DATE + VALID_EVENTDATE_TEST;
     public static final String DATE_DESC_FINAL = " " + PREFIX_DATE + VALID_EVENTDATE_FINAL;
     public static final String TIME_DESC_TEST = " " + PREFIX_TIME + VALID_EVENTTIME_TEST;
     public static final String TIME_DESC_FINAL = " " + PREFIX_TIME + VALID_EVENTTIME_FINAL;
 
-    public static final String INVALID_EVENTNAME_DESC = " " + PREFIX_NAME + "Event&"; // '&' not allowed in names
+    public static final String INVALID_EVENTNAME_DESC = " " + PREFIX_EVENT + "Event&"; // '&' not allowed in names
     public static final String INVALID_EVENTDATE_DESC = " " + PREFIX_DATE + "09102021"; // missing dashes
     public static final String INVALID_EVENTTIME_DESC = " " + PREFIX_TIME + "12:30 pm"; // needs to be 24hr format
 

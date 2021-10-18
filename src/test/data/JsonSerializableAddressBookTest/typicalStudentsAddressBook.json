@@ -77,16 +77,19 @@
     "name": "Orientation Camp",
     "date": "01-08-2022",
     "time": "0900",
-    "participants": [ "e9123119", "e9192390" ]
+    "participants": [ "e9123119", "e9192390" ],
+    "blacklist" : [ ]
   }, {
     "name": "Sports Camp",
     "date": "10-09-2021",
     "time": "1200",
-    "participants": [ "e9831818" ]
+    "participants": [ "e9831818" ],
+    "blacklist" : [ "e0456789" ]
   }, {
     "name": "Math Olympiad",
     "date": "05-03-2017",
     "time": "1615",
-    "participants": [ "e0322322", "e0544224", "e0123456" ]
+    "participants": [ "e0322322", "e0544224", "e0123456" ],
+    "blacklist" : [ "e9123119" ]
   }]
 }

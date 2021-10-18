@@ -32,6 +32,8 @@ import nustracker.model.student.Student;
  */
 public class TypicalStudents {
 
+    // Note that ALICE should not be enrolled into any Events.
+    // This will affect the EditCommandTest.
     public static final Student ALICE = new StudentBuilder().withName("Alice Pauline")
             .withEmail("alice@example.com")
             .withPhone("94351253")
@@ -39,6 +41,8 @@ public class TypicalStudents {
             .withMajor("CS")
             .withNusNetId("e9034800")
             .withTags("friends").build();
+    // Note that BENSON should not be enrolled into any Events.
+    // This will affect the JSONAdaptedStudentTest.
     public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
             .withEmail("johnd@example.com")
             .withPhone("98765432")
@@ -80,6 +84,7 @@ public class TypicalStudents {
             .withYear("2")
             .withMajor("CS")
             .withNusNetId("e9193111")
+            .withEvent(SPORTS_CAMP)
             .withTags("friends").build();
     public static final Student IDA = new StudentBuilder().withName("Ida Mueller").withPhone("8482131")
             .withEmail("ida@example.com")

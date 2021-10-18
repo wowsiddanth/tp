@@ -44,8 +44,8 @@ public class Participant {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof NusNetId // instanceof handles nulls
-                && nusNetId.equals(((NusNetId) other).value)); //Check internal attributes
+                || (other instanceof Participant // instanceof handles nulls
+                && nusNetId.equals(((Participant) other).nusNetId)); //Check internal attributes
     }
 
     @Override

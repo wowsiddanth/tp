@@ -1,45 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Text?>
+
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
         </columnConstraints>
         <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
             <padding>
-                <Insets top="5" right="5" bottom="5" left="15" />
+                <Insets bottom="5" left="15" right="5" top="5" />
             </padding>
-            <HBox spacing="5" alignment="CENTER_LEFT">
-                <Text fx:id="name" fill="#779cff" text="\$first"  >
+            <HBox alignment="CENTER_LEFT" spacing="5">
+                <Text fx:id="name" fill="#779cff" text="\$first">
                     <font>
                         <Font name="System Bold Italic" size="24.0" />
                     </font></Text>
             </HBox>
-            <Text fx:id="date" fill="#e9afff" text="\$date $time" >
+            <Text fx:id="date" fill="#e9afff" text="\$date $time">
                 <font>
                     <Font name="System Bold" size="22.0" />
                 </font>
             </Text>
-            <Text fx:id="time" fill="#e9afff" text="\$time" >
+            <Text fx:id="time" fill="#e9afff" text="\$time">
                 <font>
                     <Font size="22.0" />
                 </font>
             </Text>
-            <FlowPane fx:id="participants"/>
+            <FlowPane fx:id="participants">
+                <children>
+                   <Text fill="#e9afff" text="Participants: ">
+                      <font>
+                         <Font size="11.0" />
+                      </font>
+                   </Text>
+                </children>
+            </FlowPane>
+            <FlowPane fx:id="blacklist">
+            <children>
+                   <Text fill="#e9afff" text="Blacklist: ">
+                      <font>
+                         <Font size="11.0" />
+                      </font>
+                   </Text>
+                </children>
+            </FlowPane>
             <padding>
-                <Insets left="5" bottom="5"/>
+                <Insets bottom="5" left="5" />
             </padding>
         </VBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 </HBox>

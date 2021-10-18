@@ -46,6 +46,14 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String EXIT_COMMAND = "exit";
     public static final String EXIT_COMMAND_EXAMPLE = EXIT_COMMAND;
 
+    public static final String BLACKLIST_COMMAND = "blacklist";
+    public static final String BLACKLIST_COMMAND_EXAMPLE = BLACKLIST_COMMAND
+            + " id/STUDENT_ID ev/EVENT";
+
+    public static final String WHITELIST_COMMAND = "whitelist";
+    public static final String WHITELIST_COMMAND_EXAMPLE = WHITELIST_COMMAND
+            + " id/STUDENT_ID ev/EVENT";
+
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
@@ -77,6 +85,12 @@ public class HelpWindow extends UiPart<Stage> {
     private Button copyEnrollCommand;
 
     @FXML
+    private Button copyBlackListCommand;
+
+    @FXML
+    private Button copyWhiteListCommand;
+
+    @FXML
     private Label helpMessage;
 
     @FXML
@@ -103,6 +117,12 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Label enrollCommandExample;
 
+    @FXML
+    private Label blackListCommandExample;
+
+    @FXML
+    private Label whiteListCommandExample;
+
     /**
      * Creates a new HelpWindow.
      *
@@ -120,6 +140,8 @@ public class HelpWindow extends UiPart<Stage> {
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
         createCommandExample.setText(CREATE_COMMAND_EXAMPLE);
         enrollCommandExample.setText(ENROLL_COMMAND_EXAMPLE);
+        blackListCommandExample.setText(BLACKLIST_COMMAND_EXAMPLE);
+        whiteListCommandExample.setText(WHITELIST_COMMAND_EXAMPLE);
     }
 
     /**
@@ -270,6 +292,28 @@ public class HelpWindow extends UiPart<Stage> {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
         url.putString(ENROLL_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the BlackListCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyBlackListCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(BLACKLIST_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the WhiteListCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyWhiteListCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(WHITELIST_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 }

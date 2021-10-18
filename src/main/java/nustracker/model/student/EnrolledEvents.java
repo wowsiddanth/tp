@@ -16,7 +16,7 @@ public class EnrolledEvents {
     public static final String MESSAGE_CONSTRAINTS = "Events can take any values, and it should not be blank";
 
     // Design:
-    // We use a HashMap with EventName as keys because events are usually found by it's name.
+    // We use a HashMap with EventName as keys because events are usually found by its name.
     // If we use a Set, we have to get the event object first in order to search for it.
     // We can do this because all events have unique names.
     private HashMap<EventName, Event> eventsEnrolledIn;

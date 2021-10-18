@@ -96,6 +96,14 @@
                             <Label text=" enroll" GridPane.rowIndex="8" />
                             <Label fx:id="enrollCommandExample" text="Label" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                             <Button fx:id="copyEnrollCommand" mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+
+                            <Label text=" blacklist" GridPane.rowIndex="9" />
+                            <Label fx:id="blackListCommandExample" text="Label" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                            <Button fx:id="copyBlackListCommand" mnemonicParsing="false" onAction="#copyBlackListCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+
+                            <Label text=" whitelist" GridPane.rowIndex="10" />
+                            <Label fx:id="whiteListCommandExample" text="Label" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                            <Button fx:id="copyWhiteListCommand" mnemonicParsing="false" onAction="#copyWhiteListCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
                         </children>
                     </GridPane>
                 </children>

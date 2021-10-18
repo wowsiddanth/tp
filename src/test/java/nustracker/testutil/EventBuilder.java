@@ -23,6 +23,7 @@ public class EventBuilder {
     private EventDate date;
     private EventTime time;
     private Set<Participant> participants;
+    private Set<Participant> blacklist;
 
     /**
      * Creates a {@code EventBuilder} with the default details.
@@ -32,6 +33,7 @@ public class EventBuilder {
         date = new EventDate(DEFAULT_DATE);
         time = new EventTime(DEFAULT_TIME);
         participants = new HashSet<>();
+        blacklist = new HashSet<>();
     }
 
     /**
@@ -42,6 +44,7 @@ public class EventBuilder {
         date = event.getDate();
         time = event.getTime();
         participants = event.getParticipants();
+        blacklist = event.getBlacklist();
     }
 
     /**
@@ -57,7 +60,16 @@ public class EventBuilder {
      * building.
      */
     public EventBuilder withParticipants(String ... participants) {
-        this.participants = SampleDataUtil.getParticipantSet();
+        this.participants = SampleDataUtil.getParticipantSet(participants);
+        return this;
+    }
+
+    /**
+     * Parses the {@code blacklist} into a {@code Set<Participants>} and set it to the {@code Event} that we are
+     * building.
+     */
+    public EventBuilder withBlacklist(String ... blacklist) {
+        this.blacklist = SampleDataUtil.getParticipantSet(blacklist);
         return this;
     }
 
@@ -99,7 +111,7 @@ public class EventBuilder {
     }
 
     public Event build() {
-        return new Event(name, date, time, participants);
+        return new Event(name, date, time, participants, blacklist);
     }
 
 }

@@ -37,6 +37,8 @@ public class EnrollCommand extends Command {
             "Enrolled Student: %1$s with NUS NetId %2$s into the Event: %3$s";
     public static final String MESSAGE_STUDENT_ALREADY_ENROLLED =
             "The Student %1$s with NUS NetId %2$s is already enrolled into the event: %3$s";
+    public static final String MESSAGE_STUDENT_ON_BLACKLIST =
+            "The Student %1$s with NUS NetId %2$s is on the blacklist of the event: %3$s";
 
     private final NusNetId nusNetId;
     private final EventName eventName;
@@ -75,6 +77,16 @@ public class EnrollCommand extends Command {
             throw new CommandException(String.format(MESSAGE_INVALID_EVENT_NAME, eventName.getEventName()));
         }
 
+        // Check if student is in event's blacklist
+        boolean isOnBlacklist = currEvent.isBlacklisted(nusNetId);
+
+        if (isOnBlacklist) {
+            throw new CommandException(String.format(MESSAGE_STUDENT_ON_BLACKLIST,
+                    currStudent.getName().toString(),
+                    currStudent.getNusNetId().getNusNetIdString(),
+                    currEvent.getName().getEventName()));
+        }
+
         // Check if student is already in event
         boolean isAlreadyInEvent = currEvent.isInEvent(nusNetId);
 
@@ -106,8 +118,8 @@ public class EnrollCommand extends Command {
         updatedParticipants.add(new Participant(currStudent.getNusNetId().getNusNetIdString()));
 
         Event updatedEvent = new Event(
-                currEvent.getName(), currEvent.getDate(), currEvent.getTime(), updatedParticipants
-        );
+                currEvent.getName(), currEvent.getDate(), currEvent.getTime(), updatedParticipants,
+                currEvent.getBlacklist());
 
         model.setEvent(currEvent, updatedEvent);
 
