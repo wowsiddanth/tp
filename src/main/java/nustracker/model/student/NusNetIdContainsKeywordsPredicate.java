@@ -3,8 +3,6 @@ package nustracker.model.student;
 import java.util.List;
 import java.util.function.Predicate;
 
-import nustracker.commons.util.StringUtil;
-
 /**
  * Tests that a {@code Student}'s {@code NusNetId} matches any of the keywords given.
  */
@@ -23,7 +21,7 @@ public class NusNetIdContainsKeywordsPredicate implements Predicate<Student> {
     @Override
     public boolean test(Student student) {
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(student.getNusNetId().value, keyword));
+                .anyMatch(keyword -> student.getNusNetId().value.toLowerCase().contains(keyword.toLowerCase()));
     }
 
     @Override

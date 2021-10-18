@@ -15,7 +15,7 @@ public abstract class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters all students by name, NUS NetId, or Events"
-            + "by the specified keywords (case-insensitive).\n"
+            + "by the specified keywords.\n"
             + "Parameters: " + PREFIX_NAME + "STUDENT_NAME [MORE_STUDENT_NAMES]... \n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice bob charlie\n"
             + "Parameters: " + PREFIX_NUSNETID + "STUDENT_ID [MORE_STUDENT_IDS]...\n"
