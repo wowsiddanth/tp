@@ -14,7 +14,7 @@ import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
@@ -32,7 +32,7 @@ class JsonAdaptedStudent {
     private final String email;
     private final String year;
     private final String major;
-    private final String nusNetId;
+    private final String studentId;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -44,14 +44,14 @@ class JsonAdaptedStudent {
                               @JsonProperty("email") String email,
                               @JsonProperty("year") String year,
                               @JsonProperty("major") String major,
-                              @JsonProperty("nusNetId") String nusNetId,
+                              @JsonProperty("studentId") String studentId,
                               @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.year = year;
         this.major = major;
-        this.nusNetId = nusNetId;
+        this.studentId = studentId;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -66,7 +66,7 @@ class JsonAdaptedStudent {
         email = source.getEmail().value;
         year = source.getYear().value;
         major = source.getMajor().value;
-        nusNetId = source.getNusNetId().value;
+        studentId = source.getStudentId().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -123,21 +123,21 @@ class JsonAdaptedStudent {
         }
         final Major modelMajor = new Major(major);
 
-        if (nusNetId == null) {
+        if (studentId == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    NusNetId.class.getSimpleName()));
+                    StudentId.class.getSimpleName()));
         }
-        if (!NusNetId.isValidNusNetId(nusNetId)) {
-            throw new IllegalValueException(NusNetId.MESSAGE_CONSTRAINTS);
+        if (!StudentId.isValidStudentId(studentId)) {
+            throw new IllegalValueException(StudentId.MESSAGE_CONSTRAINTS);
         }
-        final NusNetId modelNusNetId = new NusNetId(nusNetId);
+        final StudentId modelStudentId = new StudentId(studentId);
 
         final Set<Tag> modelTags = new HashSet<>(studentTags);
 
         final EnrolledEvents enrolledEvents = new EnrolledEvents();
 
         return new Student(modelName, modelPhone, modelEmail, modelYear, modelMajor,
-                modelNusNetId, modelTags, enrolledEvents);
+                modelStudentId, modelTags, enrolledEvents);
     }
 
 }

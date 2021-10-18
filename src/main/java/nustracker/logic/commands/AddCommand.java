@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
@@ -27,7 +27,7 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_YEAR + "YEAR "
             + PREFIX_MAJOR + "MAJOR "
-            + PREFIX_NUSNETID + "NUSNETID "
+            + PREFIX_STUDENTID + "STUDENTID "
             + "[" + PREFIX_TAG + "TAG]\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
@@ -35,7 +35,7 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_YEAR + "1 "
             + PREFIX_MAJOR + "CS "
-            + PREFIX_NUSNETID + "e1234567 "
+            + PREFIX_STUDENTID + "e1234567 "
             + PREFIX_TAG + "friends ";
 
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";

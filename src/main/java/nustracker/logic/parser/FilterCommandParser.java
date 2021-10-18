@@ -4,7 +4,7 @@ import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.commons.core.Messages.MESSAGE_MULTIPLE_FILTER_FIELDS;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +17,7 @@ import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
-import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
+import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -31,13 +31,13 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     public FilterCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_NUSNETID, PREFIX_EVENT);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_STUDENTID, PREFIX_EVENT);
 
         if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
-        List<Prefix> prefixes = Arrays.asList(PREFIX_NAME, PREFIX_NUSNETID, PREFIX_EVENT);
+        List<Prefix> prefixes = Arrays.asList(PREFIX_NAME, PREFIX_STUDENTID, PREFIX_EVENT);
         long arguments = prefixes.stream().filter(prefix -> argMultimap.getValue(prefix).isPresent()).count();
 
         if (arguments > 1) {
@@ -48,10 +48,10 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_NAME);
             String[] nameKeywords = trimmedArgs.split("\\s+");
             return new FilterNameCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
-        } else if (argMultimap.getValue(PREFIX_NUSNETID).isPresent()) {
-            String trimmedArgs = getTrimmedArgs(args, PREFIX_NUSNETID);
+        } else if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
+            String trimmedArgs = getTrimmedArgs(args, PREFIX_STUDENTID);
             String[] idKeywords = trimmedArgs.split("\\s+");
-            return new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
+            return new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
         } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_EVENT);
             return new FilterEventCommand(new EnrolledEventsContainsKeywordsPredicate(trimmedArgs));

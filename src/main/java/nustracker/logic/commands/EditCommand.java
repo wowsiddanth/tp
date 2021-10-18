@@ -1,11 +1,11 @@
 package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
@@ -22,7 +22,7 @@ import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
@@ -39,13 +39,13 @@ public class EditCommand extends Command {
             + "by the student's Nus NetId. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: "
-            + PREFIX_NUSNETID + "NUS_NETID_TO_EDIT "
+            + PREFIX_STUDENTID + "NUS_NETID_TO_EDIT "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_YEAR + "YEAR] "
             + "[" + PREFIX_MAJOR + "MAJOR] "
-            + "[" + PREFIX_NUSNETID + "NEW_NUS_NETID] "
+            + "[" + PREFIX_STUDENTID + "NEW_NUS_NETID] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -55,18 +55,18 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book.";
 
-    private final NusNetId nusNetIdToEdit;
+    private final StudentId studentIdToEdit;
     private final EditStudentDescriptor editStudentDescriptor;
 
     /**
-     * @param nusNetId the Nus NetId of the student to be edited.
+     * @param studentId the Nus NetId of the student to be edited.
      * @param editStudentDescriptor details to edit the student with.
      */
-    public EditCommand(NusNetId nusNetId, EditStudentDescriptor editStudentDescriptor) {
-        requireNonNull(nusNetId);
+    public EditCommand(StudentId studentId, EditStudentDescriptor editStudentDescriptor) {
+        requireNonNull(studentId);
         requireNonNull(editStudentDescriptor);
 
-        this.nusNetIdToEdit = nusNetId;
+        this.studentIdToEdit = studentId;
         this.editStudentDescriptor = new EditStudentDescriptor(editStudentDescriptor);
     }
 
@@ -74,11 +74,11 @@ public class EditCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        Student studentToEdit = model.getStudent(nusNetIdToEdit);
+        Student studentToEdit = model.getStudent(studentIdToEdit);
 
         if (studentToEdit == null) {
-            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID,
-                    nusNetIdToEdit.getNusNetIdString()));
+            throw new CommandException(String.format(MESSAGE_INVALID_STUDENTID,
+                    studentIdToEdit.getStudentIdString()));
         }
 
         Student editedStudent = createEditedStudent(studentToEdit, editStudentDescriptor);
@@ -104,14 +104,14 @@ public class EditCommand extends Command {
         Email updatedEmail = editStudentDescriptor.getEmail().orElse(studentToEdit.getEmail());
         Year updatedYear = editStudentDescriptor.getYear().orElse(studentToEdit.getYear());
         Major updatedMajor = editStudentDescriptor.getMajor().orElse(studentToEdit.getMajor());
-        NusNetId updatedNusNetId = editStudentDescriptor.getNusNetId().orElse(studentToEdit.getNusNetId());
+        StudentId updatedStudentId = editStudentDescriptor.getStudentId().orElse(studentToEdit.getStudentId());
         Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
 
         // Enrolled Events should not be updated using Edit Command
         EnrolledEvents notUpdatedEvents = studentToEdit.getEvents();
 
         return new Student(updatedName, updatedPhone, updatedEmail,
-                updatedYear, updatedMajor, updatedNusNetId, updatedTags, notUpdatedEvents);
+                updatedYear, updatedMajor, updatedStudentId, updatedTags, notUpdatedEvents);
     }
 
     @Override
@@ -128,7 +128,7 @@ public class EditCommand extends Command {
 
         // state check
         EditCommand e = (EditCommand) other;
-        return nusNetIdToEdit.equals(e.nusNetIdToEdit)
+        return studentIdToEdit.equals(e.studentIdToEdit)
                 && editStudentDescriptor.equals(e.editStudentDescriptor);
     }
 
@@ -142,7 +142,7 @@ public class EditCommand extends Command {
         private Email email;
         private Year year;
         private Major major;
-        private NusNetId nusNetId;
+        private StudentId studentId;
         private Set<Tag> tags;
 
         public EditStudentDescriptor() {}
@@ -157,7 +157,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setYear(toCopy.year);
             setMajor(toCopy.major);
-            setNusNetId(toCopy.nusNetId);
+            setStudentId(toCopy.studentId);
             setTags(toCopy.tags);
         }
 
@@ -165,7 +165,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, major, year, nusNetId, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, major, year, studentId, tags);
         }
 
         public void setName(Name name) {
@@ -208,12 +208,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(major);
         }
 
-        public void setNusNetId(NusNetId nusNetId) {
-            this.nusNetId = nusNetId;
+        public void setStudentId(StudentId studentId) {
+            this.studentId = studentId;
         }
 
-        public Optional<NusNetId> getNusNetId() {
-            return Optional.ofNullable(nusNetId);
+        public Optional<StudentId> getStudentId() {
+            return Optional.ofNullable(studentId);
         }
 
         /**
@@ -252,7 +252,7 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getYear().equals(e.getYear())
-                    && getNusNetId().equals(e.getNusNetId())
+                    && getStudentId().equals(e.getStudentId())
                     && getMajor().equals(e.getMajor())
                     && getTags().equals(e.getTags());
         }

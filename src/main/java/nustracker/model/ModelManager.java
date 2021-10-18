@@ -14,7 +14,7 @@ import nustracker.commons.util.CollectionUtil;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
 
 /**
@@ -130,8 +130,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Student getStudent(NusNetId nusNetId) {
-        return addressBook.getStudent(nusNetId);
+    public Student getStudent(StudentId studentId) {
+        return addressBook.getStudent(studentId);
     }
 
     @Override

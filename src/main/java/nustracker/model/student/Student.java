@@ -22,7 +22,7 @@ public class Student {
     private final Email email;
     private final Year year;
     private final Major major;
-    private final NusNetId nusNetId;
+    private final StudentId studentId;
     private final EnrolledEvents enrolledEvents;
 
     // Data fields
@@ -32,14 +32,14 @@ public class Student {
      * Every field must be present and not null.
      */
     public Student(Name name, Phone phone, Email email, Year year, Major major,
-                   NusNetId nusNetId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
-        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
+                   StudentId studentId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
+        CollectionUtil.requireAllNonNull(name, phone, email, year, major, studentId, tags, enrolledEvents);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.year = year;
         this.major = major;
-        this.nusNetId = nusNetId;
+        this.studentId = studentId;
         this.tags.addAll(tags);
         this.enrolledEvents = enrolledEvents;
         Major.addStudent(this);
@@ -65,8 +65,8 @@ public class Student {
         return major;
     }
 
-    public NusNetId getNusNetId() {
-        return nusNetId;
+    public StudentId getStudentId() {
+        return studentId;
     }
 
     public EnrolledEvents getEvents() {
@@ -91,7 +91,7 @@ public class Student {
         }
 
         boolean notNull = otherStudent != null;
-        boolean sameId = notNull && otherStudent.getNusNetId().equals(getNusNetId());
+        boolean sameId = notNull && otherStudent.getStudentId().equals(getStudentId());
         boolean sameEmail = notNull && otherStudent.getEmail().equals(getEmail());
         boolean samePhone = notNull && otherStudent.getPhone().equals(getPhone());
 
@@ -99,13 +99,13 @@ public class Student {
     }
 
     /**
-     * Wraps the NusNetId in a Student for easy re-usability with other methods.
+     * Wraps the studentId in a Student for easy re-usability with other methods.
      *
-     * @param nusNetId The NUS NetId
-     * @return A Student with the given NusNetId, and pseudo details.
+     * @param studentId The studentId
+     * @return A Student with the given studentId, and pseudo details.
      */
-    public static Student pseudoStudent(NusNetId nusNetId) {
-        requireNonNull(nusNetId);
+    public static Student pseudoStudent(StudentId studentId) {
+        requireNonNull(studentId);
 
         String validName = "Pseudo Student";
         String validPhone = "00000000";
@@ -118,7 +118,7 @@ public class Student {
                 new Email(validEmail),
                 new Year(validYear),
                 new Major(validMajor),
-                nusNetId,
+                studentId,
                 new HashSet<>(), validEnrolledEvents);
     }
 
@@ -142,7 +142,7 @@ public class Student {
                 && otherStudent.getEmail().equals(getEmail())
                 && otherStudent.getYear().equals(getYear())
                 && otherStudent.getMajor().equals(getMajor())
-                && otherStudent.getNusNetId().equals(getNusNetId())
+                && otherStudent.getStudentId().equals(getStudentId())
                 && otherStudent.getTags().equals(getTags())
                 && otherStudent.getEvents().equals(getEvents());
     }
@@ -150,7 +150,7 @@ public class Student {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, year, major, nusNetId, tags);
+        return Objects.hash(name, phone, email, year, major, studentId, tags);
     }
 
     @Override
@@ -165,8 +165,8 @@ public class Student {
                 .append(getYear())
                 .append("; Major: ")
                 .append(getMajor())
-                .append("; NUSNetId: ")
-                .append(getNusNetId());
+                .append("; StudentId: ")
+                .append(getStudentId());
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");

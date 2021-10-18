@@ -8,7 +8,7 @@ import nustracker.logic.commands.EditCommand;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
@@ -39,7 +39,7 @@ public class EditStudentDescriptorBuilder {
         descriptor.setEmail(student.getEmail());
         descriptor.setYear(student.getYear());
         descriptor.setMajor(student.getMajor());
-        descriptor.setNusNetId(student.getNusNetId());
+        descriptor.setStudentId(student.getStudentId());
         descriptor.setTags(student.getTags());
     }
 
@@ -84,10 +84,10 @@ public class EditStudentDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code NusNetId} of the {@code EditStudentDescriptor} that we are building.
+     * Sets the {@code StudentId} of the {@code EditStudentDescriptor} that we are building.
      */
-    public EditStudentDescriptorBuilder withNusNetId(String nusNetId) {
-        descriptor.setNusNetId(new NusNetId(nusNetId));
+    public EditStudentDescriptorBuilder withStudentId(String studentId) {
+        descriptor.setStudentId(new StudentId(studentId));
         return this;
     }
 

@@ -31,7 +31,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple names - last name accepted
@@ -40,7 +40,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple phones - last phone accepted
@@ -49,7 +49,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple emails - last email accepted
@@ -58,7 +58,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple year of study given - last year accepted
@@ -68,7 +68,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple majors - last major accepted
@@ -78,7 +78,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple nus netids - last nus netid accepted
@@ -87,8 +87,8 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_AMY
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_AMY
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
         // multiple tags - all accepted
@@ -98,7 +98,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudentMultipleTags));
     }
@@ -111,7 +111,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_AMY
-                + CommandTestUtil.NUSNETID_DESC_AMY, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_AMY, new AddCommand(expectedStudent));
     }
 
     @Test
@@ -124,42 +124,42 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB, expectedMessage);
+                + CommandTestUtil.STUDENTID_DESC_BOB, expectedMessage);
 
         // missing phone prefix
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.VALID_PHONE_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB, expectedMessage);
+                + CommandTestUtil.STUDENTID_DESC_BOB, expectedMessage);
 
         // missing email prefix
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.VALID_EMAIL_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB, expectedMessage);
+                + CommandTestUtil.STUDENTID_DESC_BOB, expectedMessage);
 
         // missing year prefix
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.VALID_YEAR_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB, expectedMessage);
+                + CommandTestUtil.STUDENTID_DESC_BOB, expectedMessage);
 
         // missing major prefix
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.VALID_EMAIL_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.VALID_MAJOR_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB, expectedMessage);
+                + CommandTestUtil.STUDENTID_DESC_BOB, expectedMessage);
 
-        // missing nusnetid prefix
+        // missing studentId prefix
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.VALID_EMAIL_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.VALID_NUSNETID_BOB, expectedMessage);
+                + CommandTestUtil.VALID_STUDENTID_BOB, expectedMessage);
 
         // all prefixes missing
         assertParseFailure(parser, CommandTestUtil.VALID_NAME_BOB
@@ -174,7 +174,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, Name.MESSAGE_CONSTRAINTS);
 
@@ -183,7 +183,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.INVALID_PHONE_DESC + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, Phone.MESSAGE_CONSTRAINTS);
 
@@ -192,7 +192,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
 
@@ -202,7 +202,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.INVALID_YEAR_DESC
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
 
@@ -211,7 +211,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.INVALID_MAJOR_DESC
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
 
@@ -220,7 +220,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.INVALID_NUSNETID_DESC
+                + CommandTestUtil.INVALID_STUDENTID_DESC
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
 
@@ -229,7 +229,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.INVALID_TAG_DESC
                 + CommandTestUtil.VALID_TAG_FRIEND, Tag.MESSAGE_CONSTRAINTS);
 
@@ -239,7 +239,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.NUSNETID_DESC_BOB
+                + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, String.format(
                 Messages.MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));

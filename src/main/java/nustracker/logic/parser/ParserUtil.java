@@ -15,7 +15,7 @@ import nustracker.model.event.EventTime;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Year;
 import nustracker.model.tag.Tag;
@@ -116,18 +116,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String nusNetId} into an {@code NusNetId}.
+     * Parses a {@code String studentId} into an {@code StudentId}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code nusNetId} is invalid.
+     * @throws ParseException if the given {@code StudentId} is invalid.
      */
-    public static NusNetId parseNusNetId(String nusNetId) throws ParseException {
-        requireNonNull(nusNetId);
-        String trimmedNusNetId = nusNetId.trim();
-        if (!NusNetId.isValidNusNetId(trimmedNusNetId)) {
-            throw new ParseException(NusNetId.MESSAGE_CONSTRAINTS);
+    public static StudentId parseStudenttId(String studentId) throws ParseException {
+        requireNonNull(studentId);
+        String trimmedStudentId = studentId.trim();
+        if (!StudentId.isValidStudentId(trimmedStudentId)) {
+            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS);
         }
-        return new NusNetId(trimmedNusNetId);
+        return new StudentId(trimmedStudentId);
     }
 
     /**

@@ -5,33 +5,33 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 import nustracker.commons.exceptions.IllegalValueException;
 import nustracker.model.event.Participant;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 
 /**
  * Jackson-friendly version of {@link Participant}.
  */
 public class JsonAdaptedParticipant {
 
-    private final String nusNetId;
+    private final String studentId;
 
     /**
-     * Constructs a {@code JsonAdaptedParticipant} with the given {@code nusNetId}.
+     * Constructs a {@code JsonAdaptedParticipant} with the given {@code StudentId}.
      */
     @JsonCreator
     public JsonAdaptedParticipant(String participantName) {
-        this.nusNetId = participantName;
+        this.studentId = participantName;
     }
 
     /**
      * Converts a given {@code JsonAdaptedParticipant} into this class for Jackson use.
      */
     public JsonAdaptedParticipant(Participant source) {
-        nusNetId = source.nusNetId;
+        studentId = source.studentId;
     }
 
     @JsonValue
-    public String getNusNetId() {
-        return nusNetId;
+    public String getStudentId() {
+        return studentId;
     }
 
     /**
@@ -40,9 +40,9 @@ public class JsonAdaptedParticipant {
      * @throws IllegalValueException if there were any data constraints violated in the adapted participant.
      */
     public Participant toModelType() throws IllegalValueException {
-        if (!NusNetId.isValidNusNetId(nusNetId)) {
-            throw new IllegalValueException(NusNetId.MESSAGE_CONSTRAINTS);
+        if (!StudentId.isValidStudentId(studentId)) {
+            throw new IllegalValueException(StudentId.MESSAGE_CONSTRAINTS);
         }
-        return new Participant(nusNetId);
+        return new Participant(studentId);
     }
 }

@@ -8,7 +8,7 @@ import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
@@ -25,14 +25,14 @@ public class StudentBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_YEAR = "2";
     public static final String DEFAULT_MAJOR = "CS";
-    public static final String DEFAULT_NUSNETID = "e1234567";
+    public static final String DEFAULT_STUDENTID = "e1234567";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Year year;
     private Major major;
-    private NusNetId nusNetId;
+    private StudentId studentId;
     private Set<Tag> tags;
     private EnrolledEvents enrolledEvents;
 
@@ -45,7 +45,7 @@ public class StudentBuilder {
         email = new Email(DEFAULT_EMAIL);
         year = new Year(DEFAULT_YEAR);
         major = new Major(DEFAULT_MAJOR);
-        nusNetId = new NusNetId(DEFAULT_NUSNETID);
+        studentId = new StudentId(DEFAULT_STUDENTID);
         tags = new HashSet<>();
         enrolledEvents = new EnrolledEvents();
     }
@@ -59,7 +59,7 @@ public class StudentBuilder {
         email = studentToCopy.getEmail();
         year = studentToCopy.getYear();
         major = studentToCopy.getMajor();
-        nusNetId = studentToCopy.getNusNetId();
+        studentId = studentToCopy.getStudentId();
         tags = new HashSet<>(studentToCopy.getTags());
         enrolledEvents = studentToCopy.getEvents();
     }
@@ -113,10 +113,10 @@ public class StudentBuilder {
     }
 
     /**
-     * Sets the {@code NusNetId} of the {@code Student} that we are building.
+     * Sets the {@code StudentId} of the {@code Student} that we are building.
      */
-    public StudentBuilder withNusNetId(String nusNetId) {
-        this.nusNetId = new NusNetId(nusNetId);
+    public StudentBuilder withStudentId(String studentId) {
+        this.studentId = new StudentId(studentId);
         return this;
     }
 
@@ -138,7 +138,7 @@ public class StudentBuilder {
     }
 
     public Student build() {
-        return new Student(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
+        return new Student(name, phone, email, year, major, studentId, tags, enrolledEvents);
     }
 
 }

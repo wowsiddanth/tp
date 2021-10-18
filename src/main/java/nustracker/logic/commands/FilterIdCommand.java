@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
-import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
+import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 
 /**
  * Filters and lists all students in address book whose NUS NetID contains any of the argument keywords.
@@ -12,9 +12,9 @@ import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
  */
 public class FilterIdCommand extends FilterCommand {
 
-    private final NusNetIdContainsKeywordsPredicate predicate;
+    private final StudentIdContainsKeywordsPredicate predicate;
 
-    public FilterIdCommand(NusNetIdContainsKeywordsPredicate predicate) {
+    public FilterIdCommand(StudentIdContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 

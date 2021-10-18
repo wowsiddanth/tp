@@ -6,7 +6,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
-import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
+import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +14,7 @@ import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.model.event.EventName;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
@@ -31,18 +31,18 @@ public class DeleteCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteStudentCommand() {
-        assertParseSuccess(parser, " " + PREFIX_STUDENT + NUSNETID_ONE,
-                new DeleteStudentCommand(NUSNETID_ONE));
+        assertParseSuccess(parser, " " + PREFIX_STUDENT + STUDENTID_ONE,
+                new DeleteStudentCommand(STUDENTID_ONE));
 
         assertParseSuccess(parser, " "
-                        + PREFIX_STUDENT + NUSNETID_ONE + " "
+                        + PREFIX_STUDENT + STUDENTID_ONE + " "
                         + PREFIX_EVENT + EVENTNAME_ONE,
-                new DeleteStudentCommand(NUSNETID_ONE));
+                new DeleteStudentCommand(STUDENTID_ONE));
 
         assertParseSuccess(parser, " "
                         + PREFIX_EVENT + EVENTNAME_ONE + " "
-                        + PREFIX_STUDENT + NUSNETID_ONE,
-                new DeleteStudentCommand(NUSNETID_ONE));
+                        + PREFIX_STUDENT + STUDENTID_ONE,
+                new DeleteStudentCommand(STUDENTID_ONE));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class DeleteCommandParserTest {
         assertParseFailure(parser, " missing prefixes ",
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
 
-        assertParseFailure(parser, " " + PREFIX_STUDENT, NusNetId.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, " " + PREFIX_STUDENT, StudentId.MESSAGE_CONSTRAINTS);
 
         assertParseFailure(parser, " " + PREFIX_EVENT, EventName.MESSAGE_CONSTRAINTS);
     }

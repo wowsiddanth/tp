@@ -5,7 +5,7 @@
     "email": "alice@example.com",
     "year" : "1",
     "major" : "CS",
-    "nusNetId" : "e9034800",
+    "studentId": "e9034800",
     "tagged" : [ "friends" ]
   }],
   "events": [ {

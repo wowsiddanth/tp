@@ -1,6 +1,6 @@
 package nustracker.logic;
 
-import static nustracker.testutil.TypicalStudents.NUSNETID_MISSING;
+import static nustracker.testutil.TypicalStudents.STUDENTID_MISSING;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
@@ -58,7 +58,7 @@ public class LogicManagerTest {
     public void execute_commandExecutionError_throwsCommandException() {
         String deleteCommand = "delete s/e0000000";
         assertCommandException(deleteCommand,
-                String.format(Messages.MESSAGE_INVALID_STUDENT_NUSNETID, NUSNETID_MISSING));
+                String.format(Messages.MESSAGE_INVALID_STUDENTID, STUDENTID_MISSING));
     }
 
     @Test
@@ -82,7 +82,7 @@ public class LogicManagerTest {
                 + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_AMY
-                + CommandTestUtil.NUSNETID_DESC_AMY;
+                + CommandTestUtil.STUDENTID_DESC_AMY;
         Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addStudent(expectedStudent);

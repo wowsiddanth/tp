@@ -44,14 +44,14 @@ class EnrollCommandTest {
     //        Student enrolledStudent = new StudentBuilder(firstStudent).withEvent(mathOlympiad).build();
     //
     //        Event updatedMathOlympiad = new EventBuilder(mathOlympiad)
-    //                .addParticipant(firstStudent.getNusNetId().getNusNetIdString()).build();
+    //                .addParticipant(firstStudent.getStudentId().getStudentIdString()).build();
     //
-    //        EnrollCommand enrollCommand = new EnrollCommand(firstStudent.getNusNetId(),
+    //        EnrollCommand enrollCommand = new EnrollCommand(firstStudent.getStudentId(),
     //                MATH_OLYMPIAD.getName());
     //
     //        String expectedMessage = String.format(EnrollCommand.MESSAGE_ADD_TO_EVENT_SUCCESS,
     //                enrolledStudent.getName().toString(),
-    //                enrolledStudent.getNusNetId().getNusNetIdString(),
+    //                enrolledStudent.getStudentId().getStudentIdString(),
     //                mathOlympiad.getName().getEventName());
     //
     //        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());

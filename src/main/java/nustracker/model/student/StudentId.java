@@ -5,10 +5,10 @@ import static java.util.Objects.requireNonNull;
 import nustracker.commons.util.AppUtil;
 
 /**
- * Represents a Student's NUS NetID in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidNusNetId(String)}
+ * Represents a student Id in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidStudentId(String)}
  */
-public class NusNetId {
+public class StudentId {
 
     public static final String MESSAGE_CONSTRAINTS =
             "NUS NetId should start with 'e', should be followed by 7 digits, and it should not be blank!";
@@ -22,28 +22,28 @@ public class NusNetId {
     public final String value;
 
     /**
-     * Constructs a {@code Id}.
+     * Constructs a {@code StudentId}.
      *
-     * @param nusNetId A valid NUS NetId
+     * @param studentId A valid student Id
      */
-    public NusNetId(String nusNetId) {
-        requireNonNull(nusNetId);
-        AppUtil.checkArgument(isValidNusNetId(nusNetId), MESSAGE_CONSTRAINTS);
-        value = nusNetId.trim();
+    public StudentId(String studentId) {
+        requireNonNull(studentId);
+        AppUtil.checkArgument(isValidStudentId(studentId), MESSAGE_CONSTRAINTS);
+        value = studentId.trim();
     }
 
     /**
-     * Returns true if a given string is a valid id.
+     * Returns true if a given string is a valid student Id.
      */
-    public static boolean isValidNusNetId(String test) {
+    public static boolean isValidStudentId(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
     /**
-     * Gets the Nus NetId in String form.
-     * @return the Nus NetId in String form.
+     * Gets the student Id in String form.
+     * @return the student Id in String form.
      */
-    public String getNusNetIdString() {
+    public String getStudentIdString() {
         return value;
     }
 
@@ -55,8 +55,8 @@ public class NusNetId {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof NusNetId // instanceof handles nulls
-                && value.equals(((NusNetId) other).value)); //Check internal attributes
+                || (other instanceof StudentId // instanceof handles nulls
+                && value.equals(((StudentId) other).value)); //Check internal attributes
     }
 
     @Override

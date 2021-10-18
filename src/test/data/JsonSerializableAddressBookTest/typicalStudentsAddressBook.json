@@ -6,7 +6,7 @@
     "email" : "alice@example.com",
     "year" : "1",
     "major" : "CS",
-    "nusNetId" : "e9034800",
+    "studentId": "e9034800",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -14,14 +14,14 @@
     "email" : "johnd@example.com",
     "year" : "3",
     "major": "IS",
-    "nusNetId" : "e8123198",
+    "studentId": "e8123198",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "year" : "4",
     "major": "ISEC",
-    "nusNetId" : "e8123081",
+    "studentId": "e8123081",
     "email" : "heinz@example.com",
     "tagged" : [ ]
   }, {
@@ -30,7 +30,7 @@
     "email" : "cornelia@example.com",
     "year" : "2",
     "major": "BZA",
-    "nusNetId" : "e9012390",
+    "studentId": "e9012390",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -38,7 +38,7 @@
     "email" : "werner@example.com",
     "year" : "3",
     "major": "CS",
-    "nusNetId" : "e9831818",
+    "studentId": "e9831818",
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -46,7 +46,7 @@
     "email" : "lydia@example.com",
     "year" : "4",
     "major": "CS",
-    "nusNetId" : "e9192390",
+    "studentId": "e9192390",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
@@ -54,7 +54,7 @@
     "email" : "anna@example.com",
     "year" : "2",
     "major": "IS",
-    "nusNetId" : "e9123119",
+    "studentId": "e9123119",
     "tagged" : [ ]
   }, {
   	"name" : "God Water",
@@ -62,7 +62,7 @@
     "email" : "god@example.com",
     "year" : "6",
     "major": "CS",
-    "nusNetId" : "e0123456",
+    "studentId": "e0123456",
     "tagged" : [ ]
   }, {
   	"name" : "Hans Thrower",
@@ -70,7 +70,7 @@
     "email" : "hans@example.com",
     "year" : "1",
     "major": "CS",
-    "nusNetId" : "e0322322",
+    "studentId": "e0322322",
     "tagged" : [ ]
   } ],
   "events": [ {

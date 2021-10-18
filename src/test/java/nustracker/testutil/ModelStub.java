@@ -10,7 +10,7 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.ReadOnlyUserPrefs;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
 
 /**
@@ -54,7 +54,7 @@ public class ModelStub implements Model {
     }
 
     @Override
-    public Student getStudent(NusNetId nusNetId) {
+    public Student getStudent(StudentId studentId) {
         throw new AssertionError("This method should not be called.");
     }
 

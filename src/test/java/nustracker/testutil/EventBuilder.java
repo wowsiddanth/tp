@@ -71,11 +71,11 @@ public class EventBuilder {
     }
 
     /**
-     * Parses the {@code nusNetId} and add it as a {@code Participant} to the {@code Event} that we are
+     * Parses the {@code StudentId} and add it as a {@code Participant} to the {@code Event} that we are
      * building.
      */
-    public EventBuilder addParticipant(String nusNetId) {
-        Participant toAdd = new Participant(nusNetId);
+    public EventBuilder addParticipant(String studentId) {
+        Participant toAdd = new Participant(studentId);
         Set<Participant> updatedParticipants = new HashSet<>(participants);
         updatedParticipants.add(toAdd);
         participants = updatedParticipants;
