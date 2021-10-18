@@ -63,7 +63,8 @@ public class CommandTestUtil {
     public static final String INVALID_YEAR_DESC = " " + CliSyntax.PREFIX_YEAR + "a"; //letters not allowed
     public static final String INVALID_MAJOR_DESC = " "
             + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
-    public static final String INVALID_STUDENTID_DESC = " " + CliSyntax.PREFIX_STUDENTID + "e123123123"; //e and 7 digits
+    public static final String INVALID_STUDENTID_DESC = " "
+            + CliSyntax.PREFIX_STUDENTID + "e123123123"; //e and 7 digits
     public static final String INVALID_TAG_DESC = " " + CliSyntax.PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";

@@ -9,8 +9,8 @@ import java.util.Objects;
 import java.util.Set;
 
 import nustracker.model.AddressBook;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 public class Event {
 

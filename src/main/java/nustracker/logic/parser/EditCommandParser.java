@@ -5,8 +5,8 @@ import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
@@ -60,7 +60,8 @@ public class EditCommandParser implements Parser<EditCommand> {
             editStudentDescriptor.setMajor(ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get()));
         }
         if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
-            editStudentDescriptor.setStudentId(ParserUtil.parseStudenttId(argMultimap.getValue(PREFIX_STUDENTID).get()));
+            editStudentDescriptor.setStudentId(ParserUtil.parseStudenttId(
+                    argMultimap.getValue(PREFIX_STUDENTID).get()));
         }
 
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editStudentDescriptor::setTags);

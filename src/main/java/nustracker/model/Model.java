@@ -7,8 +7,8 @@ import javafx.collections.ObservableList;
 import nustracker.commons.core.GuiSettings;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 /**
  * The API of the Model component.

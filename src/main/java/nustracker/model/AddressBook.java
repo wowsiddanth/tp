@@ -9,8 +9,8 @@ import javafx.collections.ObservableList;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.UniqueEventList;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.UniqueStudentList;
 
 /**

@@ -15,8 +15,8 @@ import nustracker.model.event.EventTime;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Phone;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
 import nustracker.model.tag.Tag;
 

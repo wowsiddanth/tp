@@ -15,8 +15,8 @@ import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.Participant;
 import nustracker.model.student.EnrolledEvents;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 /**
  * Removes a student from an existing event.

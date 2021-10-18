@@ -14,8 +14,8 @@ import nustracker.commons.util.CollectionUtil;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 /**
  * Represents the in-memory model of the address book data.

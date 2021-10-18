@@ -6,8 +6,8 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
 
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 /**
  * Deletes a student identified by his/her NUS NetId.

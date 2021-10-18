@@ -22,8 +22,8 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.ReadOnlyUserPrefs;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 

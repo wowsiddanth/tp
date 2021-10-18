@@ -6,10 +6,10 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_MAJOR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_MAJOR_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
-import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
@@ -24,8 +24,8 @@ import java.util.List;
 
 import nustracker.model.AddressBook;
 import nustracker.model.event.Event;
-import nustracker.model.student.StudentId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 /**
  * A utility class containing a list of {@code Student} objects to be used in tests.
