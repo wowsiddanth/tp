@@ -31,8 +31,8 @@
 /**========================================= Start of Placeholder ====================================================*/
 
 #commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder, #listPanelPlaceholder, #studentListPanel,
-#topContainer, #container, #status-bar, #studentList, #helpWindow {
-    -fx-background-color: #FFFFFF
+#topContainer, #container, #studentListView, #status-bar, #studentList, #helpWindow {
+    -fx-background-color: #FFFAF0
 }
 
 #phone, #major, #year, #studentId, #email, #enrolledEvents  {
