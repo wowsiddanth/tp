@@ -1,5 +1,6 @@
 package nustracker.ui;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
@@ -8,6 +9,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import nustracker.commons.core.GuiSettings;
 import nustracker.commons.core.LogsCenter;
 
 public class SettingsWindow extends UiPart<Stage> {
@@ -18,29 +20,59 @@ public class SettingsWindow extends UiPart<Stage> {
     @FXML
     private VBox container;
     @FXML
-    private ColorPicker glowColor;
+    private ColorPicker glowColorPicker;
     @FXML
     private Button doneButton;
 
-    public SettingsWindow(Stage root) {
+    private Color glowColor;
+    private StudentListPanel studentListPanel;
+
+    private SettingsWindow(Stage root) {
         super(FXML, root);
     }
 
     /**
      * Creates a new SettingsWindow.
      */
-    public SettingsWindow() {
+    public SettingsWindow(GuiSettings guiSettings) {
         this(new Stage());
+
+        this.studentListPanel = studentListPanel;
+
+        glowColorPicker.setOnAction(e -> {
+            updateColor(getGlowHexCode());
+        });
+
+        setCurrentColor(guiSettings.getGlowHexCode());
+    }
+
+    public void setStudentListPanel(StudentListPanel studentListPanel) throws IllegalArgumentException {
+        if (studentListPanel == null) {
+            logger.log(Level.INFO, "studentListPanel cannot be null!");
+            throw new IllegalArgumentException("studentListPanel cannot be null!");
+        }
+        this.studentListPanel = studentListPanel;
+    }
+
+    private void updateColor(String color) {
+        assert studentListPanel != null;
+        studentListPanel.updateGlow(color);
     }
 
     /**
-     * Sets the current previously saved glow color (or default one if not saved previously)
+     * Sets the previously saved glow color as the current color in
+     * the color picker.
      *
      * @param colorHexCode The hex code of the glow color
      */
-    public void setCurrentColor(String colorHexCode) {
+    private void setCurrentColor(String colorHexCode) {
         Color currentColour = Color.web(colorHexCode);
-        glowColor.setValue(currentColour);
+        glowColorPicker.setValue(currentColour);
+    }
+
+    public ColorPicker getGlowColorPicker() {
+        assert glowColorPicker != null;
+        return glowColorPicker;
     }
 
     /**
@@ -51,7 +83,7 @@ public class SettingsWindow extends UiPart<Stage> {
      */
     public String getGlowHexCode() {
         //Current color in the color picker
-        Color currColor = glowColor.getValue();
+        Color currColor = glowColorPicker.getValue();
 
         int redValue = (int) (currColor.getRed() * 255);
         int greenValue = (int) (currColor.getGreen() * 255);

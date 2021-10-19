@@ -22,6 +22,8 @@ public class StudentListPanel extends UiPart<Region> {
 
     private String glowColorHexCode;
 
+    private ObservableList<Student> studentList;
+
     /**
      * Creates a {@code StudentListPanel} with the given {@code ObservableList}.
      */
@@ -29,6 +31,22 @@ public class StudentListPanel extends UiPart<Region> {
         super(FXML);
 
         this.glowColorHexCode = glowColor;
+        this.studentList = studentList;
+
+        studentListView.setItems(studentList);
+        studentListView.setCellFactory(listView -> new StudentListViewCell());
+
+        focusOnItem(0); //Select first item upon startup
+    }
+
+    /**
+     * Updates the glow color of the containing student cards according to the colour changed in the
+     * color picker in the Settings Window
+     *
+     * @param newGlowColorHexCode The string hex code of color
+     */
+    public void updateGlow(String newGlowColorHexCode) {
+        glowColorHexCode = newGlowColorHexCode;
 
         studentListView.setItems(studentList);
         studentListView.setCellFactory(listView -> new StudentListViewCell());

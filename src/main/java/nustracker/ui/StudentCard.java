@@ -20,7 +20,6 @@ import nustracker.model.student.Student;
 public class StudentCard extends UiPart<Region> {
 
     private static final String FXML = "StudentListCard.fxml";
-
     public final Student student;
 
     @FXML
@@ -36,7 +35,7 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Text major;
     @FXML
-    private Text nusNetId;
+    private Text studentId;
     @FXML
     private Text enrolledEvents;
     @FXML
@@ -66,7 +65,7 @@ public class StudentCard extends UiPart<Region> {
         email.setText(student.getEmail().value);
         year.setText(student.getYear().value);
         major.setText(student.getMajor().value);
-        nusNetId.setText(student.getNusNetId().value);
+        studentId.setText(student.getNusNetId().value);
         enrolledEvents.setText(student.getEvents().getEventNamesString());
     }
 
@@ -75,6 +74,9 @@ public class StudentCard extends UiPart<Region> {
      */
     public void setGlow(String hexCode) {
         profilePicture.setRadius(60);
+
+        profilePicture.setStroke(Color.web(hexCode));
+        profilePicture.setStrokeWidth(4);
 
         DropShadow borderGlow = new DropShadow();
         borderGlow.setOffsetY(0f);

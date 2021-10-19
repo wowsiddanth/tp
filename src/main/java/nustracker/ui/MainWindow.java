@@ -21,6 +21,9 @@ import nustracker.logic.parser.exceptions.ParseException;
  */
 public class MainWindow extends UiPart<Stage> {
 
+    public static final double MIN_HEIGHT = 747.0;
+    public static final double MIN_WIDTH = 914.0;
+
     private static final String FXML = "MainWindow.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
@@ -44,9 +47,7 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane listPanelPlaceholder;
 
-    /**
-     * This space is for the NUSTracker logo, and the help and exit button
-     */
+    //This space is for the NUSTracker logo, and the help and exit button
     @FXML
     private HBox topContainer;
 
@@ -55,6 +56,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private Button exitButton;
+
+    @FXML
+    private Button changeThemeButton;
 
     @FXML
     private Button eventsButton;
@@ -71,6 +75,9 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusBarPlaceholder;
 
+    private ThemeApplier.Theme currentTheme;
+
+    private final ThemeApplier themeApplier;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -78,21 +85,21 @@ public class MainWindow extends UiPart<Stage> {
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
 
-        //Minimum possible size the program can take
-        primaryStage.setMinHeight(747);
-        primaryStage.setMinWidth(747);
-
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
 
-        // Configure the UI
-        setWindowDefaultSize(logic.getGuiSettings());
-
         helpWindow = new HelpWindow();
-        settingsWindow = new SettingsWindow();
+        settingsWindow = new SettingsWindow(logic.getGuiSettings());
+        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow,
+                logic.getGuiSettings().getIsLightMode());
 
+        // Configure the UI
+        setWindowSize(logic.getGuiSettings());
         fillInnerParts(logic.getGuiSettings());
+        settingsWindow.setStudentListPanel(studentListPanel);
+
+        themeApplier.applyOnStartUp();
     }
 
     public Stage getPrimaryStage() {
@@ -109,8 +116,6 @@ public class MainWindow extends UiPart<Stage> {
 
         eventListPanel = new EventListPanel(logic.getFilteredEventList());
 
-        settingsWindow.setCurrentColor(guiSettings.getGlowHexCode());
-
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
@@ -124,9 +129,15 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Sets the default size based on {@code guiSettings}.
      */
-    private void setWindowDefaultSize(GuiSettings guiSettings) {
+    private void setWindowSize(GuiSettings guiSettings) {
+        //Prevents user from setting height/width smaller than limits
+        primaryStage.setMinHeight(MIN_HEIGHT);
+        primaryStage.setMinWidth(MIN_WIDTH);
+
+        //User defined height and width (if different)
         primaryStage.setHeight(guiSettings.getWindowHeight());
         primaryStage.setWidth(guiSettings.getWindowWidth());
+
         if (guiSettings.getWindowCoordinates() != null) {
             primaryStage.setX(guiSettings.getWindowCoordinates().getX());
             primaryStage.setY(guiSettings.getWindowCoordinates().getY());
@@ -157,10 +168,6 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
-    void show() {
-        primaryStage.show();
-    }
-
     /**
      * Toggles the students list.
      */
@@ -184,19 +191,24 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleExit() {
+        boolean isLightMode = themeApplier.themeOnExit();
+
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY(), settingsWindow.getGlowHexCode());
+                (int) primaryStage.getX(), (int) primaryStage.getY(), isLightMode, settingsWindow.getGlowHexCode());
         logic.setGuiSettings(guiSettings);
+
         helpWindow.hide();
         primaryStage.hide();
     }
 
+
     @FXML
     private void changeTheme() {
+        themeApplier.switchTheme();
     }
 
-    public StudentListPanel getStudentListPanel() {
-        return studentListPanel;
+    void show() {
+        primaryStage.show();
     }
 
     /**

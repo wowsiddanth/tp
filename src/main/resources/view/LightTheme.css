@@ -11,15 +11,16 @@
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
     -fx-padding: 0 0 0 0;
+    -fx-background-color: #FFFAFA ;
 }
 
 /** Individual student cell */
 .list-cell:filled {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #FFFAFA;
 }
 
 .list-cell:filled:selected {
-    -fx-background-color: #e1e1e1;
+    -fx-background-color: #FFE4E1;
     -fx-border-color: #FDB703;
     -fx-border-width: 2px;
     -fx-border-radius: 4px;
@@ -29,13 +30,13 @@
 
 /**========================================= Start of Placeholder ====================================================*/
 
-.background {
-    -fx-background-color: white;
+#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder, #listPanelPlaceholder, #studentListPanel,
+#topContainer, #container, #status-bar, #studentList, #helpWindow {
+    -fx-background-color: #FFFFFF
 }
 
-#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder, #listPanelPlaceholder, #studentListPanel, #topContainer,
-#container {
-    -fx-background-color: #FFFFFF;
+#phone, #major, #year, #studentId, #email, #enrolledEvents  {
+    -fx-fill: black;
 }
 
 /**========================================= End of Placeholder ======================================================*/
@@ -81,13 +82,12 @@
 }
 
 .button:pressed, .button:default:hover:pressed {
-  -fx-text-fill: #779CFF;
-  -fx-font-family: Roboto-Bold;
+    -fx-text-fill: #779CFF;
+    -fx-font-family: Roboto-Bold;
 }
 
 .button:disabled, .button:default:disabled {
     -fx-opacity: 0.4;
-    -fx-background-color: #1d1d1d;
     -fx-text-fill: white;
 }
 
@@ -139,12 +139,15 @@
 #commandTextField {
     -fx-background-color: transparent #FFFFFF transparent #FFFFFF;
     -fx-background-insets: 0;
+
     -fx-border-color:#FDB703;
     -fx-border-radius: 8px;
     -fx-border-insets: 0;
     -fx-border-width: 2;
+
     -fx-font-family: "Open Sans Light";
     -fx-font-size: 16pt;
+
     -fx-text-fill: black;
 }
 
@@ -154,10 +157,10 @@
 
 /**==========================================End of CommandBox =======================================================*/
 
-/**==========================================Start of Result Display ---==============================================*/
+/**========================================== Start of Result Display ---==============================================*/
 
 #resultDisplay .content { /**results**/
-    -fx-background-color: transparent, #FFFFFF, transparent, #FFFFFF;
+    -fx-background-color: transparent, #F3f0e8, transparent, #FFFAFA;
     -fx-background-radius: 0;
 }
 
@@ -172,7 +175,6 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
-
-/**==========================================Start of participant label ==============================================*/
-
 }
+
+/**==========================================End of participant label ================================================*/
