@@ -51,9 +51,7 @@ public class CommandTestUtil {
     public static final String MAJOR_DESC_AMY = " " + CliSyntax.PREFIX_MAJOR + VALID_MAJOR_AMY;
     public static final String MAJOR_DESC_BOB = " " + CliSyntax.PREFIX_MAJOR + VALID_MAJOR_BOB;
     public static final String NUSNETID_DESC_AMY = " " + CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_AMY;
-    public static final String NUSNETID_DESC_AMY_WO_LEADING_SPACE = CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_AMY;
     public static final String NUSNETID_DESC_BOB = " " + CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_BOB;
-    public static final String NUSNETID_DESC_BOB_WO_LEADING_SPACE = CliSyntax.PREFIX_NUSNETID + VALID_NUSNETID_BOB;
     public static final String TAG_DESC_FRIEND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_HUSBAND;
 
@@ -64,7 +62,6 @@ public class CommandTestUtil {
     public static final String INVALID_MAJOR_DESC = " "
             + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
     public static final String INVALID_NUSNETID_DESC = " " + CliSyntax.PREFIX_NUSNETID + "e123123123"; //e and 7 digits
-    public static final String INVALID_TAG_DESC = " " + CliSyntax.PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -98,14 +95,12 @@ public class CommandTestUtil {
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)
                 .withYear(VALID_YEAR_AMY)
                 .withMajor(VALID_MAJOR_AMY)
-                .withNusNetId(VALID_NUSNETID_AMY)
-                .withTags(VALID_TAG_FRIEND).build();
+                .withNusNetId(VALID_NUSNETID_AMY).build();
         DESC_BOB = new EditStudentDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
                 .withYear(VALID_YEAR_BOB)
                 .withMajor(VALID_MAJOR_BOB)
-                .withNusNetId(VALID_NUSNETID_BOB)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withNusNetId(VALID_NUSNETID_BOB).build();
     }
 
     /**
