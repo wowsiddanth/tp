@@ -26,8 +26,6 @@ public class ExportCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         ObservableList<Student> filteredStudents = model.getFilteredStudentList();
-//        System.out.println(Arrays.toString(filteredStudents.stream().map(Student::getEmail).toArray()));
-
         try {
             Path path = Path.of("data\\Exported.txt");
             FileUtil.createIfMissing(path);
