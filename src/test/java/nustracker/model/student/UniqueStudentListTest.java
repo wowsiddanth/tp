@@ -1,6 +1,5 @@
 package nustracker.model.student;
 
-import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,8 +39,7 @@ public class UniqueStudentListTest {
     @Test
     public void contains_studentWithSameIdentityFieldsInList_returnsTrue() {
         uniqueStudentList.add(TypicalStudents.ALICE);
-        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).withTags(VALID_TAG_HUSBAND)
-                .build();
+        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).build();
         assertTrue(uniqueStudentList.contains(editedAlice));
     }
 
@@ -87,7 +85,7 @@ public class UniqueStudentListTest {
     @Test
     public void setStudent_editedStudentHasSameIdentity_success() {
         uniqueStudentList.add(TypicalStudents.ALICE);
-        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).withTags(VALID_TAG_HUSBAND).build();
+        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).build();
         uniqueStudentList.setStudent(TypicalStudents.ALICE, editedAlice);
         UniqueStudentList expectedUniqueStudentList = new UniqueStudentList();
         expectedUniqueStudentList.add(editedAlice);

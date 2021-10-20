@@ -14,7 +14,7 @@ public abstract class DeleteCommand extends Command {
             + ": Deletes the student identified by his/her Student ID "
             + "or an event by name.\n"
             + "Parameters: " + PREFIX_STUDENTID + "[Student ID]\n"
-            + "Example: " + COMMAND_WORD + " " + PREFIX_STUDENTID + "1\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_STUDENTID + "e1234567\n"
             + "Parameters:" + PREFIX_EVENT + "[Event name]\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_EVENT + "Orientation";
 }

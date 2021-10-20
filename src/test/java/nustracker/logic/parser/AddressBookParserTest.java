@@ -22,13 +22,14 @@ import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.logic.commands.EditCommand;
+import nustracker.logic.commands.EventsCommand;
 import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.FilterEventCommand;
 import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.HelpCommand;
-import nustracker.logic.commands.ListCommand;
+import nustracker.logic.commands.StudentsCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
@@ -111,16 +112,22 @@ public class AddressBookParserTest {
     }
 
     @Test
-    public void parseCommand_list() throws Exception {
-        assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
-        assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + " 3") instanceof ListCommand);
-    }
-
-    @Test
     public void parseCommand_create() throws Exception {
         Event event = new EventBuilder().build();
         CreateCommand command = (CreateCommand) parser.parseCommand(EventUtil.getCreateCommand(event));
         assertEquals(new CreateCommand(event), command);
+    }
+
+    @Test
+    public void parseCommand_students() throws Exception {
+        assertTrue(parser.parseCommand(StudentsCommand.COMMAND_WORD) instanceof StudentsCommand);
+        assertTrue(parser.parseCommand(StudentsCommand.COMMAND_WORD + " 3") instanceof StudentsCommand);
+    }
+
+    @Test
+    public void parseCommand_events() throws Exception {
+        assertTrue(parser.parseCommand(EventsCommand.COMMAND_WORD) instanceof EventsCommand);
+        assertTrue(parser.parseCommand(EventsCommand.COMMAND_WORD + " 3") instanceof EventsCommand);
     }
 
     @Test

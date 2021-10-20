@@ -10,10 +10,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 import nustracker.commons.util.CollectionUtil;
 import nustracker.logic.commands.exceptions.CommandException;
@@ -26,7 +23,6 @@ import nustracker.model.student.NusNetId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
 
 /**
  * Edits the details of an existing student in the address book.
@@ -105,13 +101,12 @@ public class EditCommand extends Command {
         Year updatedYear = editStudentDescriptor.getYear().orElse(studentToEdit.getYear());
         Major updatedMajor = editStudentDescriptor.getMajor().orElse(studentToEdit.getMajor());
         NusNetId updatedNusNetId = editStudentDescriptor.getNusNetId().orElse(studentToEdit.getNusNetId());
-        Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
 
         // Enrolled Events should not be updated using Edit Command
         EnrolledEvents notUpdatedEvents = studentToEdit.getEvents();
 
         return new Student(updatedName, updatedPhone, updatedEmail,
-                updatedYear, updatedMajor, updatedNusNetId, updatedTags, notUpdatedEvents);
+                updatedYear, updatedMajor, updatedNusNetId, notUpdatedEvents);
     }
 
     @Override
@@ -143,7 +138,6 @@ public class EditCommand extends Command {
         private Year year;
         private Major major;
         private NusNetId nusNetId;
-        private Set<Tag> tags;
 
         public EditStudentDescriptor() {}
 
@@ -158,14 +152,13 @@ public class EditCommand extends Command {
             setYear(toCopy.year);
             setMajor(toCopy.major);
             setNusNetId(toCopy.nusNetId);
-            setTags(toCopy.tags);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, major, year, nusNetId, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, major, year, nusNetId);
         }
 
         public void setName(Name name) {
@@ -216,23 +209,6 @@ public class EditCommand extends Command {
             return Optional.ofNullable(nusNetId);
         }
 
-        /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
-         */
-        public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
-        }
-
-        /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
-         */
-        public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
-        }
-
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -253,8 +229,7 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getYear().equals(e.getYear())
                     && getNusNetId().equals(e.getNusNetId())
-                    && getMajor().equals(e.getMajor())
-                    && getTags().equals(e.getTags());
+                    && getMajor().equals(e.getMajor());
         }
     }
 }

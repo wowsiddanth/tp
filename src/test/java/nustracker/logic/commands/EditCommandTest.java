@@ -51,12 +51,11 @@ public class EditCommandTest {
 
         StudentBuilder studentInList = new StudentBuilder(lastStudent);
         Student editedStudent = studentInList.withName(CommandTestUtil.VALID_NAME_BOB).withPhone(
-                        CommandTestUtil.VALID_PHONE_BOB)
-                .withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
+                        CommandTestUtil.VALID_PHONE_BOB).build();
 
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withName(
                         CommandTestUtil.VALID_NAME_BOB)
-                .withPhone(CommandTestUtil.VALID_PHONE_BOB).withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
+                .withPhone(CommandTestUtil.VALID_PHONE_BOB).build();
         EditCommand editCommand = new EditCommand(
                 model.getFilteredStudentList().get(indexLastStudent.getZeroBased()).getNusNetId(),
                 descriptor);

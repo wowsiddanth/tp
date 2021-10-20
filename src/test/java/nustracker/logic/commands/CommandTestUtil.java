@@ -61,8 +61,8 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + CliSyntax.PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + CliSyntax.PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_YEAR_DESC = " " + CliSyntax.PREFIX_YEAR + "a"; //letters not allowed
-    public static final String INVALID_MAJOR_DESC = " "
-            + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
+    public static final String INVALID_MAJOR_DESC =
+            " " + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
     public static final String INVALID_NUSNETID_DESC = " " + CliSyntax.PREFIX_STUDENTID + "e123123123"; //e and 7 digits
     public static final String INVALID_TAG_DESC = " " + CliSyntax.PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
@@ -98,14 +98,12 @@ public class CommandTestUtil {
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)
                 .withYear(VALID_YEAR_AMY)
                 .withMajor(VALID_MAJOR_AMY)
-                .withNusNetId(VALID_NUSNETID_AMY)
-                .withTags(VALID_TAG_FRIEND).build();
+                .withNusNetId(VALID_NUSNETID_AMY).build();
         DESC_BOB = new EditStudentDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
                 .withYear(VALID_YEAR_BOB)
                 .withMajor(VALID_MAJOR_BOB)
-                .withNusNetId(VALID_NUSNETID_BOB)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withNusNetId(VALID_NUSNETID_BOB).build();
     }
 
     /**
