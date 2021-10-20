@@ -1,6 +1,7 @@
 package nustracker.logic;
 
-import static nustracker.testutil.TypicalStudents.NUSNETID_MISSING;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
+import static nustracker.testutil.TypicalStudents.STUDENTID_MISSING;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
@@ -56,9 +57,9 @@ public class LogicManagerTest {
 
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
-        String deleteCommand = "delete s/e0000000";
+        String deleteCommand = "delete " + PREFIX_STUDENTID + "e0000000";
         assertCommandException(deleteCommand,
-                String.format(Messages.MESSAGE_INVALID_STUDENT_NUSNETID, NUSNETID_MISSING));
+                String.format(Messages.MESSAGE_INVALID_STUDENT_ID, STUDENTID_MISSING));
     }
 
     @Test

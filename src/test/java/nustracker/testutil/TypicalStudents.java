@@ -114,9 +114,9 @@ public class TypicalStudents {
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
     // For delete student tests
-    public static final NusNetId NUSNETID_ONE = new NusNetId("e9034800");
-    public static final NusNetId NUSNETID_TWO = new NusNetId("e8123198");
-    public static final NusNetId NUSNETID_MISSING = new NusNetId("e0000000");
+    public static final NusNetId STUDENTID_ONE = new NusNetId("e9034800");
+    public static final NusNetId STUDENTID_TWO = new NusNetId("e8123198");
+    public static final NusNetId STUDENTID_MISSING = new NusNetId("e0000000");
 
     private TypicalStudents() {
     } // prevents instantiation

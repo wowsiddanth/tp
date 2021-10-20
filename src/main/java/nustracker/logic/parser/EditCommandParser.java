@@ -5,8 +5,8 @@ import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
@@ -28,13 +28,13 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_YEAR, PREFIX_NUSNETID, PREFIX_MAJOR, PREFIX_TAG);
+                        PREFIX_YEAR, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_TAG);
 
-        if (!argMultimap.arePrefixesPresent(PREFIX_NUSNETID) || !argMultimap.getPreamble().isEmpty()) {
+        if (!argMultimap.arePrefixesPresent(PREFIX_STUDENTID) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
 
-        NusNetId nusNetIdToEdit = ParserUtil.parseNusNetId(argMultimap.getAllValues(PREFIX_NUSNETID).get(0));
+        NusNetId nusNetIdToEdit = ParserUtil.parseNusNetId(argMultimap.getAllValues(PREFIX_STUDENTID).get(0));
 
 
         EditCommand.EditStudentDescriptor editStudentDescriptor = new EditCommand.EditStudentDescriptor();
@@ -53,8 +53,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
             editStudentDescriptor.setMajor(ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get()));
         }
-        if (argMultimap.getValue(PREFIX_NUSNETID).isPresent()) {
-            editStudentDescriptor.setNusNetId(ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_NUSNETID).get()));
+        if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
+            editStudentDescriptor.setNusNetId(ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_STUDENTID).get()));
         }
 
         if (!editStudentDescriptor.isAnyFieldEdited()) {
