@@ -35,7 +35,7 @@ public class EditCommand extends Command {
             + "by the student's Nus NetId. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: "
-            + PREFIX_NUSNETID + "STUDENT_ID_TO_EDIT "
+            + PREFIX_NUSNETID + "ID_OF_STUDENT_TO_EDIT "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
