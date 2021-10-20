@@ -29,7 +29,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String EDIT_COMMAND = "edit";
     public static final String EDIT_COMMAND_EXAMPLE = EDIT_COMMAND
-            + " INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]";
+            + " INDEX [n/NAME] [m/MAJOR] [id/ STUDENT ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]";
 
     public static final String CREATE_COMMAND = "create";
     public static final String CREATE_COMMAND_EXAMPLE = CREATE_COMMAND;

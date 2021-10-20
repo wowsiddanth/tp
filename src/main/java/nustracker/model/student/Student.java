@@ -83,7 +83,7 @@ public class Student {
 
     /**
      * Returns true if the other student has the same credentials in the fields
-     * where having the same ones is not allowed like the NUS NetId, email, & phone.
+     * where having the same ones is not allowed like the student ID, email, & phone.
      */
     public boolean hasDuplicateCredentials(Student otherStudent) {
         if (otherStudent == this) {

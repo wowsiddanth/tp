@@ -81,7 +81,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.STUDENTID_DESC_BOB
                 + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
 
-        // multiple nus netids - last nus netid accepted
+        // multiple student ID - last student ID accepted
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_AMY
                 + CommandTestUtil.EMAIL_DESC_BOB
@@ -215,7 +215,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.TAG_DESC_HUSBAND
                 + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
 
-        // invalid nus netid
+        // invalid student ID
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB

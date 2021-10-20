@@ -59,7 +59,7 @@
         </Text>
       </HBox>
       <HBox>
-        <Text fill="#e9afff" text="NUS NetID: ">
+        <Text fill="#e9afff" text="Student ID: ">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font></Text>

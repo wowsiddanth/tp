@@ -25,7 +25,7 @@ public class EnrollCommand extends Command {
 
     public static final String COMMAND_WORD = "enroll";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Adds the person identified by NUS NetId to an event "
+            + ": Adds the person identified by student ID to an event "
             + "identified by its name.\n"
             + "Parameters: "
             + PREFIX_STUDENTID + "STUDENTID "
@@ -34,9 +34,9 @@ public class EnrollCommand extends Command {
             + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_ADD_TO_EVENT_SUCCESS =
-            "Enrolled Student: %1$s with NUS NetId %2$s into the Event: %3$s";
+            "Enrolled Student: %1$s with student ID %2$s into the Event: %3$s";
     public static final String MESSAGE_STUDENT_ALREADY_ENROLLED =
-            "The Student %1$s with NUS NetId %2$s is already enrolled into the event: %3$s";
+            "The Student %1$s with student ID %2$s is already enrolled into the event: %3$s";
 
     private final StudentId studentId;
     private final EventName eventName;
@@ -61,7 +61,7 @@ public class EnrollCommand extends Command {
         // 3. Event does not exist
         // 4. Student already in event
 
-        // Check if a student with this NUS NetID exists in the list
+        // Check if a student with this student ID exists in the list
         Student currStudent = model.getStudent(studentId);
 
         if (currStudent == null) {

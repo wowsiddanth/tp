@@ -58,7 +58,7 @@ public class UniqueStudentList implements Iterable<Student> {
      * Gets a student from the address book by his/her studentId.
      * Returns null if student does not exist.
      *
-     * @param studentId The student's NUS NetId
+     * @param studentId The student's student ID.
      * @return The student from the list that has the same studentId as the given ID.
      */
     public Student get(StudentId studentId) {
@@ -124,7 +124,7 @@ public class UniqueStudentList implements Iterable<Student> {
 
         internalList.setAll(students);
 
-        // Set to Nus NetId to Student HashMap as well
+        // Set to student ID to Student HashMap as well
         studentIdStudentHashMap.clear();
         internalList.stream().forEach(student -> studentIdStudentHashMap.put(student.getStudentId(), student));
     }

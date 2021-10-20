@@ -5,13 +5,13 @@ import static java.util.Objects.requireNonNull;
 import nustracker.commons.util.AppUtil;
 
 /**
- * Represents a student Id in the address book.
+ * Represents a student ID in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidStudentId(String)}
  */
 public class StudentId {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "NUS NetId should start with 'e', should be followed by 7 digits, and it should not be blank!";
+            "Student ID should start with 'e', should be followed by 7 digits, and it should not be blank!";
 
     /*
      * The first character of the address must a lowercase 'e', in line with
@@ -24,7 +24,7 @@ public class StudentId {
     /**
      * Constructs a {@code StudentId}.
      *
-     * @param studentId A valid student Id
+     * @param studentId A valid student ID
      */
     public StudentId(String studentId) {
         requireNonNull(studentId);

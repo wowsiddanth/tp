@@ -166,7 +166,7 @@ public class EditCommandTest {
         // different types -> returns false
         assertFalse(standardCommand.equals(new ClearCommand()));
 
-        // different Nus NetId -> returns false
+        // different student ID -> returns false
         assertFalse(standardCommand.equals(new EditCommand(
                 STUDENTID_TWO,
                 CommandTestUtil.DESC_AMY)));

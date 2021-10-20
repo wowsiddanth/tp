@@ -26,7 +26,7 @@ public class RemoveCommand extends Command {
 
     public static final String COMMAND_WORD = "remove";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Removes the person identified by NUS NetId from an event "
+            + ": Removes the person identified by student ID from an event "
             + "identified by its name. \n"
             + "Parameters: "
             + PREFIX_STUDENTID + "STUDENTID "
@@ -35,9 +35,9 @@ public class RemoveCommand extends Command {
             + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_REMOVE_EVENT_SUCCESS =
-            "Removed Student: %1$s with NUS NetId %2$s from the Event: %3$s";
+            "Removed Student: %1$s with student ID %2$s from the Event: %3$s";
     public static final String MESSAGE_STUDENT_NOT_ALREADY_ENROLLED =
-            "The Student %1$s with NUS NetId %2$s cannot be removed from the event: %3$s as he was not enrolled yet";
+            "The Student %1$s with student ID %2$s cannot be removed from the event: %3$s as he was not enrolled yet";
 
     private final StudentId studentId;
     private final EventName eventName;
@@ -62,7 +62,7 @@ public class RemoveCommand extends Command {
         // 3. Event does not exist
         // 4. Student not already in event
 
-        // Check if a student with this NUS NetID exists in the list
+        // Check if a student with this student ID exists in the list
         Student currStudent = model.getStudent(studentId);
 
         if (currStudent == null) {

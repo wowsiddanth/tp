@@ -85,7 +85,7 @@ Examples:
   3. IS (Information Systems)
   4. ISEC (Information Security)
 
-- The Student iD must be specified exactly. {eXXXXXXX}
+- The Student ID must be specified exactly. {eXXXXXXX}
 
 - Year must be specified as a single number.
 
@@ -137,7 +137,7 @@ Filters students whose data contains the given field.
 Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [ev/EVENT_NAME]`
 
 * You can filter by:
-    - Multiple NUS NetIDs. (case-insensitive)
+    - Multiple student IDs. (case-insensitive)
     - Multiple Student names. (case-insensitive)
     - **A single** Event name. (case-sensitive)
 
@@ -217,8 +217,8 @@ Command: `remove id/STUDENT_ID ev/EVENT`
 * Removes the student specified by Student ID from the event specified by its event name.
 
 Examples:
-* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with NUS NetId e0986472 from the event "Tea Making Workshop".
-* `remove id/e0264853 ev/Fun Run` removes the specified student with NUS NetId e0264853 into the event "Fun Run".
+* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
+* `remove id/e0264853 ev/Fun Run` removes the specified student with student ID e0264853 into the event "Fun Run".
 
 <br>
 

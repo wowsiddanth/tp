@@ -10,13 +10,13 @@ import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 
 /**
- * Deletes a student identified by his/her NUS NetId.
+ * Deletes a student identified by his/her student ID.
  */
 public class DeleteStudentCommand extends DeleteCommand {
 
     public static final String MESSAGE_USAGE = DeleteCommand.COMMAND_WORD
-            + ": Deletes a student identified by NUS NetId.\n"
-            + "Parameters: " + DeleteCommand.COMMAND_WORD + "[Student NUS NetId]\n"
+            + ": Deletes a student identified by student ID.\n"
+            + "Parameters: " + DeleteCommand.COMMAND_WORD + "[Student ID]\n"
             + "Example: " + DeleteCommand.COMMAND_WORD + PREFIX_STUDENT + "e1234567";
 
     public static final String MESSAGE_DELETE_STUDENT_SUCCESS = "Deleted Student: %1$s";

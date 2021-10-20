@@ -7,7 +7,7 @@ import nustracker.model.Model;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 
 /**
- * Filters and lists all students in address book whose NUS NetID contains any of the argument keywords.
+ * Filters and lists all students in address book whose student ID contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class FilterIdCommand extends FilterCommand {

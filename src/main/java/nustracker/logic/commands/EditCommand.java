@@ -36,7 +36,7 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the student identified "
-            + "by the student's Nus NetId. "
+            + "by the student's student ID. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: "
             + PREFIX_STUDENTID + "NUS_NETID_TO_EDIT "
@@ -59,7 +59,7 @@ public class EditCommand extends Command {
     private final EditStudentDescriptor editStudentDescriptor;
 
     /**
-     * @param studentId the Nus NetId of the student to be edited.
+     * @param studentId the student ID of the student to be edited.
      * @param editStudentDescriptor details to edit the student with.
      */
     public EditCommand(StudentId studentId, EditStudentDescriptor editStudentDescriptor) {

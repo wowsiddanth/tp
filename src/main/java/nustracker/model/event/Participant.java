@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import nustracker.model.student.StudentId;
 
 /**
- * Represents an Event's participant. Participants are stored by their NUS NetId.
+ * Represents an Event's participant. Participants are stored by their student ID.
  */
 public class Participant {
 
@@ -14,7 +14,7 @@ public class Participant {
     /**
      * Constructs a {@code Id}.
      *
-     * @param studentId A valid NUS NetId.
+     * @param studentId A valid student ID.
      */
     public Participant(String studentId) {
         requireNonNull(studentId);
@@ -29,8 +29,8 @@ public class Participant {
     }
 
     /**
-     * Gets the participant's Nus NetId.
-     * @return the Nus NetId object.
+     * Gets the participant's student ID.
+     * @return the StudentId object.
      */
     public StudentId getStudentId() {
         return new StudentId(studentId);

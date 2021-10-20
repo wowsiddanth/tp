@@ -71,7 +71,7 @@ public class EventBuilder {
     }
 
     /**
-     * Parses the {@code StudentId} and add it as a {@code Participant} to the {@code Event} that we are
+     * Parses the {@code studentId} and add it as a {@code Participant} to the {@code Event} that we are
      * building.
      */
     public EventBuilder addParticipant(String studentId) {
