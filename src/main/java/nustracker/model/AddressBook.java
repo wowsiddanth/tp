@@ -2,6 +2,7 @@ package nustracker.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -167,9 +168,17 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void removeEvent(Event key, Model currModel) {
         // Before removing the event, we remove all students from this event first.
         Set<Participant> participantsOfThisEvent = key.getParticipants();
+        Set<NusNetId> studentIdInThisEvent = new HashSet<>();
 
         for (Participant currParticipant : participantsOfThisEvent) {
-            RemoveCommand currRemoveCmd = new RemoveCommand(currParticipant.getNusNetId(), key.getName());
+            studentIdInThisEvent.add(currParticipant.getNusNetId());
+        }
+
+        for (NusNetId currStudentId : studentIdInThisEvent) {
+
+            // Use a RemoveCommand to do this because it does exactly what we want which is to
+            // remove the Event from the Student's EnrolledEvents (while also removing from Event's Participants)
+            RemoveCommand currRemoveCmd = new RemoveCommand(currStudentId, key.getName());
 
             try {
                 CommandResult currCmdResult = currRemoveCmd.execute(currModel);

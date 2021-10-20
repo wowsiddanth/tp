@@ -77,6 +77,8 @@ public class EditCommand extends Command {
                     nusNetIdToEdit.getNusNetIdString()));
         }
 
+
+
         Student editedStudent = createEditedStudent(studentToEdit, editStudentDescriptor);
 
         if (!studentToEdit.hasDuplicateCredentials(editedStudent) && model.hasStudent(editedStudent)) {
