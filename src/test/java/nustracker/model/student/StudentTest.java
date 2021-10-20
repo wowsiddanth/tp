@@ -9,25 +9,17 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_NUSNETID_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_NUSNETID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
 
 
 public class StudentTest {
-
-    @Test
-    public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Student student = new StudentBuilder().build();
-        Assert.assertThrows(UnsupportedOperationException.class, () -> student.getTags().remove(0));
-    }
 
     @Test
     public void hasDuplicateCredentials() {
@@ -43,8 +35,7 @@ public class StudentTest {
                 .withEmail(VALID_EMAIL_AMY)
                 .withYear(VALID_YEAR_AMY)
                 .withMajor(VALID_MAJOR_AMY)
-                .withNusNetId(VALID_NUSNETID_AMY)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withNusNetId(VALID_NUSNETID_AMY).build();
         Assertions.assertTrue(TypicalStudents.AMY.hasDuplicateCredentials(editedAmy));
 
         // different nusnetid, all other attributes same -> returns false (since email and phone is the same)
@@ -100,10 +91,6 @@ public class StudentTest {
 
         // different nusnetid -> returns false
         editedAlice = new StudentBuilder(TypicalStudents.ALICE).withNusNetId(VALID_NUSNETID_BOB).build();
-        Assertions.assertFalse(TypicalStudents.ALICE.equals(editedAlice));
-
-        // different tags -> returns false
-        editedAlice = new StudentBuilder(TypicalStudents.ALICE).withTags(VALID_TAG_HUSBAND).build();
         Assertions.assertFalse(TypicalStudents.ALICE.equals(editedAlice));
     }
 }

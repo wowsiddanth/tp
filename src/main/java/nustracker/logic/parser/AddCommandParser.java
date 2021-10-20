@@ -8,8 +8,6 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
-import java.util.Set;
-
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.parser.exceptions.ParseException;
@@ -21,7 +19,6 @@ import nustracker.model.student.NusNetId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -50,11 +47,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         Year year = ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get());
         Major major = ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get());
         NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_NUSNETID).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         EnrolledEvents enrolledEvents = new EnrolledEvents();
 
-        Student student = new Student(name, phone, email, year, major, nusNetId, tagList, enrolledEvents);
+        Student student = new Student(name, phone, email, year, major, nusNetId, enrolledEvents);
 
         return new AddCommand(student);
     }
