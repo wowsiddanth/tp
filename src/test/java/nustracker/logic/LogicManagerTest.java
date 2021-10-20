@@ -14,7 +14,7 @@ import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.CommandResult;
 import nustracker.logic.commands.CommandTestUtil;
-import nustracker.logic.commands.ListCommand;
+import nustracker.logic.commands.StudentsCommand;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.Model;
@@ -63,8 +63,8 @@ public class LogicManagerTest {
 
     @Test
     public void execute_validCommand_success() throws Exception {
-        String listCommand = ListCommand.COMMAND_WORD;
-        assertCommandSuccess(listCommand, ListCommand.MESSAGE_SUCCESS, model);
+        String studentsCommand = nustracker.logic.commands.StudentsCommand.COMMAND_WORD;
+        assertCommandSuccess(studentsCommand, StudentsCommand.MESSAGE_SHOW_STUDENTS_SUCCESS, model);
     }
 
     @Test

@@ -85,7 +85,7 @@
 }
 
 #copyLinkButton, #copyAddCommand, #copyFilterCommand, #copyEditCommand, #copyDeleteCommand, #copyListCommand,
-#copyExitCommand, #copyCreateCommand, #copyEnrollCommand  {
+#copyExitCommand, #copyCreateCommand, #copyEnrollCommand, #copyStudentsCommand, #copyEventsCommand  {
     -fx-background-radius: 50;
     -fx-background-color: #515151;
     -fx-border-radius: 20;
