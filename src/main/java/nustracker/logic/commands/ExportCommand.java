@@ -27,12 +27,14 @@ public class ExportCommand extends Command {
         requireNonNull(model);
         ObservableList<Student> filteredStudents = model.getFilteredStudentList();
         try {
-            Path path = Path.of("data\\Exported.txt");
+            Path path = Path.of("data\\Exported.csv");
             FileUtil.createIfMissing(path);
             // Overwrites File all the time
-            FileUtil.writeToFile(path, Arrays.toString(filteredStudents.stream().map(Student::getEmail).toArray()));
+            FileUtil.writeToFile(
+                    path,
+                    Arrays.toString(filteredStudents.stream().map(Student::getEmail).toArray()));
         } catch (IOException ioe) {
-            throw new CommandException("Could not export data properly" + ioe, ioe);
+            throw new CommandException("Could not export data properly: " + ioe, ioe);
         }
 
         return new CommandResult(MESSAGE_SUCCESS);
