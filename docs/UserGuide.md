@@ -143,7 +143,7 @@ Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STU
     - Multiple Years.
     - **A single** Event name. (case-sensitive)
 
-* You can only filter by one field (i.e. filter only by student ID, student name, or event name).
+* You can only filter by one field (i.e. filter only by student ID, student name, year, major, or event name).
 * The search is case-insensitive, except for events. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
 * You can search using multiple keywords except for events.
 * You can search by partial keywords for names and student IDs. e.g. `n/al` will match with `n/alice` and `id/e12` will match with `id/e1234567`
