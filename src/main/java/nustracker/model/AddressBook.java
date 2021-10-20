@@ -4,10 +4,12 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javafx.collections.ObservableList;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.event.Participant;
 import nustracker.model.event.UniqueEventList;
 import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
@@ -160,7 +162,12 @@ public class AddressBook implements ReadOnlyAddressBook {
      * {@code key} must exist in the address book.
      */
     public void removeEvent(Event key) {
+        // Before removing the event, we remove all students from this event first.
+        Set<Participant> participantsOfThisEvent = key.getParticipants();
+
+
         events.remove(key);
+
     }
 
     //// util methods
