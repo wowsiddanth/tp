@@ -83,7 +83,7 @@ public class LogicManagerTest {
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_AMY
                 + CommandTestUtil.NUSNETID_DESC_AMY;
-        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).withTags().build();
+        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addStudent(expectedStudent);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
