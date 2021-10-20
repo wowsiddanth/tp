@@ -1,12 +1,9 @@
 package nustracker.testutil;
 
-import java.util.Set;
-
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.parser.CliSyntax;
 import nustracker.model.student.Student;
-import nustracker.model.tag.Tag;
 
 /**
  * A utility class for Student.
@@ -30,10 +27,8 @@ public class StudentUtil {
         sb.append(CliSyntax.PREFIX_EMAIL + student.getEmail().value + " ");
         sb.append(CliSyntax.PREFIX_YEAR + student.getYear().value + " ");
         sb.append(CliSyntax.PREFIX_MAJOR + student.getMajor().value + " ");
-        sb.append(CliSyntax.PREFIX_STUDENTID + student.getNusNetId().value + " ");
-        student.getTags().stream().forEach(s ->
-                sb.append(CliSyntax.PREFIX_TAG + s.tagName + " ")
-        );
+        sb.append(CliSyntax.PREFIX_NUSNETID + student.getNusNetId().value + " ");
+
         return sb.toString();
     }
 
@@ -49,14 +44,6 @@ public class StudentUtil {
         descriptor.getMajor().ifPresent(major -> sb.append(CliSyntax.PREFIX_MAJOR).append(major.value).append(" "));
         descriptor.getNusNetId().ifPresent(nusNetId -> sb.append(CliSyntax.PREFIX_STUDENTID).append(
                 nusNetId.value).append(" "));
-        if (descriptor.getTags().isPresent()) {
-            Set<Tag> tags = descriptor.getTags().get();
-            if (tags.isEmpty()) {
-                sb.append(CliSyntax.PREFIX_TAG);
-            } else {
-                tags.forEach(s -> sb.append(CliSyntax.PREFIX_TAG).append(s.tagName).append(" "));
-            }
-        }
         return sb.toString();
     }
 }

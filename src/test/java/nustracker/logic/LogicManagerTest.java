@@ -15,7 +15,7 @@ import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.CommandResult;
 import nustracker.logic.commands.CommandTestUtil;
-import nustracker.logic.commands.ListCommand;
+import nustracker.logic.commands.StudentsCommand;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.Model;
@@ -64,8 +64,8 @@ public class LogicManagerTest {
 
     @Test
     public void execute_validCommand_success() throws Exception {
-        String listCommand = ListCommand.COMMAND_WORD;
-        assertCommandSuccess(listCommand, ListCommand.MESSAGE_SUCCESS, model);
+        String studentsCommand = nustracker.logic.commands.StudentsCommand.COMMAND_WORD;
+        assertCommandSuccess(studentsCommand, StudentsCommand.MESSAGE_SHOW_STUDENTS_SUCCESS, model);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class LogicManagerTest {
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_AMY
                 + CommandTestUtil.NUSNETID_DESC_AMY;
-        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).withTags().build();
+        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addStudent(expectedStudent);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;

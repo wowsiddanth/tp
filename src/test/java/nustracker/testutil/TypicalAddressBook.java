@@ -46,7 +46,7 @@ public class TypicalAddressBook {
                 Student enrolledStudent = new Student(
                         currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
                         currStudent.getYear(), currStudent.getMajor(), currStudent.getNusNetId(),
-                        currStudent.getTags(), updatedEnrolledEvents);
+                         updatedEnrolledEvents);
 
                 ab.setStudent(currStudent, enrolledStudent);
             }
