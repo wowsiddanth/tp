@@ -114,7 +114,7 @@ public class ModelManager implements Model {
 
     @Override
     public void deleteEvent(Event event) {
-        addressBook.removeEvent(event);
+        addressBook.removeEvent(event, this);
     }
 
     @Override

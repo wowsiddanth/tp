@@ -7,6 +7,9 @@ import java.util.Objects;
 import java.util.Set;
 
 import javafx.collections.ObservableList;
+import nustracker.logic.commands.CommandResult;
+import nustracker.logic.commands.RemoveCommand;
+import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.Participant;
@@ -161,10 +164,22 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removeEvent(Event key) {
+    public void removeEvent(Event key, Model currModel) {
         // Before removing the event, we remove all students from this event first.
         Set<Participant> participantsOfThisEvent = key.getParticipants();
 
+        for (Participant currParticipant : participantsOfThisEvent) {
+            RemoveCommand currRemoveCmd = new RemoveCommand(currParticipant.getNusNetId(), key.getName());
+
+            try {
+                CommandResult currCmdResult = currRemoveCmd.execute(currModel);
+            } catch (CommandException e) {
+                // Means either Invalid Student ID (Not possible)
+                // or invalid event name (Not possible)
+                // or the student does not have this event in its EnrolledEvents
+                // (Then just skip because this is the desired result anyway)
+            }
+        }
 
         events.remove(key);
 
