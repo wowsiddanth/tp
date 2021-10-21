@@ -1,11 +1,5 @@
 package nustracker.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,11 +8,10 @@ import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Student}.
@@ -32,8 +25,7 @@ class JsonAdaptedStudent {
     private final String email;
     private final String year;
     private final String major;
-    private final String nusNetId;
-    private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final String studentId;
 
     /**
      * Constructs a {@code JsonAdaptedStudent} with the given student details.
@@ -44,17 +36,13 @@ class JsonAdaptedStudent {
                               @JsonProperty("email") String email,
                               @JsonProperty("year") String year,
                               @JsonProperty("major") String major,
-                              @JsonProperty("nusNetId") String nusNetId,
-                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+                              @JsonProperty("studentId") String studentId) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.year = year;
         this.major = major;
-        this.nusNetId = nusNetId;
-        if (tagged != null) {
-            this.tagged.addAll(tagged);
-        }
+        this.studentId = studentId;
     }
 
     /**
@@ -66,10 +54,7 @@ class JsonAdaptedStudent {
         email = source.getEmail().value;
         year = source.getYear().value;
         major = source.getMajor().value;
-        nusNetId = source.getNusNetId().value;
-        tagged.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
-                .collect(Collectors.toList()));
+        studentId = source.getStudentId().value;
     }
 
     /**
@@ -78,11 +63,6 @@ class JsonAdaptedStudent {
      * @throws IllegalValueException if there were any data constraints violated in the adapted student.
      */
     public Student toModelType() throws IllegalValueException {
-        final List<Tag> studentTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tagged) {
-            studentTags.add(tag.toModelType());
-        }
-
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
@@ -123,21 +103,19 @@ class JsonAdaptedStudent {
         }
         final Major modelMajor = new Major(major);
 
-        if (nusNetId == null) {
+        if (studentId == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    NusNetId.class.getSimpleName()));
+                    StudentId.class.getSimpleName()));
         }
-        if (!NusNetId.isValidNusNetId(nusNetId)) {
-            throw new IllegalValueException(NusNetId.MESSAGE_CONSTRAINTS);
+        if (!StudentId.isValidStudentId(studentId)) {
+            throw new IllegalValueException(StudentId.MESSAGE_CONSTRAINTS);
         }
-        final NusNetId modelNusNetId = new NusNetId(nusNetId);
-
-        final Set<Tag> modelTags = new HashSet<>(studentTags);
+        final StudentId modelStudentId = new StudentId(studentId);
 
         final EnrolledEvents enrolledEvents = new EnrolledEvents();
 
         return new Student(modelName, modelPhone, modelEmail, modelYear, modelMajor,
-                modelNusNetId, modelTags, enrolledEvents);
+                modelStudentId, enrolledEvents);
     }
 
 }

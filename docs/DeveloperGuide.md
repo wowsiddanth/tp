@@ -309,17 +309,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | create a new event                          | add new events to be managed using the app |
 | `* * *`  | user                                       | delete an event                             | remove events that are no longer relevant |
 | `* * *`  | user                                       | test the app using sample data              | test the app and its commands easily before loading in real student data |
-| `* *  `  | user                                       | archive an event                            | remove events that have passed but are still relevant |
-| `* *  `  | intermediate user                          | mass delete certain students                | delete students more efficiently |
 | `* *  `  | intermediate user                          | edit student data                           | update previous mistake in data entry or update a change in student data |
 | `* *  `  | expert user                                | export email of selected students           | use the email list to mass email relevant students |
 | `* *  `  | expert user                                | export event data file                      | easily share or transfer event data to load in another computer |
 | `* *  `  | expert user                                | export student data file                    | easily share or transfer the student database to load in another computer |
-| `* *  `  | user                                       | tag a student                               | group students according to a particular tag |
-| `* *  `  | user                                       | remove a tag                                | delete a tag from the selected student |
-| `* *  `  | user                                       | delete a tag                                | delete a tag from the database |
 | `* *  `  | user                                       | blacklist students from events              | track which students are blacklisted from attending events |
-| `* *  `  | user                                       | tag students automatically based on rsvp    | do less manual work when adding students to events |
 | `* *  `  | user                                       | load student data from external file        | quickly add a large number of students |
 | `* *  `  | user                                       | load event data file                        | update the list of events being managed in database |
 | `* *  `  | user                                       | filter students by event                    | find students attending a particular event |

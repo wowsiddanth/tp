@@ -85,17 +85,17 @@ Examples:
   3. IS (Information Systems)
   4. ISEC (Information Security)
 
-- The Student iD must be specified exactly. {eXXXXXXX}
+- The Student ID must be specified exactly. {eXXXXXXX}
 
 - Year must be specified as a single number.
 
 <br>
 
-### Listing all students: `list`
+### Listing all students: `students`
 
 Shows all students in the app.
 
-Format: `list`
+Command: `students`
 
 <br>
 
@@ -137,7 +137,7 @@ Filters students whose data contains the given field.
 Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [ev/EVENT_NAME]`
 
 * You can filter by:
-    - Multiple NUS NetIDs. (case-insensitive)
+    - Multiple student IDs. (case-insensitive)
     - Multiple Student names. (case-insensitive)
     - **A single** Event name. (case-sensitive)
 
@@ -217,8 +217,8 @@ Command: `remove id/STUDENT_ID ev/EVENT`
 * Removes the student specified by Student ID from the event specified by its event name.
 
 Examples:
-* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with NUS NetId e0986472 from the event "Tea Making Workshop".
-* `remove id/e0264853 ev/Fun Run` removes the specified student with NUS NetId e0264853 into the event "Fun Run".
+* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
+* `remove id/e0264853 ev/Fun Run` removes the specified student with student ID e0264853 into the event "Fun Run".
 
 <br>
 
@@ -283,7 +283,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Command** | **Description** | **Example** |
 ----------------------------|------------------------------|-------------------------------------------------------|
 **add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT_NAME]` |
-**list** | lists students | `list` |
+**students** | lists students | `students` |
 **edit** | edit a student | `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
 **filter** | filter by field  | `filter [n/STUDENT_NAME [MORE_STUDENT_NAMES]...]` <br> `filter [id/STUDENT_ID [MORE_STUDENT_IDS]...]` <br>  `filter [ev/EVENT_NAME]` |
@@ -293,7 +293,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Command** | **Description** | **Example** |
 ---------------------------------------|---------------------------------|---------------------------|
 **create**  | create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
-**events**  | lists events | `events` **NOT WORKING** |
+**events**  | lists events | `events` |
 **enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
 **remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
 **delete**  | deletes an event | `delete ev/EVENT_NAME` |

@@ -9,7 +9,7 @@ _NUSTracker_ is an event-management software that was built specifically for the
 a brownfield project that extends the AddressBook3 project, which is around 10kLoC.
 
 * **New Feature**: Redesign Person class to behave like a Student class
-  * **What it does**: Adds the necessary fields and methods so that the Person class behaves like a Student (_has a NUS NetID, email, etc_)
+  * **What it does**: Adds the necessary fields and methods so that the Person class behaves like a Student (_has a student ID, email, etc_)
   * **Justification**: This features redesigns the Person, so that it meets the specification of an NUS student, taking part in an event.
   * **Highlights**: This change affected almost many other class, as Person class is a fundamental component of the initial AddressBook3 project. It
   was definitely challenging adding these new attributes and tracing and fixing these regressions.

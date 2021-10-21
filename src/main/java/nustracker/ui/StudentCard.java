@@ -28,7 +28,7 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Text major;
     @FXML
-    private Text nusNetId;
+    private Text studentId;
     @FXML
     private Text enrolledEvents;
 
@@ -46,7 +46,7 @@ public class StudentCard extends UiPart<Region> {
         email.setText(student.getEmail().value);
         year.setText(student.getYear().value);
         major.setText(student.getMajor().value);
-        nusNetId.setText(student.getNusNetId().value);
+        studentId.setText(student.getStudentId().value);
         enrolledEvents.setText(student.getEvents().getEventNamesString());
 
     }

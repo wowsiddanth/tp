@@ -2,7 +2,7 @@
   "students": [ {
     "name": "Valid Student",
     "phone": "9482424",
-    "nusNetId": "e8123832",
+    "studentId": "e8123832",
     "major": "CS",
     "year": "1",
     "email": "hans@example.com",

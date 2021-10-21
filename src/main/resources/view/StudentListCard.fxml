@@ -59,11 +59,11 @@
         </Text>
       </HBox>
       <HBox>
-        <Text fill="#e9afff" text="NUS NetID: ">
+        <Text fill="#e9afff" text="Student ID: ">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font></Text>
-        <Text fx:id="nusNetId" fill="WHITE" style="-fx-font-size: 18px" styleClass="cell_small_label" text="\$nusNetId" translateY="3.8">
+        <Text fx:id="studentId" fill="WHITE" style="-fx-font-size: 18px" styleClass="cell_small_label" text="\$studentId" translateY="3.8">
                 <font>
                    <Font size="22.0" />
                 </font>

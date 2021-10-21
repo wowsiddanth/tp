@@ -45,9 +45,9 @@ public class EventCard extends UiPart<Region> {
         time.setText(event.getTime().toString());
 
         event.getParticipants().stream()
-                .sorted(Comparator.comparing(participant -> participant.nusNetId))
+                .sorted(Comparator.comparing(participant -> participant.studentId))
                 .forEach(participant -> participants.getChildren().add(
-                        new Label(participant.nusNetId)));
+                        new Label(participant.studentId)));
 
         //Ensures that the participants will be evenly spaced out
         participants.setVgap(4.0);
