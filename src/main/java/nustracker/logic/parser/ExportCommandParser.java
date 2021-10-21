@@ -1,5 +1,6 @@
 package nustracker.logic.parser;
 
+import static java.util.Objects.requireNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_FILENAME;
 
 import nustracker.commons.core.Messages;
@@ -10,6 +11,7 @@ public class ExportCommandParser implements Parser<ExportCommand> {
 
     @Override
     public ExportCommand parse(String args) throws ParseException {
+        requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_FILENAME);
 
