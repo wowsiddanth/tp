@@ -41,10 +41,5 @@ public class EditStudentDescriptorTest {
         editedAmy = new EditStudentDescriptorBuilder(CommandTestUtil.DESC_AMY).withEmail(
                 CommandTestUtil.VALID_EMAIL_BOB).build();
         Assertions.assertFalse(CommandTestUtil.DESC_AMY.equals(editedAmy));
-
-        // different tags -> returns false
-        editedAmy = new EditStudentDescriptorBuilder(CommandTestUtil.DESC_AMY).withTags(
-                CommandTestUtil.VALID_TAG_HUSBAND).build();
-        Assertions.assertFalse(CommandTestUtil.DESC_AMY.equals(editedAmy));
     }
 }

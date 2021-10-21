@@ -91,11 +91,11 @@ Examples:
 
 <br>
 
-### Listing all students: `list`
+### Listing all students: `students`
 
 Shows all students in the app.
 
-Format: `list`
+Command: `students`
 
 <br>
 
@@ -283,7 +283,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Command** | **Description** | **Example** |
 ----------------------------|------------------------------|-------------------------------------------------------|
 **add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT_NAME]` |
-**list** | lists students | `list` |
+**students** | lists students | `students` |
 **edit** | edit a student | `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
 **filter** | filter by field  | `filter [n/STUDENT_NAME [MORE_STUDENT_NAMES]...]` <br> `filter [id/STUDENT_ID [MORE_STUDENT_IDS]...]` <br>  `filter [ev/EVENT_NAME]` |
@@ -293,7 +293,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Command** | **Description** | **Example** |
 ---------------------------------------|---------------------------------|---------------------------|
 **create**  | create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
-**events**  | lists events | `events` **NOT WORKING** |
+**events**  | lists events | `events` |
 **enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
 **remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
 **delete**  | deletes an event | `delete ev/EVENT_NAME` |

@@ -6,7 +6,6 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
-import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import nustracker.logic.commands.exceptions.CommandException;
@@ -28,15 +27,13 @@ public class AddCommand extends Command {
             + PREFIX_YEAR + "YEAR "
             + PREFIX_MAJOR + "MAJOR "
             + PREFIX_STUDENTID + "STUDENTID "
-            + "[" + PREFIX_TAG + "TAG]\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_YEAR + "1 "
             + PREFIX_MAJOR + "CS "
-            + PREFIX_STUDENTID + "e1234567 "
-            + PREFIX_TAG + "friends ";
+            + PREFIX_STUDENTID + "e1234567 ";
 
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
     public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book";

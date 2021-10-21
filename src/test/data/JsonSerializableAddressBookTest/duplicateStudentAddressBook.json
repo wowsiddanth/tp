@@ -5,16 +5,24 @@
     "email": "alice@example.com",
     "year" : "1",
     "major" : "CS",
+<<<<<<< HEAD
     "studentId": "e1234567",
     "tagged": [ "friends" ]
+=======
+    "nusNetId" : "e1234567"
+>>>>>>> master
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
     "year" : "1",
     "major" : "CS",
+<<<<<<< HEAD
     "studentId": "e1234567",
     "tagged" : [ "friends"]
+=======
+    "nusNetId" : "e1234567"
+>>>>>>> master
   } ],
   "events": [ {
     "name": "Valid event",

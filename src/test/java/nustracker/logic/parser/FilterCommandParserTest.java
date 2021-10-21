@@ -41,6 +41,7 @@ public class FilterCommandParserTest {
     public void parse_validArgs_returnsFilterIdCommand() {
         FilterCommand expectedFilterCommand =
                 new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList("e1234567", "e2345678")));
+
         CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_STUDENTID + "e1234567 e2345678",
                 expectedFilterCommand);
 

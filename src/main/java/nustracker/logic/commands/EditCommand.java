@@ -7,13 +7,9 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
-import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 import nustracker.commons.util.CollectionUtil;
 import nustracker.logic.commands.exceptions.CommandException;
@@ -26,7 +22,6 @@ import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
 
 /**
  * Edits the details of an existing student in the address book.
@@ -39,14 +34,13 @@ public class EditCommand extends Command {
             + "by the student's student ID. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: "
-            + PREFIX_STUDENTID + "NUS_NETID_TO_EDIT "
+            + PREFIX_STUDENTID + "STUDENTID_TO_EDIT "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_YEAR + "YEAR] "
             + "[" + PREFIX_MAJOR + "MAJOR] "
-            + "[" + PREFIX_STUDENTID + "NEW_NUS_NETID] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_STUDENTID + "NEW_STUDENTID] "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -105,13 +99,13 @@ public class EditCommand extends Command {
         Year updatedYear = editStudentDescriptor.getYear().orElse(studentToEdit.getYear());
         Major updatedMajor = editStudentDescriptor.getMajor().orElse(studentToEdit.getMajor());
         StudentId updatedStudentId = editStudentDescriptor.getStudentId().orElse(studentToEdit.getStudentId());
-        Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
+
 
         // Enrolled Events should not be updated using Edit Command
         EnrolledEvents notUpdatedEvents = studentToEdit.getEvents();
 
         return new Student(updatedName, updatedPhone, updatedEmail,
-                updatedYear, updatedMajor, updatedStudentId, updatedTags, notUpdatedEvents);
+                updatedYear, updatedMajor, updatedStudentId, notUpdatedEvents);
     }
 
     @Override
@@ -143,7 +137,6 @@ public class EditCommand extends Command {
         private Year year;
         private Major major;
         private StudentId studentId;
-        private Set<Tag> tags;
 
         public EditStudentDescriptor() {}
 
@@ -158,14 +151,13 @@ public class EditCommand extends Command {
             setYear(toCopy.year);
             setMajor(toCopy.major);
             setStudentId(toCopy.studentId);
-            setTags(toCopy.tags);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, major, year, studentId, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, major, year, studentId);
         }
 
         public void setName(Name name) {
@@ -216,23 +208,6 @@ public class EditCommand extends Command {
             return Optional.ofNullable(studentId);
         }
 
-        /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
-         */
-        public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
-        }
-
-        /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
-         */
-        public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
-        }
-
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -253,8 +228,7 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getYear().equals(e.getYear())
                     && getStudentId().equals(e.getStudentId())
-                    && getMajor().equals(e.getMajor())
-                    && getTags().equals(e.getTags());
+                    && getMajor().equals(e.getMajor());
         }
     }
 }

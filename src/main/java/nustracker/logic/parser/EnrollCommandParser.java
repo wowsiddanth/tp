@@ -24,6 +24,7 @@ public class EnrollCommandParser implements Parser<EnrollCommand> {
         }
 
         StudentId studentId = ParserUtil.parseStudenttId(argMultimap.getValue(PREFIX_STUDENTID).get());
+
         EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
 
         return new EnrollCommand(studentId, eventName);

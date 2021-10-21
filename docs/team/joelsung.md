@@ -15,6 +15,9 @@ Given below are my contributions to the project.
 * **New Feature**: Added the ability to delete Events
   * Highlights: The DeleteCommand was made into an abstract class which DeleteStudentCommand and DeleteEventCommand inherit from. The DeleteCommandParser had to now account for the difference.
 
+* * **New Feature**: Added the ability to list Events and Students
+* Highlights: Created new commands and edited Help Window.
+
 
 * **Code contributed**:
 

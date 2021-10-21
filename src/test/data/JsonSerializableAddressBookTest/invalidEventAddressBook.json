@@ -4,8 +4,12 @@
     "phone": "94351253",
     "year" : "1",
     "major" : "CS",
+<<<<<<< HEAD
     "studentId": "e9034800",
     "tagged" : [ "friends" ]
+=======
+    "nusNetId" : "e9034800"
+>>>>>>> master
   }],
   "events": [ {
     "name": "Invalid event",

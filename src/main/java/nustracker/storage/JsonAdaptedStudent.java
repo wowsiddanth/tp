@@ -1,11 +1,5 @@
 package nustracker.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,7 +12,6 @@ import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Student}.
@@ -33,7 +26,6 @@ class JsonAdaptedStudent {
     private final String year;
     private final String major;
     private final String studentId;
-    private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedStudent} with the given student details.
@@ -44,17 +36,13 @@ class JsonAdaptedStudent {
                               @JsonProperty("email") String email,
                               @JsonProperty("year") String year,
                               @JsonProperty("major") String major,
-                              @JsonProperty("studentId") String studentId,
-                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+                              @JsonProperty("studentId") String studentId) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.year = year;
         this.major = major;
         this.studentId = studentId;
-        if (tagged != null) {
-            this.tagged.addAll(tagged);
-        }
     }
 
     /**
@@ -67,9 +55,6 @@ class JsonAdaptedStudent {
         year = source.getYear().value;
         major = source.getMajor().value;
         studentId = source.getStudentId().value;
-        tagged.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
-                .collect(Collectors.toList()));
     }
 
     /**
@@ -78,11 +63,6 @@ class JsonAdaptedStudent {
      * @throws IllegalValueException if there were any data constraints violated in the adapted student.
      */
     public Student toModelType() throws IllegalValueException {
-        final List<Tag> studentTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tagged) {
-            studentTags.add(tag.toModelType());
-        }
-
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
@@ -132,12 +112,10 @@ class JsonAdaptedStudent {
         }
         final StudentId modelStudentId = new StudentId(studentId);
 
-        final Set<Tag> modelTags = new HashSet<>(studentTags);
-
         final EnrolledEvents enrolledEvents = new EnrolledEvents();
 
         return new Student(modelName, modelPhone, modelEmail, modelYear, modelMajor,
-                modelStudentId, modelTags, enrolledEvents);
+                modelStudentId, enrolledEvents);
     }
 
 }

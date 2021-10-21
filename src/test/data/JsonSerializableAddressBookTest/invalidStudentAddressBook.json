@@ -4,8 +4,7 @@
     "phone": "9482424",
     "extrafield": "invalid@email!3e",
     "year" : "1",
-    "major" : "CS",
-    "tagged" : [ "friends" ]
+    "major" : "CS"
   } ],
   "events": [ {
     "name": "Valid event",

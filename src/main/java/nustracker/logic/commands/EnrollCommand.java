@@ -95,7 +95,8 @@ public class EnrollCommand extends Command {
         Student editedStudent = new Student(
                 currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
                 currStudent.getYear(), currStudent.getMajor(), currStudent.getStudentId(),
-                currStudent.getTags(), updatedEnrolledEvents);
+                updatedEnrolledEvents);
+
 
         model.setStudent(currStudent, editedStudent);
 

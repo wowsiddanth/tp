@@ -24,6 +24,7 @@ public class RemoveCommandParser implements Parser<RemoveCommand> {
         }
 
         StudentId studentId = ParserUtil.parseStudenttId(argMultimap.getValue(PREFIX_STUDENTID).get());
+
         EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
 
         return new RemoveCommand(studentId, eventName);

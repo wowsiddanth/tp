@@ -2,13 +2,9 @@ package nustracker.model.student;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 import nustracker.commons.util.CollectionUtil;
-import nustracker.model.tag.Tag;
 
 /**
  * Represents a Student in the address book.
@@ -25,22 +21,18 @@ public class Student {
     private final StudentId studentId;
     private final EnrolledEvents enrolledEvents;
 
-    // Data fields
-    private final Set<Tag> tags = new HashSet<>();
-
     /**
      * Every field must be present and not null.
      */
     public Student(Name name, Phone phone, Email email, Year year, Major major,
-                   StudentId studentId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
-        CollectionUtil.requireAllNonNull(name, phone, email, year, major, studentId, tags, enrolledEvents);
+                   StudentId studentId, EnrolledEvents enrolledEvents) {
+        CollectionUtil.requireAllNonNull(name, phone, email, year, major, studentId, enrolledEvents);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.year = year;
         this.major = major;
         this.studentId = studentId;
-        this.tags.addAll(tags);
         this.enrolledEvents = enrolledEvents;
         Major.addStudent(this);
     }
@@ -71,14 +63,6 @@ public class Student {
 
     public EnrolledEvents getEvents() {
         return enrolledEvents;
-    }
-
-    /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
     }
 
     /**
@@ -119,7 +103,7 @@ public class Student {
                 new Year(validYear),
                 new Major(validMajor),
                 studentId,
-                new HashSet<>(), validEnrolledEvents);
+                validEnrolledEvents);
     }
 
     /**
@@ -143,14 +127,13 @@ public class Student {
                 && otherStudent.getYear().equals(getYear())
                 && otherStudent.getMajor().equals(getMajor())
                 && otherStudent.getStudentId().equals(getStudentId())
-                && otherStudent.getTags().equals(getTags())
                 && otherStudent.getEvents().equals(getEvents());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, year, major, studentId, tags);
+        return Objects.hash(name, phone, email, year, major, studentId);
     }
 
     @Override
@@ -167,12 +150,6 @@ public class Student {
                 .append(getMajor())
                 .append("; StudentId: ")
                 .append(getStudentId());
-        Set<Tag> tags = getTags();
-        if (!tags.isEmpty()) {
-            builder.append("; Tags: ");
-            tags.forEach(builder::append);
-        }
-
         if (enrolledEvents.hasEvents()) {
             builder.append("; Events:");
             builder.append(enrolledEvents.getEventNamesString());

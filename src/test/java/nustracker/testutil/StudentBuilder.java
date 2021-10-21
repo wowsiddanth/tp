@@ -1,8 +1,5 @@
 package nustracker.testutil;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import nustracker.model.event.Event;
 import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
@@ -12,8 +9,6 @@ import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
-import nustracker.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building Student objects.
@@ -33,7 +28,6 @@ public class StudentBuilder {
     private Year year;
     private Major major;
     private StudentId studentId;
-    private Set<Tag> tags;
     private EnrolledEvents enrolledEvents;
 
     /**
@@ -46,7 +40,6 @@ public class StudentBuilder {
         year = new Year(DEFAULT_YEAR);
         major = new Major(DEFAULT_MAJOR);
         studentId = new StudentId(DEFAULT_STUDENTID);
-        tags = new HashSet<>();
         enrolledEvents = new EnrolledEvents();
     }
 
@@ -60,7 +53,6 @@ public class StudentBuilder {
         year = studentToCopy.getYear();
         major = studentToCopy.getMajor();
         studentId = studentToCopy.getStudentId();
-        tags = new HashSet<>(studentToCopy.getTags());
         enrolledEvents = studentToCopy.getEvents();
     }
 
@@ -69,14 +61,6 @@ public class StudentBuilder {
      */
     public StudentBuilder withName(String name) {
         this.name = new Name(name);
-        return this;
-    }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Student} that we are building.
-     */
-    public StudentBuilder withTags(String... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
@@ -138,7 +122,7 @@ public class StudentBuilder {
     }
 
     public Student build() {
-        return new Student(name, phone, email, year, major, studentId, tags, enrolledEvents);
+        return new Student(name, phone, email, year, major, studentId, enrolledEvents);
     }
 
 }

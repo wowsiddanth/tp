@@ -2,7 +2,7 @@ package nustracker.logic.parser;
 
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
-import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
@@ -31,17 +31,17 @@ public class DeleteCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteStudentCommand() {
-        assertParseSuccess(parser, " " + PREFIX_STUDENT + STUDENTID_ONE,
+        assertParseSuccess(parser, " " + PREFIX_STUDENTID + STUDENTID_ONE,
                 new DeleteStudentCommand(STUDENTID_ONE));
 
         assertParseSuccess(parser, " "
-                        + PREFIX_STUDENT + STUDENTID_ONE + " "
+                        + PREFIX_STUDENTID + STUDENTID_ONE + " "
                         + PREFIX_EVENT + EVENTNAME_ONE,
                 new DeleteStudentCommand(STUDENTID_ONE));
 
         assertParseSuccess(parser, " "
                         + PREFIX_EVENT + EVENTNAME_ONE + " "
-                        + PREFIX_STUDENT + STUDENTID_ONE,
+                        + PREFIX_STUDENTID + STUDENTID_ONE,
                 new DeleteStudentCommand(STUDENTID_ONE));
     }
 
@@ -57,7 +57,7 @@ public class DeleteCommandParserTest {
         assertParseFailure(parser, " missing prefixes ",
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
 
-        assertParseFailure(parser, " " + PREFIX_STUDENT, StudentId.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, " " + PREFIX_STUDENTID, StudentId.MESSAGE_CONSTRAINTS);
 
         assertParseFailure(parser, " " + PREFIX_EVENT, EventName.MESSAGE_CONSTRAINTS);
     }

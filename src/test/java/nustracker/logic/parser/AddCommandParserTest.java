@@ -12,7 +12,6 @@ import nustracker.model.student.Email;
 import nustracker.model.student.Name;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
-import nustracker.model.tag.Tag;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
 
@@ -22,8 +21,7 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Student expectedStudent = new StudentBuilder(TypicalStudents.BOB).withTags(
-                CommandTestUtil.VALID_TAG_FRIEND).build();
+        Student expectedStudent = new StudentBuilder(TypicalStudents.BOB).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, CommandTestUtil.PREAMBLE_WHITESPACE
@@ -31,8 +29,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
         // multiple names - last name accepted
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_AMY
@@ -40,8 +37,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
         // multiple phones - last phone accepted
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
@@ -49,8 +45,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
         // multiple emails - last email accepted
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
@@ -58,8 +53,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
         // multiple year of study given - last year accepted
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
@@ -68,8 +62,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.YEAR_DESC_AMY
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
         // multiple majors - last major accepted
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
@@ -78,8 +71,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_AMY
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
         // multiple student ID - last student ID accepted
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
@@ -88,25 +80,21 @@ public class AddCommandParserTest {
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
                 + CommandTestUtil.STUDENTID_DESC_AMY
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudent));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
         // multiple tags - all accepted
-        Student expectedStudentMultipleTags = new StudentBuilder(TypicalStudents.BOB).withTags(
-                CommandTestUtil.VALID_TAG_FRIEND, CommandTestUtil.VALID_TAG_HUSBAND).build();
+        Student expectedStudentMultipleTags = new StudentBuilder(TypicalStudents.BOB).build();
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, new AddCommand(expectedStudentMultipleTags));
+                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudentMultipleTags));
     }
 
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).withTags().build();
+        Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).build();
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_AMY
                 + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY
                 + CommandTestUtil.YEAR_DESC_AMY
@@ -174,27 +162,21 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, Name.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.STUDENTID_DESC_BOB, Name.MESSAGE_CONSTRAINTS);
 
         // invalid phone
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.INVALID_PHONE_DESC + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, Phone.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.STUDENTID_DESC_BOB, Phone.MESSAGE_CONSTRAINTS);
 
         // invalid email
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.STUDENTID_DESC_BOB, Email.MESSAGE_CONSTRAINTS);
 
 
         // invalid year
@@ -202,36 +184,23 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.INVALID_YEAR_DESC
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.STUDENTID_DESC_BOB, Email.MESSAGE_CONSTRAINTS);
 
         // invalid major
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.INVALID_MAJOR_DESC
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.STUDENTID_DESC_BOB, Email.MESSAGE_CONSTRAINTS);
+
 
         // invalid student ID
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.INVALID_STUDENTID_DESC
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.INVALID_STUDENTID_DESC, Email.MESSAGE_CONSTRAINTS);
 
-        // invalid tag
-        assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
-                + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
-                + CommandTestUtil.YEAR_DESC_BOB
-                + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.INVALID_TAG_DESC
-                + CommandTestUtil.VALID_TAG_FRIEND, Tag.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, CommandTestUtil.PREAMBLE_NON_EMPTY
@@ -239,9 +208,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB
-                + CommandTestUtil.TAG_DESC_HUSBAND
-                + CommandTestUtil.TAG_DESC_FRIEND, String.format(
+                + CommandTestUtil.STUDENTID_DESC_BOB, String.format(
                 Messages.MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }
