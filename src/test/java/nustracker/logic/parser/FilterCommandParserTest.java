@@ -2,7 +2,7 @@ package nustracker.logic.parser;
 
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
 import java.util.Arrays;
 
@@ -41,10 +41,10 @@ public class FilterCommandParserTest {
     public void parse_validArgs_returnsFilterIdCommand() {
         FilterCommand expectedFilterCommand =
                 new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(Arrays.asList("e1234567", "e2345678")));
-        CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_NUSNETID + "e1234567 e2345678",
+        CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_STUDENTID + "e1234567 e2345678",
                 expectedFilterCommand);
 
-        CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_NUSNETID + " \n e1234567 \n \t e2345678  \t",
+        CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_STUDENTID + " \n e1234567 \n \t e2345678  \t",
                 expectedFilterCommand);
     }
 
