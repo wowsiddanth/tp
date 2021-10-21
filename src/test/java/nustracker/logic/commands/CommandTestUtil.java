@@ -35,10 +35,9 @@ public class CommandTestUtil {
     public static final String VALID_YEAR_BOB = "2";
     public static final String VALID_MAJOR_AMY = "CS";
     public static final String VALID_MAJOR_BOB = "IS";
-    public static final String VALID_NUSNETID_AMY = "e1283901";
-    public static final String VALID_NUSNETID_BOB = "e1238010";
-    public static final String VALID_TAG_HUSBAND = "husband";
-    public static final String VALID_TAG_FRIEND = "friend";
+    public static final String VALID_STUDENTID_AMY = "e1283901";
+    public static final String VALID_STUDENTID_BOB = "e1238010";
+
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
@@ -50,20 +49,19 @@ public class CommandTestUtil {
     public static final String YEAR_DESC_BOB = " " + CliSyntax.PREFIX_YEAR + VALID_YEAR_BOB;
     public static final String MAJOR_DESC_AMY = " " + CliSyntax.PREFIX_MAJOR + VALID_MAJOR_AMY;
     public static final String MAJOR_DESC_BOB = " " + CliSyntax.PREFIX_MAJOR + VALID_MAJOR_BOB;
-    public static final String NUSNETID_DESC_AMY = " " + CliSyntax.PREFIX_STUDENTID + VALID_NUSNETID_AMY;
-    public static final String NUSNETID_DESC_AMY_WO_LEADING_SPACE = CliSyntax.PREFIX_STUDENTID + VALID_NUSNETID_AMY;
-    public static final String NUSNETID_DESC_BOB = " " + CliSyntax.PREFIX_STUDENTID + VALID_NUSNETID_BOB;
-    public static final String NUSNETID_DESC_BOB_WO_LEADING_SPACE = CliSyntax.PREFIX_STUDENTID + VALID_NUSNETID_BOB;
-    public static final String TAG_DESC_FRIEND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_FRIEND;
-    public static final String TAG_DESC_HUSBAND = " " + CliSyntax.PREFIX_TAG + VALID_TAG_HUSBAND;
+    public static final String STUDENTID_DESC_AMY = " " + CliSyntax.PREFIX_STUDENTID + VALID_STUDENTID_AMY;
+    public static final String STUDENTID_DESC_AMY_WO_LEADING_SPACE = CliSyntax.PREFIX_STUDENTID + VALID_STUDENTID_AMY;
+    public static final String STUDENTID_DESC_BOB = " " + CliSyntax.PREFIX_STUDENTID + VALID_STUDENTID_BOB;
+    public static final String STUDENTID_DESC_BOB_WO_LEADING_SPACE = CliSyntax.PREFIX_STUDENTID + VALID_STUDENTID_BOB;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + CliSyntax.PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + CliSyntax.PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_YEAR_DESC = " " + CliSyntax.PREFIX_YEAR + "a"; //letters not allowed
-    public static final String INVALID_MAJOR_DESC =
-            " " + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
-    public static final String INVALID_NUSNETID_DESC = " " + CliSyntax.PREFIX_STUDENTID + "e123123123"; //e and 7 digits
+    public static final String INVALID_MAJOR_DESC = " "
+            + CliSyntax.PREFIX_MAJOR + "computer science"; //use abbreviation, not ff
+    public static final String INVALID_STUDENTID_DESC = " "
+            + CliSyntax.PREFIX_STUDENTID + "e123123123"; //e and 7 digits
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -97,12 +95,12 @@ public class CommandTestUtil {
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)
                 .withYear(VALID_YEAR_AMY)
                 .withMajor(VALID_MAJOR_AMY)
-                .withNusNetId(VALID_NUSNETID_AMY).build();
+                .withStudentId(VALID_STUDENTID_AMY).build();
         DESC_BOB = new EditStudentDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
                 .withYear(VALID_YEAR_BOB)
                 .withMajor(VALID_MAJOR_BOB)
-                .withNusNetId(VALID_NUSNETID_BOB).build();
+                .withStudentId(VALID_STUDENTID_BOB).build();
     }
 
     /**

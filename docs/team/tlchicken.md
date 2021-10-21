@@ -28,7 +28,7 @@ Given below are my contributions to the project.
   <!--- * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub --->
 
 * **Enhancements to existing features**:
-  <!--- Changed the edit command to identify students by NUS Net ID instead of by index in the GUI's list.
+  <!--- Changed the edit command to identify students by student ID instead of by index in the GUI's list.
 
   * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
   * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]()) --->

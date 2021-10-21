@@ -6,10 +6,10 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_MAJOR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_MAJOR_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static nustracker.logic.commands.CommandTestUtil.VALID_NUSNETID_AMY;
-import static nustracker.logic.commands.CommandTestUtil.VALID_NUSNETID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
 import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
@@ -22,8 +22,8 @@ import java.util.List;
 
 import nustracker.model.AddressBook;
 import nustracker.model.event.Event;
-import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 /**
  * A utility class containing a list of {@code Student} objects to be used in tests.
@@ -35,39 +35,39 @@ public class TypicalStudents {
             .withPhone("94351253")
             .withYear("1")
             .withMajor("CS")
-            .withNusNetId("e9034800").build();
+            .withStudentId("e9034800").build();
     public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
             .withEmail("johnd@example.com")
             .withPhone("98765432")
             .withYear("3")
             .withMajor("IS")
-            .withNusNetId("e8123198").build();
+            .withStudentId("e8123198").build();
     public static final Student CARL = new StudentBuilder().withName("Carl Kurz")
             .withEmail("heinz@example.com")
             .withPhone("95352563")
             .withYear("4")
             .withMajor("ISEC")
-            .withNusNetId("e8123081").build();
+            .withStudentId("e8123081").build();
     public static final Student DANIEL = new StudentBuilder().withName("Daniel Meier")
             .withPhone("87652533")
             .withYear("2")
             .withMajor("BZA")
-            .withNusNetId("e9012390")
+            .withStudentId("e9012390")
             .withEmail("cornelia@example.com").build();
     public static final Student ELLE = new StudentBuilder().withName("Elle Meyer").withPhone("94822248")
             .withYear("3")
             .withMajor("CS")
-            .withNusNetId("e9831818")
+            .withStudentId("e9831818")
             .withEmail("werner@example.com").build();
     public static final Student FIONA = new StudentBuilder().withName("Fiona Kunz").withPhone("94824271")
             .withYear("4")
             .withMajor("CS")
-            .withNusNetId("e9192390")
+            .withStudentId("e9192390")
             .withEmail("lydia@example.com").build();
     public static final Student GEORGE = new StudentBuilder().withName("George Best").withPhone("94824112")
             .withYear("2")
             .withMajor("IS")
-            .withNusNetId("e9123119")
+            .withStudentId("e9123119")
             .withEmail("anna@example.com").build();
 
     // Manually added
@@ -75,12 +75,12 @@ public class TypicalStudents {
             .withEmail("stefan@example.com")
             .withYear("2")
             .withMajor("CS")
-            .withNusNetId("e9193111").build();
+            .withStudentId("e9193111").build();
     public static final Student IDA = new StudentBuilder().withName("Ida Mueller").withPhone("8482131")
             .withEmail("ida@example.com")
             .withYear("3")
             .withMajor("CS")
-            .withNusNetId("e9131111")
+            .withStudentId("e9131111")
             .build();
 
     // Manually added - Students already enrolled in Math Olympiad - To Test Remove Command
@@ -88,7 +88,7 @@ public class TypicalStudents {
             .withEmail("god@example.com")
             .withYear("6")
             .withMajor("CS")
-            .withNusNetId("e0123456")
+            .withStudentId("e0123456")
             .withEvent(MATH_OLYMPIAD)
             .build();
 
@@ -96,7 +96,7 @@ public class TypicalStudents {
             .withEmail("hans@example.com")
             .withYear("1")
             .withMajor("CS")
-            .withNusNetId("e0322322")
+            .withStudentId("e0322322")
             .withEvent(MATH_OLYMPIAD).build();
 
     // Manually added - Student's details found in {@code CommandTestUtil}
@@ -104,19 +104,21 @@ public class TypicalStudents {
             .withEmail(VALID_EMAIL_AMY)
             .withYear(VALID_YEAR_AMY)
             .withMajor(VALID_MAJOR_AMY)
-            .withNusNetId(VALID_NUSNETID_AMY).build();
+            .withStudentId(VALID_STUDENTID_AMY).build();
     public static final Student BOB = new StudentBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB)
             .withYear(VALID_YEAR_BOB)
             .withMajor(VALID_MAJOR_BOB)
-            .withNusNetId(VALID_NUSNETID_BOB).build();
+            .withStudentId(VALID_STUDENTID_BOB).build();
+
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
     // For delete student tests
-    public static final NusNetId STUDENTID_ONE = new NusNetId("e9034800");
-    public static final NusNetId STUDENTID_TWO = new NusNetId("e8123198");
-    public static final NusNetId STUDENTID_MISSING = new NusNetId("e0000000");
+    public static final StudentId STUDENTID_ONE = new StudentId("e9034800");
+    public static final StudentId STUDENTID_TWO = new StudentId("e8123198");
+    public static final StudentId STUDENTID_MISSING = new StudentId("e0000000");
+
 
     private TypicalStudents() {
     } // prevents instantiation
