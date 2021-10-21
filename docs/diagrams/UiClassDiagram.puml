@@ -15,6 +15,7 @@ Class ResultDisplay
 Class StudentListPanel
 Class EventListPanel
 Class StudentCard
+Class EventCard
 Class StatusBarFooter
 Class CommandBox
 }
@@ -41,6 +42,7 @@ MainWindow -down-> "0..1" HelpWindow
 MainWindow -down-> "0..1" SettingsWindow
 
 StudentListPanel -down-> "*" StudentCard
+EventListPanel -down-> "*" EventCard
 
 MainWindow -left-|> UiPart
 
@@ -52,6 +54,7 @@ StatusBarFooter --|> UiPart
 SettingsWindow --|> UiPart
 HelpWindow --|> UiPart
 
+EventCard ..> Model
 StudentCard ..> Model
 UiManager -right-> Logic
 MainWindow -left-> Logic
