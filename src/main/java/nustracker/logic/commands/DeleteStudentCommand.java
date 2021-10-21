@@ -1,8 +1,8 @@
 package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
-import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENT;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_ID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
@@ -15,9 +15,9 @@ import nustracker.model.student.Student;
 public class DeleteStudentCommand extends DeleteCommand {
 
     public static final String MESSAGE_USAGE = DeleteCommand.COMMAND_WORD
-            + ": Deletes a student identified by NUS NetId.\n"
-            + "Parameters: " + DeleteCommand.COMMAND_WORD + "[Student NUS NetId]\n"
-            + "Example: " + DeleteCommand.COMMAND_WORD + PREFIX_STUDENT + "e1234567";
+            + ": Deletes a student identified by Student ID.\n"
+            + "Parameters: " + DeleteCommand.COMMAND_WORD + "[Student ID]\n"
+            + "Example: " + DeleteCommand.COMMAND_WORD + PREFIX_STUDENTID + "e1234567";
 
     public static final String MESSAGE_DELETE_STUDENT_SUCCESS = "Deleted Student: %1$s";
 
@@ -34,7 +34,7 @@ public class DeleteStudentCommand extends DeleteCommand {
         Student toDelete = model.getStudent(nusNetId);
 
         if (toDelete == null) {
-            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID, nusNetId));
+            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_ID, nusNetId));
         }
 
         model.deleteStudent(toDelete);

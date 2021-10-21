@@ -1,12 +1,12 @@
 package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_NUSNETID;
+import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENT_ID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
@@ -35,13 +35,13 @@ public class EditCommand extends Command {
             + "by the student's Nus NetId. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: "
-            + PREFIX_NUSNETID + "NUS_NETID_TO_EDIT "
+            + PREFIX_STUDENTID + "NUS_NETID_TO_EDIT "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_YEAR + "YEAR] "
             + "[" + PREFIX_MAJOR + "MAJOR] "
-            + "[" + PREFIX_NUSNETID + "NEW_NUS_NETID] "
+            + "[" + PREFIX_STUDENTID + "NEW_NUS_NETID] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -73,7 +73,7 @@ public class EditCommand extends Command {
         Student studentToEdit = model.getStudent(nusNetIdToEdit);
 
         if (studentToEdit == null) {
-            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_NUSNETID,
+            throw new CommandException(String.format(MESSAGE_INVALID_STUDENT_ID,
                     nusNetIdToEdit.getNusNetIdString()));
         }
 

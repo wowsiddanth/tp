@@ -17,13 +17,27 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** The student list should be displayed. */
+    private final boolean toggleStudents;
+
+    /** The event list should be displayed. */
+    private final boolean toggleEvents;
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
+                         boolean toggleStudents, boolean toggleEvents) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+
+        // Cannot toggle both the student and event list at the same time.
+        if (toggleStudents || toggleEvents) {
+            assert toggleStudents != toggleEvents;
+        }
+
+        this.toggleStudents = toggleStudents;
+        this.toggleEvents = toggleEvents;
     }
 
     /**
@@ -31,7 +45,8 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false);
+        this(feedbackToUser,
+                false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -44,6 +59,14 @@ public class CommandResult {
 
     public boolean isExit() {
         return exit;
+    }
+
+    public boolean isToggleStudents() {
+        return toggleStudents;
+    }
+
+    public boolean isToggleEvents() {
+        return toggleEvents;
     }
 
     @Override
@@ -60,12 +83,14 @@ public class CommandResult {
         CommandResult otherCommandResult = (CommandResult) other;
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
-                && exit == otherCommandResult.exit;
+                && exit == otherCommandResult.exit
+                && toggleStudents == otherCommandResult.toggleStudents
+                && toggleEvents == otherCommandResult.toggleEvents;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit);
+        return Objects.hash(feedbackToUser, showHelp, exit, toggleStudents, toggleEvents);
     }
 
 }
