@@ -1,6 +1,5 @@
 package nustracker.model;
 
-import static nustracker.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -45,8 +44,7 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicateStudents_throwsDuplicateStudentException() {
         // Two students with the same identity fields
-        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).withTags(VALID_TAG_HUSBAND)
-                .build();
+        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).build();
         List<Student> newStudents = Arrays.asList(TypicalStudents.ALICE, editedAlice);
         AddressBookStub newData = new AddressBookStub(newStudents);
 
@@ -72,8 +70,7 @@ public class AddressBookTest {
     @Test
     public void hasStudent_studentWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addStudent(TypicalStudents.ALICE);
-        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).withTags(VALID_TAG_HUSBAND)
-                .build();
+        Student editedAlice = new StudentBuilder(TypicalStudents.ALICE).build();
         assertTrue(addressBook.hasStudent(editedAlice));
     }
 

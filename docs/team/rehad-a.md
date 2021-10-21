@@ -10,7 +10,7 @@ NUSTracker - Level 3 is a desktop address book application used for teaching Sof
 Given below are my contributions to the project.
 
 * **New Feature**: Added the ability to filter commands.
-  * What it does: allows the user to filter the students by name, NUS NetID, or the events that they are attending.
+  * What it does: allows the user to filter the students by name, student ID, or the events that they are attending.
 
 * **New Feature**: 
 

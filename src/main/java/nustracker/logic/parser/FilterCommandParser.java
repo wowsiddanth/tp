@@ -7,7 +7,7 @@ import static nustracker.commons.core.Messages.MESSAGE_MULTIPLE_FILTER_FIELDS;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import java.util.Arrays;
@@ -25,9 +25,9 @@ import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.Major;
 import nustracker.model.student.MajorContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
-import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
 import nustracker.model.student.Year;
 import nustracker.model.student.YearContainsKeywordsPredicate;
+import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -41,13 +41,13 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     public FilterCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_NUSNETID, PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
 
         if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
-        List<Prefix> prefixes = Arrays.asList(PREFIX_NAME, PREFIX_NUSNETID, PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
+        List<Prefix> prefixes = Arrays.asList(PREFIX_NAME, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
         long arguments = prefixes.stream().filter(prefix -> argMultimap.getValue(prefix).isPresent()).count();
 
         if (arguments > 1) {
@@ -58,10 +58,10 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_NAME);
             String[] nameKeywords = trimmedArgs.split("\\s+");
             return new FilterNameCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
-        } else if (argMultimap.getValue(PREFIX_NUSNETID).isPresent()) {
-            String trimmedArgs = getTrimmedArgs(args, PREFIX_NUSNETID);
+        } else if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
+            String trimmedArgs = getTrimmedArgs(args, PREFIX_STUDENTID);
             String[] idKeywords = trimmedArgs.split("\\s+");
-            return new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
+            return new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
         } else if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_MAJOR);
             String[] splitMajors = trimmedArgs.split("\\s+");
