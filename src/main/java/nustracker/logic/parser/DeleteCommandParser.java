@@ -9,7 +9,7 @@ import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 
 /**
  * Parses input arguments and creates a new DeleteCommand object
@@ -31,8 +31,8 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         }
 
         if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
-            NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_STUDENTID).get());
-            return new DeleteStudentCommand(nusNetId);
+            StudentId studentId = ParserUtil.parseStudenttId(argMultimap.getValue(PREFIX_STUDENTID).get());
+            return new DeleteStudentCommand(studentId);
         } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
             EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
             return new DeleteEventCommand(eventName);

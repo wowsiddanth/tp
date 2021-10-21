@@ -9,8 +9,8 @@ import java.util.Objects;
 import java.util.Set;
 
 import nustracker.model.AddressBook;
-import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 public class Event {
 
@@ -80,20 +80,20 @@ public class Event {
     public Set<Student> getParticipantsAsStudents(AddressBook addressBook) {
         HashSet<Student> returnThis = new HashSet<>();
         for (Participant currParticipant : participants) {
-            Student currStudent = addressBook.getStudent(currParticipant.getNusNetId());
+            Student currStudent = addressBook.getStudent(currParticipant.getStudentId());
             returnThis.add(currStudent);
         }
         return returnThis;
     }
 
     /**
-     * Checks if a student with a certain Nus NetId is currently enrolled in this event.
-     * @param nusNetId the {@code NusNetId} of the student to check.
+     * Checks if a student with a certain student ID is currently enrolled in this event.
+     * @param studentId the {@code StudentId} of the student to check.
      * @return true if the student is currently enrolled, false otherwise.
      */
-    public boolean isInEvent(NusNetId nusNetId) {
+    public boolean isInEvent(StudentId studentId) {
         for (Participant currParticipant : participants) {
-            if (currParticipant.getNusNetId().equals(nusNetId)) {
+            if (currParticipant.getStudentId().equals(studentId)) {
                 return true;
             }
         }

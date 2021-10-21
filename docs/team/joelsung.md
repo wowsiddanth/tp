@@ -23,7 +23,7 @@ Given below are my contributions to the project.
 
 * **Project management**:
 
-* **Enhancements to existing features**: Changed delete student by index to by NUS Net ID
+* **Enhancements to existing features**: Changed delete student by index to by student ID
   * Highlights: Whole implementation of delete student command had to be changed. New variables for testing were created to accommodate the new changes.
 
 * **Documentation**:

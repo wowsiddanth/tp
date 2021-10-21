@@ -30,7 +30,7 @@ public class DeleteStudentCommandTest {
     private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
 
     @Test
-    public void execute_validNusNetIdUnfilteredList_success() {
+    public void execute_validStudentIdUnfilteredList_success() {
         Student studentToDelete = model.getStudent(STUDENTID_ONE);
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_ONE);
 
@@ -42,7 +42,7 @@ public class DeleteStudentCommandTest {
     }
 
     @Test
-    public void execute_invalidNusNetIdUnfilteredList_throwsCommandException() {
+    public void execute_invalidStudentIdUnfilteredList_throwsCommandException() {
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
         try {
             deleteStudentCommand.execute(model);
@@ -50,11 +50,11 @@ public class DeleteStudentCommandTest {
             e.printStackTrace();
         }
         assertCommandFailure(deleteStudentCommand, model,
-                String.format(Messages.MESSAGE_INVALID_STUDENT_ID, STUDENTID_MISSING));
+                String.format(Messages.MESSAGE_INVALID_STUDENTID, STUDENTID_MISSING));
     }
 
     @Test
-    public void execute_validNusNetIdFilteredList_success() {
+    public void execute_validStudentIdFilteredList_success() {
         showStudentAtIndex(model, INDEX_FIRST_STUDENT);
 
         Student studentToDelete = model.getStudent(STUDENTID_ONE);
@@ -69,13 +69,13 @@ public class DeleteStudentCommandTest {
     }
 
     @Test
-    public void execute_invalidNusNetIdFilteredList_throwsCommandException() {
+    public void execute_invalidStudentIdFilteredList_throwsCommandException() {
         showStudentAtIndex(model, INDEX_FIRST_STUDENT);
 
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
 
         assertCommandFailure(deleteStudentCommand, model,
-                String.format(Messages.MESSAGE_INVALID_STUDENT_ID, STUDENTID_MISSING));
+                String.format(Messages.MESSAGE_INVALID_STUDENTID, STUDENTID_MISSING));
     }
 
     @Test

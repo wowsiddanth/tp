@@ -8,7 +8,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import nustracker.logic.commands.RemoveCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 
 public class RemoveCommandParser implements Parser<RemoveCommand> {
 
@@ -23,10 +23,11 @@ public class RemoveCommandParser implements Parser<RemoveCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemoveCommand.MESSAGE_USAGE));
         }
 
-        NusNetId nusNetId = ParserUtil.parseNusNetId(argMultimap.getValue(PREFIX_STUDENTID).get());
+        StudentId studentId = ParserUtil.parseStudenttId(argMultimap.getValue(PREFIX_STUDENTID).get());
+
         EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
 
-        return new RemoveCommand(nusNetId, eventName);
+        return new RemoveCommand(studentId, eventName);
     }
 
 

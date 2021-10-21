@@ -21,7 +21,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String ADD_COMMAND = "add";
     public static final String ADD_COMMAND_EXAMPLE =
-            ADD_COMMAND + " n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT] [t/TAGS]";
+            ADD_COMMAND + " n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT]";
 
     public static final String FILTER_COMMAND = "filter";
     public static final String FILTER_COMMAND_EXAMPLE = FILTER_COMMAND
@@ -29,7 +29,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String EDIT_COMMAND = "edit";
     public static final String EDIT_COMMAND_EXAMPLE = EDIT_COMMAND
-            + " INDEX [n/NAME] [m/MAJOR] [id/ NUS NetID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT] [t/TAGS]";
+            + " INDEX [n/NAME] [m/MAJOR] [id/ STUDENT ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]";
 
     public static final String CREATE_COMMAND = "create";
     public static final String CREATE_COMMAND_EXAMPLE = CREATE_COMMAND;
