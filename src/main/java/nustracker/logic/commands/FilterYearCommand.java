@@ -4,17 +4,16 @@ import static java.util.Objects.requireNonNull;
 
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
-import nustracker.model.student.StudentIdContainsKeywordsPredicate;
+import nustracker.model.student.YearContainsKeywordsPredicate;
 
 /**
- * Filters and lists all students in address book whose student ID contains any of the argument keywords.
- * Keyword matching is case insensitive.
+ * Filters and lists all students in address book whose year contains any of the argument keywords.
  */
-public class FilterIdCommand extends FilterCommand {
+public class FilterYearCommand extends FilterCommand {
 
-    private final StudentIdContainsKeywordsPredicate predicate;
+    private final YearContainsKeywordsPredicate predicate;
 
-    public FilterIdCommand(StudentIdContainsKeywordsPredicate predicate) {
+    public FilterYearCommand(YearContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
@@ -29,7 +28,7 @@ public class FilterIdCommand extends FilterCommand {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof FilterIdCommand // instanceof handles nulls
-                && predicate.equals(((FilterIdCommand) other).predicate)); // state check
+                || (other instanceof FilterYearCommand // instanceof handles nulls
+                && predicate.equals(((FilterYearCommand) other).predicate)); // state check
     }
 }
