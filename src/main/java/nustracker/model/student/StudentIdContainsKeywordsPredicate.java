@@ -3,7 +3,6 @@ package nustracker.model.student;
 import java.util.List;
 import java.util.function.Predicate;
 
-import nustracker.commons.util.StringUtil;
 
 /**
  * Tests that a {@code Student}'s {@code StudentId} matches any of the keywords given.

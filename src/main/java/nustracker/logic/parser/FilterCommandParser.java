@@ -25,9 +25,9 @@ import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.Major;
 import nustracker.model.student.MajorContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
+import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 import nustracker.model.student.Year;
 import nustracker.model.student.YearContainsKeywordsPredicate;
-import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -41,7 +41,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     public FilterCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_YEAR,
+                        PREFIX_EVENT);
 
         if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
