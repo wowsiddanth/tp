@@ -22,6 +22,18 @@ public class ExportCommandParser implements Parser<ExportCommand> {
 
         String fileName = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()).fullName;
 
+        if (fileName.contains("/")
+                || fileName.contains("\\")
+                || fileName.contains(":")
+                || fileName.contains("*")
+                || fileName.contains("?")
+                || fileName.contains("\"")
+                || fileName.contains("<")
+                || fileName.contains(">")
+                || fileName.contains("|")) {
+            throw new ParseException("Invalid file name.\nFilenames cannot contain \\:*?\"<>|");
+        }
+
         return new ExportCommand(fileName);
     }
 }
