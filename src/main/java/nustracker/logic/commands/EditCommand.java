@@ -126,8 +126,8 @@ public class EditCommand extends Command {
      */
     private void editStudentIdInEventList(Student studentToEdit, Student newStudent, Model model) {
 
-        Optional<NusNetId> studentIdFromDesc = editStudentDescriptor.getNusNetId();
-        NusNetId editedStudentId = studentIdFromDesc.orElse(null);
+        Optional<StudentId> studentIdFromDesc = editStudentDescriptor.getStudentId();
+        StudentId editedStudentId = studentIdFromDesc.orElse(null);
 
         if (editedStudentId == null) {
             // This Edit Command does not edit the Student Id.
@@ -142,9 +142,9 @@ public class EditCommand extends Command {
             Set<Participant> newParticipants = new HashSet<>();
 
             for (Participant currParticipant : currParticipants) {
-                if (currParticipant.getNusNetId().equals(nusNetIdToEdit)) {
+                if (currParticipant.getStudentId().equals(studentIdToEdit)) {
                     // Update Student Id by creating new Participant with the updated Id and adding to the Set
-                    Participant updParticipant = new Participant(newStudent.getNusNetId().getNusNetIdString());
+                    Participant updParticipant = new Participant(newStudent.getStudentId().getStudentIdString());
 
                     newParticipants.add(updParticipant);
                 } else {

@@ -168,13 +168,13 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void removeEvent(Event key, Model currModel) {
         // Before removing the event, we remove all students from this event first.
         Set<Participant> participantsOfThisEvent = key.getParticipants();
-        Set<NusNetId> studentIdInThisEvent = new HashSet<>();
+        Set<StudentId> studentIdInThisEvent = new HashSet<>();
 
         for (Participant currParticipant : participantsOfThisEvent) {
-            studentIdInThisEvent.add(currParticipant.getNusNetId());
+            studentIdInThisEvent.add(currParticipant.getStudentId());
         }
 
-        for (NusNetId currStudentId : studentIdInThisEvent) {
+        for (StudentId currStudentId : studentIdInThisEvent) {
 
             // Use a RemoveCommand to do this because it does exactly what we want which is to
             // remove the Event from the Student's EnrolledEvents (while also removing from Event's Participants)
