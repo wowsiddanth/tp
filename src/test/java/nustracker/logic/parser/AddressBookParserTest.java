@@ -34,8 +34,8 @@ import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
-import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.EventBuilder;
@@ -76,7 +76,7 @@ public class AddressBookParserTest {
         Student student = new StudentBuilder().build();
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(student).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + PREFIX_STUDENTID + STUDENTID_ONE.getNusNetIdString() + " "
+                + PREFIX_STUDENTID + STUDENTID_ONE.getStudentIdString() + " "
                 + StudentUtil.getEditStudentDescriptorDetails(descriptor));
         assertEquals(new EditCommand(STUDENTID_ONE, descriptor), command);
     }
@@ -98,7 +98,7 @@ public class AddressBookParserTest {
         FilterCommand idCommand = (FilterCommand) parser.parseCommand(
                 FilterCommand.COMMAND_WORD + " " + PREFIX_STUDENTID + keywords.stream().collect(
                         Collectors.joining(" ")));
-        assertEquals(new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(keywords)), idCommand);
+        assertEquals(new FilterIdCommand(new StudentIdContainsKeywordsPredicate(keywords)), idCommand);
 
         FilterCommand eventCommand = (FilterCommand) parser.parseCommand(
                 FilterCommand.COMMAND_WORD + " " + PREFIX_EVENT + "foo");

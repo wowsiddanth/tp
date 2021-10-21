@@ -14,7 +14,7 @@ import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.model.event.EventName;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
@@ -57,7 +57,7 @@ public class DeleteCommandParserTest {
         assertParseFailure(parser, " missing prefixes ",
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
 
-        assertParseFailure(parser, " " + PREFIX_STUDENTID, NusNetId.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, " " + PREFIX_STUDENTID, StudentId.MESSAGE_CONSTRAINTS);
 
         assertParseFailure(parser, " " + PREFIX_EVENT, EventName.MESSAGE_CONSTRAINTS);
     }

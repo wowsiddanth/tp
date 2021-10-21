@@ -14,7 +14,7 @@ import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
-import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
+import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 import nustracker.testutil.TypicalStudents;
 
 
@@ -27,10 +27,10 @@ public class FilterIdCommandTest {
 
     @Test
     public void equals() {
-        NusNetIdContainsKeywordsPredicate firstPredicate =
-                new NusNetIdContainsKeywordsPredicate(Collections.singletonList("first"));
-        NusNetIdContainsKeywordsPredicate secondPredicate =
-                new NusNetIdContainsKeywordsPredicate(Collections.singletonList("second"));
+        StudentIdContainsKeywordsPredicate firstPredicate =
+                new StudentIdContainsKeywordsPredicate(Collections.singletonList("first"));
+        StudentIdContainsKeywordsPredicate secondPredicate =
+                new StudentIdContainsKeywordsPredicate(Collections.singletonList("second"));
 
         FilterCommand filterFirstCommand = new FilterIdCommand(firstPredicate);
         FilterCommand filterSecondCommand = new FilterIdCommand(secondPredicate);
@@ -55,7 +55,7 @@ public class FilterIdCommandTest {
     @Test
     public void execute_zeroKeywords_noStudentFound() {
         String expectedMessage = String.format(Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW, 0);
-        NusNetIdContainsKeywordsPredicate predicate = preparePredicate(" ");
+        StudentIdContainsKeywordsPredicate predicate = preparePredicate(" ");
         FilterCommand command = new FilterIdCommand(predicate);
         expectedModel.updateFilteredStudentList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -65,7 +65,7 @@ public class FilterIdCommandTest {
     @Test
     public void execute_multipleKeywords_multipleStudentsFound() {
         String expectedMessage = String.format(Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW, 3);
-        NusNetIdContainsKeywordsPredicate predicate = preparePredicate("e9034800 e8123198 e9012390");
+        StudentIdContainsKeywordsPredicate predicate = preparePredicate("e9034800 e8123198 e9012390");
         FilterCommand command = new FilterIdCommand(predicate);
         expectedModel.updateFilteredStudentList(predicate);
         CommandTestUtil.assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -74,9 +74,9 @@ public class FilterIdCommandTest {
     }
 
     /**
-     * Parses {@code userInput} into a {@code NusNetIdContainsKeywordsPredicate}.
+     * Parses {@code userInput} into a {@code StudentIdContainsKeywordsPredicate}.
      */
-    private NusNetIdContainsKeywordsPredicate preparePredicate(String userInput) {
-        return new NusNetIdContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
+    private StudentIdContainsKeywordsPredicate preparePredicate(String userInput) {
+        return new StudentIdContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
     }
 }

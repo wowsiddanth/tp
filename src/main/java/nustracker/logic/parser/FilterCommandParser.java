@@ -17,7 +17,7 @@ import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
-import nustracker.model.student.NusNetIdContainsKeywordsPredicate;
+import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -51,7 +51,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         } else if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_STUDENTID);
             String[] idKeywords = trimmedArgs.split("\\s+");
-            return new FilterIdCommand(new NusNetIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
+            return new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
         } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_EVENT);
             return new FilterEventCommand(new EnrolledEventsContainsKeywordsPredicate(trimmedArgs));

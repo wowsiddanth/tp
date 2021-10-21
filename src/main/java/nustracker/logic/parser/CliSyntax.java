@@ -12,7 +12,6 @@ public class CliSyntax {
     public static final Prefix PREFIX_YEAR = new Prefix("y/");
     public static final Prefix PREFIX_MAJOR = new Prefix("m/");
     public static final Prefix PREFIX_STUDENTID = new Prefix("id/");
-    public static final Prefix PREFIX_TAG = new Prefix("t/");
     public static final Prefix PREFIX_DATE = new Prefix("d/");
     public static final Prefix PREFIX_TIME = new Prefix("t/");
     public static final Prefix PREFIX_EVENT = new Prefix("ev/");
