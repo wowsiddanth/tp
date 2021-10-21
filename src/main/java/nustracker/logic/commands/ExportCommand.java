@@ -31,9 +31,14 @@ public class ExportCommand extends Command {
 
     private final Path pathToExport;
 
-    public ExportCommand(String pathToExport) {
-        requireNonNull(pathToExport);
-        this.pathToExport = Path.of("data\\" + pathToExport + ".csv");
+    /**
+     * Constructor.
+     *
+     * @param fileName name of file to export to
+     */
+    public ExportCommand(String fileName) {
+        requireNonNull(fileName);
+        this.pathToExport = Path.of("data\\" + fileName + ".csv");
     }
 
 

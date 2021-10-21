@@ -31,7 +31,7 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         }
 
         if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
-            StudentId studentId = ParserUtil.parseStudenttId(argMultimap.getValue(PREFIX_STUDENTID).get());
+            StudentId studentId = ParserUtil.parseStudentId(argMultimap.getValue(PREFIX_STUDENTID).get());
             return new DeleteStudentCommand(studentId);
         } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
             EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());

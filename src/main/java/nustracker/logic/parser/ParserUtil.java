@@ -116,7 +116,7 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code StudentId} is invalid.
      */
-    public static StudentId parseStudenttId(String studentId) throws ParseException {
+    public static StudentId parseStudentId(String studentId) throws ParseException {
         requireNonNull(studentId);
         String trimmedStudentId = studentId.trim();
         if (!StudentId.isValidStudentId(trimmedStudentId)) {
