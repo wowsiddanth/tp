@@ -73,7 +73,6 @@ public class MainWindow extends UiPart<Stage> {
      */
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
-
         //Minimum possible size the program can take
         primaryStage.setMinHeight(747);
         primaryStage.setMinWidth(747);
