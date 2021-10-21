@@ -15,7 +15,7 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("delete s/e0123456")
+[-> LogicManager : execute("delete id/e0123456")
 activate LogicManager
 
 LogicManager -> AddressBookParser : parseCommand()")
@@ -28,16 +28,16 @@ activate DeleteCommandParser
 DeleteCommandParser --> AddressBookParser
 deactivate DeleteCommandParser
 
-AddressBookParser -> DeleteCommandParser : parse("delete s/e0123456")
+AddressBookParser -> DeleteCommandParser : parse("delete id/e0123456")
 activate DeleteCommandParser
 
-DeleteCommandParser -> ArgumentTokenizer: tokenize("delete s/e0123456", "s/", "e/")
+DeleteCommandParser -> ArgumentTokenizer: tokenize("delete id/e0123456", "id/", "ev/")
 activate ArgumentTokenizer
 
 ArgumentTokenizer --> DeleteCommandParser: argMultiMap
 deactivate ArgumentTokenizer
 
-DeleteCommandParser -> ParserUtil:parseStudentId(argMultiMap.getValue("s/"))
+DeleteCommandParser -> ParserUtil:parseStudentId(argMultiMap.getValue("id/"))
 activate ParserUtil
 
 ParserUtil --> DeleteCommandParser: e0123456
@@ -78,7 +78,7 @@ create CommandResult
 DeleteStudentCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> DeleteStudentCommand
+CommandResult --> DeleteStudentCommand : result
 deactivate CommandResult
 
 DeleteStudentCommand --> LogicManager : result
