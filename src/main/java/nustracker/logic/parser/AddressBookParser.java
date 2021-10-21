@@ -78,7 +78,7 @@ public class AddressBookParser {
             return new RemoveCommandParser().parse(arguments);
 
         case ExportCommand.COMMAND_WORD:
-            return new ExportCommand();
+            return new ExportCommandParser().parse(arguments);
 
         case EventsCommand.COMMAND_WORD:
             return new EventsCommand();
