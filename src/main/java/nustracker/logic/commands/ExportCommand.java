@@ -2,15 +2,14 @@ package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import javafx.collections.ObservableList;
-import nustracker.commons.util.FileUtil;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.Student;
+import nustracker.storage.Exporting;
 
 /**
  * Exports the emails of the students in the current displayed list.
@@ -21,21 +20,17 @@ public class ExportCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Emails exported";
 
+    private final Path pathToExport = Path.of("data\\Exported.csv");
+
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         ObservableList<Student> filteredStudents = model.getFilteredStudentList();
-        try {
-            Path path = Path.of("data\\Exported.csv");
-            FileUtil.createIfMissing(path);
-            // Overwrites File all the time
-            FileUtil.writeToFile(
-                    path,
-                    Arrays.toString(filteredStudents.stream().map(Student::getEmail).toArray()));
-        } catch (IOException ioe) {
-            throw new CommandException("Could not export data properly: " + ioe, ioe);
-        }
+
+        Exporting.exportEmails(
+                pathToExport,
+                filteredStudents.stream().map(Student::getEmail).collect(Collectors.toList()));
 
         return new CommandResult(MESSAGE_SUCCESS);
     }
