@@ -134,22 +134,28 @@ Examples:
 
 Filters students whose data contains the given field.
 
-Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [ev/EVENT_NAME]`
+Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [m/MAJOR [MORE_MAJORS]...] [y/YEAR [MORE_YEARS]...] [ev/EVENT_NAME]`
 
 * You can filter by:
     - Multiple student IDs. (case-insensitive)
     - Multiple Student names. (case-insensitive)
+    - Multiple Majors. (case-insensitive)
+    - Multiple Years.
     - **A single** Event name. (case-sensitive)
 
-* You can only filter by one field (i.e. filter only by student ID, student name, or event name).
-* The search is case-insensitive, except for event. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
-* Multiple keyword search is only supported for Student ID and Student name.
+* You can only filter by one field (i.e. filter only by student ID, student name, year, major, or event name).
+* The search is case-insensitive, except for events. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
+* You can search using multiple keywords except for events.
+* You can search by partial keywords for names and student IDs. e.g. `n/al` will match with `n/alice` and `id/e12` will match with `id/e1234567`
 
 Examples:
-* `filter id/e1234567` returns the student with the ID e1234567 if that student exists in the address book.
-* `filter id/e1234567 e2345678` returns two students whose Student IDs are e1234567 and e2345678 if they exist in the address book.
+* `filter id/e1234567` returns the student with the id e1234567 if that student exists in the address book.
+* `filter id/e1234567 e2345678` returns two students whose student IDs are e1234567 and e2345678 if they exist in the address book.
+* `filter id/e09` returns all students with student IDs that contain e09.
 * `filter n/John` returns the students whose names contain John.
 * `filter n/John alice` returns the students whose names contain John OR Alice.
+* `filter m/CS IS` returns the students majoring in CS or IS.
+* `filter y/1 2 3` returns the students in years 1, 2, or 3.
 * `filter ev/IFG` returns a list of students who are tagged to the IFG event.
 
 _**Coming soon:** Additional fields to filter by._
