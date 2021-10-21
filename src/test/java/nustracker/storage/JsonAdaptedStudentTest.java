@@ -22,7 +22,6 @@ public class JsonAdaptedStudentTest {
     private static final String INVALID_YEAR = "a";
     private static final String INVALID_MAJOR = "Computer Science";
     private static final String INVALID_STUDENTID = "e123123123123";
-    private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_NAME = TypicalStudents.BENSON.getName().toString();
     private static final String VALID_PHONE = TypicalStudents.BENSON.getPhone().toString();

@@ -37,8 +37,7 @@ public class CommandTestUtil {
     public static final String VALID_MAJOR_BOB = "IS";
     public static final String VALID_STUDENTID_AMY = "e1283901";
     public static final String VALID_STUDENTID_BOB = "e1238010";
-    public static final String VALID_TAG_HUSBAND = "husband";
-    public static final String VALID_TAG_FRIEND = "friend";
+
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;

@@ -20,8 +20,6 @@ import nustracker.logic.commands.EditCommand;
 
 public class EditCommandParserTest {
 
-    private static final String TAG_EMPTY = " " + CliSyntax.PREFIX_TAG;
-
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
 

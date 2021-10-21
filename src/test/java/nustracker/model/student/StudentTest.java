@@ -7,6 +7,8 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_MAJOR_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
 

@@ -8,6 +8,8 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
 import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
@@ -51,7 +53,7 @@ public class TypicalStudents {
             .withYear("2")
             .withMajor("BZA")
             .withStudentId("e9012390")
-            .withEmail("cornelia@example.com")..build();
+            .withEmail("cornelia@example.com").build();
     public static final Student ELLE = new StudentBuilder().withName("Elle Meyer").withPhone("94822248")
             .withYear("3")
             .withMajor("CS")
