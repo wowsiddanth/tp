@@ -1,7 +1,7 @@
 package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
+import static nustracker.logic.parser.CliSyntax.PREFIX_FILENAME;
 
 import java.nio.file.Path;
 import java.util.stream.Collectors;
@@ -24,10 +24,10 @@ public class ExportCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Exports the email of all the current displayed students as a csv file.\n"
             + "Parameters: "
-            + PREFIX_NAME + "FILE_NAME\n"
+            + PREFIX_FILENAME + "FILE_NAME\n"
             + "Example: " + COMMAND_WORD
             + " "
-            + PREFIX_NAME + "exportedEmails";
+            + PREFIX_FILENAME + "exportedEmails";
 
     private final Path pathToExport;
 

@@ -165,4 +165,25 @@ public class ParserUtil {
         }
         return new EventTime(time);
     }
+
+    /**
+     * Parses a fileName.
+     *
+     * @throws ParseException if the given fileName contains illegal characters
+     */
+    public static String parseExportFileName(String fileName) throws ParseException {
+        requireNonNull(fileName);
+        if (fileName.contains("/")
+                || fileName.contains("\\")
+                || fileName.contains(":")
+                || fileName.contains("*")
+                || fileName.contains("?")
+                || fileName.contains("\"")
+                || fileName.contains("<")
+                || fileName.contains(">")
+                || fileName.contains("|")) {
+            throw new ParseException("Invalid file name.\nFilenames cannot contain \\:*?\"<>|");
+        }
+        return fileName;
+    }
 }
