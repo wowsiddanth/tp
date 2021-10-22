@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import nustracker.model.event.EventName;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 
 
@@ -16,19 +17,17 @@ public class FilterEventCommandTest {
 
     @Test
     public void equals() {
-        EnrolledEventsContainsKeywordsPredicate firstPredicate =
-                new EnrolledEventsContainsKeywordsPredicate("first");
-        EnrolledEventsContainsKeywordsPredicate secondPredicate =
-                new EnrolledEventsContainsKeywordsPredicate("second");
+        EventName firstName = new EventName("first");
+        EventName secondName = new EventName("second");
 
-        FilterCommand filterFirstCommand = new FilterEventCommand(firstPredicate);
-        FilterCommand filterSecondCommand = new FilterEventCommand(secondPredicate);
+        FilterCommand filterFirstCommand = new FilterEventCommand(firstName);
+        FilterCommand filterSecondCommand = new FilterEventCommand(secondName);
 
         // same object -> returns true
         assertTrue(filterFirstCommand.equals(filterFirstCommand));
 
         // same values -> returns true
-        FilterCommand filterFirstCommandCopy = new FilterEventCommand(firstPredicate);
+        FilterCommand filterFirstCommandCopy = new FilterEventCommand(firstName);
         assertTrue(filterFirstCommand.equals(filterFirstCommandCopy));
 
         // different types -> returns false

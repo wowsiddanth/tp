@@ -13,6 +13,7 @@ import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.FilterEventCommand;
 import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
+import nustracker.model.event.EventName;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
@@ -52,7 +53,7 @@ public class FilterCommandParserTest {
     @Test
     public void parse_validArgs_returnsFilterEventCommand() {
         FilterCommand expectedFilterCommand =
-                new FilterEventCommand(new EnrolledEventsContainsKeywordsPredicate("event name"));
+                new FilterEventCommand(new EventName("event name"));
         CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_EVENT + "event name", expectedFilterCommand);
 
         CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_EVENT + " \n\t event name \n",
