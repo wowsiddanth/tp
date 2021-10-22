@@ -90,6 +90,17 @@ public class CommandTestUtil {
     public static final String INVALID_EVENTDATE_DESC = " " + PREFIX_DATE + "09102021"; // missing dashes
     public static final String INVALID_EVENTTIME_DESC = " " + PREFIX_TIME + "12:30 pm"; // needs to be 24hr format
 
+    public static final String VALID_EXPORT_FILE_NAME = "Exports";
+    public static final String INVALID_EXPORT_FILE_NAME_1 = "Exports\\";
+    public static final String INVALID_EXPORT_FILE_NAME_2 = "Exports:";
+    public static final String INVALID_EXPORT_FILE_NAME_3 = "Exports*";
+    public static final String INVALID_EXPORT_FILE_NAME_4 = "Exports?";
+    public static final String INVALID_EXPORT_FILE_NAME_5 = "Exports\"";
+    public static final String INVALID_EXPORT_FILE_NAME_6 = "Exports<";
+    public static final String INVALID_EXPORT_FILE_NAME_7 = "Exports>";
+    public static final String INVALID_EXPORT_FILE_NAME_8 = "Exports|";
+
+
     static {
         DESC_AMY = new EditStudentDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)

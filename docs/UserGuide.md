@@ -252,6 +252,20 @@ Shows a message explaining how to access the help page.
 Command: `help`
 
 
+### Exporting Emails : `export`
+
+Exports the emails of the students that are currently being displayed.
+
+Command: `export fn/FILE_NAME`
+
+Filenames cannot contain the characters `\:*?"<>|`
+
+The file will be located in the `data` directory, the same place where the app's save files are located.
+
+Examples:
+* `export fn/StudentsAttendingOrientation`
+* `export fn/AllStudents`
+
 ### Exiting the program : `exit`
 
 Exits the program.
@@ -297,7 +311,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 ### Event Commands
 
 **Command** | **Description** | **Example** |
----------------------------------------|---------------------------------|---------------------------|
+----------------|-------------------------|-----------------|
 **create**  | create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
 **events**  | lists events | `events` |
 **enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
@@ -308,5 +322,6 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 **Command** | **Description** | **Example** |
 -------------------------|------------------------------------------|----------------------------------|
-**help** | opens the help window | `help`      |
+**help** | opens the help window | `help` |
+**export** | exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
 **exit** | exits the app | `exit` |

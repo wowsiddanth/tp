@@ -15,5 +15,6 @@ public class CliSyntax {
     public static final Prefix PREFIX_DATE = new Prefix("d/");
     public static final Prefix PREFIX_TIME = new Prefix("t/");
     public static final Prefix PREFIX_EVENT = new Prefix("ev/");
+    public static final Prefix PREFIX_FILENAME = new Prefix("fn/");
 
 }
