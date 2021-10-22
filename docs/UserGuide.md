@@ -256,11 +256,11 @@ Command: `help`
 
 Exports the emails of the students that are currently being displayed.
 
+Command: `export fn/FILE_NAME`
+
 Filenames cannot contain the characters `\:*?"<>|`
 
 The file will be located in the `data` directory, the same place where the app's save files are located.
-
-Command: `export fn/FILE_NAME`
 
 Examples:
 * `export fn/StudentsAttendingOrientation`
