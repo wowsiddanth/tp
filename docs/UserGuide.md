@@ -162,6 +162,23 @@ _**Coming soon:** Additional fields to filter by._
 
 _**Coming soon:** Filter by multiple fields._
 
+<br>
+
+### Delete shown students : `delfiltered`
+
+Mass deletes all students currently shown in the student list. This is typically used after a filter
+command to delete students based on a certain criteria.
+
+Command: `delfiltered`
+
+* This command can only be used when NUSTracker is showing the Student list.
+* Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in
+NUSTracker would be deleted since all of them are shown.
+
+Examples:
+* `filter y/4` followed by `delfiltered` will delete all students who are in Year 4, possibly because they are graduating.
+
+
 <br><br>
 
 
@@ -307,6 +324,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **edit** | edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
 **filter** | filter by field  | `filter [n/STUDENT_NAME [MORE_STUDENT_NAMES]...]` <br> `filter [id/STUDENT_ID [MORE_STUDENT_IDS]...]` <br>  `filter [ev/EVENT_NAME]` |
+**delfiltered** | mass deletes shown students | `delfiltered` |
 
 ### Event Commands
 
