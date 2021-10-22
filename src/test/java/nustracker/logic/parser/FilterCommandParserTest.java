@@ -14,7 +14,6 @@ import nustracker.logic.commands.FilterEventCommand;
 import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.model.event.EventName;
-import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 

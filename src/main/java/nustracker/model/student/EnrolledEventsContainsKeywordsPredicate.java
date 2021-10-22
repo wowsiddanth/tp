@@ -1,10 +1,10 @@
 package nustracker.model.student;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.function.Predicate;
 
 import nustracker.model.event.EventName;
-
-import static java.util.Objects.requireNonNull;
 
 
 /**

@@ -30,7 +30,8 @@ public class FilterEventCommand extends FilterCommand {
             throw new CommandException(String.format(MESSAGE_INVALID_EVENT_NAME, eventName.toString()));
         }
 
-        EnrolledEventsContainsKeywordsPredicate predicate = new EnrolledEventsContainsKeywordsPredicate(event.getName());
+        EnrolledEventsContainsKeywordsPredicate predicate =
+                new EnrolledEventsContainsKeywordsPredicate(event.getName());
 
         requireNonNull(model);
         model.updateFilteredStudentList(predicate);

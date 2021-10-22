@@ -33,7 +33,6 @@ import nustracker.logic.commands.StudentsCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
-import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;

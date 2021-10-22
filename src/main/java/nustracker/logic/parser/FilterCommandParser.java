@@ -22,7 +22,6 @@ import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.FilterYearCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
-import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.Major;
 import nustracker.model.student.MajorContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
