@@ -21,6 +21,7 @@ import nustracker.logic.commands.FilterMajorCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.FilterYearCommand;
 import nustracker.logic.parser.exceptions.ParseException;
+import nustracker.model.event.EventName;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.Major;
 import nustracker.model.student.MajorContainsKeywordsPredicate;
@@ -74,8 +75,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             Year[] years = getYears(yearKeywords);
             return new FilterYearCommand(new YearContainsKeywordsPredicate(Arrays.asList(years)));
         } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
-            String trimmedArgs = getTrimmedArgs(args, PREFIX_EVENT);
-            return new FilterEventCommand(new EnrolledEventsContainsKeywordsPredicate(trimmedArgs));
+            EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
+            return new FilterEventCommand(eventName);
         } else {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }

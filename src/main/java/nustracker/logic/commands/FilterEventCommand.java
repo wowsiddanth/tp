@@ -15,20 +15,22 @@ import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
  */
 public class FilterEventCommand extends FilterCommand {
 
-    private final EnrolledEventsContainsKeywordsPredicate predicate;
+    private final EventName eventName;
 
-    public FilterEventCommand(EnrolledEventsContainsKeywordsPredicate predicate) {
-        this.predicate = predicate;
+    public FilterEventCommand(EventName eventName) {
+        this.eventName = eventName;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        Event event = model.getEvent(new EventName(predicate.getKeyword()));
+        Event event = model.getEvent(eventName);
 
         //event does not exist
         if (event == null) {
-            throw new CommandException(String.format(MESSAGE_INVALID_EVENT_NAME, predicate.getKeyword()));
+            throw new CommandException(String.format(MESSAGE_INVALID_EVENT_NAME, eventName.toString()));
         }
+
+        EnrolledEventsContainsKeywordsPredicate predicate = new EnrolledEventsContainsKeywordsPredicate(event.getName());
 
         requireNonNull(model);
         model.updateFilteredStudentList(predicate);
@@ -40,6 +42,6 @@ public class FilterEventCommand extends FilterCommand {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof FilterEventCommand // instanceof handles nulls
-                && predicate.equals(((FilterEventCommand) other).predicate)); // state check
+                && eventName.equals(((FilterEventCommand) other).eventName)); // state check
     }
 }
