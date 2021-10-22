@@ -103,7 +103,7 @@ Command: `students`
 
 Edits an existing student in the address book.
 
-Command: `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]`
+Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]`
 
 * Edits the student who currently has the specified `STUDENT_ID`.
 * At least one of the optional fields must be provided.
