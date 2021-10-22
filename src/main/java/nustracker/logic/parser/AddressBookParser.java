@@ -9,6 +9,7 @@ import nustracker.logic.commands.ClearCommand;
 import nustracker.logic.commands.Command;
 import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
+import nustracker.logic.commands.DeleteFilteredStudentsCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.commands.EnrollCommand;
 import nustracker.logic.commands.EventsCommand;
@@ -85,6 +86,10 @@ public class AddressBookParser {
 
         case StudentsCommand.COMMAND_WORD:
             return new StudentsCommand();
+
+        case DeleteFilteredStudentsCommand.COMMAND_WORD:
+
+            return new DeleteFilteredStudentsCommand();
 
         default:
             throw new ParseException(Messages.MESSAGE_UNKNOWN_COMMAND);
