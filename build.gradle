@@ -70,4 +70,8 @@ shadowJar {
     archiveVersion = '1.2'
 }
 
+run {
+    enableAssertions = true
+}
+
 defaultTasks 'clean', 'test'

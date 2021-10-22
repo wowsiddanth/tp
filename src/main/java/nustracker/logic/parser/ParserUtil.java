@@ -11,8 +11,8 @@ import nustracker.model.event.EventTime;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
 import nustracker.model.student.Phone;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
 
 /**
@@ -111,18 +111,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String nusNetId} into an {@code NusNetId}.
+     * Parses a {@code String studentId} into an {@code StudentId}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code nusNetId} is invalid.
+     * @throws ParseException if the given {@code StudentId} is invalid.
      */
-    public static NusNetId parseNusNetId(String nusNetId) throws ParseException {
-        requireNonNull(nusNetId);
-        String trimmedNusNetId = nusNetId.trim();
-        if (!NusNetId.isValidNusNetId(trimmedNusNetId)) {
-            throw new ParseException(NusNetId.MESSAGE_CONSTRAINTS);
+    public static StudentId parseStudentId(String studentId) throws ParseException {
+        requireNonNull(studentId);
+        String trimmedStudentId = studentId.trim();
+        if (!StudentId.isValidStudentId(trimmedStudentId)) {
+            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS);
         }
-        return new NusNetId(trimmedNusNetId);
+        return new StudentId(trimmedStudentId);
     }
 
     /**
@@ -164,5 +164,26 @@ public class ParserUtil {
             throw new ParseException(EventTime.MESSAGE_CONSTRAINTS);
         }
         return new EventTime(time);
+    }
+
+    /**
+     * Parses a fileName.
+     *
+     * @throws ParseException if the given fileName contains illegal characters
+     */
+    public static String parseExportFileName(String fileName) throws ParseException {
+        requireNonNull(fileName);
+        if (fileName.contains("/")
+                || fileName.contains("\\")
+                || fileName.contains(":")
+                || fileName.contains("*")
+                || fileName.contains("?")
+                || fileName.contains("\"")
+                || fileName.contains("<")
+                || fileName.contains(">")
+                || fileName.contains("|")) {
+            throw new ParseException("Invalid file name.\nFilenames cannot contain \\:*?\"<>|");
+        }
+        return fileName;
     }
 }

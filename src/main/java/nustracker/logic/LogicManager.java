@@ -2,6 +2,7 @@ package nustracker.logic;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -81,7 +82,11 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public void setGuiSettings(GuiSettings guiSettings) {
+    public void setGuiSettings(GuiSettings guiSettings) throws IllegalArgumentException {
+        if (guiSettings == null) {
+            logger.log(Level.INFO, "guiSettings cannot be null!");
+            throw new IllegalArgumentException("guiSettings cannot be null!");
+        }
         model.setGuiSettings(guiSettings);
     }
 }

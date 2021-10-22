@@ -37,7 +37,7 @@ public class EventCard extends UiPart<Region> {
     /**
      * Creates an {@code EventCard} with the given {@code Event} and index to display.
      */
-    public EventCard(Event event, int displayedIndex) {
+    public EventCard(Event event) {
         super(FXML);
         this.event = event;
         name.setText(event.getName().getEventName());
@@ -45,9 +45,9 @@ public class EventCard extends UiPart<Region> {
         time.setText(event.getTime().toString());
 
         event.getParticipants().stream()
-                .sorted(Comparator.comparing(participant -> participant.nusNetId))
+                .sorted(Comparator.comparing(participant -> participant.studentId))
                 .forEach(participant -> participants.getChildren().add(
-                        new Label(participant.nusNetId)));
+                        new Label(participant.studentId)));
 
         //Ensures that the participants will be evenly spaced out
         participants.setVgap(4.0);
