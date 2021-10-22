@@ -72,7 +72,7 @@ public class SettingsWindow extends UiPart<Stage> {
      * @param colorHexCode The hex code of the glow color
      */
     private void setCurrentColor(String colorHexCode) {
-        if (!isValidColorHexCode(colorHexCode)) {
+        if (isValidColorHexCode(colorHexCode)) {
             Color currentColour = Color.web(colorHexCode);
             glowColorPicker.setValue(currentColour);
         }

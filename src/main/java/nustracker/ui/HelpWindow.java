@@ -89,10 +89,10 @@ public class HelpWindow extends UiPart<Stage> {
     private Text enrollCommandExample;
 
     @FXML
-    private Label studentsCommandExample;
+    private Text studentsCommandExample;
 
     @FXML
-    private Label eventsCommandExample;
+    private Text eventsCommandExample;
 
     /**
      * Creates a new HelpWindow.

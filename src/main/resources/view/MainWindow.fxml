@@ -44,10 +44,10 @@
           </Text>
 
           <Pane prefHeight="54.0" prefWidth="59.0" HBox.hgrow="ALWAYS" />
-          <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="50.0" translateX="-26.0" translateY="8.0" onAction="#changeTheme">
+          <Button mnemonicParsing="false" onAction="#changeTheme" prefHeight="38.0" prefWidth="65.0" translateX="-26.0" translateY="8.0">
             <graphic>
               <ImageView fitHeight="30.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../images/theme.png"/>
+                <Image url="@../images/theme.png" />
               </ImageView>
             </graphic>
           </Button>

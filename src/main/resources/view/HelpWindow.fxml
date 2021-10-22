@@ -159,12 +159,27 @@
                     <Text style="-fx-fill: #779CFF;" text=" Enroll" GridPane.rowIndex="8">
                   <font>
                      <Font name="System Bold" size="16.0" />
-                  </font></Text>
+                  </font>
+
+                    </Text>
                     <Text fx:id="enrollCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                   <font>
                      <Font name="System Bold" size="16.0" />
                   </font></Text>
-                    <Button mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+
+                <Text fx:id="eventsCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+
+                <Text fx:id="studentsCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+
+                <Button mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                 </GridPane>
             </VBox>
         </Scene>
