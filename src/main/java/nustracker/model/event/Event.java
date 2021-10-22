@@ -116,6 +116,19 @@ public class Event {
                 && otherEvent.getName().equals(getName());
     }
 
+
+    /**
+     * Creates an new Event object that has the same details but different participants.
+     *
+     * @param newParticipants the new Set of {@code Participants} that are attending this {@code Event}.
+     * @return the newly created {@code Event}.
+     */
+    public Event getNewEventWithUpdatedParticipants(Set<Participant> newParticipants) {
+
+        return new Event(getName(), getDate(), getTime(), newParticipants);
+    }
+
+
     /**
      * Wraps the EventName in an Event for easy re-usability with other methods.
      *
