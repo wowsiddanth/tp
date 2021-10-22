@@ -13,31 +13,40 @@ Graphical User Interface (GUI).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+## Getting Started
+
+**Now, you finally have your hands on _*NUSTracker*_. Great! Let's learn how to use it now.**
 
 1. Ensure you have `Java 11` or above installed in your Computer.
 
+
 2. Download the latest `nustracker.jar`, found under Releases
+
 
 3. Copy the file to the folder you want to use as the _home folder_ for NUSTracker.
 
+
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+   
+   
    ![Ui](images/Ui1.png)
 
+
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+   Here are some example commands you can try:
 
-   * **`list`** : Lists all students.
-
-   * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` to the Address Book.
+   * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a student named `John Doe` to NUSTracker.
    
    * **`exit`** : Exits the app.
 
-6. Refer to the [Features](#features) below for details of each command.
+
+6. For a full and comprehensive overview of each command, refer to the [Feature](#Features) section!
+
+**Now, you are ready for an unprecedented overhaul in student and event management using NUSTracker!**
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
+## Feature
 
 <div markdown="block" class="alert alert-info">
 
