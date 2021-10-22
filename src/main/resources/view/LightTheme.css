@@ -11,16 +11,16 @@
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
     -fx-padding: 0 0 0 0;
-    -fx-background-color: #383838;
+    -fx-background-color: #FFFFFF ;
 }
 
 /** Individual student cell */
 .list-cell:filled {
-    -fx-background-color: #383838;
+    -fx-background-color: #FFFFFF;
 }
 
 .list-cell:filled:selected {
-    -fx-background-color: #515151;
+    -fx-background-color: #f2f2f2;
     -fx-border-color: #FDB703;
     -fx-border-width: 2px;
     -fx-border-radius: 4px;
@@ -30,13 +30,13 @@
 
 /**========================================= Start of Placeholder ====================================================*/
 
-#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder,
-#topContainer, #container, #listPanelPlaceholder, #status-bar, #studentList, #helpWindow {
-    -fx-background-color: #383838;
+#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder, #listPanelPlaceholder,
+#topContainer, #container, #status-bar, #studentList, #helpWindow {
+    -fx-background-color: #FFFFFF
 }
 
-#phone, #major, #year, #studentId, #email, #enrolledEvents {
-    -fx-fill: white;
+#phone, #major, #year, #studentId, #email, #enrolledEvents  {
+    -fx-fill: black;
 }
 
 /**========================================= End of Placeholder ======================================================*/
@@ -47,7 +47,7 @@
     -fx-background-color: transparent;
     -fx-font-family: "Open Sans Light Bold";
     -fx-font-size: 16pt;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: black;
 }
 
 .result-display .label {
@@ -55,8 +55,7 @@
 }
 
 .pane-with-border {
-    -fx-background-color: derive(#1d1d1d, 20%);
-    -fx-border-color: derive(#1d1d1d, 10%);
+    -fx-background-color: #d6d6d3;
     -fx-border-radius: 10px;
     -fx-border-top-width: 1px;
 }
@@ -71,28 +70,24 @@
  */
 .button {
     -fx-padding: 5 22 5 22;
+    -fx-font-family: "Roboto Thin";
+    -fx-text-fill: black;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
     -fx-background-radius: 50;
-    -fx-background-color: #515151;
-
-    -fx-border-color: transparent;
+    -fx-background-color: white;
     -fx-border-radius: 20;
     -fx-border-width: 2;
-
-    -fx-text-fill: #FFFFFF;
-    -fx-font-family: "Roboto Thin";
+    -fx-border-color: #FDB703;
     -fx-font-size: 20;
 }
 
 .button:pressed, .button:default:hover:pressed {
     -fx-text-fill: #779CFF;
     -fx-font-family: Roboto-Bold;
-    -fx-effect: dropshadow(gaussian, #E9AFFF, 2, 1, 0, 0);
 }
 
 .button:disabled, .button:default:disabled {
     -fx-opacity: 0.4;
-    -fx-background-color: #1d1d1d;
     -fx-text-fill: white;
 }
 
@@ -110,12 +105,12 @@
 /**==========================================Start of ScrollBar ======================================================*/
 
 .scroll-bar {
-    -fx-background-color: derive(#C4C4C4, 20%);
+    -fx-background-color: #FFFFFF;
     -fx-border-radius: 4px;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: derive(#ffffff, 100%);
+    -fx-background-color: #f6f6f6;
     -fx-background-insets: 3;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
@@ -142,10 +137,10 @@
 /**==========================================Start of CommandBox =====================================================*/
 
 #commandTextField {
-    -fx-background-color: transparent #383838 transparent #383838;
+    -fx-background-color: transparent #FFFFFF transparent #FFFFFF;
     -fx-background-insets: 0;
 
-    -fx-border-color: #383838 #383838 #ffffff #383838;
+    -fx-border-color:#FDB703;
     -fx-border-radius: 8px;
     -fx-border-insets: 0;
     -fx-border-width: 2;
@@ -153,19 +148,19 @@
     -fx-font-family: "Open Sans Light";
     -fx-font-size: 16pt;
 
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: black;
 }
 
 .stack-pane { /** Command box **/
-    -fx-background-color: derive(#1d1d1d, 20%);
+    -fx-background-color: #FFFFFF
 }
 
 /**==========================================End of CommandBox =======================================================*/
 
-/**==========================================Start of Result Display ---==============================================*/
+/**========================================== Start of Result Display ---==============================================*/
 
 #resultDisplay .content { /**results**/
-    -fx-background-color: transparent, #383838, transparent, #383838;
+    -fx-background-color: transparent, #FFFFFF, transparent, #FFFFFF;
     -fx-background-radius: 0;
 }
 

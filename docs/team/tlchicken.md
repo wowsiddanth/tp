@@ -35,7 +35,7 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `enroll` and `remove` 
+    * Added documentation for the features `enroll` and `remove`
   * Developer Guide:
     * Added Introduction section.
     * Added Target User Profile and Value Proposition. (From Team Discussions)
@@ -49,7 +49,7 @@ Given below are my contributions to the project.
   * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
   * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
   --->
-  
+
 * **Tools**:
   <!---
   * Integrated a third party library (Natty) to the project ([\#42]())

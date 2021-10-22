@@ -30,7 +30,7 @@ Graphical User Interface (GUI).
    * **`list`** : Lists all students.
 
    * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` to the Address Book.
-   
+    
    * **`exit`** : Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
