@@ -11,11 +11,13 @@ import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.commands.EnrollCommand;
+import nustracker.logic.commands.EventsCommand;
 import nustracker.logic.commands.ExitCommand;
+import nustracker.logic.commands.ExportCommand;
 import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.HelpCommand;
-import nustracker.logic.commands.ListCommand;
 import nustracker.logic.commands.RemoveCommand;
+import nustracker.logic.commands.StudentsCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 
 /**
@@ -60,9 +62,6 @@ public class AddressBookParser {
         case FilterCommand.COMMAND_WORD:
             return new FilterCommandParser().parse(arguments);
 
-        case ListCommand.COMMAND_WORD:
-            return new ListCommand();
-
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
 
@@ -78,6 +77,14 @@ public class AddressBookParser {
         case RemoveCommand.COMMAND_WORD:
             return new RemoveCommandParser().parse(arguments);
 
+        case ExportCommand.COMMAND_WORD:
+            return new ExportCommandParser().parse(arguments);
+
+        case EventsCommand.COMMAND_WORD:
+            return new EventsCommand();
+
+        case StudentsCommand.COMMAND_WORD:
+            return new StudentsCommand();
 
         default:
             throw new ParseException(Messages.MESSAGE_UNKNOWN_COMMAND);

@@ -3,7 +3,7 @@ layout: page
 title: Developer Guide
 ---
 * Table of Contents
-  {:toc}
+{:toc}
 
 
 # Developer Guide - NUSTracker
@@ -91,16 +91,18 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `EventListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework and heavily utilizes CSS as well. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml) is specified in [`MainWindow.fxml`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml)
+
+The 'UI' component makes use of .css files to change the theme of the application.
 
 The `UI` component,
 
 * executes user commands using the `Logic` component.
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+* depends on some classes in the `Model` component, as it displays `Student` object residing in the `Model`.
 
 ### Logic component
 
@@ -309,17 +311,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | create a new event                          | add new events to be managed using the app |
 | `* * *`  | user                                       | delete an event                             | remove events that are no longer relevant |
 | `* * *`  | user                                       | test the app using sample data              | test the app and its commands easily before loading in real student data |
-| `* *  `  | user                                       | archive an event                            | remove events that have passed but are still relevant |
-| `* *  `  | intermediate user                          | mass delete certain students                | delete students more efficiently |
 | `* *  `  | intermediate user                          | edit student data                           | update previous mistake in data entry or update a change in student data |
 | `* *  `  | expert user                                | export email of selected students           | use the email list to mass email relevant students |
 | `* *  `  | expert user                                | export event data file                      | easily share or transfer event data to load in another computer |
 | `* *  `  | expert user                                | export student data file                    | easily share or transfer the student database to load in another computer |
-| `* *  `  | user                                       | tag a student                               | group students according to a particular tag |
-| `* *  `  | user                                       | remove a tag                                | delete a tag from the selected student |
-| `* *  `  | user                                       | delete a tag                                | delete a tag from the database |
 | `* *  `  | user                                       | blacklist students from events              | track which students are blacklisted from attending events |
-| `* *  `  | user                                       | tag students automatically based on rsvp    | do less manual work when adding students to events |
 | `* *  `  | user                                       | load student data from external file        | quickly add a large number of students |
 | `* *  `  | user                                       | load event data file                        | update the list of events being managed in database |
 | `* *  `  | user                                       | filter students by event                    | find students attending a particular event |

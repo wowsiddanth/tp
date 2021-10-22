@@ -51,6 +51,10 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String EXIT_COMMAND = "exit";
     public static final String EXIT_COMMAND_EXAMPLE = EXIT_COMMAND;
 
+    public static final String STUDENTS_COMMAND = "students";
+
+    public static final String EVENTS_COMMAND = "events";
+
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
@@ -84,6 +88,12 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Text enrollCommandExample;
 
+    @FXML
+    private Label studentsCommandExample;
+
+    @FXML
+    private Label eventsCommandExample;
+
     /**
      * Creates a new HelpWindow.
      *
@@ -101,6 +111,8 @@ public class HelpWindow extends UiPart<Stage> {
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
         createCommandExample.setText(CREATE_COMMAND_EXAMPLE);
         enrollCommandExample.setText(ENROLL_COMMAND_EXAMPLE);
+        studentsCommandExample.setText(STUDENTS_COMMAND);
+        eventsCommandExample.setText(EVENTS_COMMAND);
     }
 
     /**
@@ -255,6 +267,28 @@ public class HelpWindow extends UiPart<Stage> {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
         url.putString(ENROLL_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the StudentsCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyStudentsCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(STUDENTS_COMMAND);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the EventsCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyEventsCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(EVENTS_COMMAND);
         clipboard.setContent(url);
     }
 }
