@@ -399,13 +399,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The list of students is empty.
 
   Use case ends.
-  
+ 
 * 2b. The AddressBook does not find any students with from the given keywords.
-    
+ 
     * 2b1. AddressBook displays an empty list.
 
         Use case ends.
-    
+     
 * 2c. User types multiple prefixes to filter by.
 
     * 2c1. Address book shows an error message.

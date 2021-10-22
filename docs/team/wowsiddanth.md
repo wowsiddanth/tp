@@ -24,16 +24,15 @@ a brownfield project that extends the AddressBook3 project, which is around 10kL
 
 
 * **New Feature**: Remake GUI to match mockup
-  * **What it does**: Remakes the current GUI so that it matches the mockup proposed in _Figma_.\
+  * **What it does**: Remakes the current GUI so that it matches the mockup proposed in _Figma_.
   * **Justification**: To beautify the product, and allow the user to have an elegant user experience.
-  * **Highlights**: JavaFX, unlike many other frameworks for designing GUIs, is not as active as the rest. Thus, it was definitely 
+  * **Highlights**: JavaFX, unlike many other frameworks for designing GUIs, is not as active as the rest. Thus, it was definitely
   tedious reading many articles and documentations posted by Oracle to gain an intuitive understanding. Additionally, it was also
   difficult as I had to learn CSS from scratch, from resources such as the Mozilla Foundation, etc.
   * **Credits**: JavaFX documentation by Oracle, and the CSS resources by the Mozilla Foundation.
    
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=wowsiddanth&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~test-code~other~functional-code&since=2021-09-17)
- 
 
 * **Enhancements to existing features**:
   * Updated the GUI to match mockup on _Figma._
