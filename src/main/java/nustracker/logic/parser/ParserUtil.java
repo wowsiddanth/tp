@@ -116,7 +116,7 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code StudentId} is invalid.
      */
-    public static StudentId parseStudenttId(String studentId) throws ParseException {
+    public static StudentId parseStudentId(String studentId) throws ParseException {
         requireNonNull(studentId);
         String trimmedStudentId = studentId.trim();
         if (!StudentId.isValidStudentId(trimmedStudentId)) {
@@ -164,5 +164,26 @@ public class ParserUtil {
             throw new ParseException(EventTime.MESSAGE_CONSTRAINTS);
         }
         return new EventTime(time);
+    }
+
+    /**
+     * Parses a fileName.
+     *
+     * @throws ParseException if the given fileName contains illegal characters
+     */
+    public static String parseExportFileName(String fileName) throws ParseException {
+        requireNonNull(fileName);
+        if (fileName.contains("/")
+                || fileName.contains("\\")
+                || fileName.contains(":")
+                || fileName.contains("*")
+                || fileName.contains("?")
+                || fileName.contains("\"")
+                || fileName.contains("<")
+                || fileName.contains(">")
+                || fileName.contains("|")) {
+            throw new ParseException("Invalid file name.\nFilenames cannot contain \\:*?\"<>|");
+        }
+        return fileName;
     }
 }

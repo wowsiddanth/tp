@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,32 +15,33 @@ import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
-import nustracker.model.student.StudentIdContainsKeywordsPredicate;
+import nustracker.model.student.Year;
+import nustracker.model.student.YearContainsKeywordsPredicate;
 import nustracker.testutil.TypicalStudents;
 
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FilterIdCommand}.
  */
-public class FilterIdCommandTest {
+public class FilterYearCommandTest {
     private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
     private Model expectedModel = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void equals() {
-        StudentIdContainsKeywordsPredicate firstPredicate =
-                new StudentIdContainsKeywordsPredicate(Collections.singletonList("first"));
-        StudentIdContainsKeywordsPredicate secondPredicate =
-                new StudentIdContainsKeywordsPredicate(Collections.singletonList("second"));
+        YearContainsKeywordsPredicate firstPredicate =
+                new YearContainsKeywordsPredicate(Collections.singletonList(new Year("1")));
+        YearContainsKeywordsPredicate secondPredicate =
+                new YearContainsKeywordsPredicate(Collections.singletonList(new Year("2")));
 
-        FilterCommand filterFirstCommand = new FilterIdCommand(firstPredicate);
-        FilterCommand filterSecondCommand = new FilterIdCommand(secondPredicate);
+        FilterCommand filterFirstCommand = new FilterYearCommand(firstPredicate);
+        FilterCommand filterSecondCommand = new FilterYearCommand(secondPredicate);
 
         // same object -> returns true
         assertTrue(filterFirstCommand.equals(filterFirstCommand));
 
         // same values -> returns true
-        FilterCommand filterFirstCommandCopy = new FilterIdCommand(firstPredicate);
+        FilterCommand filterFirstCommandCopy = new FilterYearCommand(firstPredicate);
         assertTrue(filterFirstCommand.equals(filterFirstCommandCopy));
 
         // different types -> returns false
@@ -55,8 +57,8 @@ public class FilterIdCommandTest {
     @Test
     public void execute_zeroKeywords_noStudentFound() {
         String expectedMessage = String.format(Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW, 0);
-        StudentIdContainsKeywordsPredicate predicate = preparePredicate(" ");
-        FilterCommand command = new FilterIdCommand(predicate);
+        YearContainsKeywordsPredicate predicate = preparePredicate(" ");
+        FilterCommand command = new FilterYearCommand(predicate);
         expectedModel.updateFilteredStudentList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Collections.emptyList(), model.getFilteredStudentList());
@@ -65,29 +67,20 @@ public class FilterIdCommandTest {
     @Test
     public void execute_multipleKeywords_multipleStudentsFound() {
         String expectedMessage = String.format(Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW, 3);
-        StudentIdContainsKeywordsPredicate predicate = preparePredicate("e9034800 e8123198 e9012390");
-        FilterCommand command = new FilterIdCommand(predicate);
+        YearContainsKeywordsPredicate predicate = preparePredicate("2 6");
+        FilterCommand command = new FilterYearCommand(predicate);
         expectedModel.updateFilteredStudentList(predicate);
         CommandTestUtil.assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(TypicalStudents.ALICE, TypicalStudents.BENSON, TypicalStudents.DANIEL),
+        assertEquals(Arrays.asList(TypicalStudents.DANIEL, TypicalStudents.GEORGE,
+                TypicalStudents.GOD),
                 model.getFilteredStudentList());
     }
 
-    @Test
-    public void execute_multiplePartialKeywords_multipleStudentsFound() {
-        String expectedMessage = String.format(Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW, 4);
-        StudentIdContainsKeywordsPredicate predicate = preparePredicate("e90 e81");
-        FilterCommand command = new FilterIdCommand(predicate);
-        expectedModel.updateFilteredStudentList(predicate);
-        CommandTestUtil.assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(TypicalStudents.ALICE, TypicalStudents.BENSON, TypicalStudents.CARL,
-                TypicalStudents.DANIEL), model.getFilteredStudentList());
-    }
-
     /**
-     * Parses {@code userInput} into a {@code StudentIdContainsKeywordsPredicate}.
+     * Parses {@code userInput} into a {@code YearContainsKeywordsPredicate}.
      */
-    private StudentIdContainsKeywordsPredicate preparePredicate(String userInput) {
-        return new StudentIdContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
+    private YearContainsKeywordsPredicate preparePredicate(String userInput) {
+        return new YearContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")).stream().map(
+            x -> new Year(x)).collect(Collectors.toUnmodifiableList()));
     }
 }

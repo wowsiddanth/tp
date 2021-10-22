@@ -9,11 +9,15 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_PHONE;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import nustracker.commons.util.CollectionUtil;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
+import nustracker.model.event.Event;
+import nustracker.model.event.Participant;
 import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Major;
@@ -81,6 +85,8 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_STUDENT);
         }
 
+        editStudentIdInEventList(studentToEdit, editedStudent, model);
+
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(String.format(MESSAGE_EDIT_STUDENT_SUCCESS, editedStudent));
@@ -106,6 +112,54 @@ public class EditCommand extends Command {
 
         return new Student(updatedName, updatedPhone, updatedEmail,
                 updatedYear, updatedMajor, updatedStudentId, notUpdatedEvents);
+    }
+
+    /**
+     * Externally looks like it edits the Student Ids of the Participant object in the Events that this Student
+     * is enrolled in, if this Student's Student Id is being edited. Internally it deletes the old Event
+     * and creates a new Event with the updated Student so that the ObservableList of Events would trigger
+     * an update to GUI.
+     *
+     * @param studentToEdit the Student whose Student Id is being edited.
+     * @param newStudent the new Student which has an edited Student Id.
+     * @param model the Model that the Student is being updated in.
+     */
+    private void editStudentIdInEventList(Student studentToEdit, Student newStudent, Model model) {
+
+        Optional<StudentId> studentIdFromDesc = editStudentDescriptor.getStudentId();
+        StudentId editedStudentId = studentIdFromDesc.orElse(null);
+
+        if (editedStudentId == null) {
+            // This Edit Command does not edit the Student Id.
+            return;
+        }
+
+        EnrolledEvents currEnrolledEvents = studentToEdit.getEvents();
+        Set<Event> allEventSet = currEnrolledEvents.getAllEventsEnrolledIn(model);
+
+        for (Event currEvent : allEventSet) {
+            Set<Participant> currParticipants = currEvent.getParticipants();
+            Set<Participant> newParticipants = new HashSet<>();
+
+            for (Participant currParticipant : currParticipants) {
+                if (currParticipant.getStudentId().equals(studentIdToEdit)) {
+                    // Update Student Id by creating new Participant with the updated Id and adding to the Set
+                    Participant updParticipant = new Participant(newStudent.getStudentId().getStudentIdString());
+
+                    newParticipants.add(updParticipant);
+                } else {
+                    // Otherwise use the existing Participant object since they are not being modified.
+                    newParticipants.add(currParticipant);
+                }
+
+            }
+
+            Event newUpdatedEvent = currEvent.getNewEventWithUpdatedParticipants(newParticipants);
+
+            model.setEvent(currEvent, newUpdatedEvent);
+
+        }
+
     }
 
     @Override
