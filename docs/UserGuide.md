@@ -27,8 +27,8 @@ Graphical User Interface (GUI).
 
 
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   
-   
+
+
    ![Ui](images/Ui1.png)
 
 
@@ -46,7 +46,28 @@ Graphical User Interface (GUI).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Feature
+## Features
+
+NUSTracker was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum
+in clubs and societies—specifically **student and event management**.
+
+
+###What can NUSTracker do?
+1. **Keep track of students**
+
+    NUSTracker displays all students currently associated with the organization neatly. The students have their details
+   and a profile picture (optional) listed with them as well, allowing quick and convenient access to student particulars.
+
+
+2. **Keep tracks of events and event _attendance_**
+
+    NUSTracker can also display the events stored, their information, and the participants taking part in those events.
+
+
+4. **Keep track of event blacklists**
+    
+    Events often have blacklists, which can also be tracked within NUSTracker.
+
 
 <div markdown="block" class="alert alert-info">
 
@@ -56,7 +77,7 @@ Graphical User Interface (GUI).
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
@@ -64,7 +85,7 @@ Graphical User Interface (GUI).
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+* If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
@@ -72,10 +93,7 @@ Graphical User Interface (GUI).
 
 </div>
 
-
-
-<br><br>
-
+--------------------------------------------------------------------------------------------------------------------
 ## Student Commands
 ### Adding a student: `add`
 
@@ -171,9 +189,7 @@ _**Coming soon:** Additional fields to filter by._
 
 _**Coming soon:** Filter by multiple fields._
 
-<br><br>
-
-
+--------------------------------------------------------------------------------------------------------------------
 ## Event Commands
 
 ### Creating an event: `create`
@@ -198,8 +214,6 @@ Examples:
     - HH represents the hour (from 00-24 inclusive)
     - MM represents the minute (from 00-59 inclusive)
     - **Note:** if HH is `24`, MM has to be `00`. (`2400`)
-
-<br>
 
 ### List all events : `events`
 
@@ -284,7 +298,22 @@ Command: `exit`
 <br><br><br>
 
 ---------------------------------------------------------------------------------------
+##Customizing NUSTracker
 
+Another key feature of NUSTracker is its ability to be customized greatly. This section covers how NUSTracker can be
+customized to your liking.
+
+###Light/Dark Theme
+NUSTracker has a light/dark theme. To toggle between the two, click the button (to the left of **Settings**) as shown in the image below and
+voila!
+ 
+![change_theme](images/change_theme.PNG)
+
+##Setting a profile picture
+NUSTracker has the ability to add a profile picture to a student. Follow the steps given to add a picture:
+
+
+---------------------------------------------------------------------------------------
 ## Misc
 ### Saving the data
 
