@@ -38,16 +38,19 @@ public class EditCommand extends Command {
             + "by the student's student ID. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: "
-            + PREFIX_STUDENTID + "STUDENTID_TO_EDIT "
-            + "[" + PREFIX_NAME + "NAME] "
-            + "[" + PREFIX_PHONE + "PHONE] "
-            + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_YEAR + "YEAR] "
-            + "[" + PREFIX_MAJOR + "MAJOR] "
-            + "[" + PREFIX_STUDENTID + "NEW_STUDENTID] "
-            + "Example: " + COMMAND_WORD + " 1 "
+            + PREFIX_STUDENTID + "ID_OF_STUDENT_TO_EDIT "
+            + "[" + PREFIX_NAME + "NEW_NAME] "
+            + "[" + PREFIX_PHONE + "NEW_PHONE] "
+            + "[" + PREFIX_EMAIL + "NEW_EMAIL] "
+            + "[" + PREFIX_YEAR + "NEW_YEAR] "
+            + "[" + PREFIX_MAJOR + "NEW_MAJOR] "
+            + "[" + PREFIX_STUDENTID + "NEW_STUDENT_ID] "
+            + "\n"
+            + "Example: " + COMMAND_WORD
+            + " " + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_PHONE + "91234567 "
-            + PREFIX_EMAIL + "johndoe@example.com";
+            + PREFIX_EMAIL + "johndoe@example.com "
+            + PREFIX_STUDENTID + "e0322323";
 
     public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited Student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";

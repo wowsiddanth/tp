@@ -103,16 +103,16 @@ Command: `students`
 
 Edits an existing student in the address book.
 
-Command: `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]`
+Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]`
 
-* Edits the student at the specified `STUDENT_ID`.
+* Edits the student who currently has the specified `STUDENT_ID`.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing events, the existing events of the student will be removed i.e adding of events is not cumulative.
+* Events of a student cannot be directly edited with the `edit` command, the `enroll` and `remove` commands serve this purpose.
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd student to be `Betsy Crower` and edits email.
+* `edit id/e0322322 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the student with Student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
+* `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name of the student with Student ID `e0542341` to be `Betsy Crower` and edits that student's Student ID to be `e0543212`.
 
 <br>
 
@@ -302,9 +302,9 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 **Command** | **Description** | **Example** |
 ----------------------------|------------------------------|-------------------------------------------------------|
-**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT_NAME]` |
+**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL` |
 **students** | lists students | `students` |
-**edit** | edit a student | `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]` |
+**edit** | edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
 **filter** | filter by field  | `filter [n/STUDENT_NAME [MORE_STUDENT_NAMES]...]` <br> `filter [id/STUDENT_ID [MORE_STUDENT_IDS]...]` <br>  `filter [ev/EVENT_NAME]` |
 
