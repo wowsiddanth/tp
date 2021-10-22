@@ -11,16 +11,16 @@
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
     -fx-padding: 0 0 0 0;
-    -fx-background-color: #515151;
+    -fx-background-color: #383838;
 }
 
 /** Individual student cell */
 .list-cell:filled {
-    -fx-background-color: #515151;
+    -fx-background-color: #383838;
 }
 
 .list-cell:filled:selected {
-    -fx-background-color: #424d5f;
+    -fx-background-color: #515151;
     -fx-border-color: #FDB703;
     -fx-border-width: 2px;
     -fx-border-radius: 4px;
@@ -30,13 +30,9 @@
 
 /**========================================= Start of Placeholder ====================================================*/
 
-#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder, #listPanelPlaceholder, #studentListPanel,
-#topContainer, #container, #studentListView, #status-bar, #studentList, #helpWindow {
+#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder,
+#topContainer, #container, #listPanelPlaceholder, #status-bar, #studentList, #helpWindow {
     -fx-background-color: #383838;
-}
-
-#studentListView {
-    -fx-background-color: black;
 }
 
 #phone, #major, #year, #studentId, #email, #enrolledEvents {

@@ -8,7 +8,7 @@ public class ThemeApplier {
     private Theme currentTheme;
 
     /**
-     * An enum that is used to indicate the theme to be used/removed/etc.
+     * An enum that represents the themes of the application.
      */
     public enum Theme {
         DARK {
@@ -26,7 +26,7 @@ public class ThemeApplier {
     }
 
     /***
-     * Instantiates a new ThemeApplier instance
+     * Instantiates a new ThemeApplier instance.
      */
     public ThemeApplier(MainWindow mainWindow, HelpWindow helpWindow, SettingsWindow settingsWindow,
                         boolean isLightTheme) {
@@ -37,7 +37,7 @@ public class ThemeApplier {
     }
 
     /**
-     * Applies a theme on startup, as defined in the preferences.JSON file.
+     * Applies a theme on startup, as defined in the preferences.json file.
      */
     public void applyOnStartUp() {
         if (currentTheme == Theme.DARK) {
@@ -46,7 +46,7 @@ public class ThemeApplier {
     }
 
     /**
-     * Applies the Light Theme to the application
+     * Applies the Light Theme to the application.
      */
     private void applyLightTheme() {
         currentTheme = Theme.LIGHT;
@@ -56,7 +56,7 @@ public class ThemeApplier {
     }
 
     /**
-     * Applies the Dark Theme to the application
+     * Applies the Dark Theme to the application.
      */
     private void applyDarkTheme() {
         currentTheme = Theme.DARK;
@@ -67,6 +67,7 @@ public class ThemeApplier {
 
     /**
      * Removes the theme that corresponds to the enum passed as an argument.
+     *
      * @param removeTheme The Theme to be removed
      */
     private void removeTheme(Theme removeTheme) {
@@ -76,7 +77,7 @@ public class ThemeApplier {
     }
 
     /**
-     * Applies the theme that corresponds to the enum passed as an argument
+     * Applies the theme that corresponds to the enum passed as an argument.
      *
      * @param addTheme The Theme to be applied
      */
@@ -87,7 +88,7 @@ public class ThemeApplier {
     }
 
     /**
-     * Switches the current theme of the application
+     * Switches the current theme of the application.
      */
     public void switchTheme() {
         switch (currentTheme) {
@@ -103,9 +104,9 @@ public class ThemeApplier {
     }
 
     /**
-     * Returns a boolean that corresponds to whether the application is using a Light Theme or not
+     * Returns a boolean that corresponds to whether the application is using the light theme or not.
      *
-     * @return True if using Light Theme, False if using Dark Theme
+     * @return True if using Light Theme, false if using Dark Theme.
      */
     public boolean themeOnExit() {
         return currentTheme == Theme.LIGHT;

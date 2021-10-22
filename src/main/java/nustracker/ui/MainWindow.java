@@ -23,13 +23,13 @@ public class MainWindow extends UiPart<Stage> {
 
     public static final double MIN_HEIGHT = 747.0;
     public static final double MIN_WIDTH = 914.0;
-
     private static final String FXML = "MainWindow.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
     private final Stage primaryStage;
     private final Logic logic;
+    private final ThemeApplier themeApplier;
 
     // Independent Ui parts residing in this Ui container
     private StudentListPanel studentListPanel;
@@ -40,44 +40,28 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private Button helpButton;
-
     @FXML
     private StackPane commandBoxPlaceholder;
-
     @FXML
     private StackPane listPanelPlaceholder;
-
-    //This space is for the NUSTracker logo, and the help and exit button
     @FXML
-    private HBox topContainer;
-
+    private HBox topContainer; //This space is for the NUSTracker logo, and the help and exit button
     @FXML
     private MenuItem helpMenuItem;
-
     @FXML
     private Button exitButton;
-
     @FXML
     private Button changeThemeButton;
-
     @FXML
     private Button eventsButton;
-
     @FXML
     private Button studentsButton;
-
     @FXML
     private Button settingsButton;
-
     @FXML
     private StackPane resultDisplayPlaceholder;
-
     @FXML
     private StackPane statusBarPlaceholder;
-
-    private ThemeApplier.Theme currentTheme;
-
-    private final ThemeApplier themeApplier;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -88,15 +72,15 @@ public class MainWindow extends UiPart<Stage> {
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
+        GuiSettings guiSettings = logic.getGuiSettings();
 
         helpWindow = new HelpWindow();
-        settingsWindow = new SettingsWindow(logic.getGuiSettings());
-        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow,
-                logic.getGuiSettings().getIsLightMode());
+        settingsWindow = new SettingsWindow(guiSettings);
+        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow, guiSettings.getIsLightMode());
 
         // Configure the UI
-        setWindowSize(logic.getGuiSettings());
-        fillInnerParts(logic.getGuiSettings());
+        setWindowSize(guiSettings);
+        fillInnerParts(guiSettings);
         settingsWindow.setStudentListPanel(studentListPanel);
 
         themeApplier.applyOnStartUp();
@@ -201,7 +185,11 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-
+    /**
+     * Changes the current theme of the application.
+     *
+     * @see ThemeApplier#switchTheme()
+     */
     @FXML
     private void changeTheme() {
         themeApplier.switchTheme();

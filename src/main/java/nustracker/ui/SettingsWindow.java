@@ -16,6 +16,7 @@ public class SettingsWindow extends UiPart<Stage> {
 
     private static final Logger logger = LogsCenter.getLogger(SettingsWindow.class);
     private static final String FXML = "SettingsWindow.fxml";
+    private StudentListPanel studentListPanel;
 
     @FXML
     private VBox container;
@@ -23,9 +24,6 @@ public class SettingsWindow extends UiPart<Stage> {
     private ColorPicker glowColorPicker;
     @FXML
     private Button doneButton;
-
-    private Color glowColor;
-    private StudentListPanel studentListPanel;
 
     private SettingsWindow(Stage root) {
         super(FXML, root);
@@ -37,10 +35,8 @@ public class SettingsWindow extends UiPart<Stage> {
     public SettingsWindow(GuiSettings guiSettings) {
         this(new Stage());
 
-        this.studentListPanel = studentListPanel;
-
         glowColorPicker.setOnAction(e -> {
-            updateColor(getGlowHexCode());
+            updateGlowColor(getGlowHexCode());
         });
 
         setCurrentColor(guiSettings.getGlowHexCode());
@@ -54,25 +50,42 @@ public class SettingsWindow extends UiPart<Stage> {
         this.studentListPanel = studentListPanel;
     }
 
-    private void updateColor(String color) {
-        assert studentListPanel != null;
-        studentListPanel.updateGlow(color);
+    /**
+     * Updates the glow colour whenever a change is detected in the glow color picker. Passes
+     * on the hex code to studentListPanel.
+     *
+     * @param color The updated color
+     *
+     * @see nustracker.ui.StudentListPanel#updateGlow(String)
+     */
+    private void updateGlowColor(String color) {
+        if (isValidColorHexCode(color)) {
+            studentListPanel.updateGlow(color);
+        }
     }
 
     /**
      * Sets the previously saved glow color as the current color in
-     * the color picker.
+     * the color picker (this color refers to the starting color when
+     * the user first opens the color picker).
      *
      * @param colorHexCode The hex code of the glow color
      */
     private void setCurrentColor(String colorHexCode) {
-        Color currentColour = Color.web(colorHexCode);
-        glowColorPicker.setValue(currentColour);
+        if (!isValidColorHexCode(colorHexCode)) {
+            Color currentColour = Color.web(colorHexCode);
+            glowColorPicker.setValue(currentColour);
+        }
     }
 
-    public ColorPicker getGlowColorPicker() {
-        assert glowColorPicker != null;
-        return glowColorPicker;
+    /**
+     * Checks if the given string color hex code is a valid one or not.
+     *
+     * @param colorHexCode The string color hex code
+     * @return True if valid, false if not.
+     */
+    private boolean isValidColorHexCode(String colorHexCode) {
+        return colorHexCode.matches("[#][0-9a-fA-F]{6}");
     }
 
     /**

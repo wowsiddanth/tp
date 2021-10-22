@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="NUSTracker" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="NUSTracker" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/nustracker.png" />
   </icons>
@@ -47,9 +47,7 @@
           <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="50.0" translateX="-26.0" translateY="8.0" onAction="#changeTheme">
             <graphic>
               <ImageView fitHeight="30.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                  <Image url="@../images/theme.png" />
-                </image>
+                <Image url="@../images/theme.png"/>
               </ImageView>
             </graphic>
           </Button>

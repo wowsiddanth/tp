@@ -5,8 +5,5 @@
 
 <?import java.net.URL?>
 <VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
-  <stylesheets>
-    <URL value="@LightTheme.css"/>
-  </stylesheets>
-  <ListView fx:id="studentListView" VBox.vgrow="ALWAYS"/>
+  <ListView fx:id="studentListView" style="-fx-background-color: transparent" VBox.vgrow="ALWAYS"/>
 </VBox>

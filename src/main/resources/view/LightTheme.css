@@ -11,16 +11,16 @@
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
     -fx-padding: 0 0 0 0;
-    -fx-background-color: #FFFAFA ;
+    -fx-background-color: #FFFFFF ;
 }
 
 /** Individual student cell */
 .list-cell:filled {
-    -fx-background-color: #FFFAFA;
+    -fx-background-color: #FFFFFF;
 }
 
 .list-cell:filled:selected {
-    -fx-background-color: #FFE4E1;
+    -fx-background-color: #f2f2f2;
     -fx-border-color: #FDB703;
     -fx-border-width: 2px;
     -fx-border-radius: 4px;
@@ -30,9 +30,9 @@
 
 /**========================================= Start of Placeholder ====================================================*/
 
-#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder, #listPanelPlaceholder, #studentListPanel,
-#topContainer, #container, #studentListView, #status-bar, #studentList, #helpWindow {
-    -fx-background-color: #FFFAF0
+#commandBoxPlaceholder, #resultDisplayPlaceholder, #statusBarPlaceholder, #listPanelPlaceholder,
+#topContainer, #container, #status-bar, #studentList, #helpWindow {
+    -fx-background-color: #FFFFFF
 }
 
 #phone, #major, #year, #studentId, #email, #enrolledEvents  {
@@ -160,7 +160,7 @@
 /**========================================== Start of Result Display ---==============================================*/
 
 #resultDisplay .content { /**results**/
-    -fx-background-color: transparent, #F3f0e8, transparent, #FFFAFA;
+    -fx-background-color: transparent, #FFFFFF, transparent, #FFFFFF;
     -fx-background-radius: 0;
 }
 

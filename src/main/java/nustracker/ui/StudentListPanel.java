@@ -33,10 +33,7 @@ public class StudentListPanel extends UiPart<Region> {
         this.glowColorHexCode = glowColor;
         this.studentList = studentList;
 
-        studentListView.setItems(studentList);
-        studentListView.setCellFactory(listView -> new StudentListViewCell());
-
-        focusOnItem(0); //Select first item upon startup
+        fillPanelWithCells(studentList);
     }
 
     /**
@@ -48,9 +45,17 @@ public class StudentListPanel extends UiPart<Region> {
     public void updateGlow(String newGlowColorHexCode) {
         glowColorHexCode = newGlowColorHexCode;
 
+        fillPanelWithCells(studentList);
+    }
+
+    /**
+     * Fills the panel with the {@code ListCells}, each containing a {@link StudentCard}.
+     *
+     * @param studentList The student list to be used.
+     */
+    public void fillPanelWithCells(ObservableList<Student> studentList) {
         studentListView.setItems(studentList);
         studentListView.setCellFactory(listView -> new StudentListViewCell());
-
         focusOnItem(0); //Select first item upon startup
     }
 
