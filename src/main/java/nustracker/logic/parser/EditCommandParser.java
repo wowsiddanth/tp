@@ -34,7 +34,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
 
-        StudentId studentIdToEdit = ParserUtil.parseStudenttId(argMultimap.getAllValues(PREFIX_STUDENTID).get(0));
+        StudentId studentIdToEdit = ParserUtil.parseStudentId(argMultimap.getAllValues(PREFIX_STUDENTID).get(0));
 
 
 
@@ -54,8 +54,9 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
             editStudentDescriptor.setMajor(ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get()));
         }
+
         if (argMultimap.getValue(PREFIX_STUDENTID).isPresent() && argMultimap.getAllValues(PREFIX_STUDENTID).size() >= 2) {
-            editStudentDescriptor.setStudentId(ParserUtil.parseStudenttId(
+            editStudentDescriptor.setStudentId(ParserUtil.parseStudentId(
                     argMultimap.getValue(PREFIX_STUDENTID).get()));
         }
 
