@@ -15,24 +15,26 @@ Graphical User Interface (GUI).
 
 ## Getting Started
 
-**Now, you finally have your hands on _*NUSTracker*_. Great! Let's learn how to use it now.**
+**You finally have your hands on _*NUSTracker*_. Great! Let's learn how to use it now.**
 
 1. Ensure you have `Java 11` or above installed in your Computer.
 
 
-2. Download the latest `nustracker.jar`, found under Releases
+2. Download the latest `nustracker.jar`, found under Releases.
 
 
-3. Copy the file to the folder you want to use as the _home folder_ for NUSTracker.
+3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for NUSTracker.
 
 
-4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. The app already contains some sample data.<br>
 
 
    ![Ui](images/Ui1.png)
 
 
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press Enter to execute it. For example, typing `help` and pressing Enter will open the help window.<br>
+ 
+ 
    Here are some example commands you can try:
 
    * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a student named `John Doe` to NUSTracker.
@@ -67,6 +69,11 @@ in clubs and societies—specifically **student and event management**.
 4. **Keep track of event blacklists**
     
     Events often have blacklists, which can also be tracked within NUSTracker.
+
+
+5. **Be customized to the user's liking**
+    
+    One of the key points of NUSTracker is its customization. For more information, see [Customization](#Customization).
 
 
 <div markdown="block" class="alert alert-info">
@@ -302,19 +309,32 @@ Command: `exit`
 <br><br><br>
 
 ---------------------------------------------------------------------------------------
-##Customizing NUSTracker
+##Customization
 
 Another key feature of NUSTracker is its ability to be customized greatly. This section covers how NUSTracker can be
 customized to your liking.
 
-###Light/Dark Theme
+###Changing between Light/Dark Theme
 NUSTracker has a light/dark theme. To toggle between the two, click the button (to the left of **Settings**) as shown in the image below and
 voila!
  
 ![change_theme](images/change_theme.PNG)
 
-##Setting a profile picture
+###Setting a profile picture
 NUSTracker has the ability to add a profile picture to a student. Follow the steps given to add a picture:
+1. If you have not started NUSTracker before, run NUSTracker within a folder of your choice.
+
+
+2. Once it runs, a folder called _**profile-pictures**_ is created within the the folder that contains NUSTracker.
+
+    ![profile-pictures-folder](images/profile-pictures-folder.PNG)
+
+    *The **profile-pictures** folder is highlighted in blue*
+
+3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. 
+
+4. Rename the image to correspond to the **Student ID** of the student in NUSTracker that will use this profile picture.
+
 
 
 ---------------------------------------------------------------------------------------
@@ -328,6 +348,7 @@ NUSTracker data is saved in the hard disk automatically after any command that c
 NUSTracker data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
 _Please edit carefully! NUSTracker will start a fresh run if errors are present!_
+
 
 --------------------------------------------------------------------------------------------------------------------
 
