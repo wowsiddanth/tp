@@ -2,6 +2,7 @@ package nustracker.logic.commands;
 
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
+import nustracker.ui.MainWindow;
 
 /**
  * Displays the events list.
@@ -13,7 +14,8 @@ public class EventsCommand extends Command {
             "Here is the list of events.";
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 MainWindow.CurrentlyShownList currentlyShownList) throws CommandException {
         return new CommandResult(MESSAGE_SHOW_EVENTS_SUCCESS, false, false,
                 false, true);
     }

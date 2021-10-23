@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.student.MajorContainsKeywordsPredicate;
+import nustracker.ui.MainWindow;
 
 /**
  * Filters and lists all students in address book whose major contains any of the argument keywords.
@@ -19,7 +20,7 @@ public class FilterMajorCommand extends FilterCommand {
     }
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model, MainWindow.CurrentlyShownList currentlyShownList) {
         requireNonNull(model);
         model.updateFilteredStudentList(predicate);
         return new CommandResult(

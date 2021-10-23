@@ -216,7 +216,7 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Executes the command and returns the result.
      *
-     * @see nustracker.logic.Logic#execute(String)
+     * @see nustracker.logic.Logic#execute(String, CurrentlyShownList)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
