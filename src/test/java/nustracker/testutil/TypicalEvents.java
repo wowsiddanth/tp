@@ -20,15 +20,15 @@ public class TypicalEvents {
     public static final Event ORIENTATION = new EventBuilder().withName("Orientation Camp")
             .withDate("01-08-2022")
             .withTime("0900")
-            .withParticipants("e1234567", "e0544182").build();
+            .withParticipants("e9123119", "e9192390").build();
     public static final Event SPORTS_CAMP = new EventBuilder().withName("Sports Camp")
             .withDate("10-09-2021")
             .withTime("1200")
-            .withParticipants("e7654321").build();
+            .withParticipants("e9831818").build();
     public static final Event MATH_OLYMPIAD = new EventBuilder().withName("Math Olympiad")
             .withDate("05-03-2017")
             .withTime("1615")
-            .withParticipants("e0322322", "e0544224", "e0123456").build();
+            .withParticipants("e9123119", "e0123456", "e0322322").build();
 
     // For delete event tests
     public static final EventName EVENTNAME_ONE = new EventName("Orientation Camp");
