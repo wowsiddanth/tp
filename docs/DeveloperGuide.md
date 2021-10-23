@@ -399,20 +399,101 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The list of students is empty.
 
   Use case ends.
-  
+ 
 * 2b. The AddressBook does not find any students with from the given keywords.
-    
+ 
     * 2b1. AddressBook displays an empty list.
 
         Use case ends.
-    
+     
 * 2c. User types multiple prefixes to filter by.
 
     * 2c1. Address book shows an error message.
     
         Use case ends.
-      
-      
+
+
+
+
+
+**<u>Use case UC8 - Enroll a student into an event</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The student gets enrolled into the specified event if both the student and event exist. 
+
+**MSS:**
+
+1.  User requests to enroll a student into an event.
+2.  AddressBook updates the event to have this student as a participant.
+3.  AddressBook updates the student to be enrolled into this event.
+4.  AddressBook shows that the student has now been enrolled.
+
+    Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+
+      Use case ends.
+
+
+* 1b. The specified student does not exist in the AddressBook.
+    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
+    
+    Use case ends.
+
+* 1c. The specified event does not exist in the AddressBook.
+    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
+
+  Use case ends.
+
+* 1d. The specified student is currently already enrolled into the event.
+    * 1d1. AddressBook shows an error message, informing the user that the specified student is already currently enrolled.
+
+  Use case ends.
+
+
+**<u>Use case UC9 - Remove a student from an event</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The student is not enrolled into the specified event after the use case ends.
+
+**MSS:**
+
+1.  User requests to remove a student from an event.
+2.  AddressBook updates the event to remove this student from being a participant.
+3.  AddressBook updates the student to not be enrolled into this event anymore.
+4.  AddressBook shows that the student has now been removed from the event.
+
+    Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+
+      Use case ends.
+
+
+* 1b. The specified student does not exist in the AddressBook.
+    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
+
+  Use case ends.
+
+* 1c. The specified event does not exist in the AddressBook.
+    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
+
+  Use case ends.
+
+* 1d. The specified student is not currently enrolled into the event.
+    * 1d1. AddressBook shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.
+
+  Use case ends.
+
+
+
+
 *{More to be added}*
 
 ### Non-Functional Requirements

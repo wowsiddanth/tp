@@ -20,19 +20,47 @@ public class StudentListPanel extends UiPart<Region> {
     @FXML
     private ListView<Student> studentListView;
 
+    private String glowColorHexCode;
+
+    private ObservableList<Student> studentList;
+
     /**
      * Creates a {@code StudentListPanel} with the given {@code ObservableList}.
      */
-    public StudentListPanel(ObservableList<Student> studentList) {
+    public StudentListPanel(ObservableList<Student> studentList, String glowColor) {
         super(FXML);
+
+        this.glowColorHexCode = glowColor;
+        this.studentList = studentList;
+
+        fillPanelWithCells(studentList);
+    }
+
+    /**
+     * Updates the glow color of the containing student cards according to the colour changed in the
+     * color picker in the Settings Window
+     *
+     * @param newGlowColorHexCode The string hex code of color
+     */
+    public void updateGlow(String newGlowColorHexCode) {
+        glowColorHexCode = newGlowColorHexCode;
+
+        fillPanelWithCells(studentList);
+    }
+
+    /**
+     * Fills the panel with the {@code ListCells}, each containing a {@link StudentCard}.
+     *
+     * @param studentList The student list to be used.
+     */
+    public void fillPanelWithCells(ObservableList<Student> studentList) {
         studentListView.setItems(studentList);
         studentListView.setCellFactory(listView -> new StudentListViewCell());
-
         focusOnItem(0); //Select first item upon startup
     }
 
     /**
-     * Selects the first student, upon execution
+     * Focuses on the first student, upon execution
      */
     public void focusOnItem(int index) {
         studentListView.getSelectionModel().select(index);
@@ -52,7 +80,9 @@ public class StudentListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new StudentCard(student, getIndex() + 1).getRoot());
+                StudentCard currentStudent = new StudentCard(student);
+                currentStudent.setGlow(glowColorHexCode);
+                setGraphic(currentStudent.getRoot());
             }
         }
     }
