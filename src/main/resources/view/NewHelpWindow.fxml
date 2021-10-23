@@ -102,7 +102,7 @@
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <Text fx:id="addCommandExample" style="-fx-fill: #779CFF;" text=" addCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
@@ -113,69 +113,69 @@
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" students" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Text fx:id="studentsCommandExample" style="-fx-fill: #779CFF;" text=" studentsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyStudentsCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                           <Text style="-fx-fill: #779CFF;" text=" edit" GridPane.rowIndex="3">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Text fx:id="editCommandExample" style="-fx-fill: #779CFF;" text=" editCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEditCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                                           <Text style="-fx-fill: #779CFF;" text=" delete" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" delete id/STUDENT_ID" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Text fx:id="deleteCommandExample1" style="-fx-fill: #779CFF;" text=" deleteCommandExample1" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyDeleteCommand1" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                                           <Text style="-fx-fill: #779CFF;" text=" filter" GridPane.rowIndex="5">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" filter n/STUDENT_NAME [MORE_STUDENT_NAMES]..." GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Text fx:id="filterCommandExample1" style="-fx-fill: #779CFF;" text=" filterCommandExample1" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                                          <Text style="-fx-fill: #779CFF;" text=" filter id/STUDENT_ID [MORE_STUDENT_IDS]..." GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand1" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Text fx:id="filterCommandExample2" style="-fx-fill: #779CFF;" text=" filterCommandExample2" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                                          <Text style="-fx-fill: #779CFF;" text=" filter m/MAJOR [MORE_MAJORS]..." GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand2" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                          <Text fx:id="filterCommandExample3" style="-fx-fill: #779CFF;" text=" filterCommandExample3" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                                          <Text style="-fx-fill: #779CFF;" text=" filter y/YEAR [MORE_YEARS]..." GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand3" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                          <Text fx:id="filterCommandExample4" style="-fx-fill: #779CFF;" text=" filterCommandExample4" GridPane.columnIndex="1" GridPane.rowIndex="8">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                                          <Text style="-fx-fill: #779CFF;" text=" filter ev/EVENT_NAME" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand4" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                          <Text fx:id="filterCommandExample5" style="-fx-fill: #779CFF;" text=" filterCommandExample5" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand5" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                                        </children>
                                     </GridPane>
                                  </content>
@@ -212,56 +212,56 @@
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <Text fx:id="createCommandExample" style="-fx-fill: #779CFF;" text=" createCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyCreateCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                           <Text style="-fx-fill: #779CFF;" text=" events" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" events" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Text fx:id="eventsCommandExample" style="-fx-fill: #779CFF;" text=" eventsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEventsCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                           <Text style="-fx-fill: #779CFF;" text=" enroll" GridPane.rowIndex="3">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" enroll id/STUDENT_ID ev/EVENT_NAME" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Text fx:id="enrollCommandExample" style="-fx-fill: #779CFF;" text=" enrollCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                                           <Text style="-fx-fill: #779CFF;" text=" remove" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" remove id/STUDENT_ID ev/EVENT_NAME" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Text fx:id="removeCommandExample" style="-fx-fill: #779CFF;" text=" removeCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyRemoveCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                                           <Text style="-fx-fill: #779CFF;" text=" delete" GridPane.rowIndex="5">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" delete ev/EVENT_NAME" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Text fx:id="deleteCommandExample2" style="-fx-fill: #779CFF;" text=" deleteCommandExample2" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyDeleteCommand2" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                                        </children>
                                     </GridPane>
                                  </content>
@@ -297,45 +297,45 @@
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" help" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <Text fx:id="helpCommandExample" style="-fx-fill: #779CFF;" text=" helpCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyHelpCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                           <Text style="-fx-fill: #779CFF;" text=" settings" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" settings" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Text fx:id="settingsCommandExample" style="-fx-fill: #779CFF;" text=" settingsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copySettingsCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                           <Text style="-fx-fill: #779CFF;" text=" export" GridPane.rowIndex="3">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" export fn/FILE_NAME" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Text fx:id="exportCommandExample" style="-fx-fill: #779CFF;" text=" exportCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExportCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                                           <Text style="-fx-fill: #779CFF;" text=" exit" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text style="-fx-fill: #779CFF;" text=" exit" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Text fx:id="exitCommandExample" style="-fx-fill: #779CFF;" text=" exitCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExitCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                                        </children>
                                     </GridPane>
                                  </content>
