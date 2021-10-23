@@ -9,6 +9,8 @@ import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.ui.MainWindow;
 
+import java.util.ArrayList;
+
 public class DeleteFilteredStudentsCommand extends Command {
 
     public static final String COMMAND_WORD = "delfiltered";
@@ -37,7 +39,14 @@ public class DeleteFilteredStudentsCommand extends Command {
 
         ObservableList<Student> filteredStudents = model.getFilteredStudentList();
 
+        // Make a copy since the Observable List contents are modified while this is running.
+        ArrayList<Student> copyOfFilteredStudents = new ArrayList<>();
+
         for (Student currStudent : filteredStudents) {
+            copyOfFilteredStudents.add(currStudent);
+        }
+
+        for (Student currStudent : copyOfFilteredStudents) {
             StudentId currStudentId = currStudent.getStudentId();
             DeleteStudentCommand delThisStudent = new DeleteStudentCommand(currStudentId);
 
