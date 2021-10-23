@@ -27,6 +27,7 @@ public class JsonAdaptedEvent {
     private final String date;
     private final String time;
     private final List<JsonAdaptedParticipant> participants = new ArrayList<>();
+    private final List<JsonAdaptedParticipant> blacklist = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedEvent} with the given event details.
@@ -35,12 +36,16 @@ public class JsonAdaptedEvent {
     public JsonAdaptedEvent(@JsonProperty("name") String name,
                             @JsonProperty("date") String date,
                             @JsonProperty("time") String time,
-                            @JsonProperty("participants") List<JsonAdaptedParticipant> participants) {
+                            @JsonProperty("participants") List<JsonAdaptedParticipant> participants,
+                            @JsonProperty("BlackList") List<JsonAdaptedParticipant> blacklist) {
         this.name = name;
         this.date = date;
         this.time = time;
         if (participants != null) {
             this.participants.addAll(participants);
+        }
+        if (blacklist != null) {
+            this.blacklist.addAll(blacklist);
         }
     }
 
@@ -52,6 +57,9 @@ public class JsonAdaptedEvent {
         date = source.getDate().getEventDate();
         time = source.getTime().getEventTime();
         participants.addAll(source.getParticipants().stream()
+                .map(JsonAdaptedParticipant::new)
+                .collect(Collectors.toList()));
+        blacklist.addAll(source.getBlacklist().stream()
                 .map(JsonAdaptedParticipant::new)
                 .collect(Collectors.toList()));
     }
@@ -96,6 +104,12 @@ public class JsonAdaptedEvent {
         }
         final Set<Participant> modelParticipants = new HashSet<>(eventParticipants);
 
-        return new Event(modelName, modelDate, modelTime, modelParticipants);
+        final List<Participant> eventBlacklist = new ArrayList<>();
+        for (JsonAdaptedParticipant blacklisted : blacklist) {
+            eventBlacklist.add(blacklisted.toModelType());
+        }
+        final Set<Participant> modelBlacklist = new HashSet<>(eventBlacklist);
+
+        return new Event(modelName, modelDate, modelTime, modelParticipants, modelBlacklist);
     }
 }

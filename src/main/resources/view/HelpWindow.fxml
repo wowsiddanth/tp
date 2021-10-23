@@ -345,6 +345,7 @@
                      </content>
                   </ScrollPane>
                </children>
+
             </VBox>
          </root>
       </Scene>

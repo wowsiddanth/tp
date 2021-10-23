@@ -30,12 +30,16 @@ import nustracker.model.student.StudentId;
  */
 public class TypicalStudents {
 
+    // Note that ALICE should not be enrolled into any Events.
+    // This will affect the EditCommandTest.
     public static final Student ALICE = new StudentBuilder().withName("Alice Pauline")
             .withEmail("alice@example.com")
             .withPhone("94351253")
             .withYear("1")
             .withMajor("CS")
             .withStudentId("e9034800").build();
+    // Note that BENSON should not be enrolled into any Events.
+    // This will affect the JSONAdaptedStudentTest.
     public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
             .withEmail("johnd@example.com")
             .withPhone("98765432")
@@ -58,7 +62,8 @@ public class TypicalStudents {
             .withYear("3")
             .withMajor("CS")
             .withStudentId("e9831818")
-            .withEmail("werner@example.com").build();
+            .withEmail("werner@example.com")
+            .withEvent(SPORTS_CAMP).build();
     public static final Student FIONA = new StudentBuilder().withName("Fiona Kunz").withPhone("94824271")
             .withYear("4")
             .withMajor("CS")
@@ -68,7 +73,8 @@ public class TypicalStudents {
             .withYear("2")
             .withMajor("IS")
             .withStudentId("e9123119")
-            .withEmail("anna@example.com").build();
+            .withEmail("anna@example.com")
+            .withEvent(MATH_OLYMPIAD).build();
 
     // Manually added
     public static final Student HOON = new StudentBuilder().withName("Hoon Meier").withPhone("8482424")
