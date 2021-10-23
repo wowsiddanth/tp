@@ -1,12 +1,17 @@
 package nustracker.ui;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import nustracker.commons.core.LogsCenter;
 
@@ -16,12 +21,12 @@ import nustracker.commons.core.LogsCenter;
 public class HelpWindow extends UiPart<Stage> {
 
     public static final String USER_GUIDE_URL = "https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html";
-    public static final String HELP_MESSAGE = "Refer to the user guide:   " + USER_GUIDE_URL;
-    public static final String COPY_LINK_TEXT = "Copy Link";
+    public static final String HELP_MESSAGE = "Refer to the user guide: " + USER_GUIDE_URL;
+    public static final String COPY_LINK_TEXT = "Open User Guide";
 
     public static final String ADD_COMMAND = "add";
-    public static final String ADD_COMMAND_EXAMPLE =
-            ADD_COMMAND + " n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT]";
+    public static final String ADD_COMMAND_EXAMPLE = ADD_COMMAND
+            + " n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT]";
 
     public static final String FILTER_COMMAND = "filter";
     public static final String FILTER_COMMAND_EXAMPLE = FILTER_COMMAND
@@ -29,7 +34,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String EDIT_COMMAND = "edit";
     public static final String EDIT_COMMAND_EXAMPLE = EDIT_COMMAND
-            + " INDEX [n/NAME] [m/MAJOR] [id/ STUDENT ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]";
+            + " INDEX [n/NAME] [m/MAJOR] [id/Student ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]";
 
     public static final String CREATE_COMMAND = "create";
     public static final String CREATE_COMMAND_EXAMPLE = CREATE_COMMAND;
@@ -54,70 +59,40 @@ public class HelpWindow extends UiPart<Stage> {
     private static final String FXML = "HelpWindow.fxml";
 
     @FXML
-    private Button copyLinkButton;
+    private VBox helpWindow;
 
     @FXML
-    private Button copyAddCommand;
+    private Text helpMessage;
 
     @FXML
-    private Button copyListCommand;
+    private Text addCommandExample;
 
     @FXML
-    private Button copyFilterCommand;
+    private Text listCommandExample;
 
     @FXML
-    private Button copyEditCommand;
+    private Text filterCommandExample;
 
     @FXML
-    private Button copyDeleteCommand;
+    private Text editCommandExample;
 
     @FXML
-    private Button copyExitCommand;
+    private Text deleteCommandExample;
 
     @FXML
-    private Button copyCreateCommand;
+    private Text exitCommandExample;
 
     @FXML
-    private Button copyEnrollCommand;
+    private Text createCommandExample;
 
     @FXML
-    private Button copyStudentsCommand;
+    private Text enrollCommandExample;
 
     @FXML
-    private Button copyEventsCommand;
+    private Text studentsCommandExample;
 
     @FXML
-    private Label helpMessage;
-
-    @FXML
-    private Label addCommandExample;
-
-    @FXML
-    private Label listCommandExample;
-
-    @FXML
-    private Label filterCommandExample;
-
-    @FXML
-    private Label editCommandExample;
-
-    @FXML
-    private Label deleteCommandExample;
-
-    @FXML
-    private Label exitCommandExample;
-
-    @FXML
-    private Label createCommandExample;
-
-    @FXML
-    private Label enrollCommandExample;
-
-    @FXML
-    private Label studentsCommandExample;
-
-    @FXML
-    private Label eventsCommandExample;
+    private Text eventsCommandExample;
 
     /**
      * Creates a new HelpWindow.
@@ -126,13 +101,13 @@ public class HelpWindow extends UiPart<Stage> {
      */
     public HelpWindow(Stage root) {
         super(FXML, root);
-        copyLinkButton.setText(COPY_LINK_TEXT);
+
         helpMessage.setText(HELP_MESSAGE);
         addCommandExample.setText(ADD_COMMAND_EXAMPLE);
-        listCommandExample.setText(LIST_COMMAND_EXAMPLE);
         filterCommandExample.setText(FILTER_COMMAND_EXAMPLE);
         editCommandExample.setText(EDIT_COMMAND_EXAMPLE);
         deleteCommandExample.setText(DELETE_COMMAND_EXAMPLE);
+        listCommandExample.setText(LIST_COMMAND_EXAMPLE);
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
         createCommandExample.setText(CREATE_COMMAND_EXAMPLE);
         enrollCommandExample.setText(ENROLL_COMMAND_EXAMPLE);
@@ -196,11 +171,15 @@ public class HelpWindow extends UiPart<Stage> {
      * Copies the URL to the user guide to the clipboard.
      */
     @FXML
-    private void copyUrl() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent url = new ClipboardContent();
-        url.putString(USER_GUIDE_URL);
-        clipboard.setContent(url);
+    private void openUserGuide() {
+        Desktop desktop = java.awt.Desktop.getDesktop();
+
+        try {
+            URI url = new URI(USER_GUIDE_URL);
+            desktop.browse(url);
+        } catch (IOException | URISyntaxException e) {
+            logger.log(Level.INFO, "The user guide could not be opened!");
+        }
     }
 
     /**
