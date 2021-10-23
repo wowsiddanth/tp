@@ -251,9 +251,17 @@ Examples:
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Opens the help window, which consists of a summary of the commands that are available for use,
+and also includes a template on how to use the command, which you can copy with the simple click of a button.
 
 Command: `help`
+
+### Viewing settings : `settings`
+
+Opens the settings window, which allows you to customize the glow of the profile pictures.
+You can pick from the preset colours, or customize your own with the colour palette.
+
+Command: `settings`
 
 
 ### Exporting Emails : `export`
@@ -272,7 +280,7 @@ Examples:
 
 ### Exiting the program : `exit`
 
-Exits the program.
+Closes the program.
 
 Command: `exit`
 
@@ -327,5 +335,6 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Command** | **Description** | **Example** |
 -------------------------|------------------------------------------|----------------------------------|
 **help** | opens the help window | `help` |
+**settings** | opens the settings window | `settings` |
 **export** | exports the emails of the students that <br> are currently displayed | `export fn/FILE_NAME` |
 **exit** | exits the app | `exit` |
