@@ -1,12 +1,10 @@
 package nustracker.ui;
 
-import java.util.logging.Logger;
-
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
-import nustracker.commons.core.LogsCenter;
 import nustracker.model.event.Event;
 
 /**
@@ -15,9 +13,8 @@ import nustracker.model.event.Event;
 public class EventListPanel extends UiPart<Region> {
 
     private static final String FXML = "EventListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(EventListPanel.class);
 
-    @javafx.fxml.FXML
+    @FXML
     private ListView<Event> eventListView;
 
     /**
@@ -26,7 +23,7 @@ public class EventListPanel extends UiPart<Region> {
     public EventListPanel(ObservableList<Event> eventList) {
         super(FXML);
         eventListView.setItems(eventList);
-        eventListView.setCellFactory(listView -> new EventListPanel.EventListViewCell());
+        eventListView.setCellFactory(listView -> new EventListViewCell());
 
         focusOnItem(0);
     }
@@ -41,8 +38,6 @@ public class EventListPanel extends UiPart<Region> {
     }
 
     /**
-
-    /**
      * Custom {@code ListCell} that displays the graphics of an {@code Event} using an {@code EventCard}.
      */
     class EventListViewCell extends ListCell<Event> {
@@ -54,7 +49,7 @@ public class EventListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new EventCard(event, getIndex() + 1).getRoot());
+                setGraphic(new EventCard(event).getRoot());
             }
         }
     }

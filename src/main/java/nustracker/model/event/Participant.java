@@ -2,54 +2,54 @@ package nustracker.model.event;
 
 import static java.util.Objects.requireNonNull;
 
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 
 /**
- * Represents an Event's participant. Participants are stored by their NUS NetId.
+ * Represents an Event's participant. Participants are stored by their student ID.
  */
 public class Participant {
 
-    public final String nusNetId;
+    public final String studentId;
 
     /**
      * Constructs a {@code Id}.
      *
-     * @param nusNetId A valid NUS NetId.
+     * @param studentId A valid student ID.
      */
-    public Participant(String nusNetId) {
-        requireNonNull(nusNetId);
-        this.nusNetId = nusNetId;
+    public Participant(String studentId) {
+        requireNonNull(studentId);
+        this.studentId = studentId;
     }
 
     /**
      * Returns true if a given string is a valid participant.
      */
     public static boolean isValidParticipant(String test) {
-        return NusNetId.isValidNusNetId(test);
+        return StudentId.isValidStudentId(test);
     }
 
     /**
-     * Gets the participant's Nus NetId.
-     * @return the Nus NetId object.
+     * Gets the participant's student ID.
+     * @return the StudentId object.
      */
-    public NusNetId getNusNetId() {
-        return new NusNetId(nusNetId);
+    public StudentId getStudentId() {
+        return new StudentId(studentId);
     }
 
     @Override
     public String toString() {
-        return nusNetId;
+        return studentId;
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof NusNetId // instanceof handles nulls
-                && nusNetId.equals(((NusNetId) other).value)); //Check internal attributes
+                || (other instanceof StudentId // instanceof handles nulls
+                && studentId.equals(((StudentId) other).value)); //Check internal attributes
     }
 
     @Override
     public int hashCode() {
-        return nusNetId.hashCode();
+        return studentId.hashCode();
     }
 }

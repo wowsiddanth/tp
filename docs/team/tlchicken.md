@@ -28,14 +28,14 @@ Given below are my contributions to the project.
   <!--- * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub --->
 
 * **Enhancements to existing features**:
-  <!--- Changed the edit command to identify students by NUS Net ID instead of by index in the GUI's list.
+  <!--- Changed the edit command to identify students by student ID instead of by index in the GUI's list.
 
   * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
   * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]()) --->
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `enroll` and `remove` 
+    * Added documentation for the features `enroll` and `remove`
   * Developer Guide:
     * Added Introduction section.
     * Added Target User Profile and Value Proposition. (From Team Discussions)
@@ -49,7 +49,7 @@ Given below are my contributions to the project.
   * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
   * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
   --->
-  
+
 * **Tools**:
   <!---
   * Integrated a third party library (Natty) to the project ([\#42]())

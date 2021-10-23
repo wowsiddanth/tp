@@ -2,13 +2,9 @@ package nustracker.model.student;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 import nustracker.commons.util.CollectionUtil;
-import nustracker.model.tag.Tag;
 
 /**
  * Represents a Student in the address book.
@@ -22,25 +18,21 @@ public class Student {
     private final Email email;
     private final Year year;
     private final Major major;
-    private final NusNetId nusNetId;
+    private final StudentId studentId;
     private final EnrolledEvents enrolledEvents;
-
-    // Data fields
-    private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
     public Student(Name name, Phone phone, Email email, Year year, Major major,
-                   NusNetId nusNetId, Set<Tag> tags, EnrolledEvents enrolledEvents) {
-        CollectionUtil.requireAllNonNull(name, phone, email, year, major, nusNetId, tags, enrolledEvents);
+                   StudentId studentId, EnrolledEvents enrolledEvents) {
+        CollectionUtil.requireAllNonNull(name, phone, email, year, major, studentId, enrolledEvents);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.year = year;
         this.major = major;
-        this.nusNetId = nusNetId;
-        this.tags.addAll(tags);
+        this.studentId = studentId;
         this.enrolledEvents = enrolledEvents;
         Major.addStudent(this);
     }
@@ -65,8 +57,8 @@ public class Student {
         return major;
     }
 
-    public NusNetId getNusNetId() {
-        return nusNetId;
+    public StudentId getStudentId() {
+        return studentId;
     }
 
     public EnrolledEvents getEvents() {
@@ -74,16 +66,8 @@ public class Student {
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
-    }
-
-    /**
      * Returns true if the other student has the same credentials in the fields
-     * where having the same ones is not allowed like the NUS NetId, email, & phone.
+     * where having the same ones is not allowed like the student ID, email, & phone.
      */
     public boolean hasDuplicateCredentials(Student otherStudent) {
         if (otherStudent == this) {
@@ -91,7 +75,7 @@ public class Student {
         }
 
         boolean notNull = otherStudent != null;
-        boolean sameId = notNull && otherStudent.getNusNetId().equals(getNusNetId());
+        boolean sameId = notNull && otherStudent.getStudentId().equals(getStudentId());
         boolean sameEmail = notNull && otherStudent.getEmail().equals(getEmail());
         boolean samePhone = notNull && otherStudent.getPhone().equals(getPhone());
 
@@ -99,13 +83,13 @@ public class Student {
     }
 
     /**
-     * Wraps the NusNetId in a Student for easy re-usability with other methods.
+     * Wraps the studentId in a Student for easy re-usability with other methods.
      *
-     * @param nusNetId The NUS NetId
-     * @return A Student with the given NusNetId, and pseudo details.
+     * @param studentId The studentId
+     * @return A Student with the given studentId, and pseudo details.
      */
-    public static Student pseudoStudent(NusNetId nusNetId) {
-        requireNonNull(nusNetId);
+    public static Student pseudoStudent(StudentId studentId) {
+        requireNonNull(studentId);
 
         String validName = "Pseudo Student";
         String validPhone = "00000000";
@@ -118,8 +102,8 @@ public class Student {
                 new Email(validEmail),
                 new Year(validYear),
                 new Major(validMajor),
-                nusNetId,
-                new HashSet<>(), validEnrolledEvents);
+                studentId,
+                validEnrolledEvents);
     }
 
     /**
@@ -142,15 +126,14 @@ public class Student {
                 && otherStudent.getEmail().equals(getEmail())
                 && otherStudent.getYear().equals(getYear())
                 && otherStudent.getMajor().equals(getMajor())
-                && otherStudent.getNusNetId().equals(getNusNetId())
-                && otherStudent.getTags().equals(getTags())
+                && otherStudent.getStudentId().equals(getStudentId())
                 && otherStudent.getEvents().equals(getEvents());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, year, major, nusNetId, tags);
+        return Objects.hash(name, phone, email, year, major, studentId);
     }
 
     @Override
@@ -165,14 +148,8 @@ public class Student {
                 .append(getYear())
                 .append("; Major: ")
                 .append(getMajor())
-                .append("; NUSNetId: ")
-                .append(getNusNetId());
-        Set<Tag> tags = getTags();
-        if (!tags.isEmpty()) {
-            builder.append("; Tags: ");
-            tags.forEach(builder::append);
-        }
-
+                .append("; StudentId: ")
+                .append(getStudentId());
         if (enrolledEvents.hasEvents()) {
             builder.append("; Events:");
             builder.append(enrolledEvents.getEventNamesString());

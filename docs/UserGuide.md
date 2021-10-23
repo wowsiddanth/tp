@@ -30,7 +30,7 @@ Graphical User Interface (GUI).
    * **`list`** : Lists all students.
 
    * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` to the Address Book.
-   
+    
    * **`exit`** : Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
@@ -85,17 +85,17 @@ Examples:
   3. IS (Information Systems)
   4. ISEC (Information Security)
 
-- The Student iD must be specified exactly. {eXXXXXXX}
+- The Student ID must be specified exactly. {eXXXXXXX}
 
 - Year must be specified as a single number.
 
 <br>
 
-### Listing all students: `list`
+### Listing all students: `students`
 
 Shows all students in the app.
 
-Format: `list`
+Command: `students`
 
 <br>
 
@@ -103,16 +103,16 @@ Format: `list`
 
 Edits an existing student in the address book.
 
-Command: `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]`
+Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]`
 
-* Edits the student at the specified `STUDENT_ID`.
+* Edits the student who currently has the specified `STUDENT_ID`.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing events, the existing events of the student will be removed i.e adding of events is not cumulative.
+* Events of a student cannot be directly edited with the `edit` command, the `enroll` and `remove` commands serve this purpose.
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower e/betsycrower@example.com` Edits the name of the 2nd student to be `Betsy Crower` and edits email.
+* `edit id/e0322322 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the student with Student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
+* `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name of the student with Student ID `e0542341` to be `Betsy Crower` and edits that student's Student ID to be `e0543212`.
 
 <br>
 
@@ -134,22 +134,28 @@ Examples:
 
 Filters students whose data contains the given field.
 
-Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [ev/EVENT_NAME]`
+Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [m/MAJOR [MORE_MAJORS]...] [y/YEAR [MORE_YEARS]...] [ev/EVENT_NAME]`
 
 * You can filter by:
-    - Multiple NUS NetIDs. (case-insensitive)
+    - Multiple student IDs. (case-insensitive)
     - Multiple Student names. (case-insensitive)
+    - Multiple Majors. (case-insensitive)
+    - Multiple Years.
     - **A single** Event name. (case-sensitive)
 
-* You can only filter by one field (i.e. filter only by student ID, student name, or event name).
-* The search is case-insensitive, except for event. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
-* Multiple keyword search is only supported for Student ID and Student name.
+* You can only filter by one field (i.e. filter only by student ID, student name, year, major, or event name).
+* The search is case-insensitive, except for events. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
+* You can search using multiple keywords except for events.
+* You can search by partial keywords for names and student IDs. e.g. `n/al` will match with `n/alice` and `id/e12` will match with `id/e1234567`
 
 Examples:
-* `filter id/e1234567` returns the student with the ID e1234567 if that student exists in the address book.
-* `filter id/e1234567 e2345678` returns two students whose Student IDs are e1234567 and e2345678 if they exist in the address book.
+* `filter id/e1234567` returns the student with the id e1234567 if that student exists in the address book.
+* `filter id/e1234567 e2345678` returns two students whose student IDs are e1234567 and e2345678 if they exist in the address book.
+* `filter id/e09` returns all students with student IDs that contain e09.
 * `filter n/John` returns the students whose names contain John.
 * `filter n/John alice` returns the students whose names contain John OR Alice.
+* `filter m/CS IS` returns the students majoring in CS or IS.
+* `filter y/1 2 3` returns the students in years 1, 2, or 3.
 * `filter ev/IFG` returns a list of students who are tagged to the IFG event.
 
 _**Coming soon:** Additional fields to filter by._
@@ -217,8 +223,8 @@ Command: `remove id/STUDENT_ID ev/EVENT`
 * Removes the student specified by Student ID from the event specified by its event name.
 
 Examples:
-* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with NUS NetId e0986472 from the event "Tea Making Workshop".
-* `remove id/e0264853 ev/Fun Run` removes the specified student with NUS NetId e0264853 into the event "Fun Run".
+* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
+* `remove id/e0264853 ev/Fun Run` removes the specified student with student ID e0264853 into the event "Fun Run".
 
 <br>
 
@@ -245,6 +251,20 @@ Shows a message explaining how to access the help page.
 
 Command: `help`
 
+
+### Exporting Emails : `export`
+
+Exports the emails of the students that are currently being displayed.
+
+Command: `export fn/FILE_NAME`
+
+Filenames cannot contain the characters `\:*?"<>|`
+
+The file will be located in the `data` directory, the same place where the app's save files are located.
+
+Examples:
+* `export fn/StudentsAttendingOrientation`
+* `export fn/AllStudents`
 
 ### Exiting the program : `exit`
 
@@ -282,18 +302,18 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 **Command** | **Description** | **Example** |
 ----------------------------|------------------------------|-------------------------------------------------------|
-**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT_NAME]` |
-**list** | lists students | `list` |
-**edit** | edit a student | `edit STUDENT_ID [n/NAME] [m/MAJOR] [id/STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL] [ev/EVENT]` |
+**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL` |
+**students** | lists students | `students` |
+**edit** | edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
 **filter** | filter by field  | `filter [n/STUDENT_NAME [MORE_STUDENT_NAMES]...]` <br> `filter [id/STUDENT_ID [MORE_STUDENT_IDS]...]` <br>  `filter [ev/EVENT_NAME]` |
 
 ### Event Commands
 
 **Command** | **Description** | **Example** |
----------------------------------------|---------------------------------|---------------------------|
+----------------|-------------------------|-----------------|
 **create**  | create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
-**events**  | lists events | `events` **NOT WORKING** |
+**events**  | lists events | `events` |
 **enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
 **remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
 **delete**  | deletes an event | `delete ev/EVENT_NAME` |
@@ -302,5 +322,6 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 **Command** | **Description** | **Example** |
 -------------------------|------------------------------------------|----------------------------------|
-**help** | opens the help window | `help`      |
+**help** | opens the help window | `help` |
+**export** | exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
 **exit** | exits the app | `exit` |
