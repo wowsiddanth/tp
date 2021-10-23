@@ -21,7 +21,7 @@ import nustracker.commons.core.LogsCenter;
 public class HelpWindow extends UiPart<Stage> {
 
     public static final String USER_GUIDE_URL = "https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html";
-    public static final String HELP_MESSAGE = "Refer to the user guide: " + USER_GUIDE_URL;
+    public static final String HELP_MESSAGE = "Refer to the user guide: ";
     public static final String COPY_LINK_TEXT = "Open User Guide";
 
     public static final String ADD_COMMAND = "add";
@@ -56,43 +56,43 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String EVENTS_COMMAND = "events";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
-    private static final String FXML = "HelpWindow.fxml";
+    private static final String FXML = "NewHelpWindow.fxml";
 
     @FXML
     private VBox helpWindow;
-
+//
     @FXML
     private Text helpMessage;
-
-    @FXML
-    private Text addCommandExample;
-
-    @FXML
-    private Text listCommandExample;
-
-    @FXML
-    private Text filterCommandExample;
-
-    @FXML
-    private Text editCommandExample;
-
-    @FXML
-    private Text deleteCommandExample;
-
-    @FXML
-    private Text exitCommandExample;
-
-    @FXML
-    private Text createCommandExample;
-
-    @FXML
-    private Text enrollCommandExample;
-
-    @FXML
-    private Text studentsCommandExample;
-
-    @FXML
-    private Text eventsCommandExample;
+//
+//    @FXML
+//    private Text addCommandExample;
+//
+//    @FXML
+//    private Text listCommandExample;
+//
+//    @FXML
+//    private Text filterCommandExample;
+//
+//    @FXML
+//    private Text editCommandExample;
+//
+//    @FXML
+//    private Text deleteCommandExample;
+//
+//    @FXML
+//    private Text exitCommandExample;
+//
+//    @FXML
+//    private Text createCommandExample;
+//
+//    @FXML
+//    private Text enrollCommandExample;
+//
+//    @FXML
+//    private Text studentsCommandExample;
+//
+//    @FXML
+//    private Text eventsCommandExample;
 
     /**
      * Creates a new HelpWindow.
@@ -103,16 +103,16 @@ public class HelpWindow extends UiPart<Stage> {
         super(FXML, root);
 
         helpMessage.setText(HELP_MESSAGE);
-        addCommandExample.setText(ADD_COMMAND_EXAMPLE);
-        filterCommandExample.setText(FILTER_COMMAND_EXAMPLE);
-        editCommandExample.setText(EDIT_COMMAND_EXAMPLE);
-        deleteCommandExample.setText(DELETE_COMMAND_EXAMPLE);
-        listCommandExample.setText(LIST_COMMAND_EXAMPLE);
-        exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
-        createCommandExample.setText(CREATE_COMMAND_EXAMPLE);
-        enrollCommandExample.setText(ENROLL_COMMAND_EXAMPLE);
-        studentsCommandExample.setText(STUDENTS_COMMAND);
-        eventsCommandExample.setText(EVENTS_COMMAND);
+//        addCommandExample.setText(ADD_COMMAND_EXAMPLE);
+//        filterCommandExample.setText(FILTER_COMMAND_EXAMPLE);
+//        editCommandExample.setText(EDIT_COMMAND_EXAMPLE);
+//        deleteCommandExample.setText(DELETE_COMMAND_EXAMPLE);
+//        listCommandExample.setText(LIST_COMMAND_EXAMPLE);
+//        exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
+//        createCommandExample.setText(CREATE_COMMAND_EXAMPLE);
+//        enrollCommandExample.setText(ENROLL_COMMAND_EXAMPLE);
+//        studentsCommandExample.setText(STUDENTS_COMMAND);
+//        eventsCommandExample.setText(EVENTS_COMMAND);
     }
 
     /**
@@ -291,4 +291,5 @@ public class HelpWindow extends UiPart<Stage> {
         url.putString(EVENTS_COMMAND);
         clipboard.setContent(url);
     }
+
 }
