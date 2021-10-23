@@ -50,6 +50,13 @@ public class HelpWindow extends UiPart<Stage> {
             + " y/YEAR [MORE_YEARS]...";
     public static final String FILTER_COMMAND_EXAMPLE5 = " " + FILTER_COMMAND
             + " ev/EVENT_NAME";
+    public static final String BLACKLIST_COMMAND = "blacklist";
+    public static final String BLACKLIST_COMMAND_EXAMPLE = " " + BLACKLIST_COMMAND
+            + " id/STUDENT_ID ev/EVENT";
+
+    public static final String WHITELIST_COMMAND = "whitelist";
+    public static final String WHITELIST_COMMAND_EXAMPLE = " " + WHITELIST_COMMAND
+            + " id/STUDENT_ID ev/EVENT";
 
 
     // EVENT COMMANDS
@@ -87,15 +94,6 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String EXIT_COMMAND_EXAMPLE = " " + EXIT_COMMAND;
 
 
-//=====================================
-//    public static final String BLACKLIST_COMMAND = "blacklist";
-//    public static final String BLACKLIST_COMMAND_EXAMPLE = BLACKLIST_COMMAND
-//            + " id/STUDENT_ID ev/EVENT";
-//
-//    public static final String WHITELIST_COMMAND = "whitelist";
-//    public static final String WHITELIST_COMMAND_EXAMPLE = WHITELIST_COMMAND
-//            + " id/STUDENT_ID ev/EVENT";
-//======================================
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
@@ -135,6 +133,12 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Text filterCommandExample5;
 
+    @FXML
+    private Text blacklistCommandExample;
+
+    @FXML
+    private Text whitelistCommandExample;
+
 
 
     // EVENT COMMANDS
@@ -171,12 +175,6 @@ public class HelpWindow extends UiPart<Stage> {
 
 
 
-//    @FXML
-//    private Text blackListCommandExample;
-//
-//    @FXML
-//    private Text whiteListCommandExample;
-
     /**
      * Creates a new HelpWindow.
      *
@@ -197,6 +195,8 @@ public class HelpWindow extends UiPart<Stage> {
         filterCommandExample3.setText(FILTER_COMMAND_EXAMPLE3);
         filterCommandExample4.setText(FILTER_COMMAND_EXAMPLE4);
         filterCommandExample5.setText(FILTER_COMMAND_EXAMPLE5);
+        blacklistCommandExample.setText(BLACKLIST_COMMAND_EXAMPLE);
+        whitelistCommandExample.setText(WHITELIST_COMMAND_EXAMPLE);
 
         // EVENT COMMANDS
         createCommandExample.setText(CREATE_COMMAND_EXAMPLE);
@@ -210,13 +210,6 @@ public class HelpWindow extends UiPart<Stage> {
         settingsCommandExample.setText(SETTINGS_COMMAND_EXAMPLE);
         exportCommandExample.setText(EXPORT_COMMAND_EXAMPLE);
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
-
-
-        //======================================================
-//        blackListCommandExample.setText(BLACKLIST_COMMAND_EXAMPLE);
-//        whiteListCommandExample.setText(WHITELIST_COMMAND_EXAMPLE);
-        //==========================================
-
     }
 
     /**
@@ -386,6 +379,28 @@ public class HelpWindow extends UiPart<Stage> {
         clipboard.setContent(url);
     }
 
+    /**
+     * Copies the BlackListCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyBlacklistCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(BLACKLIST_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the WhiteListCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyWhitelistCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(WHITELIST_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
     // EVENT COMMANDS ================================================================================================
     /**
      * Copies the CreateCommand to the user guide to the clipboard.
@@ -490,30 +505,5 @@ public class HelpWindow extends UiPart<Stage> {
     }
 
 
-    //==============================================================
-
-//    /**
-//     * Copies the BlackListCommand to the user guide to the clipboard.
-//     */
-//    @FXML
-//    private void copyBlacklistCommand() {
-//        final Clipboard clipboard = Clipboard.getSystemClipboard();
-//        final ClipboardContent url = new ClipboardContent();
-//        url.putString(BLACKLIST_COMMAND_EXAMPLE);
-//        clipboard.setContent(url);
-//    }
-//
-//    /**
-//     * Copies the WhiteListCommand to the user guide to the clipboard.
-//     */
-//    @FXML
-//    private void copyWhitelistCommand() {
-//        final Clipboard clipboard = Clipboard.getSystemClipboard();
-//        final ClipboardContent url = new ClipboardContent();
-//        url.putString(WHITELIST_COMMAND_EXAMPLE);
-//        clipboard.setContent(url);
-//    }
-
-    //==============================================================
 
 }
