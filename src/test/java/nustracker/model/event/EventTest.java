@@ -38,9 +38,9 @@ class EventTest {
         editedTest = new EventBuilder(TEST).withName(VALID_EVENTNAME_FINAL).build();
         Assertions.assertFalse(TEST.isSameEvent(editedTest));
 
-        // name differs in case, all other attributes same -> returns false
+        // name differs in case, all other attributes same -> returns true
         Event editedFinal = new EventBuilder(FINAL).withName(VALID_EVENTNAME_FINAL.toLowerCase()).build();
-        Assertions.assertFalse(FINAL.isSameEvent(editedFinal));
+        Assertions.assertTrue(FINAL.isSameEvent(editedFinal));
 
         // name has trailing spaces, all other attributes same -> returns false
         String nameWithTrailingSpaces = VALID_EVENTNAME_FINAL + " ";
