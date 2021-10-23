@@ -48,9 +48,9 @@ public class EventCard extends UiPart<Region> {
                         new Label(participant.studentId)));
 
         event.getBlacklist().stream()
-                .sorted(Comparator.comparing(blacklisted -> blacklisted.nusNetId))
+                .sorted(Comparator.comparing(blacklisted -> blacklisted.studentId))
                 .forEach(blacklisted -> blacklist.getChildren().add(
-                        new Label(blacklisted.nusNetId)));
+                        new Label(blacklisted.studentId)));
 
         //Ensures that the participants and blacklist will be evenly spaced out
         participants.setVgap(4.0);

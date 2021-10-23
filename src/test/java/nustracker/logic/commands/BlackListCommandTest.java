@@ -6,7 +6,7 @@ import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 import static nustracker.testutil.Assert.assertThrows;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
-import static nustracker.testutil.TypicalStudents.NUSNETID_ONE;
+import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
 import static nustracker.testutil.TypicalStudents.getTypicalAddressBook;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import nustracker.model.UserPrefs;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.Participant;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 import nustracker.testutil.EventBuilder;
 import nustracker.testutil.ModelStub;
 
@@ -37,7 +37,7 @@ class BlackListCommandTest {
     public void constructor_nullParameters_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new BlackListCommand(null, null));
         assertThrows(NullPointerException.class, () -> new BlackListCommand(
-                new NusNetId("e1234567"), null));
+                new StudentId("e1234567"), null));
         assertThrows(NullPointerException.class, () -> new BlackListCommand(
                 null, new EventName("Valid event name")));
     }
@@ -45,9 +45,9 @@ class BlackListCommandTest {
     @Test
     public void execute_blacklistAccepted_addSuccessful() throws Exception {
 
-        CommandResult commandResult = new BlackListCommand(NUSNETID_ONE, ORIENTATION.getName()).execute(model);
+        CommandResult commandResult = new BlackListCommand(STUDENTID_ONE, ORIENTATION.getName()).execute(model);
 
-        Assertions.assertEquals(String.format(BlackListCommand.MESSAGE_BLACKLIST_SUCCESS, NUSNETID_ONE, EVENTNAME_ONE),
+        Assertions.assertEquals(String.format(BlackListCommand.MESSAGE_BLACKLIST_SUCCESS, STUDENTID_ONE, EVENTNAME_ONE),
                 commandResult.getFeedbackToUser());
 
         // Change blacklist of event in modelStub
@@ -55,7 +55,7 @@ class BlackListCommandTest {
         ArrayList<String> newBlacklist =
                 new ArrayList<>(ORIENTATION
                         .getBlacklist().stream().map(Participant::toString).collect(Collectors.toList()));
-        newBlacklist.add(NUSNETID_ONE.toString());
+        newBlacklist.add(STUDENTID_ONE.toString());
         modelStub.setBlacklist(ORIENTATION, newBlacklist);
 
         Assertions.assertEquals(modelStub.addressBook, model.getAddressBook());
@@ -67,8 +67,8 @@ class BlackListCommandTest {
 
         assertThrows(CommandException.class,
                 String.format(BlackListCommand.MESSAGE_STUDENTID_ALREADY_BLACKLISTED,
-                        blacklisted.getNusNetId(), ORIENTATION.getName()), () ->
-                        new BlackListCommand(blacklisted.getNusNetId(), ORIENTATION.getName()).execute(model));
+                        blacklisted.getStudentId(), ORIENTATION.getName()), () ->
+                        new BlackListCommand(blacklisted.getStudentId(), ORIENTATION.getName()).execute(model));
     }
 
     @Test
@@ -77,7 +77,7 @@ class BlackListCommandTest {
 
         assertThrows(CommandException.class,
                 String.format(MESSAGE_INVALID_EVENT_NAME, nonExistentEventName.toString()), () ->
-                        new BlackListCommand(NUSNETID_ONE, nonExistentEventName).execute(model));
+                        new BlackListCommand(STUDENTID_ONE, nonExistentEventName).execute(model));
     }
 
     /**
