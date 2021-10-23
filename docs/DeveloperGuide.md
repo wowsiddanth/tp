@@ -346,7 +346,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the **user**, unless specified otherwise)
+For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the **user**, unless specified otherwise
+
+<br><br>
 
 **<u>Use case UC1 - Add a student</u>**
 
@@ -366,6 +368,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. AddressBook shows an error message, and displays the correct format to use.
 
       Use case ends.
+
+<br><br>
 
 **<u>Use case UC2 - Delete a student</u>**
 
@@ -390,6 +394,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   * 1b1. AddressBook shows an error message, informing the user that the student does not exist.
 
     Use case ends.
+
+<br><br>
 
 **<u>Use case UC3 - Filter students by name</u>**
 
@@ -420,7 +426,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2c1. Address book shows an error message.
     
         Use case ends.
-    
+
+<br><br>
+
+
 **<u>Use case UC4 - Add an event</u>**
 
 **Preconditions:** -
@@ -447,6 +456,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
+<br><br>
+
 **<u>Use case UC5 - Delete an event</u>**
 
 **Preconditions:** -
@@ -464,6 +475,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions:**
 * 1a. User types in an invalid format
 
+<br><br>
 
 **<u>Use case UC6 - Blacklist a student</u>**
 
@@ -497,6 +509,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
+<br><br>
+
 **<u>Use case UC7 - Whitelist a student</u>**
 
 **Preconditions:** -
@@ -529,6 +543,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
+<br><br>
+
 **<u>Use case UC8 - Enroll a student into an event</u>**
 
 **Preconditions:** -
@@ -538,34 +554,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS:**
 
 1.  User requests to enroll a student into an event.
-2.  AddressBook updates the event to have this student as a participant.
-3.  AddressBook updates the student to be enrolled into this event.
-4.  AddressBook shows that the student has now been enrolled.
+2.  nustracker updates the event to have this student as a participant.
+3.  nustracker updates the student to be enrolled into this event.
+4.  nustracker shows that the student has now been enrolled.
 
     Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format.
-
-    * 1a1. AddressBook shows an error message, and displays the correct format to use.
-
+    * 1a1. nustracker shows an error message, and displays the correct format to use.
       Use case ends.
 
-* 1b. The specified student does not exist in the AddressBook.
-    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
-    
+* 1b. The specified student does not exist in nustracker.
+    * 1b1. nustracker shows an error message, informing the user that the specified student does not exist.
     Use case ends.
 
-* 1c. The specified event does not exist in the AddressBook.
-    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
-
+* 1c. The specified event does not exist in nustracker.
+    * 1c1. nustracker shows an error message, informing the user that the specified event does not exist.
   Use case ends.
 
 * 1d. The specified student is currently already enrolled into the event.
-    * 1d1. AddressBook shows an error message, informing the user that the specified student is already currently enrolled.
-
+    * 1d1. nustracker shows an error message, informing the user that the specified student is already currently enrolled.
   Use case ends.
 
+<br><br>
 
 **<u>Use case UC9 - Remove a student from an event</u>**
 
@@ -576,36 +588,61 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS:**
 
 1.  User requests to remove a student from an event.
-2.  AddressBook updates the event to remove this student from being a participant.
-3.  AddressBook updates the student to not be enrolled into this event anymore.
-4.  AddressBook shows that the student has now been removed from the event.
+2.  nustracker updates the event to remove this student from being a participant.
+3.  nustracker updates the student to not be enrolled into this event anymore.
+4.  nustracker shows that the student has now been removed from the event.
 
     Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format.
-    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.
 
       Use case ends.
     
 * 1b. The specified student does not exist in the AddressBook.
-    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
+    * 1b1. nustracker shows an error message, informing the user that the specified student does not exist.
 
   Use case ends.
 
 * 1c. The specified event does not exist in the AddressBook.
-    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
+    * 1c1. nustracker shows an error message, informing the user that the specified event does not exist.
 
   Use case ends.
 
 * 1d. The specified student is not currently enrolled into the event.
-    * 1d1. AddressBook shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.
+    * 1d1. nustracker shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.
 
   Use case ends.
 
+<br><br>
+
+**<u>Use case UC10 - Exporting emails</u>**
+
+**Preconditions:** -
+
+**Guarantees:** -
+
+**MSS:**
+
+1. User requests to export emails from a list of students and provides the name of the file to save it in.
+2. nustracker exports the emails and places them in a save file.
+3. nustracker shows a confirmation message that the emails have been successfully exported.
+
+    Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.
+      Use case ends.
+
+* 1b. User types in an invalid name for the save file.
+    * 1b1. nustracker shows an error message, informing the user that the file name they have chosen is invalid.
+  Use case ends.
+    
+<br><br>
 
 
-*{More to be added}*
 
 ### Non-Functional Requirements
 
