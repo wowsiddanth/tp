@@ -54,6 +54,7 @@ public class DeleteFilteredStudentsCommand extends Command {
 
         }
 
+        model.updateFilteredStudentList(currStudent -> true);
 
         return new CommandResult(MESSAGE_DELETE_ALL_FILTERED_SUCCESS);
     }
