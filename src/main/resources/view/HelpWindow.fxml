@@ -156,16 +156,17 @@
                   </font></Text>
                     <Button mnemonicParsing="false" onAction="#copyCreateCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
 
-                    <Text style="-fx-fill: #779CFF;" text=" Enroll" GridPane.rowIndex="8">
+                <Text style="-fx-fill: #779CFF;" text=" Enroll" GridPane.rowIndex="8">
                   <font>
                      <Font name="System Bold" size="16.0" />
                   </font>
-
-                    </Text>
-                    <Text fx:id="enrollCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                </Text>
+                <Text fx:id="enrollCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                   <font>
                      <Font name="System Bold" size="16.0" />
-                  </font></Text>
+                  </font>
+                </Text>
+                <Button mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
 
                 <Text fx:id="eventsCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                     <font>
@@ -179,7 +180,21 @@
                     </font>
                 </Text>
 
-                <Button mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+
+                <Text fx:id="blackListCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+                <Button mnemonicParsing="false" onAction="#copyBlacklistCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+
+                <Text fx:id="whiteListCommandExample" style="-fx-fill: #779CFF;" translateX="4.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+                    <Button mnemonicParsing="false" onAction="#copyWhitelistCommand" text="Copy Command" translateX="26.0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+
                 </GridPane>
             </VBox>
         </Scene>

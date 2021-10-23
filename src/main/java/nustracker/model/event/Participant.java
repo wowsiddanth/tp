@@ -43,9 +43,9 @@ public class Participant {
 
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof StudentId // instanceof handles nulls
-                && studentId.equals(((StudentId) other).value)); //Check internal attributes
+        return other == this // short circuit if same
+                || (other instanceof Participant // instanceof handles nulls
+                && studentId.equals(((Participant) other).studentId)); //Check internal attributes
     }
 
     @Override

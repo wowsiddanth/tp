@@ -11,7 +11,9 @@
   "events": [ {
       "name": "Valid event",
       "date": "09-10-2021",
-      "time": "1900"
+      "time": "1900",
+      "participants": [ "e9831818" ],
+      "blacklist" : [ ]
   }, {
     "name": "Invalid event",
     "date": "@20213127",
