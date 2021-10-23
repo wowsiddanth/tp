@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import nustracker.ui.MainWindow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -30,6 +29,7 @@ import nustracker.storage.StorageManager;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
+import nustracker.ui.MainWindow;
 
 
 public class LogicManagerTest {
@@ -151,8 +151,8 @@ public class LogicManagerTest {
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
                                       String expectedMessage, Model expectedModel) {
-        Assert.assertThrows(expectedException, expectedMessage,
-                () -> logic.execute(inputCommand, MainWindow.CurrentlyShownList.STUDENTS_LIST));
+        Assert.assertThrows(expectedException, expectedMessage, () ->
+                logic.execute(inputCommand, MainWindow.CurrentlyShownList.STUDENTS_LIST));
         assertEquals(expectedModel, model);
     }
 

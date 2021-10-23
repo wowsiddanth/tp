@@ -1,6 +1,9 @@
 package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static nustracker.commons.core.Messages.MESSAGE_STUDENT_LIST_NOT_SHOWN;
+
+import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 import nustracker.logic.commands.exceptions.CommandException;
@@ -9,7 +12,7 @@ import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.ui.MainWindow;
 
-import java.util.ArrayList;
+
 
 public class DeleteFilteredStudentsCommand extends Command {
 
@@ -21,9 +24,6 @@ public class DeleteFilteredStudentsCommand extends Command {
             + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_DELETE_ALL_FILTERED_SUCCESS =
             "Successfully deleted all shown students in the student list.";
-    public static final String MESSAGE_STUDENT_LIST_NOT_SHOWN =
-            "The Student list has to be shown before this command can be used.";
-
 
 
 

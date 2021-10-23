@@ -6,7 +6,6 @@ import static nustracker.testutil.Assert.assertThrows;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import nustracker.ui.MainWindow;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +15,7 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.event.Event;
 import nustracker.testutil.EventBuilder;
 import nustracker.testutil.ModelStub;
+import nustracker.ui.MainWindow;
 
 class CreateCommandTest {
 

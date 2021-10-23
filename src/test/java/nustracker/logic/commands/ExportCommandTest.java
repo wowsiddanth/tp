@@ -2,10 +2,10 @@ package nustracker.logic.commands;
 
 import static nustracker.logic.commands.CommandTestUtil.VALID_EXPORT_FILE_NAME;
 
-import nustracker.ui.MainWindow;
 import org.junit.jupiter.api.Test;
 
 import nustracker.testutil.Assert;
+import nustracker.ui.MainWindow;
 
 class ExportCommandTest {
 

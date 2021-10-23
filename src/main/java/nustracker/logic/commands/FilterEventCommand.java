@@ -2,6 +2,7 @@ package nustracker.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
+import static nustracker.commons.core.Messages.MESSAGE_STUDENT_LIST_NOT_SHOWN;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.exceptions.CommandException;
@@ -25,6 +26,12 @@ public class FilterEventCommand extends FilterCommand {
     @Override
     public CommandResult execute(Model model,
                                  MainWindow.CurrentlyShownList currentlyShownList) throws CommandException {
+        requireNonNull(model);
+
+        if (currentlyShownList != MainWindow.CurrentlyShownList.STUDENTS_LIST) {
+            throw new CommandException(MESSAGE_STUDENT_LIST_NOT_SHOWN);
+        }
+
         Event event = model.getEvent(eventName);
 
         //event does not exist

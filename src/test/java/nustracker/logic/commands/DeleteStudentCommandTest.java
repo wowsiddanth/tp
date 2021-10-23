@@ -10,7 +10,6 @@ import static nustracker.testutil.TypicalStudents.STUDENTID_TWO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import nustracker.ui.MainWindow;
 import org.junit.jupiter.api.Test;
 
 import nustracker.commons.core.Messages;
@@ -20,6 +19,7 @@ import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.TypicalStudents;
+import nustracker.ui.MainWindow;
 
 
 /**
