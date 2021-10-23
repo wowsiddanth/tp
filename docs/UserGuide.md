@@ -314,13 +314,13 @@ Command: `exit`
 Another key feature of NUSTracker is its ability to be customized greatly. This section covers how NUSTracker can be
 customized to your liking.
 
-###Changing between Light/Dark Theme
+###1. Changing between Light/Dark Theme
 NUSTracker has a light/dark theme. To toggle between the two, click the button (to the left of **Settings**) as shown in the image below and
 voila!
  
 ![change_theme](images/change_theme.PNG)
 
-###Setting a profile picture
+###2. Setting a profile picture
 NUSTracker has the ability to add a profile picture to a student. Follow the steps given to add a picture:
 1. If you have not started NUSTracker before, run NUSTracker within a folder of your choice.
 
@@ -330,12 +330,45 @@ NUSTracker has the ability to add a profile picture to a student. Follow the ste
     ![profile-pictures-folder](images/profile-pictures-folder.PNG)
 
     *The **profile-pictures** folder is highlighted in blue*
+<br></br>
+3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. The image must be either a **.png** or a **.jpg** image.
+   <br></br>
 
-3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. 
+   1. Rename the image to correspond to the **Student ID** of the student in NUSTracker that will use this profile picture.
 
-4. Rename the image to correspond to the **Student ID** of the student in NUSTracker that will use this profile picture.
+       For example, let's say there is a student in NUSTracker with the Student ID **e1111111**.
+
+      ![match-student-id](images/match-student-id.PNG)
+ 
+      ![changed-profile-picture](images/changed-profile-picture.PNG)
+
+      *The updated student card (belonging to student with Student ID **e1111111** in NUSTracker*
+   
+   2. The image will update once you **restart NUSTracker**.
+   3. You're done!
+
+###3. Changing the _glow_ of the profile picture border
+
+NUSTracker allows you to change the color of the glow of the profile picture.
+
+1. Open up the **Settings** window either by clicking the **Settings** button or by typing in `settings` into the command box.
+ 
+
+2. Click the dropdown menu, and pick a color. You can pick a custom color as well.
+
+   ![pre-selected](images/pre-selected.PNG)
+
+    *You can choose one of the pre-selected colors.* 
+
+   ![custom-color](images/custom-color.PNG)
+
+   *You can also customize the color precisely.*
 
 
+3. This change is **immediate**, and does not require a restart.
+
+You have now learnt to customize NUSTracker to its fullest. Go ahead and play around with the settings!
+    
 
 ---------------------------------------------------------------------------------------
 ## Misc
