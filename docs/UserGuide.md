@@ -344,6 +344,8 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **edit** | edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
 **filter** | filter by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
+**blacklist** | blacklist a student from attending an event | `blacklist id/STUDENT_ID ev/EVENT_NAME` |
+**whitelist** | whitelist a student from attending an event | `whitelist id/STUDENT_ID ev/EVENT_NAME` |
 
 ### Event Commands
 
