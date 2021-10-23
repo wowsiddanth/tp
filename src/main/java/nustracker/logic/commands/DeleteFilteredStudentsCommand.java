@@ -41,7 +41,7 @@ public class DeleteFilteredStudentsCommand extends Command {
             StudentId currStudentId = currStudent.getStudentId();
             DeleteStudentCommand delThisStudent = new DeleteStudentCommand(currStudentId);
 
-            delThisStudent.execute(model);
+            delThisStudent.execute(model, MainWindow.CurrentlyShownList.STUDENTS_LIST);
 
         }
 

@@ -10,6 +10,7 @@ import static nustracker.testutil.TypicalStudents.STUDENTID_TWO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import nustracker.ui.MainWindow;
 import org.junit.jupiter.api.Test;
 
 import nustracker.commons.core.Messages;
@@ -45,7 +46,7 @@ public class DeleteStudentCommandTest {
     public void execute_invalidStudentIdUnfilteredList_throwsCommandException() {
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
         try {
-            deleteStudentCommand.execute(model);
+            deleteStudentCommand.execute(model, MainWindow.CurrentlyShownList.STUDENTS_LIST);
         } catch (CommandException e) {
             e.printStackTrace();
         }

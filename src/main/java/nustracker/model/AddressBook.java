@@ -18,6 +18,7 @@ import nustracker.model.event.UniqueEventList;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.model.student.UniqueStudentList;
+import nustracker.ui.MainWindow;
 
 /**
  * Wraps all data at the address-book level
@@ -181,7 +182,8 @@ public class AddressBook implements ReadOnlyAddressBook {
             RemoveCommand currRemoveCmd = new RemoveCommand(currStudentId, key.getName());
 
             try {
-                CommandResult currCmdResult = currRemoveCmd.execute(currModel);
+                CommandResult currCmdResult = currRemoveCmd.execute(currModel,
+                        MainWindow.CurrentlyShownList.STUDENTS_LIST);
             } catch (CommandException e) {
                 // Means either Invalid Student ID (Not possible)
                 // or invalid event name (Not possible)

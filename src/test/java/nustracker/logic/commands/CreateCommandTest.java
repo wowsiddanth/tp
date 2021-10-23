@@ -6,6 +6,7 @@ import static nustracker.testutil.Assert.assertThrows;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import nustracker.ui.MainWindow;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +30,8 @@ class CreateCommandTest {
                 new CreateCommandTest.ModelStubAcceptingEventAdded();
         Event validEvent = new EventBuilder().build();
 
-        CommandResult commandResult = new CreateCommand(validEvent).execute(modelStub);
+        CommandResult commandResult = new CreateCommand(validEvent).execute(modelStub,
+                MainWindow.CurrentlyShownList.STUDENTS_LIST);
 
         Assertions.assertEquals(String.format(CreateCommand.MESSAGE_SUCCESS, validEvent),
                 commandResult.getFeedbackToUser());
@@ -43,7 +45,7 @@ class CreateCommandTest {
         ModelStub modelStub = new CreateCommandTest.ModelStubWithEvent(validEvent);
 
         assertThrows(CommandException.class, CreateCommand.MESSAGE_DUPLICATE_EVENT, () ->
-                createCommand.execute(modelStub));
+                createCommand.execute(modelStub, MainWindow.CurrentlyShownList.STUDENTS_LIST));
     }
 
     /**

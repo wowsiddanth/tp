@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Predicate;
 
+import nustracker.ui.MainWindow;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
@@ -39,7 +40,8 @@ public class AddCommandTest {
         ModelStubAcceptingStudentAdded modelStub = new ModelStubAcceptingStudentAdded();
         Student validStudent = new StudentBuilder().build();
 
-        CommandResult commandResult = new AddCommand(validStudent).execute(modelStub);
+        CommandResult commandResult = new AddCommand(validStudent).execute(modelStub,
+                MainWindow.CurrentlyShownList.STUDENTS_LIST);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validStudent), commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validStudent), modelStub.studentsAdded);
@@ -51,7 +53,8 @@ public class AddCommandTest {
         AddCommand addCommand = new AddCommand(validStudent);
         ModelStub modelStub = new ModelStubWithStudent(validStudent);
 
-        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_STUDENT, () -> addCommand.execute(modelStub));
+        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_STUDENT,
+                () -> addCommand.execute(modelStub, MainWindow.CurrentlyShownList.STUDENTS_LIST));
     }
 
     @Test
