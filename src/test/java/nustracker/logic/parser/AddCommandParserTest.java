@@ -82,18 +82,10 @@ public class AddCommandParserTest {
                 + CommandTestUtil.STUDENTID_DESC_AMY
                 + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudent));
 
-        // multiple tags - all accepted
-        Student expectedStudentMultipleTags = new StudentBuilder(TypicalStudents.BOB).build();
-        assertParseSuccess(parser, CommandTestUtil.NAME_DESC_BOB
-                + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
-                + CommandTestUtil.YEAR_DESC_BOB
-                + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB, new AddCommand(expectedStudentMultipleTags));
     }
 
     @Test
     public void parse_optionalFieldsMissing_success() {
-        // zero tags
         Student expectedStudent = new StudentBuilder(TypicalStudents.AMY).build();
         assertParseSuccess(parser, CommandTestUtil.NAME_DESC_AMY
                 + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY

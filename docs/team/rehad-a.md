@@ -12,8 +12,8 @@ Given below are my contributions to the project.
 * **New Feature**: Added the ability to filter commands.
   * What it does: allows the user to filter the students by name, student ID, or the events that they are attending.
 
-* **New Feature**: 
-
+* **New Feature**:
+ 
 * **Code contributed**:
 
 * **Project management**:

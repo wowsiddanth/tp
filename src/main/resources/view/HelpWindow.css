@@ -1,15 +1,3 @@
-#helpMessage {
-    -fx-font-family: "Spartan-ExtraBold";
-}
-
-.root {
-    -fx-accent: #1e74c6;
-    -fx-focus-color: -fx-accent;
-    -fx-base: #383838;
-    -fx-control-inner-background: derive(-fx-base, 35%);
-    -fx-control-inner-background-alt: -fx-control-inner-background ;
-}
-
 .button{
     -fx-focus-traversable: false;
 }
@@ -22,11 +10,10 @@
     -fx-base: -fx-accent ;
 }
 
-.label {
-    -fx-text-fill: lightgray;
+.text {
+    -fx-font-size: 20px;
+    -fx-font-family: Roboto-Bold;
+    -fx-text-fill: #FFFFFF;
 }
 
-.text-field {
-    -fx-prompt-text-fill: gray;
-}
 

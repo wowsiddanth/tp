@@ -3,7 +3,7 @@ layout: page
 title: Developer Guide
 ---
 * Table of Contents
-  {:toc}
+{:toc}
 
 
 # Developer Guide - NUSTracker
@@ -77,7 +77,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -91,9 +91,13 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter`, `EventListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+
+
+The `UI` component uses the JavaFx UI framework and heavily utilizes CSS as well. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml) is specified in [`MainWindow.fxml`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml)
+
+The 'UI' component makes use of .css files to change the theme of the application.
 
 The `UI` component,
 
@@ -114,7 +118,7 @@ How the `Logic` component works:
 1. When `Logic` is called upon to execute a command, it uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `AddCommand`) which is executed by the `LogicManager`.
 1. The command can communicate with the `Model` when it is executed (e.g. to add a student).
-1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+1. The result of the command execution is encapsulated as a `CommandResult` object which is returned from `Logic`.
 
 The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete s/e0123456")` API call.
 
@@ -180,7 +184,7 @@ Classes used by multiple components are in the `nustracker.commons` package.
 This section describes some noteworthy details on how certain features are implemented.
 
 
-**<<< Check if we going to keep this undo/redo feature >>>**
+**<<< Check if we are going to keep this `undo` feature >>>**
 
 ### \[Proposed\] Undo/redo feature
 
@@ -324,7 +328,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *  `  | expert user                                | export event data file                      | easily share or transfer event data to load in another computer |
 | `* *  `  | expert user                                | export student data file                    | easily share or transfer the student database to load in another computer |
 | `* *  `  | user                                       | blacklist students from events              | track which students are blacklisted from attending events |
-| `* *  `  | user                                       | remove students from an event's blacklist | allow that student to attend the event  |
+| `* *  `  | user                                       | remove students from an event's blacklist   | allow that student to attend the event  |
 | `* *  `  | user                                       | load student data from external file        | quickly add a large number of students |
 | `* *  `  | user                                       | load event data file                        | update the list of events being managed in database |
 | `* *  `  | user                                       | filter students by event                    | find students attending a particular event |
@@ -334,8 +338,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *  `  | user                                       | filter students by faculty                  | find students from a particular faculty |
 | `* *  `  | user                                       | open settings menu                          | adjust settings |
 | `* *  `  | user                                       | toggle between the events and students list | quickly and efficiently view the list I want to see |
-| `* *  `  | user                                       | use autosave                                | save the database constantly and automatically                             |
-| `*    `  | expert user                                | mass edit student data         | update data of similar students more efficiently |
+| `* *  `  | user                                       | use auto save                               | save the database constantly and automatically                             |
+| `*    `  | expert user                                | mass edit student data                      | update data of similar students more efficiently |
 
 
 *{More to be added}*
@@ -404,19 +408,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The list of students is empty.
 
   Use case ends.
-  
+ 
 * 2b. The AddressBook does not find any students with from the given keywords.
-    
+ 
     * 2b1. AddressBook displays an empty list.
 
         Use case ends.
-    
+     
 * 2c. User types multiple prefixes to filter by.
 
     * 2c1. Address book shows an error message.
     
         Use case ends.
-
+    
 **<u>Use case UC4 - Add an event</u>**
 
 **Preconditions:** -
@@ -459,15 +463,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions:**
 * 1a. User types in an invalid format
-    * 1a1. AddressBook shows an error message, and displays the correct format to use.
 
-      Use case ends.
-
-
-* 1b. The event does not exist in the address book.
-    * 1b1. AddressBook shows an error message, informing the user that the event does not exist.
-
-      Use case ends.
 
 **<u>Use case UC6 - Blacklist a student</u>**
 
@@ -488,16 +484,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. AddressBook shows an error message, and displays the correct format to use.
 
       Use case ends.
-    
+
 
 * 1b. The event does not exist in the address book.
     * 1b1. AddressBook shows an error message, informing the user that the event does not exist.
-  
+
       Use case ends.
-  
-  
+
+
 * 1c. The student is already in the event's blacklist.
-  * 1b1. AddressBook shows an error message, informing the user that the student is already in the event's blacklist.
+    * 1b1. AddressBook shows an error message, informing the user that the student is already in the event's blacklist.
 
       Use case ends.
 
@@ -532,8 +528,83 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. AddressBook shows an error message, informing the user that the student is not in the event's blacklist.
 
       Use case ends.
-      
-      
+
+**<u>Use case UC8 - Enroll a student into an event</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The student gets enrolled into the specified event if both the student and event exist. 
+
+**MSS:**
+
+1.  User requests to enroll a student into an event.
+2.  AddressBook updates the event to have this student as a participant.
+3.  AddressBook updates the student to be enrolled into this event.
+4.  AddressBook shows that the student has now been enrolled.
+
+    Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+
+    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+
+      Use case ends.
+
+* 1b. The specified student does not exist in the AddressBook.
+    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
+    
+    Use case ends.
+
+* 1c. The specified event does not exist in the AddressBook.
+    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
+
+  Use case ends.
+
+* 1d. The specified student is currently already enrolled into the event.
+    * 1d1. AddressBook shows an error message, informing the user that the specified student is already currently enrolled.
+
+  Use case ends.
+
+
+**<u>Use case UC9 - Remove a student from an event</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The student is not enrolled into the specified event after the use case ends.
+
+**MSS:**
+
+1.  User requests to remove a student from an event.
+2.  AddressBook updates the event to remove this student from being a participant.
+3.  AddressBook updates the student to not be enrolled into this event anymore.
+4.  AddressBook shows that the student has now been removed from the event.
+
+    Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+
+      Use case ends.
+    
+* 1b. The specified student does not exist in the AddressBook.
+    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
+
+  Use case ends.
+
+* 1c. The specified event does not exist in the AddressBook.
+    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
+
+  Use case ends.
+
+* 1d. The specified student is not currently enrolled into the event.
+    * 1d1. AddressBook shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.
+
+  Use case ends.
+
+
+
 *{More to be added}*
 
 ### Non-Functional Requirements

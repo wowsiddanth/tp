@@ -21,52 +21,47 @@ import nustracker.logic.parser.exceptions.ParseException;
  */
 public class MainWindow extends UiPart<Stage> {
 
+    public static final double MIN_HEIGHT = 747.0;
+    public static final double MIN_WIDTH = 914.0;
     private static final String FXML = "MainWindow.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
-    private Stage primaryStage;
-    private Logic logic;
+    private final Stage primaryStage;
+    private final Logic logic;
+    private final ThemeApplier themeApplier;
 
     // Independent Ui parts residing in this Ui container
     private StudentListPanel studentListPanel;
     private EventListPanel eventListPanel;
     private ResultDisplay resultDisplay;
-    private HelpWindow helpWindow;
+    private final HelpWindow helpWindow;
+    private final SettingsWindow settingsWindow;
 
     @FXML
     private Button helpButton;
-
     @FXML
     private StackPane commandBoxPlaceholder;
-
     @FXML
     private StackPane listPanelPlaceholder;
-
-    /**
-     * This space is for the NUSTracker logo, and the help and exit button
-     */
     @FXML
-    private HBox topContainer;
-
+    private HBox topContainer; //This space is for the NUSTracker logo, and the help and exit button
     @FXML
     private MenuItem helpMenuItem;
-
     @FXML
     private Button exitButton;
-
+    @FXML
+    private Button changeThemeButton;
     @FXML
     private Button eventsButton;
-
     @FXML
     private Button studentsButton;
-
+    @FXML
+    private Button settingsButton;
     @FXML
     private StackPane resultDisplayPlaceholder;
-
     @FXML
     private StackPane statusBarPlaceholder;
-
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -74,18 +69,21 @@ public class MainWindow extends UiPart<Stage> {
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
 
-        //Minimum possible size the program can take
-        primaryStage.setMinHeight(747);
-        primaryStage.setMinWidth(747);
-
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
-
-        // Configure the UI
-        setWindowDefaultSize(logic.getGuiSettings());
+        GuiSettings guiSettings = logic.getGuiSettings();
 
         helpWindow = new HelpWindow();
+        settingsWindow = new SettingsWindow(guiSettings);
+        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow, guiSettings.getIsLightMode());
+
+        // Configure the UI
+        setWindowSize(guiSettings);
+        fillInnerParts(guiSettings);
+        settingsWindow.setStudentListPanel(studentListPanel);
+
+        themeApplier.applyOnStartUp();
     }
 
     public Stage getPrimaryStage() {
@@ -95,8 +93,8 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Fills up all the placeholders of this window.
      */
-    void fillInnerParts() {
-        studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
+    void fillInnerParts(GuiSettings guiSettings) {
+        studentListPanel = new StudentListPanel(logic.getFilteredStudentList(), guiSettings.getGlowHexCode());
         listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
         listPanelPlaceholder.managedProperty().bind(listPanelPlaceholder.visibleProperty());
 
@@ -115,12 +113,30 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Sets the default size based on {@code guiSettings}.
      */
-    private void setWindowDefaultSize(GuiSettings guiSettings) {
+    private void setWindowSize(GuiSettings guiSettings) {
+        //Prevents user from setting height/width smaller than limits
+        primaryStage.setMinHeight(MIN_HEIGHT);
+        primaryStage.setMinWidth(MIN_WIDTH);
+
+        //User defined height and width (if different)
         primaryStage.setHeight(guiSettings.getWindowHeight());
         primaryStage.setWidth(guiSettings.getWindowWidth());
+
         if (guiSettings.getWindowCoordinates() != null) {
             primaryStage.setX(guiSettings.getWindowCoordinates().getX());
             primaryStage.setY(guiSettings.getWindowCoordinates().getY());
+        }
+    }
+
+    /**
+     * Opens the settings window or focuses on it if it's already opened.
+     */
+    @FXML
+    public void handleSettings() {
+        if (!settingsWindow.isShowing()) {
+            settingsWindow.show();
+        } else {
+            settingsWindow.focus();
         }
     }
 
@@ -134,10 +150,6 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             helpWindow.focus();
         }
-    }
-
-    void show() {
-        primaryStage.show();
     }
 
     /**
@@ -163,15 +175,29 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleExit() {
+        boolean isLightMode = themeApplier.themeOnExit();
+
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY());
+                (int) primaryStage.getX(), (int) primaryStage.getY(), isLightMode, settingsWindow.getGlowHexCode());
         logic.setGuiSettings(guiSettings);
+
+        settingsWindow.hide();
         helpWindow.hide();
         primaryStage.hide();
     }
 
-    public StudentListPanel getStudentListPanel() {
-        return studentListPanel;
+    /**
+     * Changes the current theme of the application.
+     *
+     * @see ThemeApplier#switchTheme()
+     */
+    @FXML
+    private void changeTheme() {
+        themeApplier.switchTheme();
+    }
+
+    void show() {
+        primaryStage.show();
     }
 
     /**

@@ -73,6 +73,17 @@ public class FilterIdCommandTest {
                 model.getFilteredStudentList());
     }
 
+    @Test
+    public void execute_multiplePartialKeywords_multipleStudentsFound() {
+        String expectedMessage = String.format(Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW, 4);
+        StudentIdContainsKeywordsPredicate predicate = preparePredicate("e90 e81");
+        FilterCommand command = new FilterIdCommand(predicate);
+        expectedModel.updateFilteredStudentList(predicate);
+        CommandTestUtil.assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertEquals(Arrays.asList(TypicalStudents.ALICE, TypicalStudents.BENSON, TypicalStudents.CARL,
+                TypicalStudents.DANIEL), model.getFilteredStudentList());
+    }
+
     /**
      * Parses {@code userInput} into a {@code StudentIdContainsKeywordsPredicate}.
      */
