@@ -3,7 +3,7 @@ layout: page
 title: Developer Guide
 ---
 * Table of Contents
-  {:toc}
+{:toc}
 
 
 # Developer Guide - NUSTracker
@@ -91,16 +91,18 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `EventListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework and heavily utilizes CSS as well. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml) is specified in [`MainWindow.fxml`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml)
+
+The 'UI' component makes use of .css files to change the theme of the application.
 
 The `UI` component,
 
 * executes user commands using the `Logic` component.
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+* depends on some classes in the `Model` component, as it displays `Student` object residing in the `Model`.
 
 ### Logic component
 
@@ -309,17 +311,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | create a new event                          | add new events to be managed using the app |
 | `* * *`  | user                                       | delete an event                             | remove events that are no longer relevant |
 | `* * *`  | user                                       | test the app using sample data              | test the app and its commands easily before loading in real student data |
-| `* *  `  | user                                       | archive an event                            | remove events that have passed but are still relevant |
-| `* *  `  | intermediate user                          | mass delete certain students                | delete students more efficiently |
 | `* *  `  | intermediate user                          | edit student data                           | update previous mistake in data entry or update a change in student data |
 | `* *  `  | expert user                                | export email of selected students           | use the email list to mass email relevant students |
 | `* *  `  | expert user                                | export event data file                      | easily share or transfer event data to load in another computer |
 | `* *  `  | expert user                                | export student data file                    | easily share or transfer the student database to load in another computer |
-| `* *  `  | user                                       | tag a student                               | group students according to a particular tag |
-| `* *  `  | user                                       | remove a tag                                | delete a tag from the selected student |
-| `* *  `  | user                                       | delete a tag                                | delete a tag from the database |
 | `* *  `  | user                                       | blacklist students from events              | track which students are blacklisted from attending events |
-| `* *  `  | user                                       | tag students automatically based on rsvp    | do less manual work when adding students to events |
 | `* *  `  | user                                       | load student data from external file        | quickly add a large number of students |
 | `* *  `  | user                                       | load event data file                        | update the list of events being managed in database |
 | `* *  `  | user                                       | filter students by event                    | find students attending a particular event |
@@ -403,20 +399,101 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The list of students is empty.
 
   Use case ends.
-  
+ 
 * 2b. The AddressBook does not find any students with from the given keywords.
-    
+ 
     * 2b1. AddressBook displays an empty list.
 
         Use case ends.
-    
+     
 * 2c. User types multiple prefixes to filter by.
 
     * 2c1. Address book shows an error message.
     
         Use case ends.
-      
-      
+
+
+
+
+
+**<u>Use case UC8 - Enroll a student into an event</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The student gets enrolled into the specified event if both the student and event exist. 
+
+**MSS:**
+
+1.  User requests to enroll a student into an event.
+2.  AddressBook updates the event to have this student as a participant.
+3.  AddressBook updates the student to be enrolled into this event.
+4.  AddressBook shows that the student has now been enrolled.
+
+    Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+
+      Use case ends.
+
+
+* 1b. The specified student does not exist in the AddressBook.
+    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
+    
+    Use case ends.
+
+* 1c. The specified event does not exist in the AddressBook.
+    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
+
+  Use case ends.
+
+* 1d. The specified student is currently already enrolled into the event.
+    * 1d1. AddressBook shows an error message, informing the user that the specified student is already currently enrolled.
+
+  Use case ends.
+
+
+**<u>Use case UC9 - Remove a student from an event</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The student is not enrolled into the specified event after the use case ends.
+
+**MSS:**
+
+1.  User requests to remove a student from an event.
+2.  AddressBook updates the event to remove this student from being a participant.
+3.  AddressBook updates the student to not be enrolled into this event anymore.
+4.  AddressBook shows that the student has now been removed from the event.
+
+    Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+
+      Use case ends.
+
+
+* 1b. The specified student does not exist in the AddressBook.
+    * 1b1. AddressBook shows an error message, informing the user that the specified student does not exist.
+
+  Use case ends.
+
+* 1c. The specified event does not exist in the AddressBook.
+    * 1c1. AddressBook shows an error message, informing the user that the specified event does not exist.
+
+  Use case ends.
+
+* 1d. The specified student is not currently enrolled into the event.
+    * 1d1. AddressBook shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.
+
+  Use case ends.
+
+
+
+
 *{More to be added}*
 
 ### Non-Functional Requirements

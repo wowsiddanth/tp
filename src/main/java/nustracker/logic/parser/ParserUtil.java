@@ -2,10 +2,6 @@ package nustracker.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
 import nustracker.commons.core.index.Index;
 import nustracker.commons.util.StringUtil;
 import nustracker.logic.parser.exceptions.ParseException;
@@ -15,10 +11,9 @@ import nustracker.model.event.EventTime;
 import nustracker.model.student.Email;
 import nustracker.model.student.Major;
 import nustracker.model.student.Name;
-import nustracker.model.student.NusNetId;
 import nustracker.model.student.Phone;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
-import nustracker.model.tag.Tag;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -116,45 +111,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String nusNetId} into an {@code NusNetId}.
+     * Parses a {@code String studentId} into an {@code StudentId}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code nusNetId} is invalid.
+     * @throws ParseException if the given {@code StudentId} is invalid.
      */
-    public static NusNetId parseNusNetId(String nusNetId) throws ParseException {
-        requireNonNull(nusNetId);
-        String trimmedNusNetId = nusNetId.trim();
-        if (!NusNetId.isValidNusNetId(trimmedNusNetId)) {
-            throw new ParseException(NusNetId.MESSAGE_CONSTRAINTS);
+    public static StudentId parseStudentId(String studentId) throws ParseException {
+        requireNonNull(studentId);
+        String trimmedStudentId = studentId.trim();
+        if (!StudentId.isValidStudentId(trimmedStudentId)) {
+            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS);
         }
-        return new NusNetId(trimmedNusNetId);
-    }
-
-    /**
-     * Parses a {@code String tag} into a {@code Tag}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code tag} is invalid.
-     */
-    public static Tag parseTag(String tag) throws ParseException {
-        requireNonNull(tag);
-        String trimmedTag = tag.trim();
-        if (!Tag.isValidTagName(trimmedTag)) {
-            throw new ParseException(Tag.MESSAGE_CONSTRAINTS);
-        }
-        return new Tag(trimmedTag);
-    }
-
-    /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
-     */
-    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
-        requireNonNull(tags);
-        final Set<Tag> tagSet = new HashSet<>();
-        for (String tagName : tags) {
-            tagSet.add(parseTag(tagName));
-        }
-        return tagSet;
+        return new StudentId(trimmedStudentId);
     }
 
     /**
@@ -196,5 +164,26 @@ public class ParserUtil {
             throw new ParseException(EventTime.MESSAGE_CONSTRAINTS);
         }
         return new EventTime(time);
+    }
+
+    /**
+     * Parses a fileName.
+     *
+     * @throws ParseException if the given fileName contains illegal characters
+     */
+    public static String parseExportFileName(String fileName) throws ParseException {
+        requireNonNull(fileName);
+        if (fileName.contains("/")
+                || fileName.contains("\\")
+                || fileName.contains(":")
+                || fileName.contains("*")
+                || fileName.contains("?")
+                || fileName.contains("\"")
+                || fileName.contains("<")
+                || fileName.contains(">")
+                || fileName.contains("|")) {
+            throw new ParseException("Invalid file name.\nFilenames cannot contain \\:*?\"<>|");
+        }
+        return fileName;
     }
 }

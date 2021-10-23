@@ -9,8 +9,8 @@ import java.util.Objects;
 import java.util.Set;
 
 import nustracker.model.AddressBook;
-import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 
 public class Event {
 
@@ -91,20 +91,20 @@ public class Event {
     public Set<Student> getParticipantsAsStudents(AddressBook addressBook) {
         HashSet<Student> returnThis = new HashSet<>();
         for (Participant currParticipant : participants) {
-            Student currStudent = addressBook.getStudent(currParticipant.getNusNetId());
+            Student currStudent = addressBook.getStudent(currParticipant.getStudentId());
             returnThis.add(currStudent);
         }
         return returnThis;
     }
 
     /**
-     * Checks if a student with a certain Nus NetId is currently enrolled in this event.
-     * @param nusNetId the {@code NusNetId} of the student to check.
+     * Checks if a student with a certain student ID is currently enrolled in this event.
+     * @param studentId the {@code StudentId} of the student to check.
      * @return true if the student is currently enrolled, false otherwise.
      */
-    public boolean isInEvent(NusNetId nusNetId) {
+    public boolean isInEvent(StudentId studentId) {
         for (Participant currParticipant : participants) {
-            if (currParticipant.getNusNetId().equals(nusNetId)) {
+            if (currParticipant.getStudentId().equals(studentId)) {
                 return true;
             }
         }
@@ -113,12 +113,12 @@ public class Event {
 
     /**
      * Checks if a certain Student ID is blacklisted in this event.
-     * @param studentId the {@code NusNetId} to check.
+     * @param studentId the {@code StudentId} to check.
      * @return true if the Student ID is blacklisted, false otherwise.
      */
-    public boolean isBlacklisted(NusNetId studentId) {
+    public boolean isBlacklisted(StudentId studentId) {
         for (Participant blacklisted : blacklist) {
-            if (blacklisted.getNusNetId().equals(studentId)) {
+            if (blacklisted.getStudentId().equals(studentId)) {
                 return true;
             }
         }
@@ -137,6 +137,18 @@ public class Event {
         return otherEvent != null
                 && otherEvent.getName().equals(getName());
     }
+
+
+    /**
+     * Creates an new Event object that has the same details but different participants.
+     *
+     * @param newParticipants the new Set of {@code Participants} that are attending this {@code Event}.
+     * @return the newly created {@code Event}.
+     */
+    public Event getNewEventWithUpdatedParticipants(Set<Participant> newParticipants) {
+        return new Event(getName(), getDate(), getTime(), newParticipants, getBlacklist());
+    }
+
 
     /**
      * Wraps the EventName in an Event for easy re-usability with other methods.

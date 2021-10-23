@@ -2,15 +2,21 @@ package nustracker.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javafx.collections.ObservableList;
+import nustracker.logic.commands.CommandResult;
+import nustracker.logic.commands.RemoveCommand;
+import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.event.Participant;
 import nustracker.model.event.UniqueEventList;
-import nustracker.model.student.NusNetId;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.UniqueStudentList;
 
 /**
@@ -107,13 +113,13 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Gets a student from the address book by his/her NUS NetId.
+     * Gets a student from the address book by his/her student ID.
      *
-     * @param nusNetId the relevant NUS NetId.
-     * @return the {@code Student} with this nusNetId, null if the student does not exist.
+     * @param studentId the relevant student ID.
+     * @return the {@code Student} with this studentId, null if the student does not exist.
      */
-    public Student getStudent(NusNetId nusNetId) {
-        return students.get(nusNetId);
+    public Student getStudent(StudentId studentId) {
+        return students.get(studentId);
     }
 
     /**
@@ -159,8 +165,33 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removeEvent(Event key) {
+    public void removeEvent(Event key, Model currModel) {
+        // Before removing the event, we remove all students from this event first.
+        Set<Participant> participantsOfThisEvent = key.getParticipants();
+        Set<StudentId> studentIdInThisEvent = new HashSet<>();
+
+        for (Participant currParticipant : participantsOfThisEvent) {
+            studentIdInThisEvent.add(currParticipant.getStudentId());
+        }
+
+        for (StudentId currStudentId : studentIdInThisEvent) {
+
+            // Use a RemoveCommand to do this because it does exactly what we want which is to
+            // remove the Event from the Student's EnrolledEvents (while also removing from Event's Participants)
+            RemoveCommand currRemoveCmd = new RemoveCommand(currStudentId, key.getName());
+
+            try {
+                CommandResult currCmdResult = currRemoveCmd.execute(currModel);
+            } catch (CommandException e) {
+                // Means either Invalid Student ID (Not possible)
+                // or invalid event name (Not possible)
+                // or the student does not have this event in its EnrolledEvents
+                // (Then just skip because this is the desired result anyway)
+            }
+        }
+
         events.remove(key);
+
     }
 
     //// util methods

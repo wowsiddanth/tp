@@ -16,8 +16,8 @@ import nustracker.commons.util.AppUtil;
  */
 public class Major {
 
-    public static final String MESSAGE_CONSTRAINTS = "Majors should only contain alphabets, and is case sensitive!"
-            + "\n The valid computing majors are: CS (Computer Science), IS (Information Systems)"
+    public static final String MESSAGE_CONSTRAINTS = "The valid computing majors are: "
+            + "\n CS (Computer Science), IS (Information Systems)"
             + ", ISEC (Information Security), and BZA (Business Analytics)";
 
     /*

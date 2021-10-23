@@ -18,11 +18,14 @@ Given below are my contributions to the project.
 * **New Feature**: Added the ability to blacklist and whitelist Student IDs from events.
   * Highlights: Events had to have a new blacklist field. This meant that most of the test cases had to be changed to account for this extra variable. JSON files had to be edited to account for the blacklist field. The GUI had to display the blacklist, which had to be distinct from the event participants.
 
+* * **New Feature**: Added the ability to list Events and Students
+* Highlights: Created new commands and edited Help Window.
+
 * **Code contributed**:
 
 * **Project management**:
 
-* **Enhancements to existing features**: Changed delete student by index to by NUS Net ID
+* **Enhancements to existing features**: Changed delete student by index to by student ID
   * Highlights: Whole implementation of delete student command had to be changed. New variables for testing were created to accommodate the new changes.
 
 * **Documentation**:

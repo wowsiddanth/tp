@@ -3,7 +3,7 @@ package nustracker.logic.commands;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
-import static nustracker.logic.parser.CliSyntax.PREFIX_NUSNETID;
+import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ import nustracker.model.Model;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.Participant;
-import nustracker.model.student.NusNetId;
+import nustracker.model.student.StudentId;
 
 /**
  * Blacklists a Student ID for an event.
@@ -25,24 +25,24 @@ public class BlackListCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Blacklists a Student ID for an event identified by its name.\n"
             + "Parameters: "
-            + PREFIX_NUSNETID + "[STUDENT_ID] "
+            + PREFIX_STUDENTID + "[STUDENT_ID] "
             + PREFIX_EVENT + "[EVENT_NAME]\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_NUSNETID + "e0322322 "
+            + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_BLACKLIST_SUCCESS =
             "Student ID %1$s blacklisted for the Event: %2$s";
     public static final String MESSAGE_STUDENTID_ALREADY_BLACKLISTED =
             "Student ID %1$s is already blacklisted for the Event: %2$s";
 
-    private final NusNetId studentId;
+    private final StudentId studentId;
     private final EventName eventName;
 
     /**
      * @param studentId of the student to blacklist for the event
      * @param eventName the event name
      */
-    public BlackListCommand(NusNetId studentId, EventName eventName) {
+    public BlackListCommand(StudentId studentId, EventName eventName) {
         requireAllNonNull(studentId, eventName);
 
         this.studentId = studentId;

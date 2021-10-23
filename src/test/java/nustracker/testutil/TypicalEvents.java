@@ -24,11 +24,11 @@ public class TypicalEvents {
     public static final Event SPORTS_CAMP = new EventBuilder().withName("Sports Camp")
             .withDate("10-09-2021")
             .withTime("1200")
-            .withParticipants("e9193111").build();
+            .withParticipants("e9831818").build();
     public static final Event MATH_OLYMPIAD = new EventBuilder().withName("Math Olympiad")
             .withDate("05-03-2017")
             .withTime("1615")
-            .withParticipants("e0322322", "e0123456")
+            .withParticipants("e9123119", "e0123456", "e0322322")
             .withBlacklist("e1234567", "e0544182").build();
 
     // For delete event tests

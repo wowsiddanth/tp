@@ -3,8 +3,11 @@ package nustracker.model.student;
 import static java.util.Objects.requireNonNull;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
+import nustracker.model.Model;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 
@@ -19,6 +22,8 @@ public class EnrolledEvents {
     // We use a HashMap with EventName as keys because events are usually found by its name.
     // If we use a Set, we have to get the event object first in order to search for it.
     // We can do this because all events have unique names.
+    // CAUTION: THE EVENT LIST HERE MAY BE OUTDATED, THE MOST UPDATED ONE IS IN MODEL
+    // BECAUSE WHEN SETTING NEW EVENT OBJECT THIS DOES NOT GET EDITED
     private HashMap<EventName, Event> eventsEnrolledIn;
 
     /**
@@ -89,6 +94,25 @@ public class EnrolledEvents {
     public String getEventNamesString() {
         return eventsEnrolledIn.values().stream().map(Event::getName).map(EventName::getEventName)
                 .collect(Collectors.joining(", "));
+    }
+
+    /**
+     * Returns an immutable {@code Event} Set, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
+     *
+     * @param model the model to get the most up-to-date {@code Event} from.
+     * @return the Set of {@code Event} that is in this {@code EnrolledEvents}.
+     */
+    public Set<Event> getAllEventsEnrolledIn(Model model) {
+        Set<Event> allEventSet = new HashSet<>();
+
+        for (Event currEvent : eventsEnrolledIn.values()) {
+            Event upToDateEvent = model.getEvent(currEvent.getName());
+
+            allEventSet.add(upToDateEvent);
+        }
+
+        return allEventSet;
     }
 
     /**

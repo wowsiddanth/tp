@@ -80,8 +80,8 @@ class JsonSerializableAddressBook {
 
                 Student enrolledStudent = new Student(
                         currStudent.getName(), currStudent.getPhone(), currStudent.getEmail(),
-                        currStudent.getYear(), currStudent.getMajor(), currStudent.getNusNetId(),
-                        currStudent.getTags(), updatedEnrolledEvents);
+                        currStudent.getYear(), currStudent.getMajor(), currStudent.getStudentId(),
+                        updatedEnrolledEvents);
 
                 // Have to set student or GUI will not update
                 // From documentation of ObservableList:
