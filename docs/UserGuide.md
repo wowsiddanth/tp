@@ -323,5 +323,5 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Command** | **Description** | **Example** |
 -------------------------|------------------------------------------|----------------------------------|
 **help** | opens the help window | `help` |
-**export** | exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
+**export** | exports the emails of the students that <br> are currently displayed | `export fn/FILE_NAME` |
 **exit** | exits the app | `exit` |
