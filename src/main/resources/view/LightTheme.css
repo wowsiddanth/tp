@@ -86,20 +86,6 @@
     -fx-font-family: Roboto-Bold;
 }
 
-.button:disabled, .button:default:disabled {
-    -fx-opacity: 0.4;
-    -fx-text-fill: white;
-}
-
-.button:default {
-    -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #ffffff;
-}
-
-.button:default:hover {
-    -fx-background-color: derive(-fx-focus-color, 30%);
-}
-
 /**========================================= End of buttons ==========================================================*/
 
 /**==========================================Start of ScrollBar ======================================================*/
