@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<fx:root resizable="true" title="Help" type="Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root resizable="false" title="Help" type="Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" width="1300" height="700">
    <icons>
       <Image url="@/images/help_icon.png" />
    </icons>
@@ -66,9 +66,9 @@
                      <content>
                         <Accordion>
                           <panes>
-                              <TitledPane text="Student Commands" textFill="#377adf">
+                              <TitledPane fx:id="titledPane" text="Student Commands" textFill="#377adf">
                                  <content>
-                                    <GridPane gridLinesVisible="true">
+                                    <GridPane fx:id="firstGridPane" gridLinesVisible="true">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.20001220703125" minWidth="0.0" prefWidth="109.6" />
                                         <ColumnConstraints hgrow="ALWAYS" maxWidth="950.3999267578124" minWidth="10.0" prefWidth="920.0" />
@@ -206,7 +206,7 @@
                             </TitledPane>
                               <TitledPane expanded="false" layoutX="10.0" layoutY="10.0" text="Event Commands" textFill="#377adf">
                                  <content>
-                                    <GridPane gridLinesVisible="true">
+                                    <GridPane fx:id="secondGridPane" gridLinesVisible="true">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.20001220703125" minWidth="0.0" prefWidth="109.6" />
                                           <ColumnConstraints hgrow="ALWAYS" maxWidth="950.3999267578124" minWidth="10.0" prefWidth="920.0" />
@@ -292,7 +292,7 @@
                               </TitledPane>
                               <TitledPane expanded="false" layoutX="10.0" layoutY="10.0" text="Other Commands" textFill="#377adf">
                                  <content>
-                                    <GridPane gridLinesVisible="true">
+                                    <GridPane fx:id="thirdGridPane" gridLinesVisible="true">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.20001220703125" minWidth="0.0" prefWidth="109.6" />
                                           <ColumnConstraints hgrow="ALWAYS" maxWidth="950.3999267578124" minWidth="10.0" prefWidth="920.0" />

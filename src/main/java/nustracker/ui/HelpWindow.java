@@ -8,8 +8,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TitledPane;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -95,12 +97,21 @@ public class HelpWindow extends UiPart<Stage> {
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
+    //Main components
     @FXML
     private VBox helpWindow;
     @FXML
+    private TitledPane titledPane;
+    @FXML
+    private GridPane firstGridPane;
+    @FXML
+    private GridPane secondGridPane;
+    @FXML
+    private GridPane thirdGridPane;
+    @FXML
     private Text helpMessage;
 
-    // STUDENT COMMANDS
+    //Student Commands
     @FXML
     private Text addCommandExample;
     @FXML
@@ -181,6 +192,7 @@ public class HelpWindow extends UiPart<Stage> {
         settingsCommandExample.setText(SETTINGS_COMMAND_EXAMPLE);
         exportCommandExample.setText(EXPORT_COMMAND_EXAMPLE);
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
+
     }
 
     /**
