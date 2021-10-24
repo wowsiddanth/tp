@@ -28,7 +28,6 @@ Graphical User Interface (GUI).
 
 4. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. The app already contains some sample data.<br>
 
-
    ![Ui](images/Ui1.png)
 
 
@@ -281,10 +280,13 @@ Examples:
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Opens the Help window
 
 Command: `help`
 
+### Viewing the settings: `settings`
+
+Opens the Settings window
 
 ### Exporting Emails : `export`
 
@@ -306,7 +308,7 @@ Exits the program.
 
 Command: `exit`
 
-<br><br><br>
+<br>
 
 ---------------------------------------------------------------------------------------
 ##Customization
@@ -362,11 +364,12 @@ NUSTracker allows you to change the color of the glow of the profile picture.
 
    ![custom-color](images/custom-color.PNG)
 
-   *You can also customize the color precisely.*
+   *Or you can  customize the color precisely.*
 
 
 3. This change is **immediate**, and does not require a restart.
-
+ 
+<br>
 You have now learnt to customize NUSTracker to its fullest. Go ahead and play around with the settings!
     
 
@@ -389,6 +392,12 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSTracker home folder.
+
+**Q**: I noticed a bug in NUSTracker. How do I report it?<br>
+**A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a
+bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues). Thank you for contributing to NUSTracker!
+
+**Q**: 
 
 --------------------------------------------------------------------------------------------------------------------
 
