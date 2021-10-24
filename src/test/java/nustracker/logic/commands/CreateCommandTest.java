@@ -25,8 +25,8 @@ class CreateCommandTest {
 
     @Test
     public void execute_eventAcceptedByModel_addSuccessful() throws Exception {
-        CreateCommandTest.ModelStubAcceptingEventAdded modelStub =
-                new CreateCommandTest.ModelStubAcceptingEventAdded();
+        ModelStubAcceptingEventAdded modelStub =
+                new ModelStubAcceptingEventAdded();
         Event validEvent = new EventBuilder().build();
 
         CommandResult commandResult = new CreateCommand(validEvent).execute(modelStub);
@@ -40,7 +40,7 @@ class CreateCommandTest {
     public void execute_duplicateEvent_throwsCommandException() {
         Event validEvent = new EventBuilder().build();
         CreateCommand createCommand = new CreateCommand(validEvent);
-        ModelStub modelStub = new CreateCommandTest.ModelStubWithEvent(validEvent);
+        ModelStub modelStub = new ModelStubWithEvent(validEvent);
 
         assertThrows(CommandException.class, CreateCommand.MESSAGE_DUPLICATE_EVENT, () ->
                 createCommand.execute(modelStub));
