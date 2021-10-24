@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
+import nustracker.logic.commands.BlackListCommand;
 import nustracker.logic.commands.ClearCommand;
 import nustracker.logic.commands.Command;
 import nustracker.logic.commands.CreateCommand;
@@ -18,6 +19,7 @@ import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.HelpCommand;
 import nustracker.logic.commands.RemoveCommand;
 import nustracker.logic.commands.StudentsCommand;
+import nustracker.logic.commands.WhiteListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 
 /**
@@ -76,6 +78,12 @@ public class AddressBookParser {
 
         case RemoveCommand.COMMAND_WORD:
             return new RemoveCommandParser().parse(arguments);
+
+        case BlackListCommand.COMMAND_WORD:
+            return new BlackListCommandParser().parse(arguments);
+
+        case WhiteListCommand.COMMAND_WORD:
+            return new WhiteListCommandParser().parse(arguments);
 
         case ExportCommand.COMMAND_WORD:
             return new ExportCommandParser().parse(arguments);

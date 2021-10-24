@@ -43,7 +43,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public AddressBook() {}
 
     /**
-     * Creates an AddressBook using the Students in the {@code toBeCopied}
+     * Creates an AddressBook using the Students and Events in the {@code toBeCopied}
      */
     public AddressBook(ReadOnlyAddressBook toBeCopied) {
         this();
@@ -217,8 +217,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddressBook // instanceof handles nulls
-                && students.equals(((AddressBook) other).students))
-                && events.equals(((AddressBook) other).events);
+                && students.equals(((AddressBook) other).students)
+                && events.equals(((AddressBook) other).events));
     }
 
     @Override

@@ -181,6 +181,7 @@ public class MainWindow extends UiPart<Stage> {
                 (int) primaryStage.getX(), (int) primaryStage.getY(), isLightMode, settingsWindow.getGlowHexCode());
         logic.setGuiSettings(guiSettings);
 
+        settingsWindow.hide();
         helpWindow.hide();
         primaryStage.hide();
     }
