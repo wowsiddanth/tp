@@ -30,6 +30,4 @@ public class EnrollCommandParser implements Parser<EnrollCommand> {
         return new EnrollCommand(studentId, eventName);
     }
 
-
-
 }

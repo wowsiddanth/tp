@@ -1,5 +1,7 @@
 package nustracker.model.student;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.function.Predicate;
 
 import nustracker.model.event.EventName;
@@ -9,20 +11,21 @@ import nustracker.model.event.EventName;
  * Tests that a {@code Student}'s {@code EnrolledEvents} matches the keyword given.
  */
 public class EnrolledEventsContainsKeywordsPredicate implements Predicate<Student> {
-    private final String keyword;
+    private final EventName keyword;
 
     /**
      * Constructs an {@code EnrolledEventsContainsKeywordsPredicate}.
      *
      * @param keyword A valid event name.
      */
-    public EnrolledEventsContainsKeywordsPredicate(String keyword) {
+    public EnrolledEventsContainsKeywordsPredicate(EventName keyword) {
+        requireNonNull(keyword);
         this.keyword = keyword;
     }
 
     @Override
     public boolean test(Student student) {
-        return student.getEvents().isEnrolledInEvent(new EventName(keyword));
+        return student.getEvents().isEnrolledInEvent(keyword);
     }
 
     /**
@@ -30,7 +33,7 @@ public class EnrolledEventsContainsKeywordsPredicate implements Predicate<Studen
      *
      * @return the keyword.
      */
-    public String getKeyword() {
+    public EventName getKeyword() {
         return keyword;
     }
 

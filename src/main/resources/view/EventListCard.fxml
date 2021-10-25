@@ -5,15 +5,18 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.Pane?>
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
         </columnConstraints>
+
         <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
 
             <padding>
@@ -39,7 +42,21 @@
                 </font>
             </Text>
 
-            <FlowPane fx:id="participants"/>
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <Text fill="#e9afff">Participants:</Text>
+                <FlowPane fx:id="participants"/>
+            </HBox>
+
+            <Pane prefHeight="4"/>
+
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <Text fill="#e9afff">Blacklist:</Text>
+                <FlowPane fx:id="blacklist"/>
+            </HBox>
+
         </VBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 </HBox>
