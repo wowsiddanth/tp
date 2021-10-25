@@ -1,5 +1,7 @@
 package nustracker.logic.commands;
 
+import static nustracker.commons.core.Messages.MESSAGE_STUDENT_LIST_NOT_SHOWN;
+import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownEventList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -47,6 +49,13 @@ public class DeleteFilteredStudentsCommandTest {
         assertCommandSuccess(deleteFilteredStudentsCommand, model,
                 DeleteFilteredStudentsCommand.MESSAGE_DELETE_ALL_FILTERED_SUCCESS, expectedModel);
 
+    }
+
+    @Test
+    public void execute_unfilteredListWhenEventsShown_throwsCommandException() {
+        DeleteFilteredStudentsCommand cmd = new DeleteFilteredStudentsCommand();
+
+        assertCommandFailureShownEventList(cmd, model, MESSAGE_STUDENT_LIST_NOT_SHOWN);
     }
 
 

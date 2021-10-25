@@ -1,7 +1,7 @@
 package nustracker.logic.commands;
 
 //import static nustracker.logic.commands.CommandTestUtil.VALID_EVENTNAME_TEST;
-//import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
+//import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 //import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 //import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
 //import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
@@ -103,7 +103,7 @@ class EnrollCommandTest {
     //        EnrollCommand enrollCommand = new EnrollCommand(outOfBoundIndex,
     //                  new EnrolledEvents(VALID_EVENTNAME_TEST));
     //
-    //        assertCommandFailure(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+    //        assertCommandFailureShownStudentList(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     //    }
     //
     //    @Test
@@ -116,6 +116,6 @@ class EnrollCommandTest {
     //        EnrollCommand enrollCommand = new EnrollCommand(outOfBoundIndex,
     //                  new EnrolledEvents(VALID_EVENTNAME_TEST));
     //
-    //        assertCommandFailure(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+    //        assertCommandFailureShownStudentList(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     //    }
 }

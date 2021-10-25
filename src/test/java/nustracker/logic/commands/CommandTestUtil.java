@@ -148,12 +148,13 @@ public class CommandTestUtil {
     }
 
     /**
-     * Executes the given {@code command}, confirms that <br>
+     * Executes the given {@code command} when students list is shown on the Gui, confirms that <br>
      * - a {@code CommandException} is thrown <br>
      * - the CommandException message matches {@code expectedMessage} <br>
      * - the address book, filtered student list and selected student in {@code actualModel} remain unchanged
      */
-    public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
+    public static void assertCommandFailureShownStudentList(Command command, Model actualModel,
+                                                            String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
@@ -161,6 +162,25 @@ public class CommandTestUtil {
 
         Assert.assertThrows(CommandException.class, expectedMessage, () ->
                 command.execute(actualModel, MainWindow.CurrentlyShownList.STUDENTS_LIST));
+        assertEquals(expectedAddressBook, actualModel.getAddressBook());
+        assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
+    }
+
+    /**
+     * Executes the given {@code command} when events list is shown on the Gui, confirms that <br>
+     * - a {@code CommandException} is thrown <br>
+     * - the CommandException message matches {@code expectedMessage} <br>
+     * - the address book, filtered student list and selected student in {@code actualModel} remain unchanged
+     */
+    public static void assertCommandFailureShownEventList(Command command, Model actualModel,
+                                                            String expectedMessage) {
+        // we are unable to defensively copy the model for comparison later, so we can
+        // only do so by copying its components.
+        AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
+        List<Student> expectedFilteredList = new ArrayList<>(actualModel.getFilteredStudentList());
+
+        Assert.assertThrows(CommandException.class, expectedMessage, () ->
+                command.execute(actualModel, MainWindow.CurrentlyShownList.EVENTS_LIST));
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
     }
