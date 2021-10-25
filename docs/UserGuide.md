@@ -100,6 +100,63 @@ in clubs and societies—specifically **student and event management**.
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
+
+## General Layout
+
+The following is a description of the general layout of NUSTracker.
+
+![general-layout](images/general-layout.png)
+
+1. **Top bar**
+    
+    The top bar consists of the buttons: **Refresh, Toggle theme, Settings, Students, Event, Help, and Exit**.
+    * **Refresh**
+      
+        Refreshes the currently displayed students/events. Press this button when you add profile pictures.
+
+    * **Toggle Theme**
+        
+        Toggles the theme of NUSTracker, from Dark theme to Light them, and vice versa.
+
+    * **Settings**
+
+         Opens the Settings Window.
+     
+    * **Students**
+
+        Displays current students.
+
+   * **Events**
+
+     Displays current Events.
+
+   * **Help**
+
+     Opens the Help window.
+
+   * **Exit**
+
+     Exit NUSTracker.
+
+
+
+
+
+2. **Command bar**
+
+    This space is for the user (you!) to type in the commands. For more information about commands, see the section below.
+   <br><br>
+3. **Result Display**
+   
+    The empty box directly below the command bar is the result display, where error/success messages are displayed.
+   <br><br>
+4. **Students**
+
+    The students, their information, and the events they are taking part in are displayed here,
+
+
+
+--------------------------------------------------------------------------------------------------------------------
 ## Student Commands
 ### Adding a student: `add`
 
@@ -379,7 +436,7 @@ NUSTracker has the ability to add a profile picture to a student. Follow the ste
 
       *The updated student card (belonging to student with Student ID **e1111111** in NUSTracker)*
       <br><br>
-   3. The image will update once you **restart NUSTracker**.
+   3. The image will update once you **click the Refresh button or restart NUSTracker**.
    4. You're done!
 
 ### 3. Changing the _glow_ of the profile picture border
