@@ -14,7 +14,7 @@ public class EventsCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        return new CommandResult(MESSAGE_SHOW_EVENTS_SUCCESS, false, false,
+        return new CommandResult(MESSAGE_SHOW_EVENTS_SUCCESS, false, false, false,
                 false, true);
     }
 

@@ -5,29 +5,26 @@ import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
-import nustracker.logic.commands.EnrollCommand;
+import nustracker.logic.commands.BlackListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
 import nustracker.model.student.StudentId;
 
-public class EnrollCommandParser implements Parser<EnrollCommand> {
-
+public class BlackListCommandParser implements Parser<BlackListCommand> {
     @Override
-    public EnrollCommand parse(String args) throws ParseException {
+    public BlackListCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args,
                 PREFIX_STUDENTID,
                 PREFIX_EVENT);
 
         if (!argMultimap.arePrefixesPresent(PREFIX_STUDENTID, PREFIX_EVENT) || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EnrollCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, BlackListCommand.MESSAGE_USAGE));
         }
 
-        StudentId studentId = ParserUtil.parseStudentId(argMultimap.getValue(PREFIX_STUDENTID).get());
-
+        StudentId nusNetId = ParserUtil.parseStudentId(argMultimap.getValue(PREFIX_STUDENTID).get());
         EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
 
-        return new EnrollCommand(studentId, eventName);
+        return new BlackListCommand(nusNetId, eventName);
     }
-
 }
