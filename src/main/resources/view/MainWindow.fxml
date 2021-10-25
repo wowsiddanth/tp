@@ -54,7 +54,7 @@
                   </graphic></Button>
           <Button mnemonicParsing="false" onAction="#changeTheme" prefHeight="38.0" prefWidth="65.0" translateX="-26.0" translateY="8.0">
             <graphic>
-              <ImageView fitHeight="30.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fitHeight="14.0" fitWidth="42.0" preserveRatio="true">
                 <Image url="@../images/theme.png" />
               </ImageView>
             </graphic>

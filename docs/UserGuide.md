@@ -27,9 +27,8 @@ Graphical User Interface (GUI).
 
 
 4. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. The app already contains some sample data.<br>
+![Ui](images/Ui.png)
 
-
-   ![Ui](images/Ui1.png)
 
 
 5. Type the command in the command box and press Enter to execute it. For example, typing `help` and pressing Enter will open the help window.<br>
@@ -54,7 +53,7 @@ NUSTracker was designed to help the average overworked university student, who a
 in clubs and societies—specifically **student and event management**.
 
 
-###What can NUSTracker do?
+### What can NUSTracker do?
 1. **Keep track of students**
 
     NUSTracker displays all students currently associated with the organization neatly. The students have their details
@@ -314,9 +313,17 @@ Examples:
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Opens the help window, which consists of a summary of the commands that are available for use,
+and also includes a template on how to use the command, which you can copy with the simple click of a button.
 
 Command: `help`
+
+### Viewing settings : `settings`
+
+Opens the settings window, which allows you to customize the glow of the profile pictures.
+You can pick from the preset colours, or customize your own with the colour palette.
+
+Command: `settings`
 
 
 ### Exporting Emails : `export`
@@ -335,7 +342,7 @@ Examples:
 
 ### Exiting the program : `exit`
 
-Exits the program.
+Closes the program.
 
 Command: `exit`
 
@@ -436,6 +443,8 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **edit** | edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
 **filter** | filter by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
+**blacklist** | blacklist a student from attending an event | `blacklist id/STUDENT_ID ev/EVENT_NAME` |
+**whitelist** | whitelist a student from attending an event | `whitelist id/STUDENT_ID ev/EVENT_NAME` |
 
 ### Event Commands
 
@@ -452,5 +461,6 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Command** | **Description** | **Example** |
 -------------------------|------------------------------------------|----------------------------------|
 **help** | opens the help window | `help` |
-**export** | exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
+**settings** | opens the settings window | `settings` |
+**export** | exports the emails of the students that <br> are currently displayed | `export fn/FILE_NAME` |
 **exit** | exits the app | `exit` |
