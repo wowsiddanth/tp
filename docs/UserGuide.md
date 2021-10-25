@@ -257,7 +257,8 @@ Command: `delfiltered`
 * This command can only be used when NUSTracker is showing the Student list.
 * Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in
   NUSTracker would be deleted since all of them are shown.
-* After all the filtered students are deleted, the remaining students would then all be shown in the filtered list, if any.
+* After all the filtered students are deleted, the remaining students would then all be shown in the list, if any.
+* At least one student needs to be shown in the filtered list for `delfiltered` to work.
 
 Examples:
 * `filter y/4` followed by `delfiltered` will delete all students who are in Year 4, possibly because they are graduating soon.
