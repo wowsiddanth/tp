@@ -132,19 +132,19 @@ Examples:
 
 ### Filter students: `filter`
 
-Filters students whose data contains the given field.
+Filters students whose data contains the given field, the search is case-insensitive.
 
 Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [m/MAJOR [MORE_MAJORS]...] [y/YEAR [MORE_YEARS]...] [ev/EVENT_NAME]`
 
 * You can filter by:
-    - Multiple student IDs. (case-insensitive)
-    - Multiple Student names. (case-insensitive)
-    - Multiple Majors. (case-insensitive)
+    - Multiple student IDs.
+    - Multiple Student names.
+    - Multiple Majors.
     - Multiple Years.
-    - **A single** Event name. (case-sensitive)
+    - **A single** Event name.
 
 * You can only filter by one field (i.e. filter only by student ID, student name, year, major, or event name).
-* The search is case-insensitive, except for events. e.g. `n/john` will match with `n/JOHN`, but `ev/ifg` will **not** match `ev/IFG`
+* The search is case-insensitive. e.g. `n/john` will match with `n/JOHN`.
 * You can search using multiple keywords except for events.
 * You can search by partial keywords for names and student IDs. e.g. `n/al` will match with `n/alice` and `id/e12` will match with `id/e1234567`
 
@@ -156,7 +156,7 @@ Examples:
 * `filter n/John alice` returns the students whose names contain John OR Alice.
 * `filter m/CS IS` returns the students majoring in CS or IS.
 * `filter y/1 2 3` returns the students in years 1, 2, or 3.
-* `filter ev/IFG` returns a list of students who are tagged to the IFG event.
+* `filter ev/orientation` returns a list of students who are tagged to the Orientation event.
 
 _**Coming soon:** Additional fields to filter by._
 
@@ -233,6 +233,8 @@ Command: `enroll id/STUDENT_ID ev/EVENT`
 
 * Enrolls the student specified by Student ID into the event specified by its event name.
 
+* Event name is case-insensitive.
+
 Examples:
 * `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with Student ID e0544111 into the event "CS1101S Mock PE".
 * `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with Student ID e0322322 into the event "Orientation Camp".
@@ -246,6 +248,8 @@ Removes the specified student from the specified event.
 Command: `remove id/STUDENT_ID ev/EVENT`
 
 * Removes the student specified by Student ID from the event specified by its event name.
+
+* Event name is case-insensitive.
 
 Examples:
 * `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
@@ -331,7 +335,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **students** | lists students | `students` |
 **edit** | edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
 **delete** | delete a student | `delete id/STUDENT_ID` |
-**filter** | filter by field  | `filter [n/STUDENT_NAME [MORE_STUDENT_NAMES]...]` <br> `filter [id/STUDENT_ID [MORE_STUDENT_IDS]...]` <br>  `filter [ev/EVENT_NAME]` |
+**filter** | filter by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
 
 ### Event Commands
 

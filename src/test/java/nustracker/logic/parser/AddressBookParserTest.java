@@ -34,7 +34,7 @@ import nustracker.logic.commands.StudentsCommand;
 import nustracker.logic.commands.WhiteListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;
-import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
+import nustracker.model.event.EventName;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
@@ -104,7 +104,7 @@ public class AddressBookParserTest {
 
         FilterCommand eventCommand = (FilterCommand) parser.parseCommand(
                 FilterCommand.COMMAND_WORD + " " + PREFIX_EVENT + "foo");
-        assertEquals(new FilterEventCommand(new EnrolledEventsContainsKeywordsPredicate("foo")), eventCommand);
+        assertEquals(new FilterEventCommand(new EventName("foo")), eventCommand);
     }
 
     @Test
