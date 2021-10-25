@@ -58,7 +58,7 @@ public class ImageStorage {
     }
 
     /**
-     * Creates a folder called profile-pictures, that stores the profile pictures of students.
+     * Creates a folder called profile-pictures, that stores the profile pictures of the students.
      */
     public void createImageFolder() {
         if (Files.exists(Path.of(pathOfImageFolder))) {
