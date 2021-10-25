@@ -1,6 +1,10 @@
 package nustracker.logic.parser;
 
-import nustracker.model.student.StudentId;
+import static nustracker.logic.commands.CommandTestUtil.STUDENTID_DESC_AMY;
+import static nustracker.logic.commands.CommandTestUtil.STUDENTID_DESC_BOB;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
+import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
+
 import org.junit.jupiter.api.Test;
 
 import nustracker.commons.core.Messages;
@@ -9,9 +13,9 @@ import nustracker.logic.commands.EditCommand;
 import nustracker.model.student.Email;
 import nustracker.model.student.Name;
 import nustracker.model.student.Phone;
+import nustracker.model.student.StudentId;
 import nustracker.testutil.EditStudentDescriptorBuilder;
 
-import static nustracker.logic.commands.CommandTestUtil.*;
 
 
 public class EditCommandParserTest {
