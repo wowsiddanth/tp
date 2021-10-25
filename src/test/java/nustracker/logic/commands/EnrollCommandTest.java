@@ -103,7 +103,8 @@ class EnrollCommandTest {
     //        EnrollCommand enrollCommand = new EnrollCommand(outOfBoundIndex,
     //                  new EnrolledEvents(VALID_EVENTNAME_TEST));
     //
-    //        assertCommandFailureShownStudentList(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+    //        assertCommandFailureShownStudentList(enrollCommand, model,
+    //                                             Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     //    }
     //
     //    @Test
@@ -116,6 +117,7 @@ class EnrollCommandTest {
     //        EnrollCommand enrollCommand = new EnrollCommand(outOfBoundIndex,
     //                  new EnrolledEvents(VALID_EVENTNAME_TEST));
     //
-    //        assertCommandFailureShownStudentList(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+    //        assertCommandFailureShownStudentList(enrollCommand, model,
+    //                                             Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     //    }
 }
