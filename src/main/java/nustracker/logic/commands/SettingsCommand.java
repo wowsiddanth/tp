@@ -1,6 +1,7 @@
 package nustracker.logic.commands;
 
 import nustracker.model.Model;
+import nustracker.ui.MainWindow;
 
 /**
  * Format full help instructions for every command for display.
@@ -15,7 +16,8 @@ public class SettingsCommand extends Command {
     public static final String SHOWING_SETTINGS_MESSAGE = "Opened settings window.";
 
     @Override
-    public CommandResult execute(Model model) {
-        return new CommandResult(SHOWING_SETTINGS_MESSAGE, false, false, true, false, false);
+    public CommandResult execute(Model model, MainWindow.CurrentlyShownList currentlyShownList) {
+        return new CommandResult(SHOWING_SETTINGS_MESSAGE, false, false, true,
+                false, false);
     }
 }
