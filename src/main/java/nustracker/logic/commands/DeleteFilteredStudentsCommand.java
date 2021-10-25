@@ -27,6 +27,8 @@ public class DeleteFilteredStudentsCommand extends Command {
     public static final String MESSAGE_DELETE_ALL_FILTERED_SUCCESS =
             "Successfully deleted all shown students in the student list.";
 
+    public static final String MESSAGE_AT_LEAST_ONE_STUDENT_REQ_FOR_DELFILTER =
+            COMMAND_WORD + " requires at least one student to be shown in the list in order for it to work.";
 
 
 
@@ -40,6 +42,10 @@ public class DeleteFilteredStudentsCommand extends Command {
         }
 
         ObservableList<Student> filteredStudents = model.getFilteredStudentList();
+
+        if (filteredStudents.size() == 0) {
+            throw new CommandException(MESSAGE_AT_LEAST_ONE_STUDENT_REQ_FOR_DELFILTER);
+        }
 
         // Make a copy since the Observable List contents are modified while this is running.
         ArrayList<Student> copyOfFilteredStudents = new ArrayList<>();
