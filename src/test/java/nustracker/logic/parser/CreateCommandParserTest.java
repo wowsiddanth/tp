@@ -4,7 +4,6 @@ import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.commands.CommandTestUtil.DATE_DESC_FINAL;
 import static nustracker.logic.commands.CommandTestUtil.DATE_DESC_TEST;
 import static nustracker.logic.commands.CommandTestUtil.INVALID_EVENTDATE_DESC;
-import static nustracker.logic.commands.CommandTestUtil.INVALID_EVENTNAME_DESC;
 import static nustracker.logic.commands.CommandTestUtil.INVALID_EVENTTIME_DESC;
 import static nustracker.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static nustracker.logic.commands.CommandTestUtil.NAME_DESC_FINAL;
@@ -18,7 +17,6 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_EVENTNAME_TEST;
 import static nustracker.logic.commands.CommandTestUtil.VALID_EVENTTIME_TEST;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static nustracker.testutil.TypicalEvents.TEST;
 
 import org.junit.jupiter.api.Test;
 
@@ -35,7 +33,9 @@ class CreateCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Event expectedEvent = new EventBuilder(TEST).build();
+        Event expectedEvent = new EventBuilder()
+                .withName(VALID_EVENTNAME_TEST).withDate(VALID_EVENTDATE_TEST).withTime(VALID_EVENTTIME_TEST)
+                .build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_TEST + DATE_DESC_TEST + TIME_DESC_TEST,
@@ -58,7 +58,9 @@ class CreateCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero participants
-        Event expectedEvent = new EventBuilder(TEST).build();
+        Event expectedEvent = new EventBuilder()
+                .withName(VALID_EVENTNAME_TEST).withDate(VALID_EVENTDATE_TEST).withTime(VALID_EVENTTIME_TEST)
+                .build();
         assertParseSuccess(parser, NAME_DESC_TEST + DATE_DESC_TEST + TIME_DESC_TEST,
                 new CreateCommand(expectedEvent));
     }
@@ -87,7 +89,7 @@ class CreateCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         // invalid name
-        assertParseFailure(parser, INVALID_EVENTNAME_DESC + DATE_DESC_TEST + TIME_DESC_TEST,
+        assertParseFailure(parser, INVALID_NAME_DESC + DATE_DESC_TEST + TIME_DESC_TEST,
                 EventName.MESSAGE_CONSTRAINTS);
 
         // invalid date
