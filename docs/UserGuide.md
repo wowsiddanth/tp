@@ -53,7 +53,7 @@ NUSTracker was designed to help the average overworked university student, who a
 in clubs and societies—specifically **student and event management**.
 
 
-###What can NUSTracker do?
+### What can NUSTracker do?
 1. **Keep track of students**
 
     NUSTracker displays all students currently associated with the organization neatly. The students have their details
@@ -311,18 +311,18 @@ Command: `exit`
 <br>
 
 ---------------------------------------------------------------------------------------
-##Customization
+## Customization
 
 Another key feature of NUSTracker is its ability to be customized greatly. This section covers how NUSTracker can be
 customized to your liking.
 
-###1. Changing between Light/Dark Theme
+### 1. Changing between Light/Dark Theme
 NUSTracker has a light/dark theme. To toggle between the two, click the button (to the left of **Settings**) as shown in the image below and
 voila!
  
 ![change_theme](images/change_theme.PNG)
 
-###2. Setting a profile picture
+### 2. Setting a profile picture
 NUSTracker has the ability to add a profile picture to a student. Follow the steps given to add a picture:
 1. If you have not started NUSTracker before, run NUSTracker within a folder of your choice.
 
@@ -344,12 +344,12 @@ NUSTracker has the ability to add a profile picture to a student. Follow the ste
  
       ![changed-profile-picture](images/changed-profile-picture.PNG)
 
-      *The updated student card (belonging to student with Student ID **e1111111** in NUSTracker*
-   
-   2. The image will update once you **restart NUSTracker**.
-   3. You're done!
+      *The updated student card (belonging to student with Student ID **e1111111** in NUSTracker)*
+      <br><br>
+   3. The image will update once you **restart NUSTracker**.
+   4. You're done!
 
-###3. Changing the _glow_ of the profile picture border
+### 3. Changing the _glow_ of the profile picture border
 
 NUSTracker allows you to change the color of the glow of the profile picture.
 
@@ -362,14 +362,27 @@ NUSTracker allows you to change the color of the glow of the profile picture.
 
     *You can choose one of the pre-selected colors.* 
 
+   <br><br>
    ![custom-color](images/custom-color.PNG)
 
    *Or you can  customize the color precisely.*
 
 
 3. This change is **immediate**, and does not require a restart.
+
+###4. Customization FAQs
  
+**Q**: I have added the image, but it doesn't appear. <br>
+
+**A**:
+* Please check if the image is either **.jpg** or **.png**. Other image types are NOT supported. 
+* Please check if you have the correct name format used—refer to **"_Setting a profile picture_" point 3** above. 
+* Please check if the image size is too small or too large. Due to the limitations of JavaFX, extreme image sizes cannot be displayed. 
+
+If you have
+exhausted all options, you can file a bug report on our [GitHub page](#FAQ).
 <br>
+
 You have now learnt to customize NUSTracker to its fullest. Go ahead and play around with the settings!
     
 
@@ -388,7 +401,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 --------------------------------------------------------------------------------------------------------------------
 
-## FAQ
+##FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSTracker home folder.
