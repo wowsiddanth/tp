@@ -8,8 +8,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TitledPane;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -58,7 +60,6 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String WHITELIST_COMMAND_EXAMPLE = " " + WHITELIST_COMMAND
             + " id/STUDENT_ID ev/EVENT";
 
-
     // EVENT COMMANDS
     public static final String CREATE_COMMAND = "create";
     public static final String CREATE_COMMAND_EXAMPLE = " " + CREATE_COMMAND
@@ -78,7 +79,6 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String DELETE_COMMAND_EXAMPLE2 = " " + DELETE_COMMAND
             + " ev/EVENT_NAME";
 
-
     // OTHER COMMANDS
     public static final String HELP_COMMAND = "help";
     public static final String HELP_COMMAND_EXAMPLE = " " + HELP_COMMAND;
@@ -94,86 +94,68 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String EXIT_COMMAND_EXAMPLE = " " + EXIT_COMMAND;
 
 
-
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
+    //Main components
     @FXML
     private VBox helpWindow;
-
+    @FXML
+    private TitledPane titledPane;
+    @FXML
+    private GridPane firstGridPane;
+    @FXML
+    private GridPane secondGridPane;
+    @FXML
+    private GridPane thirdGridPane;
     @FXML
     private Text helpMessage;
 
-
-    // STUDENT COMMANDS
+    //Student Commands
     @FXML
     private Text addCommandExample;
-
     @FXML
     private Text studentsCommandExample;
-
     @FXML
     private Text editCommandExample;
-
     @FXML
     private Text deleteCommandExample1;
-
     @FXML
     private Text filterCommandExample1;
-
     @FXML
     private Text filterCommandExample2;
-
     @FXML
     private Text filterCommandExample3;
-
     @FXML
     private Text filterCommandExample4;
-
     @FXML
     private Text filterCommandExample5;
-
     @FXML
     private Text blacklistCommandExample;
-
     @FXML
     private Text whitelistCommandExample;
-
-
 
     // EVENT COMMANDS
     @FXML
     private Text createCommandExample;
-
     @FXML
     private Text eventsCommandExample;
-
     @FXML
     private Text enrollCommandExample;
-
     @FXML
     private Text removeCommandExample;
-
     @FXML
     private Text deleteCommandExample2;
-
-
 
     // OTHER COMMANDS
     @FXML
     private Text helpCommandExample;
-
     @FXML
     private Text settingsCommandExample;
-
     @FXML
     private Text exportCommandExample;
-
     @FXML
     private Text exitCommandExample;
-
-
-
 
     /**
      * Creates a new HelpWindow.
@@ -210,6 +192,7 @@ public class HelpWindow extends UiPart<Stage> {
         settingsCommandExample.setText(SETTINGS_COMMAND_EXAMPLE);
         exportCommandExample.setText(EXPORT_COMMAND_EXAMPLE);
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
+
     }
 
     /**
@@ -503,7 +486,5 @@ public class HelpWindow extends UiPart<Stage> {
         url.putString(EXIT_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
-
-
 
 }
