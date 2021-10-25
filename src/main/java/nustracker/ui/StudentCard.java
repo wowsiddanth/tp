@@ -50,8 +50,6 @@ public class StudentCard extends UiPart<Region> {
 
         setStudentFields();
         setProfilePicture();
-        imageStorage.createImageFolder();
-
     }
 
     /**
@@ -93,7 +91,6 @@ public class StudentCard extends UiPart<Region> {
         Image userImage = imageStorage.readImage(student.getStudentId().value);
         profilePictureHolder.setFill(new ImagePattern(userImage));
     }
-
 
     @Override
     public boolean equals(Object other) {

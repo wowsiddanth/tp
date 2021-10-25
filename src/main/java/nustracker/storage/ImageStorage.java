@@ -18,8 +18,8 @@ import nustracker.commons.core.LogsCenter;
 public class ImageStorage {
 
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
-    private final String userDirectoryPath = System.getProperty("user.dir");
-    private final String pathOfImageFolder = userDirectoryPath + File.separator + "profile-pictures";
+    private static final String userDirectoryPath = System.getProperty("user.dir");
+    private static final String pathOfImageFolder = userDirectoryPath + File.separator + "profile-pictures";
 
     /**
      * Reads an image from the images stored in the profile-pictures folder.
@@ -32,11 +32,9 @@ public class ImageStorage {
 
         String pathOfProfilePictureJpg = pathOfImageFolder + File.separator + studentId + ".jpg";
         String pathOfProfilePicturePng = pathOfImageFolder + File.separator + studentId + ".png";
-        String pathOfProfilePictureGif = pathOfImageFolder + File.separator + studentId + ".gif";
 
         File jpg = new File(pathOfProfilePictureJpg);
         File png = new File(pathOfProfilePicturePng);
-        File gif = new File(pathOfProfilePictureGif);
 
         //Checks if an image with the student's name exists
         if (jpg.isFile()) {
@@ -44,9 +42,6 @@ public class ImageStorage {
                     true, false);
         } else if (png.isFile()) {
             studentImage = new Image(png.toURI().toString(), 400.0, 400.0, true,
-                    true, false);
-        } else if (gif.isFile()) {
-            studentImage = new Image(gif.toURI().toString(), 400.0, 400.0, true,
                     true, false);
         } else {
             studentImage = new Image(Objects.requireNonNull(this.getClass()
@@ -60,7 +55,7 @@ public class ImageStorage {
     /**
      * Creates a folder called profile-pictures, that stores the profile pictures of the students.
      */
-    public void createImageFolder() {
+    public static void createImageFolder() {
         if (Files.exists(Path.of(pathOfImageFolder))) {
             return;
         }
