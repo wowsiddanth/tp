@@ -14,6 +14,7 @@ import nustracker.commons.exceptions.DataConversionException;
 import nustracker.model.AddressBook;
 import nustracker.model.ModelManager;
 import nustracker.model.ReadOnlyAddressBook;
+import nustracker.model.UserPrefs;
 import nustracker.testutil.Assert;
 import nustracker.testutil.TypicalStudents;
 
@@ -79,7 +80,7 @@ public class JsonAddressBookStorageTest {
 
         // Modify data, overwrite exiting file, and read back
         original.addStudent(TypicalStudents.HOON);
-        original.removeStudent(TypicalStudents.ALICE, new ModelManager());
+        original.removeStudent(TypicalStudents.ALICE, new ModelManager(original, new UserPrefs()));
         jsonAddressBookStorage.saveAddressBook(original, filePath);
         readBack = jsonAddressBookStorage.readAddressBook(filePath).get();
         assertEquals(original, new AddressBook(readBack));
