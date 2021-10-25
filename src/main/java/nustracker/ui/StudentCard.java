@@ -94,7 +94,7 @@ public class StudentCard extends UiPart<Region> {
 
     @Override
     public boolean equals(Object other) {
-        // short circuit if same object
+        //Short circuit if same object
         if (other == this) {
             return true;
         }
@@ -104,7 +104,7 @@ public class StudentCard extends UiPart<Region> {
             return false;
         }
 
-        // state check
+        //State check
         StudentCard card = (StudentCard) other;
         return student.equals(card.student);
     }

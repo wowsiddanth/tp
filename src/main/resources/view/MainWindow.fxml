@@ -44,6 +44,7 @@
           </Text>
 
           <Pane prefHeight="54.0" prefWidth="59.0" HBox.hgrow="ALWAYS" />
+          <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" text="Settings" translateX="-22.0" translateY="8.0" />
           <Button mnemonicParsing="false" onAction="#changeTheme" prefHeight="38.0" prefWidth="65.0" translateX="-26.0" translateY="8.0">
             <graphic>
               <ImageView fitHeight="30.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">

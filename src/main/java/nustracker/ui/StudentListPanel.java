@@ -51,6 +51,13 @@ public class StudentListPanel extends UiPart<Region> {
     }
 
     /**
+     * Refreshes the panel, forcing changes to update.
+     */
+    public void refreshPanel() {
+        fillPanelWithCells(studentList);
+    }
+
+    /**
      * Fills the panel with the {@code ListCells}, each containing a {@link StudentCard}.
      *
      * @param studentList The student list to be used.

@@ -187,6 +187,14 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Refreshes the student panel
+     */
+    @FXML
+    private void handleRefresh() {
+        studentListPanel.refreshPanel();
+    }
+
+    /**
      * Changes the current theme of the application.
      *
      * @see ThemeApplier#switchTheme()
