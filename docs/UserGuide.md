@@ -28,7 +28,7 @@ Graphical User Interface (GUI).
 
 4. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. The app already contains some sample data.<br>
 
-   ![Ui](images/Ui1.png)
+   ![Ui](images/Ui.png)
 
 
 5. Type the command in the command box and press Enter to execute it. For example, typing `help` and pressing Enter will open the help window.<br>
@@ -176,16 +176,15 @@ Examples:
 - The Student ID must be specified exactly. {eXXXXXXX}
 
 - Year must be specified as a single number.
-
-<br>
+<br><br>
 
 ### Listing all students: `students`
 
 Shows all students in the app.
 
 Command: `students`
+<br><br>
 
-<br>
 
 ### Editing a student : `edit`
 
@@ -201,9 +200,8 @@ Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDE
 Examples:
 * `edit id/e0322322 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the student with Student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
 * `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name of the student with Student ID `e0542341` to be `Betsy Crower` and edits that student's Student ID to be `e0543212`.
-
-<br>
-
+<br><br>
+ 
 ### Deleting a student : `delete`
 
 Deletes the specified student.
@@ -215,8 +213,7 @@ Command: `delete id/STUDENT_ID`
 Examples:
 * `delete id/e1234567` deletes the student with the Student ID `e1234567`.
 * `delete id/0589162` deletes the student with the Student ID `e0589162`.
-
-<br>
+<br><br>
 
 ### Filter students: `filter`
 
@@ -249,8 +246,7 @@ Examples:
 _**Coming soon:** Additional fields to filter by._
 
 _**Coming soon:** Filter by multiple fields._
-
-<br>
+<br><br>
 
 ### Blacklist students: `blacklist`
 
@@ -264,8 +260,7 @@ Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 Examples:
 * `blacklist id/e1234567 ev/Orientation Camp` blacklists the Student ID e1234567 from the Orientation Camp event.
 * `blacklist id/e0000000 ev/Sports Camp` blacklists the Student ID e0000000 from the Sports Camp event.
-
-<br>
+<br><br>
 
 ### Whitelist students: `whitelist`
 
@@ -280,7 +275,6 @@ Examples:
 * `whitelist id/e1234567 ev/Orientation Camp` remove the Student ID e1234567 from the Orientation Camp event's blacklist.
 * `whitelist id/e0000000 ev/Sports Camp` remove the Student ID e0000000 from the Sports Camp event's blacklist.
 
-<br><br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -308,14 +302,14 @@ Examples:
     - HH represents the hour (from 00-24 inclusive)
     - MM represents the minute (from 00-59 inclusive)
     - **Note:** if HH is `24`, MM has to be `00`. (`2400`)
+<br><br>
 
 ### List all events : `events`
 
 Shows all events in the app.
 
 Format: `events`
-
-<br>
+<br><br>
 
 ### Enroll a student : `enroll`
 
@@ -330,8 +324,8 @@ Command: `enroll id/STUDENT_ID ev/EVENT`
 Examples:
 * `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with Student ID e0544111 into the event "CS1101S Mock PE".
 * `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with Student ID e0322322 into the event "Orientation Camp".
+  <br><br>
 
-<br>
 
 ### Remove a student : `remove`
 
@@ -346,8 +340,7 @@ Command: `remove id/STUDENT_ID ev/EVENT`
 Examples:
 * `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
 * `remove id/e0264853 ev/Fun Run` removes the specified student with student ID e0264853 into the event "Fun Run".
-
-<br>
+  <br><br>
 
 ### Deleting an event : `delete`
 
@@ -360,9 +353,6 @@ Command: `delete ev/EVENT_NAME`
 Examples:
 * `delete ev/Orientation` deletes the event with the name `Orientation`.
 * `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
-
-
-<br><br>
 
 --------------------------------------------------------------------------------------------------------------------
 ## Other Commands
@@ -397,7 +387,6 @@ Exits the program.
 
 Command: `exit`
 
-<br>
 
 ---------------------------------------------------------------------------------------
 ## Customization
@@ -509,15 +498,17 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 ----------------------------|------------------------------|-------------------------------------------------------|
 **add** | Adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL` |
 **students** | Lists students | `students` |
-**edit** | Edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
-**delete** | Delete a student | `delete id/STUDENT_ID` |
-**filter** | Filter by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
+**edit** | Edits a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
+**delete** | Deletes a student | `delete id/STUDENT_ID` |
+**filter** | Filters by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
+**blacklist** | Blacklists a student from attending an event | `blacklist id/STUDENT_ID ev/EVENT_NAME` |
+**whitelist** | Whitelists a student from attending an event | `whitelist id/STUDENT_ID ev/EVENT_NAME` |
 
 ### Event Commands
 
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
-**create**  | Create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
+**create**  | Creates an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
 **events**  | Lists events | `events` |
 **enroll**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
 **remove**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
