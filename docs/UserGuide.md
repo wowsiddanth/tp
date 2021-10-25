@@ -140,8 +140,6 @@ The following is a description of the general layout of NUSTracker.
 
 
 
-
-
 2. **Command bar**
 
     This space is for the user (you!) to type in the commands. For more information about commands, see the section below.
