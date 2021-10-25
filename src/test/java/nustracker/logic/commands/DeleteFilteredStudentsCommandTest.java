@@ -6,13 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.Test;
+
 import javafx.collections.ObservableList;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.TypicalStudents;
-import org.junit.jupiter.api.Test;
+
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for

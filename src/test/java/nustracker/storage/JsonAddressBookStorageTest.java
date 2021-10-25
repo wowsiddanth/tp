@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import nustracker.model.ModelManager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import nustracker.commons.exceptions.DataConversionException;
 import nustracker.model.AddressBook;
+import nustracker.model.ModelManager;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.testutil.Assert;
 import nustracker.testutil.TypicalStudents;
