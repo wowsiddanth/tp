@@ -13,7 +13,9 @@ import nustracker.model.student.StudentId;
 import nustracker.ui.MainWindow;
 
 
-
+/**
+ * Deletes all students that are currently in the filtered list of AddressBook.
+ */
 public class DeleteFilteredStudentsCommand extends Command {
 
     public static final String COMMAND_WORD = "delfiltered";

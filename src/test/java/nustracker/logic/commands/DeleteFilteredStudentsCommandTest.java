@@ -1,0 +1,78 @@
+package nustracker.logic.commands;
+
+import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+
+import javafx.collections.ObservableList;
+import nustracker.model.Model;
+import nustracker.model.ModelManager;
+import nustracker.model.UserPrefs;
+import nustracker.model.student.Student;
+import nustracker.testutil.TypicalStudents;
+import org.junit.jupiter.api.Test;
+
+/**
+ * Contains integration tests (interaction with the Model) and unit tests for
+ * {@code DeleteFilteredStudentsCommand}.
+ */
+public class DeleteFilteredStudentsCommandTest {
+
+    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+
+    @Test
+    public void execute_unfilteredList_success() {
+        model.updateFilteredStudentList(currStudent -> true);
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        expectedModel.updateFilteredStudentList(currStudent -> true);
+
+        ObservableList<Student> refList = expectedModel.getFilteredStudentList();
+        ArrayList<Student> newList = new ArrayList<>();
+
+        for (Student currStudent : refList) {
+            newList.add(currStudent);
+        }
+
+
+        for (Student currStudent : newList) {
+            expectedModel.deleteStudent(currStudent);
+        }
+
+        DeleteFilteredStudentsCommand deleteFilteredStudentsCommand = new DeleteFilteredStudentsCommand();
+
+        assertCommandSuccess(deleteFilteredStudentsCommand, model,
+                DeleteFilteredStudentsCommand.MESSAGE_DELETE_ALL_FILTERED_SUCCESS, expectedModel);
+
+    }
+
+
+
+    @Test
+    public void equals() {
+        DeleteFilteredStudentsCommand cmd1 = new DeleteFilteredStudentsCommand();
+        DeleteFilteredStudentsCommand cmd2 = new DeleteFilteredStudentsCommand();
+
+        // same object -> returns true
+        assertTrue(cmd1.equals(cmd1));
+
+        // same command different object -> returns true
+        assertTrue(cmd1.equals(cmd2));
+
+        // different types -> returns false
+        assertFalse(cmd1.equals(1));
+
+        // null -> returns false
+        assertFalse(cmd1.equals(null));
+
+    }
+
+
+
+
+
+
+
+
+}
