@@ -195,7 +195,40 @@ _**Coming soon:** Additional fields to filter by._
 
 _**Coming soon:** Filter by multiple fields._
 
+<br>
+
+### Blacklist students: `blacklist`
+
+Blacklist students from the given event by Student ID. Blacklisted Student IDs will not be allowed to enroll into the event.
+
+Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
+
+* Student ID need not exist in the database.
+* Event name has to exist in the database.
+
+Examples:
+* `blacklist id/e1234567 ev/Orientation Camp` blacklists the Student ID e1234567 from the Orientation Camp event.
+* `blacklist id/e0000000 ev/Sports Camp` blacklists the Student ID e0000000 from the Sports Camp event.
+
+<br>
+
+### Whitelist students: `whitelist`
+
+Whitelist students from the given event by Student ID. Whitelisted Student IDs are removed from the event's blacklist.
+
+Command: `whitelist id/STUDENT_ID ev/EVENT_NAME`
+
+* Student ID needs to be in the event's blacklist.
+* Event name has to exist in the database.
+
+Examples:
+* `whitelist id/e1234567 ev/Orientation Camp` remove the Student ID e1234567 from the Orientation Camp event's blacklist.
+* `whitelist id/e0000000 ev/Sports Camp` remove the Student ID e0000000 from the Sports Camp event's blacklist.
+
+<br><br>
+
 --------------------------------------------------------------------------------------------------------------------
+
 ## Event Commands
 
 ### Creating an event: `create`
