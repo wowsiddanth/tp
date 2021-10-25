@@ -364,6 +364,7 @@ Examples:
 
 <br><br>
 
+--------------------------------------------------------------------------------------------------------------------
 ## Other Commands
 
 ### Viewing help : `help`
@@ -458,7 +459,7 @@ NUSTracker allows you to change the color of the glow of the profile picture.
 
 3. This change is **immediate**, and does not require a restart.
 
-###4. Customization FAQs
+### 4. Customization FAQs
  
 **Q**: I have added the image, but it doesn't appear. <br>
 
@@ -468,7 +469,7 @@ NUSTracker allows you to change the color of the glow of the profile picture.
 * Please check if the image size is too small or too large. Due to the limitations of JavaFX, extreme image sizes cannot be displayed. 
 
 If you have
-exhausted all options, you can file a bug report on our [GitHub page](#FAQ).
+exhausted all options, you can file a bug report on our [GitHub page](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues).
 <br>
 
 You have now learnt to customize NUSTracker to its fullest. Go ahead and play around with the settings!
@@ -489,7 +490,7 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 
 --------------------------------------------------------------------------------------------------------------------
 
-##FAQ
+## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSTracker home folder.
@@ -497,8 +498,6 @@ _Please edit carefully! NUSTracker will start a fresh run if errors are present!
 **Q**: I noticed a bug in NUSTracker. How do I report it?<br>
 **A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a
 bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues). Thank you for contributing to NUSTracker!
-
-**Q**: 
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -508,26 +507,27 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 
 **Command** | **Description** | **Example** |
 ----------------------------|------------------------------|-------------------------------------------------------|
-**add** | adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL` |
-**students** | lists students | `students` |
-**edit** | edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
-**delete** | delete a student | `delete id/STUDENT_ID` |
-**filter** | filter by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
+**add** | Adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL` |
+**students** | Lists students | `students` |
+**edit** | Edit a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
+**delete** | Delete a student | `delete id/STUDENT_ID` |
+**filter** | Filter by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
 
 ### Event Commands
 
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
-**create**  | create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
-**events**  | lists events | `events` |
-**enroll**  | adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
-**remove**  | removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
-**delete**  | deletes an event | `delete ev/EVENT_NAME` |
+**create**  | Create an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
+**events**  | Lists events | `events` |
+**enroll**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
+**remove**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
+**delete**  | Deletes an event | `delete ev/EVENT_NAME` |
 
 ### Other Commands
 
 **Command** | **Description** | **Example** |
 -------------------------|------------------------------------------|----------------------------------|
-**help** | opens the help window | `help` |
-**export** | exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
-**exit** | exits the app | `exit` |
+**help** | Opens the help window | `help` |
+**settings** | Opens the settings window | `settings`|
+**export** | Exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
+**exit** | Exits the app | `exit` |
