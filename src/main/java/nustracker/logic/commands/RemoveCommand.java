@@ -114,11 +114,9 @@ public class RemoveCommand extends Command {
             }
         }
 
-
-
         Event updatedEvent = new Event(
-                currEvent.getName(), currEvent.getDate(), currEvent.getTime(), updatedParticipants
-        );
+                currEvent.getName(), currEvent.getDate(), currEvent.getTime(), updatedParticipants,
+                currEvent.getBlacklist());
 
         model.setEvent(currEvent, updatedEvent);
 

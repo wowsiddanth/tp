@@ -108,7 +108,7 @@ public class StudentBuilder {
      * Sets the {@code EnrolledEvents} of the {@code Student} that we are building to contain {@code event}.
      */
     public StudentBuilder withEvent(Event event) {
-        this.enrolledEvents.enrollIntoEvent(event);
+        this.enrolledEvents = this.enrolledEvents.enrollIntoEvent(event);
         return this;
     }
 

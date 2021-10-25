@@ -9,6 +9,7 @@
   "events": [ {
     "name": "Invalid event",
     "extrafield": "@20213127",
-    "participants": [ "e9831818" ]
+    "participants": [ "e9831818" ],
+    "blacklist" : [ ]
   }]
 }

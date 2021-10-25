@@ -80,9 +80,13 @@ class EventTest {
         editedTest = new EventBuilder(TEST).withTime(VALID_EVENTTIME_FINAL).build();
         Assertions.assertFalse(TEST.equals(editedTest));
 
-        // different participants -> returns true
+        // different participants -> returns false
         editedTest = new EventBuilder(TEST).withParticipants(VALID_PARTICIPANT_FINAL).build();
-        Assertions.assertTrue(TEST.equals(editedTest));
+        Assertions.assertFalse(TEST.equals(editedTest));
+
+        // different blacklist -> returns false
+        editedTest = new EventBuilder(TEST).withBlacklist(VALID_PARTICIPANT_FINAL).build();
+        Assertions.assertFalse(TEST.equals(editedTest));
     }
 
 }

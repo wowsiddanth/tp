@@ -27,7 +27,7 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     public static final double MIN_HEIGHT = 747.0;
-    public static final double MIN_WIDTH = 914.0;
+    public static final double MIN_WIDTH = 976.0;
     private static final String FXML = "MainWindow.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
@@ -85,7 +85,7 @@ public class MainWindow extends UiPart<Stage> {
 
         helpWindow = new HelpWindow();
         settingsWindow = new SettingsWindow(guiSettings);
-        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow, guiSettings.getIsLightMode());
+        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow, guiSettings.getIsLightTheme());
 
         // Configure the UI
         setWindowSize(guiSettings);
@@ -188,15 +188,23 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleExit() {
-        boolean isLightMode = themeApplier.themeOnExit();
+        boolean isLightTheme = themeApplier.isLightTheme();
 
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY(), isLightMode, settingsWindow.getGlowHexCode());
+                (int) primaryStage.getX(), (int) primaryStage.getY(), isLightTheme, settingsWindow.getGlowHexCode());
         logic.setGuiSettings(guiSettings);
 
         settingsWindow.hide();
         helpWindow.hide();
         primaryStage.hide();
+    }
+
+    /**
+     * Refreshes the student panel
+     */
+    @FXML
+    private void handleRefresh() {
+        studentListPanel.refreshPanel();
     }
 
     /**
@@ -226,6 +234,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
+            }
+
+            if (commandResult.isShowSettings()) {
+                handleSettings();
             }
 
             if (commandResult.isExit()) {

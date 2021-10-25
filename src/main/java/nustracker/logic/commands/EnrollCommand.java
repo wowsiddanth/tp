@@ -35,9 +35,11 @@ public class EnrollCommand extends Command {
             + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_ADD_TO_EVENT_SUCCESS =
-            "Enrolled Student: %1$s with student ID %2$s into the Event: %3$s";
+            "Enrolled Student: %1$s with student Id %2$s into the Event: %3$s";
     public static final String MESSAGE_STUDENT_ALREADY_ENROLLED =
-            "The Student %1$s with student ID %2$s is already enrolled into the event: %3$s";
+            "The Student %1$s with student Id %2$s is already enrolled into the event: %3$s";
+    public static final String MESSAGE_STUDENT_ON_BLACKLIST =
+            "The Student %1$s with student Id %2$s is already enrolled into the event: %3$s";
 
     private final StudentId studentId;
     private final EventName eventName;
@@ -77,11 +79,21 @@ public class EnrollCommand extends Command {
             throw new CommandException(String.format(MESSAGE_INVALID_EVENT_NAME, eventName.getEventName()));
         }
 
+        // Check if student is in event's blacklist
+        boolean isOnBlacklist = currEvent.isBlacklisted(studentId);
+
+        if (isOnBlacklist) {
+            throw new CommandException(String.format(MESSAGE_STUDENT_ON_BLACKLIST,
+                    currStudent.getName().toString(),
+                    currStudent.getStudentId().getStudentIdString(),
+                    currEvent.getName().getEventName()));
+        }
+
         // Check if student is already in event
         boolean isAlreadyInEvent = currEvent.isInEvent(studentId);
 
         if (isAlreadyInEvent) {
-            throw new CommandException(String.format(MESSAGE_STUDENT_ALREADY_ENROLLED,
+            throw new CommandException(String.format(MESSAGE_STUDENT_ON_BLACKLIST,
                     currStudent.getName().toString(),
                     currStudent.getStudentId().getStudentIdString(),
                     currEvent.getName().getEventName()));
@@ -109,8 +121,8 @@ public class EnrollCommand extends Command {
         updatedParticipants.add(new Participant(currStudent.getStudentId().getStudentIdString()));
 
         Event updatedEvent = new Event(
-                currEvent.getName(), currEvent.getDate(), currEvent.getTime(), updatedParticipants
-        );
+                currEvent.getName(), currEvent.getDate(), currEvent.getTime(), updatedParticipants,
+                currEvent.getBlacklist());
 
         model.setEvent(currEvent, updatedEvent);
 

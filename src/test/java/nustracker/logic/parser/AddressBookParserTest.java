@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
+import nustracker.logic.commands.BlackListCommand;
 import nustracker.logic.commands.ClearCommand;
 import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
@@ -30,6 +31,7 @@ import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.HelpCommand;
 import nustracker.logic.commands.StudentsCommand;
+import nustracker.logic.commands.WhiteListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
@@ -116,6 +118,26 @@ public class AddressBookParserTest {
         Event event = new EventBuilder().build();
         CreateCommand command = (CreateCommand) parser.parseCommand(EventUtil.getCreateCommand(event));
         assertEquals(new CreateCommand(event), command);
+    }
+
+    @Test
+    public void parseCommand_blacklist() throws Exception {
+        Event event = new EventBuilder().build();
+        BlackListCommand command = (BlackListCommand) parser.parseCommand(
+                BlackListCommand.COMMAND_WORD + " "
+                        + PREFIX_STUDENTID + STUDENTID_ONE + " "
+                        + PREFIX_EVENT + EVENTNAME_ONE);
+        assertEquals(new BlackListCommand(STUDENTID_ONE, EVENTNAME_ONE), command);
+    }
+
+    @Test
+    public void parseCommand_whitelist() throws Exception {
+        Event event = new EventBuilder().build();
+        WhiteListCommand command = (WhiteListCommand) parser.parseCommand(
+                WhiteListCommand.COMMAND_WORD + " "
+                        + PREFIX_STUDENTID + STUDENTID_ONE + " "
+                        + PREFIX_EVENT + EVENTNAME_ONE);
+        assertEquals(new WhiteListCommand(STUDENTID_ONE, EVENTNAME_ONE), command);
     }
 
     @Test
