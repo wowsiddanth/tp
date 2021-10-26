@@ -39,7 +39,7 @@ Graphical User Interface (GUI). This page serves as a guide inorder to get you s
    * **`exit`** : Exits the app.
 
 
-6. For a full and comprehensive overview of each command, refer to the [Feature](#Features) section!
+6. For a full and comprehensive overview of each command, refer to the [Features](#features) section!
 
 **Now, you are ready for an unprecedented overhaul in student and event management using NUSTracker!**
 
@@ -54,7 +54,7 @@ in clubs and societies—specifically **student and event management**.
 ### What can NUSTracker do?
 1. **Keep track of students**
 
-    NUSTracker displays all students currently associated with the organization neatly. The students have their details
+    NUSTracker displays all students currently associated with the organization neatly. The students have their details, 
    and a profile picture (optional) listed with them as well, allowing quick and convenient access to student particulars.
 
 
@@ -70,7 +70,7 @@ in clubs and societies—specifically **student and event management**.
 
 5. **Be customized to the user's liking**
     
-    One of the key points of NUSTracker is its customization. For more information, see [Customization](#Customization).
+    One of the key points of NUSTracker is its customization. For more information, see [Customization](#customization).
 
 
 <div markdown="block" class="alert alert-info">
@@ -108,6 +108,7 @@ The following is a description of the general layout of NUSTracker.
 1. **Top bar**
     
     The top bar consists of the buttons: **Refresh, Toggle theme, Settings, Students, Events, Help, and Exit**.
+  
     * **Refresh**
       
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
@@ -408,9 +409,9 @@ NUSTracker has the ability to add a profile picture to a student. Follow the ste
     ![profile-pictures-folder](images/profile-pictures-folder.PNG)
 
     *The **profile-pictures** folder is highlighted in blue*
-<br></br>
+<br><br>
 3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. The image must be either a **.png** or a **.jpg** image.
-   <br></br>
+   <br><br>
 
    1. Rename the image to correspond to the **Student ID** of the student in NUSTracker that will use this profile picture.
 
