@@ -39,7 +39,7 @@ Graphical User Interface (GUI). This page serves as a guide inorder to get you s
    * **`exit`** : Exits the app.
 
 
-6. For a full and comprehensive overview of each command, refer to the [Feature](#Features) section!
+6. For a full and comprehensive overview of each command, refer to the [Feature](#features) section!
 
 **Now, you are ready for an unprecedented overhaul in student and event management using NUSTracker!**
 
@@ -70,7 +70,7 @@ in clubs and societies—specifically **student and event management**.
 
 5. **Be customized to the user's liking**
     
-    One of the key points of NUSTracker is its customization. For more information, see [Customization](#Customization).
+    One of the key points of NUSTracker is its customization. For more information, see [Customization](#customization).
 
 
 <div markdown="block" class="alert alert-info">
