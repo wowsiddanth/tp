@@ -642,7 +642,31 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     
 <br><br>
 
+**<u>Use case UC11 - Find the students attending a certain event</u>**
 
+**Preconditions:** -
+
+**Guarantees:** The list of students is not altered
+
+**MSS:**
+
+1.  User requests to filter students by event name
+2.  nustracker displays a list of students who are attending that event
+
+    Use case ends.
+
+**Extensions:**
+* 2a. The list of students is empty.
+
+  Use case ends.
+ 
+* 2b. The event name specified does not exit.
+ 
+    * 2b1. nustracker shows an error message, informing the user that the event does not exist.
+
+        Use case ends.
+
+<br><br>
 
 ### Non-Functional Requirements
 
