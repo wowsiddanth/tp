@@ -39,7 +39,7 @@ Graphical User Interface (GUI). This page serves as a guide inorder to get you s
    * **`exit`** : Exits the app.
 
 
-6. For a full and comprehensive overview of each command, refer to the [Feature](#Features) section!
+6. For a full and comprehensive overview of each command, refer to the [Feature](#features) section!
 
 **Now, you are ready for an unprecedented overhaul in student and event management using NUSTracker!**
 
@@ -70,7 +70,7 @@ in clubs and societies—specifically **student and event management**.
 
 5. **Be customized to the user's liking**
     
-    One of the key points of NUSTracker is its customization. For more information, see [Customization](#Customization).
+    One of the key points of NUSTracker is its customization. For more information, see [Customization](#customization).
 
 
 <div markdown="block" class="alert alert-info">
@@ -81,10 +81,10 @@ in clubs and societies—specifically **student and event management**.
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g. `n/NAME [m/MAJOR]` can be used as `n/John Doe m/CS` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `[y/YEAR]…​` can be used as ` ` (i.e. 0 times), `y/1`, `y/ 1 2 3` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -107,14 +107,14 @@ The following is a description of the general layout of NUSTracker.
 
 1. **Top bar**
     
-    The top bar consists of the buttons: **Refresh, Toggle theme, Settings, Students, Event, Help, and Exit**.
+    The top bar consists of the buttons: **Refresh, Toggle theme, Settings, Students, Events, Help, and Exit**.
     * **Refresh**
       
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
 
     * **Toggle Theme**
         
-        Toggles the theme of NUSTracker, from Dark theme to Light them, and vice versa.
+        Toggles the theme of NUSTracker, from Dark theme to Light theme, and vice versa.
 
     * **Settings**
 
@@ -126,7 +126,7 @@ The following is a description of the general layout of NUSTracker.
 
    * **Events**
 
-     Displays current Events.
+     Displays current events.
 
    * **Help**
 
@@ -148,7 +148,7 @@ The following is a description of the general layout of NUSTracker.
    <br><br>
 4. **Students**
 
-    The students, their information, and the events they are taking part in are displayed here,
+    The students, their information, and the events they are taking part in are displayed here.
 
 
 
@@ -191,13 +191,13 @@ Edits an existing student in NUSTracker.
 Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]`
 
 * Edits the student who currently has the specified `STUDENT_ID`.
-* At least one of the optional fields must be provided.
+* **At least one of the optional fields** must be provided.
 * Existing values will be updated to the input values.
 * Events of a student cannot be directly edited with the `edit` command, the `enroll` and `remove` commands serve this purpose.
 
 Examples:
 * `edit id/e0322322 p/91234567 e/johndoe@example.com` Edits the phone number and email of the student with student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
-* `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name of the student with student ID `e0542341` to be `Betsy Crower` and edits that student's student ID to be `e0543212`.
+* `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name and student ID of the student with student ID `e0542341` to be `Betsy Crower` and `e0543212` respectively.
 <br><br>
  
 ### Deleting a student : `delete`
@@ -248,7 +248,7 @@ _**Coming soon:** Filter by multiple fields._
 
 ### Blacklisting students: `blacklist`
 
-Blacklist students from the given event by student ID. Blacklisted student IDs will not be allowed to enroll into the event.
+Blacklists students from the given event by student ID. Blacklisted student IDs will not be allowed to enroll into the event.
 
 Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 
@@ -262,7 +262,7 @@ Examples:
 
 ### Whitelisting students: `whitelist`
 
-Whitelist students from the given event by student ID. Whitelisted student IDs are removed from the event's blacklist.
+Whitelists students from the given event by student ID. Whitelisted student IDs are removed from the event's blacklist.
 
 Command: `whitelist id/STUDENT_ID ev/EVENT_NAME`
 
@@ -270,8 +270,8 @@ Command: `whitelist id/STUDENT_ID ev/EVENT_NAME`
 * Event name has to exist in the database.
 
 Examples:
-* `whitelist id/e1234567 ev/Orientation Camp` remove the student ID e1234567 from the Orientation Camp event's blacklist.
-* `whitelist id/e0000000 ev/Sports Camp` remove the student ID e0000000 from the Sports Camp event's blacklist.
+* `whitelist id/e1234567 ev/Orientation Camp` removes the student ID e1234567 from the Orientation Camp event's blacklist.
+* `whitelist id/e0000000 ev/Sports Camp` removes the student ID e0000000 from the Sports Camp event's blacklist.
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -284,22 +284,20 @@ Adds an event to NUSTracker
 
 Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
 
-Formatting:
-
 - Event name cannot be empty.
 
-- Event date is in the format `DD-MM-YYYY`.
+- Event date has to be in the format `DD-MM-YYYY`.
     - DD represents the day (from 01-31 inclusive)
     - MM represents the month (from 01-12 inclusive)
     - YYYY represents the year
 
-- Event time is in 24 hour time `HHMM`.
+- Event time has to be in 24 hour time `HHMM`.
     - HH represents the hour (from 00-24 inclusive)
     - MM represents the minute (from 00-59 inclusive)
-    - **Note:** if HH is `24`, MM has to be `00`. (`2400`)
+    - **Note:** if HH is `24`, MM has to be `00`. (i.e. `2400`)
     
 Examples:
-* create n/Orientation Camp d/01-08-2022 t/1000
+* `create n/Orientation Camp d/01-08-2022 t/1000` creates an event with the name Orientation Camp, date 01-08-2022 or 1 August 2022, and time 1000 hrs or 10:00 am.
 <br><br>
 
 ### Listing all events : `events`
@@ -365,6 +363,8 @@ Command: `help`
 
 Opens the Settings window
 
+Command: `settings`
+
 ### Exporting Emails : `export`
 
 Exports the emails of the students that are currently being displayed.
@@ -403,7 +403,7 @@ NUSTracker has the ability to add a profile picture to a student. Follow the ste
 1. If you have not started NUSTracker before, run NUSTracker within a folder of your choice.
 
 
-2. Once it runs, a folder called _**profile-pictures**_ is created within the the folder that contains NUSTracker.
+2. Once it runs, a folder called _**profile-pictures**_ is created within the folder that contains NUSTracker.
 
     ![profile-pictures-folder](images/profile-pictures-folder.PNG)
 
@@ -466,7 +466,7 @@ You have now learnt to customize NUSTracker to its fullest. Go ahead and play ar
 ## Misc
 ### Saving the data
 
-NUSTracker data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+NUSTracker data is saved in the hard disk automatically after executing any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
@@ -506,7 +506,7 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
-**create**  | Creates an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHHH_ |
+**create**  | Creates an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHMM_ |
 **events**  | Lists events | `events` |
 **enroll**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
 **remove**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
@@ -515,7 +515,7 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 ### Other Commands
 
 **Command** | **Description** | **Example** |
--------------------------|------------------------------------------|----------------------------------|
+----------------|-------------------------|-----------------|
 **help** | Opens the help window | `help` |
 **settings** | Opens the settings window | `settings`|
 **export** | Exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
