@@ -108,7 +108,7 @@ public class ModelManager implements Model {
 
     @Override
     public void deleteStudent(Student target) {
-        addressBook.removeStudent(target);
+        addressBook.removeStudent(target, this);
         Major.removeStudent(target);
     }
 

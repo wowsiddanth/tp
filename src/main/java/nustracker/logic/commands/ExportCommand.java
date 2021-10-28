@@ -11,6 +11,7 @@ import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.Student;
 import nustracker.storage.Exporting;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Exports the emails of the students in the current displayed list.
@@ -43,7 +44,8 @@ public class ExportCommand extends Command {
 
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
         requireNonNull(model);
         ObservableList<Student> filteredStudents = model.getFilteredStudentList();
 

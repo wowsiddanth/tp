@@ -244,6 +244,26 @@ Examples:
 _**Coming soon:** Additional fields to filter by._
 
 _**Coming soon:** Filter by multiple fields._
+
+<br><br>
+
+### Delete shown students : `delfiltered`
+
+Mass deletes all students currently shown in the student list. This is typically used after a filter
+command to delete students based on a certain criteria.
+
+Command: `delfiltered`
+
+* This command can only be used when NUSTracker is showing the Student list.
+* Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in
+  NUSTracker would be deleted since all of them are shown.
+* After all the filtered students are deleted, the remaining students would then all be shown in the list, if any.
+* At least one student needs to be shown in the filtered list for `delfiltered` to work.
+
+Examples:
+* `filter y/4` followed by `delfiltered` will delete all students who are in Year 4, possibly because they are graduating soon.
+* `filter ev/Graduation 2021` followed by `delfiltered` will delete all students that have attended the Graduation Ceremony in 2021.
+
 <br><br>
 
 ### Blacklisting students: `blacklist`
@@ -258,6 +278,7 @@ Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 Examples:
 * `blacklist id/e1234567 ev/Orientation Camp` blacklists the student ID e1234567 from the Orientation Camp event.
 * `blacklist id/e0000000 ev/Sports Camp` blacklists the student ID e0000000 from the Sports Camp event.
+
 <br><br>
 
 ### Whitelisting students: `whitelist`
@@ -272,6 +293,7 @@ Command: `whitelist id/STUDENT_ID ev/EVENT_NAME`
 Examples:
 * `whitelist id/e1234567 ev/Orientation Camp` removes the student ID e1234567 from the Orientation Camp event's blacklist.
 * `whitelist id/e0000000 ev/Sports Camp` removes the student ID e0000000 from the Sports Camp event's blacklist.
+
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -499,8 +521,10 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 **edit** | Edits a student | `edit [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
 **delete** | Deletes a student | `delete id/STUDENT_ID` |
 **filter** | Filters by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
+**delfiltered** | mass deletes shown students | `delfiltered` |
 **blacklist** | Blacklists a student from attending an event | `blacklist id/STUDENT_ID ev/EVENT_NAME` |
 **whitelist** | Whitelists a student from attending an event | `whitelist id/STUDENT_ID ev/EVENT_NAME` |
+
 
 ### Event Commands
 

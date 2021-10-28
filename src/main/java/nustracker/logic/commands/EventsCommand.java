@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.event.Event;
+import nustracker.ui.MainWindow.CurrentlyShownList;
+
 
 /**
  * Displays the events list.
@@ -16,15 +18,19 @@ public class EventsCommand extends Command {
             "Here is the list of events.";
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                CurrentlyShownList currentlyShownList) throws CommandException {
+
         model.updateFilteredEventList(new Predicate<Event>() {
             @Override
             public boolean test(Event event) {
                 return true;
             }
         });
+
         return new CommandResult(MESSAGE_SHOW_EVENTS_SUCCESS, false, false, false, false, false,
                 false, true);
+
     }
 
     @Override

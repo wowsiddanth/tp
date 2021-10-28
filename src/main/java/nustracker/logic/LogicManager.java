@@ -18,6 +18,7 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.event.Event;
 import nustracker.model.student.Student;
 import nustracker.storage.Storage;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * The main LogicManager of the app.
@@ -40,12 +41,13 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public CommandResult execute(String commandText) throws CommandException, ParseException {
+    public CommandResult execute(String commandText, CurrentlyShownList currentlyShownList)
+            throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
         Command command = addressBookParser.parseCommand(commandText);
-        commandResult = command.execute(model);
+        commandResult = command.execute(model, currentlyShownList);
 
         try {
             storage.saveAddressBook(model.getAddressBook());
