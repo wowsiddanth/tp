@@ -215,7 +215,10 @@ public class AddressBook implements ReadOnlyAddressBook {
             }
         }
 
-        events.remove(key);
+        // key does not exist in model anymore since it was modified when removing all participants
+        Event newKey = currModel.getEvent(key.getName());
+
+        events.remove(newKey);
 
     }
 
