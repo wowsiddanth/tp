@@ -29,7 +29,7 @@ import nustracker.storage.StorageManager;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 
 public class LogicManagerTest {
@@ -107,7 +107,7 @@ public class LogicManagerTest {
      */
     private void assertCommandSuccess(String inputCommand, String expectedMessage,
                                       Model expectedModel) throws CommandException, ParseException {
-        CommandResult result = logic.execute(inputCommand, MainWindow.CurrentlyShownList.STUDENTS_LIST);
+        CommandResult result = logic.execute(inputCommand, CurrentlyShownList.STUDENTS_LIST);
         assertEquals(expectedMessage, result.getFeedbackToUser());
         assertEquals(expectedModel, model);
     }
@@ -152,7 +152,7 @@ public class LogicManagerTest {
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
                                       String expectedMessage, Model expectedModel) {
         Assert.assertThrows(expectedException, expectedMessage, () ->
-                logic.execute(inputCommand, MainWindow.CurrentlyShownList.STUDENTS_LIST));
+                logic.execute(inputCommand, CurrentlyShownList.STUDENTS_LIST));
         assertEquals(expectedModel, model);
     }
 

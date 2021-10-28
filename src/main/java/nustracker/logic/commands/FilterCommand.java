@@ -8,7 +8,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Filters and lists all students whose data contain a specific field.
@@ -34,5 +34,5 @@ public abstract class FilterCommand extends Command {
 
     @Override
     public abstract CommandResult execute(Model model,
-                                          MainWindow.CurrentlyShownList currentlyShownList) throws CommandException;
+                                          CurrentlyShownList currentlyShownList) throws CommandException;
 }

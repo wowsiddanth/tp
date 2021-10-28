@@ -28,7 +28,7 @@ import nustracker.model.event.Participant;
 import nustracker.model.student.StudentId;
 import nustracker.testutil.EventBuilder;
 import nustracker.testutil.ModelStub;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 class BlackListCommandTest {
 
@@ -47,7 +47,7 @@ class BlackListCommandTest {
     public void execute_blacklistAccepted_addSuccessful() throws Exception {
 
         CommandResult commandResult = new BlackListCommand(STUDENTID_ONE, ORIENTATION.getName()).execute(model,
-                MainWindow.CurrentlyShownList.STUDENTS_LIST);
+                CurrentlyShownList.STUDENTS_LIST);
 
         Assertions.assertEquals(String.format(BlackListCommand.MESSAGE_BLACKLIST_SUCCESS, STUDENTID_ONE, EVENTNAME_ONE),
                 commandResult.getFeedbackToUser());
@@ -71,7 +71,7 @@ class BlackListCommandTest {
                 String.format(BlackListCommand.MESSAGE_STUDENTID_ALREADY_BLACKLISTED,
                         blacklisted.getStudentId(), ORIENTATION.getName()), () ->
                         new BlackListCommand(blacklisted.getStudentId(), ORIENTATION.getName()).execute(model,
-                                MainWindow.CurrentlyShownList.STUDENTS_LIST));
+                                CurrentlyShownList.STUDENTS_LIST));
     }
 
     @Test
@@ -81,7 +81,7 @@ class BlackListCommandTest {
         assertThrows(CommandException.class,
                 String.format(MESSAGE_INVALID_EVENT_NAME, nonExistentEventName.toString()), () ->
                         new BlackListCommand(STUDENTID_ONE, nonExistentEventName).execute(model,
-                                MainWindow.CurrentlyShownList.STUDENTS_LIST));
+                                CurrentlyShownList.STUDENTS_LIST));
     }
 
     /**

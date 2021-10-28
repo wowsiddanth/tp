@@ -5,7 +5,7 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_EXPORT_FILE_NAME;
 import org.junit.jupiter.api.Test;
 
 import nustracker.testutil.Assert;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 class ExportCommandTest {
 
@@ -19,7 +19,7 @@ class ExportCommandTest {
         Assert.assertThrows(
                 NullPointerException.class, () ->
                         new ExportCommand(VALID_EXPORT_FILE_NAME).execute(null,
-                                MainWindow.CurrentlyShownList.STUDENTS_LIST));
+                                CurrentlyShownList.STUDENTS_LIST));
     }
 
 

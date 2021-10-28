@@ -26,7 +26,7 @@ import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.testutil.Assert;
 import nustracker.testutil.StudentBuilder;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 public class AddCommandTest {
 
@@ -41,7 +41,7 @@ public class AddCommandTest {
         Student validStudent = new StudentBuilder().build();
 
         CommandResult commandResult = new AddCommand(validStudent).execute(modelStub,
-                MainWindow.CurrentlyShownList.STUDENTS_LIST);
+                CurrentlyShownList.STUDENTS_LIST);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validStudent), commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validStudent), modelStub.studentsAdded);
@@ -54,7 +54,7 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithStudent(validStudent);
 
         assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_STUDENT, () ->
-                addCommand.execute(modelStub, MainWindow.CurrentlyShownList.STUDENTS_LIST));
+                addCommand.execute(modelStub, CurrentlyShownList.STUDENTS_LIST));
     }
 
     @Test

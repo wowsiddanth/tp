@@ -10,7 +10,7 @@ import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.event.Event;
 import nustracker.model.student.Student;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * API of the Logic component
@@ -25,7 +25,7 @@ public interface Logic {
      * @throws ParseException If an error occurs during parsing.
      */
     CommandResult execute(String commandText,
-                          MainWindow.CurrentlyShownList currentlyShownList) throws CommandException, ParseException;
+                          CurrentlyShownList currentlyShownList) throws CommandException, ParseException;
 
     /**
      * Returns the AddressBook.

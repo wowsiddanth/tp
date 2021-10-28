@@ -18,7 +18,7 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.event.Event;
 import nustracker.model.student.Student;
 import nustracker.storage.Storage;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * The main LogicManager of the app.
@@ -41,7 +41,7 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public CommandResult execute(String commandText, MainWindow.CurrentlyShownList currentlyShownList)
+    public CommandResult execute(String commandText, CurrentlyShownList currentlyShownList)
             throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 

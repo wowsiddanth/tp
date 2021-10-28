@@ -17,7 +17,7 @@ import nustracker.model.event.Participant;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Removes a student from an existing event.
@@ -56,7 +56,7 @@ public class RemoveCommand extends Command {
 
     @Override
     public CommandResult execute(Model model,
-                                 MainWindow.CurrentlyShownList currentlyShownList) throws CommandException {
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
 
         // Remove Student from event (4 Cases)
         // 1. Success

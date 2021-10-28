@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import nustracker.model.AddressBook;
 import nustracker.model.Model;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Clears the address book.
@@ -16,7 +16,7 @@ public class ClearCommand extends Command {
 
 
     @Override
-    public CommandResult execute(Model model, MainWindow.CurrentlyShownList currentlyShownList) {
+    public CommandResult execute(Model model, CurrentlyShownList currentlyShownList) {
         requireNonNull(model);
         model.setAddressBook(new AddressBook());
         return new CommandResult(MESSAGE_SUCCESS);

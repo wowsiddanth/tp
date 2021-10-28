@@ -1,7 +1,7 @@
 package nustracker.logic.commands;
 
 import nustracker.model.Model;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Terminates the program.
@@ -14,7 +14,7 @@ public class ExitCommand extends Command {
 
     @Override
 
-    public CommandResult execute(Model model, MainWindow.CurrentlyShownList currentlyShownList) {
+    public CommandResult execute(Model model, CurrentlyShownList currentlyShownList) {
         return new CommandResult(MESSAGE_EXIT_ACKNOWLEDGEMENT, false, true, false,
                 false, false);
     }

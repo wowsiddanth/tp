@@ -20,7 +20,7 @@ import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Contains helper methods for testing commands.
@@ -129,7 +129,7 @@ public class CommandTestUtil {
     public static void assertCommandSuccess(Command command, Model actualModel, CommandResult expectedCommandResult,
                                             Model expectedModel) {
         try {
-            CommandResult result = command.execute(actualModel, MainWindow.CurrentlyShownList.STUDENTS_LIST);
+            CommandResult result = command.execute(actualModel, CurrentlyShownList.STUDENTS_LIST);
             assertEquals(expectedCommandResult, result);
             assertEquals(expectedModel, actualModel);
         } catch (CommandException ce) {
@@ -161,7 +161,7 @@ public class CommandTestUtil {
         List<Student> expectedFilteredList = new ArrayList<>(actualModel.getFilteredStudentList());
 
         Assert.assertThrows(CommandException.class, expectedMessage, () ->
-                command.execute(actualModel, MainWindow.CurrentlyShownList.STUDENTS_LIST));
+                command.execute(actualModel, CurrentlyShownList.STUDENTS_LIST));
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
     }
@@ -180,7 +180,7 @@ public class CommandTestUtil {
         List<Student> expectedFilteredList = new ArrayList<>(actualModel.getFilteredStudentList());
 
         Assert.assertThrows(CommandException.class, expectedMessage, () ->
-                command.execute(actualModel, MainWindow.CurrentlyShownList.EVENTS_LIST));
+                command.execute(actualModel, CurrentlyShownList.EVENTS_LIST));
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
     }

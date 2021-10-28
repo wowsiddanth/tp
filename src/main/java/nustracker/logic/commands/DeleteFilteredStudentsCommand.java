@@ -10,7 +10,7 @@ import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 
 /**
@@ -21,8 +21,8 @@ public class DeleteFilteredStudentsCommand extends Command {
     public static final String COMMAND_WORD = "delfiltered";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes all the students that are currently shown in the student list. "
-            + "Change which students are shown using the filter command.\n"
+            + ": Deletes all the students that are currently shown in the student list.\n"
+            + "It is recommended to change which students are shown using the filter command before using this.\n"
             + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_DELETE_ALL_FILTERED_SUCCESS =
             "Successfully deleted all shown students in the student list.";
@@ -33,11 +33,11 @@ public class DeleteFilteredStudentsCommand extends Command {
 
 
     @Override
-    public CommandResult execute(Model model, MainWindow.CurrentlyShownList currentlyShownList)
+    public CommandResult execute(Model model, CurrentlyShownList currentlyShownList)
             throws CommandException {
         requireNonNull(model);
 
-        if (currentlyShownList != MainWindow.CurrentlyShownList.STUDENTS_LIST) {
+        if (currentlyShownList != CurrentlyShownList.STUDENTS_LIST) {
             throw new CommandException(MESSAGE_STUDENT_LIST_NOT_SHOWN);
         }
 
@@ -58,7 +58,7 @@ public class DeleteFilteredStudentsCommand extends Command {
             StudentId currStudentId = currStudent.getStudentId();
             DeleteStudentCommand delThisStudent = new DeleteStudentCommand(currStudentId);
 
-            delThisStudent.execute(model, MainWindow.CurrentlyShownList.STUDENTS_LIST);
+            delThisStudent.execute(model, CurrentlyShownList.STUDENTS_LIST);
 
         }
 

@@ -14,7 +14,7 @@ import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.Participant;
 import nustracker.model.student.StudentId;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Blacklists a Student ID for an event.
@@ -52,7 +52,7 @@ public class BlackListCommand extends Command {
 
     @Override
     public CommandResult execute(Model model,
-                                 MainWindow.CurrentlyShownList currentlyShownList) throws CommandException {
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
 
         // Check if an event with this event name exists
         Event currEvent = model.getEvent(eventName);

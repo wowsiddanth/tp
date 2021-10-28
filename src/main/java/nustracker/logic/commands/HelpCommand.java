@@ -1,7 +1,7 @@
 package nustracker.logic.commands;
 
 import nustracker.model.Model;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Format full help instructions for every command for display.
@@ -16,7 +16,7 @@ public class HelpCommand extends Command {
     public static final String SHOWING_HELP_MESSAGE = "Opened help window.";
 
     @Override
-    public CommandResult execute(Model model, MainWindow.CurrentlyShownList currentlyShownList) {
+    public CommandResult execute(Model model, CurrentlyShownList currentlyShownList) {
         return new CommandResult(SHOWING_HELP_MESSAGE, true, false, false,
                 false, false);
     }

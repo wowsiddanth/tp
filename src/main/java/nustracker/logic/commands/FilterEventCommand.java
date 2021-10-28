@@ -10,7 +10,7 @@ import nustracker.model.Model;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Filters and lists all students in address book attending the event in the argument.
@@ -25,10 +25,10 @@ public class FilterEventCommand extends FilterCommand {
 
     @Override
     public CommandResult execute(Model model,
-                                 MainWindow.CurrentlyShownList currentlyShownList) throws CommandException {
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
         requireNonNull(model);
 
-        if (currentlyShownList != MainWindow.CurrentlyShownList.STUDENTS_LIST) {
+        if (currentlyShownList != CurrentlyShownList.STUDENTS_LIST) {
             throw new CommandException(MESSAGE_STUDENT_LIST_NOT_SHOWN);
         }
 

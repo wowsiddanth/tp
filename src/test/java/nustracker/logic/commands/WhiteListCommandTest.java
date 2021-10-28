@@ -28,7 +28,7 @@ import nustracker.model.event.Participant;
 import nustracker.model.student.StudentId;
 import nustracker.testutil.EventBuilder;
 import nustracker.testutil.ModelStub;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 public class WhiteListCommandTest {
 
@@ -48,7 +48,7 @@ public class WhiteListCommandTest {
 
         Participant blacklisted = (Participant) ORIENTATION.getBlacklist().toArray()[0];
         CommandResult commandResult = new WhiteListCommand(blacklisted.getStudentId(),
-                ORIENTATION.getName()).execute(model, MainWindow.CurrentlyShownList.STUDENTS_LIST);
+                ORIENTATION.getName()).execute(model, CurrentlyShownList.STUDENTS_LIST);
 
         Assertions.assertEquals(String.format(WhiteListCommand.MESSAGE_WHITELIST_SUCCESS,
                         blacklisted.getStudentId(), EVENTNAME_ONE),
@@ -73,7 +73,7 @@ public class WhiteListCommandTest {
                 String.format(WhiteListCommand.MESSAGE_STUDENTID_NOT_BLACKLISTED,
                         nonExistentStudentId, ORIENTATION.getName()), () ->
                         new WhiteListCommand(nonExistentStudentId, ORIENTATION.getName()).execute(model,
-                                MainWindow.CurrentlyShownList.STUDENTS_LIST));
+                                CurrentlyShownList.STUDENTS_LIST));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class WhiteListCommandTest {
         assertThrows(CommandException.class,
             String.format(MESSAGE_INVALID_EVENT_NAME, nonExistentEventName.toString()), () ->
                         new WhiteListCommand(STUDENTID_ONE, nonExistentEventName).execute(model,
-                                MainWindow.CurrentlyShownList.STUDENTS_LIST)
+                                CurrentlyShownList.STUDENTS_LIST)
         );
     }
 

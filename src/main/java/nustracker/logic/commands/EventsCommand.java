@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.event.Event;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 
 /**
@@ -19,7 +19,7 @@ public class EventsCommand extends Command {
 
     @Override
     public CommandResult execute(Model model,
-                                MainWindow.CurrentlyShownList currentlyShownList) throws CommandException {
+                                CurrentlyShownList currentlyShownList) throws CommandException {
         model.updateFilteredEventList(new Predicate<Event>() {
             @Override
             public boolean test(Event event) {

@@ -9,7 +9,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_TIME;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.event.Event;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Creates a new Event.
@@ -43,7 +43,7 @@ public class CreateCommand extends Command {
 
     @Override
     public CommandResult execute(Model model,
-                                 MainWindow.CurrentlyShownList currentlyShownList) throws CommandException {
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
         requireNonNull(model);
 
         if (model.hasEvent(event)) {

@@ -19,7 +19,7 @@ import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.TypicalStudents;
-import nustracker.ui.MainWindow;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 
 /**
@@ -46,7 +46,7 @@ public class DeleteStudentCommandTest {
     public void execute_invalidStudentIdUnfilteredList_throwsCommandException() {
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
         try {
-            deleteStudentCommand.execute(model, MainWindow.CurrentlyShownList.STUDENTS_LIST);
+            deleteStudentCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
         } catch (CommandException e) {
             e.printStackTrace();
         }
