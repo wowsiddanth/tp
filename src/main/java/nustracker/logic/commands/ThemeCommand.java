@@ -1,6 +1,7 @@
 package nustracker.logic.commands;
 
 import nustracker.model.Model;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Format full help instructions for every command for display.
@@ -15,7 +16,7 @@ public class ThemeCommand extends Command {
     public static final String SHOWING_THEME_MESSAGE = "Switched theme.";
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model, CurrentlyShownList currentlyShownList) {
         return new CommandResult(SHOWING_THEME_MESSAGE, false, false, false, true,
                 false, false, false);
     }
