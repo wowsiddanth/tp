@@ -13,7 +13,7 @@ public class CommandResultTest {
     @Test
     public void constructor_toggleStudentsAndToggleEventsBothTrue_throwsAssertionError() {
         try {
-            new CommandResult("feedback", false, false, false,
+            new CommandResult("feedback", false, false, false, false, false,
                     true, true);
         } catch (AssertionError e) {
             assertTrue(true);
@@ -26,7 +26,7 @@ public class CommandResultTest {
 
         // same values -> returns true
         assertTrue(commandResult.equals(new CommandResult("feedback")));
-        assertTrue(commandResult.equals(new CommandResult("feedback", false, false, false,
+        assertTrue(commandResult.equals(new CommandResult("feedback", false, false, false, false, false,
                 false, false)));
 
         // same object -> returns true
@@ -42,20 +42,32 @@ public class CommandResultTest {
         assertFalse(commandResult.equals(new CommandResult("different")));
 
         // different showHelp value -> returns false
-        assertFalse(commandResult.equals(new CommandResult("feedback", true, false, false,
+        assertFalse(commandResult.equals(new CommandResult("feedback", true, false, false, false, false,
                 false, false)));
 
         // different exit value -> returns false
-        assertFalse(commandResult.equals(new CommandResult("feedback", false, true, false,
+        assertFalse(commandResult.equals(new CommandResult("feedback", false, true, false, false, false,
                 false, false)));
 
         // different toggleStudents value -> returns false
-        assertFalse(commandResult.equals(new CommandResult("feedback", false, false, false,
+        assertFalse(commandResult.equals(new CommandResult("feedback", false, false, false, false, false,
                 true, false)));
 
         // different toggleEvents value -> returns false
-        assertFalse(commandResult.equals(new CommandResult("feedback", false, false, false,
+        assertFalse(commandResult.equals(new CommandResult("feedback", false, false, false, false, false,
                 false, true)));
+
+        // different showSettings value -> returns false
+        assertFalse(commandResult.equals(new CommandResult("feedback", false, false, true, false, false,
+                false, false)));
+
+        // different toggleTheme value -> returns false
+        assertFalse(commandResult.equals(new CommandResult("feedback", false, false, false, true, false,
+                false, false)));
+
+        // different toggleRefresh value -> returns false
+        assertFalse(commandResult.equals(new CommandResult("feedback", false, false, false, false, true,
+                false, false)));
     }
 
     @Test
@@ -69,19 +81,31 @@ public class CommandResultTest {
         assertNotEquals(commandResult.hashCode(), new CommandResult("different").hashCode());
 
         // different showHelp value -> returns different hashcode
-        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", true, false, false,
+        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", true, false, false, false, false,
                 false, false).hashCode());
 
         // different exit value -> returns different hashcode
-        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, true, false,
+        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, true, false, false, false,
                 false, false).hashCode());
 
-        // different toggleStudents value -> returns false
-        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, false, false,
+        // different toggleStudents value -> returns different hashcode
+        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, false, false, false, false,
                 true, false).hashCode());
 
         // different toggleEvents value -> returns different hashcode
-        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, false, false,
+        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, false, false, false, false,
                 false, true).hashCode());
+
+        // different showSettings value -> returns different hashcode
+        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, false,
+                true, false, false, false, false).hashCode());
+
+        // different toggleTheme value -> returns different hashcode
+        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, false, false, true, false,
+                false, false).hashCode());
+
+        // different toggleRefresh value -> returns different hashcode
+        assertNotEquals(commandResult.hashCode(), new CommandResult("feedback", false, false, false, false, true,
+                false, false).hashCode());
     }
 }

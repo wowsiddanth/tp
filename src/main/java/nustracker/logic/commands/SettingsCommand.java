@@ -16,6 +16,6 @@ public class SettingsCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) {
-        return new CommandResult(SHOWING_SETTINGS_MESSAGE, false, false, true, false, false);
+        return new CommandResult(SHOWING_SETTINGS_MESSAGE, false, false, true, false, false, false, false);
     }
 }
