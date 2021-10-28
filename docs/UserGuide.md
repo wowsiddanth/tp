@@ -152,7 +152,23 @@ The following is a description of the general layout of NUSTracker.
 
     The students, their information, and the events they are taking part in are displayed here,
 
+--------------------------------------------------------------------------------------------------------------------
+## The Basics of NUSTracker
 
+Now, you are ready to learn the basics of NUSTracker.
+But, before we do anything, let’s set the premise. Imagine that you are the manpower executive of a newly-formed NUS society called the Imaginary Society (very creative we know). 
+
+It plans on holding a fair—appropriately titled the Imaginary Fair.
+
+Here's the particulars of our first member and participants: Sae Byeok!
+
+**Name**: Sae-Byeok <br>
+**Phone number**: 87438007 <br>             
+**Major**: CS <br>
+**Year**: 1 <br>
+**Student ID**: e1111111 <br>
+**Email**: saebyeok@example.com <br>
+**Wants to join**: Imaginary Fair
 
 --------------------------------------------------------------------------------------------------------------------
 ## Student Commands
