@@ -235,6 +235,14 @@ public class MainWindow extends UiPart<Stage> {
                 handleStudents();
             }
 
+            if (commandResult.isToggleTheme()) {
+                changeTheme();
+            }
+
+            if (commandResult.isToggleRefresh()) {
+                handleRefresh();
+            }
+
             if (commandResult.isToggleEvents()) {
                 handleEvents();
             }
