@@ -16,8 +16,13 @@ public class SettingsCommand extends Command {
     public static final String SHOWING_SETTINGS_MESSAGE = "Opened settings window.";
 
     @Override
+<<<<<<< HEAD
     public CommandResult execute(Model model, CurrentlyShownList currentlyShownList) {
         return new CommandResult(SHOWING_SETTINGS_MESSAGE, false, false, true,
                 false, false);
+=======
+    public CommandResult execute(Model model) {
+        return new CommandResult(SHOWING_SETTINGS_MESSAGE, false, false, true, false, false, false, false);
+>>>>>>> master
     }
 }

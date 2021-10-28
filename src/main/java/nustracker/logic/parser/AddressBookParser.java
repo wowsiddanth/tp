@@ -18,9 +18,11 @@ import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.ExportCommand;
 import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.HelpCommand;
+import nustracker.logic.commands.RefreshCommand;
 import nustracker.logic.commands.RemoveCommand;
 import nustracker.logic.commands.SettingsCommand;
 import nustracker.logic.commands.StudentsCommand;
+import nustracker.logic.commands.ThemeCommand;
 import nustracker.logic.commands.WhiteListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 
@@ -59,6 +61,12 @@ public class AddressBookParser {
 
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
+
+        case RefreshCommand.COMMAND_WORD:
+            return new RefreshCommand();
+
+        case ThemeCommand.COMMAND_WORD:
+            return new ThemeCommand();
 
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();

@@ -25,7 +25,7 @@ public class StudentsCommand extends Command {
                 return true;
             }
         });
-        return new CommandResult(MESSAGE_SHOW_STUDENTS_SUCCESS, false, false, false,
+        return new CommandResult(MESSAGE_SHOW_STUDENTS_SUCCESS, false, false, false, false, false,
                 true, false);
     }
 
