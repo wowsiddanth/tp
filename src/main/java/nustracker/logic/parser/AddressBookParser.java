@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.BlackListCommand;
-import nustracker.logic.commands.ClearCommand;
 import nustracker.logic.commands.Command;
 import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
@@ -67,9 +66,6 @@ public class AddressBookParser {
 
         case ThemeCommand.COMMAND_WORD:
             return new ThemeCommand();
-
-        case ClearCommand.COMMAND_WORD:
-            return new ClearCommand();
 
         case FilterCommand.COMMAND_WORD:
             return new FilterCommandParser().parse(arguments);
