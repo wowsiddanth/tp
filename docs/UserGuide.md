@@ -387,6 +387,14 @@ Opens the Settings window
 
 Command: `settings`
 
+### Refreshing the main window: `refresh`
+
+Refreshes the main window. Often used to update the main window after adding profile pictures, etc.
+
+### Changing the theme: `theme`
+
+Toggles the theme between Dark and Light theme.
+
 ### Exporting Emails : `export`
 
 Exports the emails of the students that are currently being displayed.
@@ -415,7 +423,7 @@ Another key feature of NUSTracker is its ability to be customized greatly. This 
 customized to your liking.
 
 ### 1. Changing between Light/Dark Theme
-NUSTracker has a light/dark theme. To toggle between the two, click the button (to the left of **Settings**) as shown in the image below and
+NUSTracker has a light/dark theme. To toggle between the two, either type `refresh` or click the button (to the left of **Settings**) as shown in the image below and
 voila!
  
 ![change_theme](images/change_theme.PNG)
@@ -444,7 +452,7 @@ NUSTracker has the ability to add a profile picture to a student. Follow the ste
 
       *The updated student card (belonging to student with Student ID **e1111111** in NUSTracker)*
       <br><br>
-   3. The image will update once you **click the Refresh button or restart NUSTracker**.
+   3. The image will update once you **type `refresh`, click the Refresh button, or restart NUSTracker**.
    4. You're done!
 
 ### 3. Changing the _glow_ of the profile picture border
@@ -541,6 +549,8 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
 **help** | Opens the help window | `help` |
+**refresh**| Refresh the main window | `refresh` |
+**theme** | Toggles the current theme | `theme` |
 **settings** | Opens the settings window | `settings`|
 **export** | Exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
 **exit** | Exits the app | `exit` |
