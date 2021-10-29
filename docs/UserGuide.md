@@ -549,6 +549,8 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
 **help** | Opens the help window | `help` |
+**refresh**| Refresh the main window | `refresh` |
+**theme** | Toggles the current theme | `theme` |
 **settings** | Opens the settings window | `settings`|
 **export** | Exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
 **exit** | Exits the app | `exit` |
