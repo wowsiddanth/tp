@@ -557,6 +557,8 @@ You have now learnt to customize nustracker to its fullest. Go ahead and play ar
 
 nustracker data is saved in the hard disk automatically after executing any command that changes the data. There is no need to save manually.
 
+The file is saved in a folder where you ran the application. If you ran the application in `C:\Users\JohnDoe`, the data file will be in `C:\Users\JohnDoe\data` and is named `addressbook.json`
+
 ### Editing the data file
 
 nustracker data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
