@@ -411,20 +411,16 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     Use case ends.
 
 **Extensions:**
-* 2a. The list of students is empty.
+* 1a. User types an incorrect format of the command.
 
-  Use case ends.
+    * 1a1. nustracker shows an error message with the correct format of the command.
+    
+        Use case ends.
  
-* 2b. nustracker does not find any students with from the given keywords.
+* 2b. nustracker does not find any students with names containing the given keywords.
  
     * 2b1. nustracker displays an empty list.
 
-        Use case ends.
-     
-* 2c. User types multiple prefixes to filter by.
-
-    * 2c1. nustracker shows an error message.
-    
         Use case ends.
 
 <br><br>
@@ -443,21 +439,18 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     Use case ends.
 
 **Extensions:**
-* 2a. The list of students is empty.
+* 1a. User types an incorrect format of the command.
 
-  Use case ends.
- 
-* 2b. nustracker does not find students with the specified Student IDs.
- 
-    * 2b1. nustracker displays an empty list.
-
-        Use case ends.
-        
-* 2c. User types multiple prefixes to filter by.
-
-    * 2c1. nustracker shows an error message.
+    * 1a1. nustracker shows an error message with the correct format of the command.
     
         Use case ends.
+ 
+* 2a. nustracker does not find students with the specified Student IDs.
+ 
+    * 2a1. nustracker displays an empty list.
+
+        Use case ends.
+    
 
 <br><br>
 
@@ -475,21 +468,18 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     Use case ends.
 
 **Extensions:**
-* 2a. The list of students is empty.
+* 1a. User types an incorrect format of the command.
 
-  Use case ends.
+    * 1a1. nustracker shows an error message with the correct format of the command.
+    
+        Use case ends.
  
-* 2b. nustracker does not find any students attending the specified event.
+* 2a. nustracker does not find any students attending the specified event.
  
-    * 2b1. nustracker displays an empty list.
+    * 2a1. nustracker displays an empty list.
 
         Use case ends.
      
-* 2c. User types multiple prefixes to filter by.
-
-    * 2c1. nustracker shows an error message.
-    
-        Use case ends.
 
 <br><br>
 
@@ -507,27 +497,24 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     Use case ends.
 
 **Extensions:**
-* 2a. The list of students is empty.
+* 1a. User types an incorrect format of the command.
 
-  Use case ends.
- 
-* 2b. nustracker does not find any students studying in the specified year.
- 
-    * 2b1. nustracker displays an empty list.
-
-        Use case ends.
-     
-* 2c. User types multiple prefixes to filter by.
-
-    * 2c1. nustracker shows an error message.
+    * 1a1. nustracker shows an error message with the correct format of the command.
     
         Use case ends.
         
-* 2d. User enters an invalid value for year.
+* 1b. User enters an invalid value for year.
 
-    * 2d1. nustracker shows an error message.
+    * 1b1. nustracker shows an error message that the year entered is invalid.
         
         Use case ends.
+ 
+* 2a. nustracker does not find any students studying in the specified year.
+ 
+    * 2a1. nustracker displays an empty list.
+
+        Use case ends.
+    
 
 <br><br>
 
@@ -545,27 +532,24 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     Use case ends.
 
 **Extensions:**
-* 2a. The list of students is empty.
+* 1a. User types an incorrect format of the command.
 
-  Use case ends.
- 
-* 2b. nustracker does not find any students studying the specified major.
- 
-    * 2b1. nustracker displays an empty list.
-
-        Use case ends.
-     
-* 2c. User types multiple prefixes to filter by.
-
-    * 2c1. nustracker shows an error message.
+    * 1a1. nustracker shows an error message with the correct format of the command.
     
         Use case ends.
         
-* 2d. User enters an invalid major.
+* 2a. User enters an invalid major.
 
-    * 2d1. nustracker shows an error message.
+    * 2a1. nustracker shows an error message that the major entered is invalid.
         
         Use case ends.
+ 
+* 2a. nustracker does not find any students studying the specified major.
+ 
+    * 2a1. nustracker displays an empty list.
+
+        Use case ends.
+     
 
 <br><br>
 
