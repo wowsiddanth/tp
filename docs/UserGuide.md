@@ -423,6 +423,8 @@ Command: `export fn/FILE_NAME`
 
 The file will be located in the `data` directory, the same place where the app's save files are located.
 
+If the "events" page is currently being shown, export will still function and will export the emails of the most recent student list.
+
 Examples:
 * `export fn/StudentsAttendingOrientation`
 * `export fn/AllStudents`
