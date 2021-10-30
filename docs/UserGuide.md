@@ -210,7 +210,7 @@ Command: `delete id/STUDENT_ID`
 
 Examples:
 * `delete id/e1234567` deletes the student with the student ID `e1234567`.
-* `delete id/0589162` deletes the student with the student ID `e0589162`.
+* `delete id/e0589162` deletes the student with the student ID `e0589162`.
 <br><br>
 
 ### Filtering students: `filter`
