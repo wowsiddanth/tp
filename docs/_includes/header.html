@@ -4,7 +4,7 @@
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-    <img _ngcontent-huy-c8="" alt="nustracker" src="/docs/images/nustracker.png" href="{{ "/" | relative_url }}">{{ site.title | escape }}>
+    <img _ngcontent-huy-c8="" alt="NUS Tracker" src="/nustracker.png" href="{{ "/" | relative_url }}">{{ site.title | escape }}>
 
     {%- if titles_size > 0 -%}
       <nav class="site-nav">
