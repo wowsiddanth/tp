@@ -140,16 +140,16 @@ public class Student {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append("; Phone: ")
-                .append(getPhone())
-                .append("; Email: ")
-                .append(getEmail())
-                .append("; Year: ")
-                .append(getYear())
                 .append("; Major: ")
                 .append(getMajor())
                 .append("; StudentId: ")
-                .append(getStudentId());
+                .append(getStudentId())
+                .append("; Year: ")
+                .append(getYear())
+                .append("; Phone: ")
+                .append(getPhone())
+                .append("; Email: ")
+                .append(getEmail());
         if (enrolledEvents.hasEvents()) {
             builder.append("; Events:");
             builder.append(enrolledEvents.getEventNamesString());
