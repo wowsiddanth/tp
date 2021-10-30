@@ -162,7 +162,7 @@ The following is a description of the general layout of nustracker.
 
 Adds a student to nustracker
 
-Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL [ev/EVENT]`
+Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL`
 
 Formatting:
 
