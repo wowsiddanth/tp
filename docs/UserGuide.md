@@ -375,7 +375,8 @@ Command: `remove id/STUDENT_ID ev/EVENT`
 Examples:
 * `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
 * `remove id/e0264853 ev/Fun Run` removes the specified student with student ID e0264853 into the event "Fun Run".
-  <br><br>
+
+<br><br>
 
 ### Deleting an event : `delete`
 
@@ -389,6 +390,8 @@ Examples:
 * `delete ev/Orientation` deletes the event with the name `Orientation`.
 * `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
 
+<br><br>
+
 --------------------------------------------------------------------------------------------------------------------
 ## Other Commands
 
@@ -398,19 +401,15 @@ Opens the Help window
 
 Command: `help`
 
+<br>
+
 ### Viewing the settings: `settings`
 
 Opens the Settings window
 
 Command: `settings`
 
-### Refreshing the main window: `refresh`
-
-Refreshes the main window. Often used to update the main window after adding profile pictures, etc.
-
-### Changing the theme: `theme`
-
-Toggles the theme between Dark and Light theme.
+<br>
 
 ### Exporting Emails : `export`
 
@@ -418,7 +417,9 @@ Exports the emails of the students that are currently being displayed.
 
 Command: `export fn/FILE_NAME`
 
-Filenames cannot contain the characters `\:*?"<>|`
+- Filenames cannot contain these illegal characters:
+`\ : * ? " < > | `
+- Filenames cannot exceed 50 characters.
 
 The file will be located in the `data` directory, the same place where the app's save files are located.
 
@@ -426,12 +427,27 @@ Examples:
 * `export fn/StudentsAttendingOrientation`
 * `export fn/AllStudents`
 
+<br>
+
+### Refreshing the main window: `refresh`
+
+Refreshes the main window. Often used to update the main window after adding profile pictures, etc.
+
+<br>
+
+### Changing the theme: `theme`
+
+Toggles the theme between Dark and Light theme.
+
+<br>
+
 ### Exiting the program : `exit`
 
 Exits the program.
 
 Command: `exit`
 
+<br>
 
 ---------------------------------------------------------------------------------------
 ## Customization
@@ -566,8 +582,8 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
 **help** | Opens the help window | `help` |
-**refresh**| Refresh the main window | `refresh` |
-**theme** | Toggles the current theme | `theme` |
 **settings** | Opens the settings window | `settings`|
 **export** | Exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
+**refresh**| Refresh the main window | `refresh` |
+**theme** | Toggles the current theme | `theme` |
 **exit** | Exits the app | `exit` |
