@@ -20,6 +20,7 @@ public class StudentCard extends UiPart<Region> {
     private static final String FXML = "StudentListCard.fxml";
     public final Student student;
     private final ImageStorage imageStorage;
+    private final String glowColorHexCode;
 
     @FXML
     private HBox cardPane;
@@ -43,12 +44,14 @@ public class StudentCard extends UiPart<Region> {
     /**
      * Creates a {@code StudentCode} with the given {@code Student}.
      */
-    public StudentCard(Student student) {
+    public StudentCard(Student student, String glowColorHexCode) {
         super(FXML);
         this.student = student;
+        this.glowColorHexCode = glowColorHexCode;
         imageStorage = new ImageStorage();
 
         setStudentFields();
+        setGlow(profilePictureHolder, glowColorHexCode);
         setProfilePicture();
     }
 
@@ -68,12 +71,13 @@ public class StudentCard extends UiPart<Region> {
     /**
      * Sets the profile picture holder's glow.
      */
-    public void setGlow(String hexCode) {
+    public void setGlow(Circle profilePictureHolder, String hexCode) {
         profilePictureHolder.setRadius(60);
 
         profilePictureHolder.setStroke(Color.web(hexCode));
         profilePictureHolder.setStrokeWidth(4);
 
+        //Creating effect
         DropShadow borderGlow = new DropShadow();
         borderGlow.setOffsetY(0f);
         borderGlow.setOffsetX(0f);

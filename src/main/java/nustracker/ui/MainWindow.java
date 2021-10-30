@@ -91,7 +91,6 @@ public class MainWindow extends UiPart<Stage> {
         setWindowSize(guiSettings);
         fillInnerParts(guiSettings);
         settingsWindow.setStudentListPanel(studentListPanel);
-
         themeApplier.applyOnStartUp();
     }
 

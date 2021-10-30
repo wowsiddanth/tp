@@ -24,7 +24,7 @@
    <scene>
       <Scene>
          <stylesheets>
-            <URL value="@DarkTheme.css" />
+            <URL value="@LightTheme.css" />
             <URL value="@HelpWindow.css" />
             <URL value="@Fonts.css" />
          </stylesheets>
