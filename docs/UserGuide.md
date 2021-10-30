@@ -181,8 +181,25 @@ Formatting:
   - Must be unique
 
 - Year must be a number from 1 to 6 inclusive.
-- Number must be unique.
-- Email must be unique.
+- Phone must be unique.
+- Email:
+  - Must be unique
+  - Must be in the `local-part@domain` format
+  - `local-part`:
+    - Should only contain alphanumeric characters and these special characters: `+ _ . -`
+    - The special characters cannot be used consecutively
+    - Cannot be blank
+  - `domain`:
+    - Made up of domain labels separated by periods 
+    - Must end with a domain label at least 2 characters long
+    - Starts and ends with alphanumeric characters
+    - Consists of alphanumeric characters, separated only by hyphens, if any
+  - Examples of valid emails:
+    - `PeterJack_1190@example.com`
+    - `a@bc`
+    - `peter_jack@very-very-very-long-example.com`
+    - `if.you.dream.it_you.can.do.it@example.com`
+    - `a1+be.d@example1.com`
 
 Examples:
 * `add n/John Doe m/CS id/e7474831 y/2 p/81631293 e/JohnDoe99@example.com`
