@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-**nustracker** is a desktop application for NUS event directors and student leaders of student organizations in the School of Computing to manage students and events.
+**nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
 As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
 
