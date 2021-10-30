@@ -162,7 +162,7 @@ The following is a description of the general layout of nustracker.
 
 Adds a student to nustracker
 
-Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL [ev/EVENT]`
+Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL [ev/EVENT]`
 
 Formatting:
 
@@ -565,9 +565,9 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 
 **Command** | **Description** | **Example** |
 ----------------------------|------------------------------|-------------------------------------------------------|
-**add** | Adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/NUMBER e/EMAIL` |
+**add** | Adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL` |
 **students** | Lists students | `students` |
-**edit** | Edits a student | `edit id/ID_OF_STUDENT_TO_EDIT [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]` |
+**edit** | Edits a student | `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]` |
 **delete** | Deletes a student | `delete id/STUDENT_ID` |
 **filter** | Filters by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
 **delfiltered** | mass deletes shown students | `delfiltered` |
