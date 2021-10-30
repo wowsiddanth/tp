@@ -462,24 +462,26 @@ Another key feature of nustracker is its ability to be customized greatly. This 
 customized to your liking.
 
 ### 1. Changing between Light/Dark Theme
-nustracker has a light/dark theme. To toggle between the two, either type `refresh` or click the button (to the left of **Settings**) as shown in the image below and
-voila!
+nustracker has a light/dark theme. To toggle between the two, either type `refresh` or click the button (to the left of **Settings**) as shown in the image below and voila!
  
 ![change_theme](images/change_theme.PNG)
 
 ### 2. Setting a profile picture
 nustracker has the ability to add a profile picture to a student. Follow the steps given to add a picture:
-1. If you have not started nustracker before, run nustracker within a folder of your choice.
 
+1. If you have not started nustracker before, run nustracker within a folder of your choice.
 
 2. Once it runs, a folder called _**profile-pictures**_ is created within the folder that contains nustracker.
 
     ![profile-pictures-folder](images/profile-pictures-folder.PNG)
 
     *The **profile-pictures** folder is highlighted in blue*
-<br></br>
+
+<br>
+
 3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. The image must be either a **.png** or a **.jpg** image.
-   <br></br>
+
+4. <br>
 
    1. Rename the image to correspond to the **Student ID** of the student in nustracker that will use this profile picture.
 
