@@ -37,7 +37,8 @@ public class AddCommand extends Command {
             + PREFIX_STUDENTID + "e1234567 ";
 
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
-    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book. "
+            + "Please ensure the StudentID, phone number and email are all unique.";
 
     private final Student toAdd;
 
