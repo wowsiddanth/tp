@@ -425,6 +425,10 @@ The file will be located in the `data` directory, the same place where the app's
 
 If the "events" page is currently being shown, export will still function and will export the emails of the most recent student list.
 
+<div markdown="block" class="alert alert-block alert-danger">
+If you are exporting with a filename that already exists, the file will be overwritten!
+</div >
+
 Examples:
 * `export fn/StudentsAttendingOrientation`
 * `export fn/AllStudents`
