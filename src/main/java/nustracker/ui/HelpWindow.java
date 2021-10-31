@@ -36,7 +36,8 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String EDIT_COMMAND = "edit";
     public static final String EDIT_COMMAND_EXAMPLE = " " + EDIT_COMMAND
-            + " [id/ID_OF_STUDENT_TO_EDIT] [n/NAME] [m/MAJOR] [id/NEW_STUDENT_ID] [y/YEAR] [p/PHONE] [e/EMAIL]";
+            + " id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR]"
+            + " \n[id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]";
 
     public static final String DELETE_COMMAND = "delete";
     public static final String DELETE_COMMAND_EXAMPLE1 = " " + DELETE_COMMAND + " id/STUDENT_ID";
@@ -89,6 +90,12 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String EXPORT_COMMAND = "export";
     public static final String EXPORT_COMMAND_EXAMPLE = " " + EXPORT_COMMAND
             + " fn/FILE_NAME;";
+
+    public static final String REFRESH_COMMAND = "refresh";
+    public static final String REFRESH_COMMAND_EXAMPLE = " " + REFRESH_COMMAND;
+
+    public static final String THEME_COMMAND = "theme";
+    public static final String THEME_COMMAND_EXAMPLE = " " + THEME_COMMAND;
 
     public static final String EXIT_COMMAND = "exit";
     public static final String EXIT_COMMAND_EXAMPLE = " " + EXIT_COMMAND;
@@ -155,6 +162,10 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Text exportCommandExample;
     @FXML
+    private Text refreshCommandExample;
+    @FXML
+    private Text themeCommandExample;
+    @FXML
     private Text exitCommandExample;
 
     /**
@@ -191,6 +202,8 @@ public class HelpWindow extends UiPart<Stage> {
         helpCommandExample.setText(HELP_COMMAND_EXAMPLE);
         settingsCommandExample.setText(SETTINGS_COMMAND_EXAMPLE);
         exportCommandExample.setText(EXPORT_COMMAND_EXAMPLE);
+        refreshCommandExample.setText(REFRESH_COMMAND_EXAMPLE);
+        themeCommandExample.setText(THEME_COMMAND_EXAMPLE);
         exitCommandExample.setText(EXIT_COMMAND_EXAMPLE);
 
     }
@@ -472,6 +485,28 @@ public class HelpWindow extends UiPart<Stage> {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent url = new ClipboardContent();
         url.putString(EXPORT_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the RefreshCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyRefreshCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(REFRESH_COMMAND_EXAMPLE);
+        clipboard.setContent(url);
+    }
+
+    /**
+     * Copies the ThemeCommand to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyThemeCommand() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(THEME_COMMAND_EXAMPLE);
         clipboard.setContent(url);
     }
 

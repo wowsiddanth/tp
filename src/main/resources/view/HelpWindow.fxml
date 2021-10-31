@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<fx:root resizable="false" title="Help" type="Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" width="1300" height="700">
+<fx:root height="700" resizable="false" title="Help" type="Stage" width="1300" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
    <icons>
       <Image url="@/images/help_icon.png" />
    </icons>
@@ -78,7 +78,7 @@
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                         <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -304,6 +304,8 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
                                           <Text fill="#e9afff" text=" Command" GridPane.vgrow="SOMETIMES">
@@ -349,17 +351,39 @@
                                              </font>
                                           </Text>
                                           <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExportCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                          <Text style="-fx-fill: #779CFF;" text=" exit" GridPane.rowIndex="4">
+                                          <Text style="-fx-fill: #779CFF;" text=" refresh" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="exitCommandExample" style="-fx-fill: #779CFF;" text=" exitCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Text fx:id="refreshCommandExample" style="-fx-fill: #779CFF;" text=" refreshCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExitCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyRefreshCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Text style="-fx-fill: #779CFF;" text=" theme" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="themeCommandExample" style="-fx-fill: #779CFF;" text=" themeCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyThemeCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Text style="-fx-fill: #779CFF;" text=" exit" GridPane.rowIndex="6">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="exitCommandExample" style="-fx-fill: #779CFF;" text=" exitCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExitCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                                        </children>
                                     </GridPane>
                                  </content>
