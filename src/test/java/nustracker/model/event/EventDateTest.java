@@ -33,10 +33,16 @@ class EventDateTest {
         Assertions.assertFalse(EventDate.isValidDate("32-10-2021")); // invalid day
         Assertions.assertFalse(EventDate.isValidDate("00-10-2021")); // invalid day
 
+        // month does not contain the day
+        Assertions.assertFalse(EventDate.isValidDate("29-02-2021"));
+        Assertions.assertFalse(EventDate.isValidDate("31-04-2021"));
+        Assertions.assertFalse(EventDate.isValidDate("31-06-2021"));
+
         // valid event dates
         Assertions.assertTrue(EventDate.isValidDate("09-10-2021")); // current date
         Assertions.assertTrue(EventDate.isValidDate("31-12-3000")); // late date
         Assertions.assertTrue(EventDate.isValidDate("01-01-1900")); // early date
+        Assertions.assertTrue(EventDate.isValidDate("29-02-2024")); // leap year
     }
 
 }
