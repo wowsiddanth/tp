@@ -98,6 +98,8 @@ public class CommandTestUtil {
     public static final String INVALID_EVENTTIME_DESC = " " + PREFIX_TIME + "12:30 pm"; // needs to be 24hr format
 
     public static final String VALID_EXPORT_FILE_NAME = "Exports";
+    public static final String VALID_EXPORT_FILE_LENGTH =
+            "01234567890123456789012345678901234567890123456789"; // 50 Characters
     public static final String INVALID_EXPORT_FILE_NAME_1 = "Exports\\";
     public static final String INVALID_EXPORT_FILE_NAME_2 = "Exports:";
     public static final String INVALID_EXPORT_FILE_NAME_3 = "Exports*";
@@ -106,6 +108,8 @@ public class CommandTestUtil {
     public static final String INVALID_EXPORT_FILE_NAME_6 = "Exports<";
     public static final String INVALID_EXPORT_FILE_NAME_7 = "Exports>";
     public static final String INVALID_EXPORT_FILE_NAME_8 = "Exports|";
+    public static final String INVALID_EXPORT_FILE_LENGTH =
+            "012345678901234567890123456789012345678901234567890"; // 51 Characters
 
 
     static {

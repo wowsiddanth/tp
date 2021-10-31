@@ -184,6 +184,11 @@ public class ParserUtil {
                 || fileName.contains("|")) {
             throw new ParseException("Invalid file name.\nFilenames cannot contain \\:*?\"<>|");
         }
+
+        if (fileName.length() > 50) {
+            throw new ParseException("Your filename cannot exceed 50 characters!");
+        }
+
         return fileName;
     }
 }
