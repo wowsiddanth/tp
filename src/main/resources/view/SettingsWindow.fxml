@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
@@ -21,23 +20,12 @@
             <VBox fx:id="container" prefHeight="400" prefWidth="1000">
 
                 <HBox>
-                    <Text fill="#fdb703" text="settings" translateX="8.0" translateY="-5.0">
-                        <font>
-                            <Font name="System Bold" size="40.0" />
-                        </font>
-                    </Text>
-                    <Text fill="#377adf" text="window" translateX="8.0" translateY="-5.0">
-                        <font>
-                            <Font name="System Bold" size="40.0" />
-                        </font>
-                    </Text>
+                    <Text fill="#fdb703" text="settings" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 40" translateX="8.0" translateY="-5.0"/>
+                    <Text fill="#377adf" text="window" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 40" translateX="8.0" translateY="-5.0" />
                 </HBox>
 
                 <HBox>
-                    <Text fill="#779cff" text="Profile picture glow" textAlignment="CENTER" translateX="10.0">
-                        <font>
-                            <Font name="System Bold" size="24.0" />
-                        </font></Text>
+                    <Text fill="#779cff" text="Profile picture glow" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 24" textAlignment="CENTER" translateX="10.0" />
                     <Pane prefHeight="54.0" prefWidth="59.0" HBox.hgrow="ALWAYS" />
                     <ColorPicker fx:id="glowColorPicker" translateX="-10.0" translateY="15.0" />
                 </HBox>
