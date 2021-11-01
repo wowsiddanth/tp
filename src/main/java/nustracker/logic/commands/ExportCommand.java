@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_FILENAME;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 import javafx.collections.ObservableList;
