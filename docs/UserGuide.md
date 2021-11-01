@@ -345,8 +345,10 @@ Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
 
 - Event date has to be in the format `DD-MM-YYYY`.
     - DD represents the day (from 01-31 inclusive)
+      - A day will not be accepted if the month does not contain it.
+      - For example, February does not have a 29th day (unless it is a leap year) so `29-02-2021` will not be accepted.
     - MM represents the month (from 01-12 inclusive)
-    - YYYY represents the year
+    - YYYY represents the year.
 
 - Event time has to be in 24 hour time `HHMM`.
     - HH represents the hour (from 00-24 inclusive)
