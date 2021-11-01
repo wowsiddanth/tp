@@ -20,6 +20,12 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** The theme should toggle between Light and Dark theme */
+    private final boolean toggleTheme;
+
+    /** The main window should refresh */
+    private final boolean toggleRefresh;
+
     /** The student list should be displayed. */
     private final boolean toggleStudents;
 
@@ -29,17 +35,18 @@ public class CommandResult {
      * Constructs a {@code CommandResult} with the specified fields.
      */
     public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
-                         boolean showSettings, boolean toggleStudents, boolean toggleEvents) {
+                         boolean showSettings, boolean toggleTheme, boolean toggleRefresh,
+                         boolean toggleStudents, boolean toggleEvents) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.showSettings = showSettings;
         this.exit = exit;
 
         // Cannot toggle both the student and event list at the same time.
-        if (toggleStudents || toggleEvents) {
-            assert toggleStudents != toggleEvents;
-        }
+        assert !toggleStudents && !toggleEvents || toggleStudents != toggleEvents;
 
+        this.toggleTheme = toggleTheme;
+        this.toggleRefresh = toggleRefresh;
         this.toggleStudents = toggleStudents;
         this.toggleEvents = toggleEvents;
     }
@@ -50,7 +57,7 @@ public class CommandResult {
      */
     public CommandResult(String feedbackToUser) {
         this(feedbackToUser,
-                false, false, false, false, false);
+                false, false, false, false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -73,6 +80,14 @@ public class CommandResult {
         return toggleStudents;
     }
 
+    public boolean isToggleTheme() {
+        return toggleTheme;
+    }
+
+    public boolean isToggleRefresh() {
+        return toggleRefresh;
+    }
+
     public boolean isToggleEvents() {
         return toggleEvents;
     }
@@ -93,13 +108,16 @@ public class CommandResult {
                 && showHelp == otherCommandResult.showHelp
                 && showSettings == otherCommandResult.showSettings
                 && exit == otherCommandResult.exit
+                && toggleTheme == otherCommandResult.toggleTheme
+                && toggleRefresh == otherCommandResult.toggleRefresh
                 && toggleStudents == otherCommandResult.toggleStudents
                 && toggleEvents == otherCommandResult.toggleEvents;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, showSettings, exit, toggleStudents, toggleEvents);
+        return Objects.hash(feedbackToUser, showHelp, showSettings, exit, toggleStudents, toggleTheme,
+                toggleRefresh, toggleEvents);
     }
 
 }

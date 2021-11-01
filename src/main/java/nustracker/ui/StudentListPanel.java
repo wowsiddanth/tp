@@ -1,13 +1,10 @@
 package nustracker.ui;
 
-import java.util.logging.Logger;
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
-import nustracker.commons.core.LogsCenter;
 import nustracker.model.student.Student;
 import nustracker.storage.ImageStorage;
 
@@ -15,15 +12,13 @@ import nustracker.storage.ImageStorage;
  * Panel containing the list of students.
  */
 public class StudentListPanel extends UiPart<Region> {
+
     private static final String FXML = "StudentListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(StudentListPanel.class);
+    private String glowColorHexCode;
+    private final ObservableList<Student> studentList;
 
     @FXML
     private ListView<Student> studentListView;
-
-    private String glowColorHexCode;
-
-    private final ObservableList<Student> studentList;
 
     /**
      * Creates a {@code StudentListPanel} with the given {@code ObservableList}.
@@ -35,7 +30,7 @@ public class StudentListPanel extends UiPart<Region> {
         this.studentList = studentList;
 
         ImageStorage.createImageFolder();
-        fillPanelWithCells(studentList);
+        fillPanelWithCells(studentList, 0);
     }
 
     /**
@@ -46,27 +41,36 @@ public class StudentListPanel extends UiPart<Region> {
      */
     public void updateGlow(String newGlowColorHexCode) {
         glowColorHexCode = newGlowColorHexCode;
-        refreshPanel();
 
-        fillPanelWithCells(studentList);
+        refreshPanel();
     }
 
     /**
      * Refreshes the panel, forcing changes made to each {@link StudentCard} to update.
      */
     public void refreshPanel() {
-        fillPanelWithCells(studentList);
+        //Keeps track of the current focus, so the focus does not jump to the top.
+        int focusOnCurrentCell = studentListView.getFocusModel().getFocusedIndex();
+
+        fillPanelWithCells(studentList, focusOnCurrentCell);
     }
 
     /**
      * Fills the panel with the {@code ListCells}, each containing a {@link StudentCard}.
      *
      * @param studentList The student list to be used.
+     * @param focusIndex The cell (that contains a Student) that should be focused after filling.
      */
-    public void fillPanelWithCells(ObservableList<Student> studentList) {
+    public void fillPanelWithCells(ObservableList<Student> studentList, int focusIndex) {
         studentListView.setItems(studentList);
         studentListView.setCellFactory(listView -> new StudentListViewCell());
-        focusOnItem(0); //Select first item upon startup
+
+        if (focusIndex == -1) {
+            //This is possible if the control does not detect any focus
+            focusOnItem(0);
+        } else {
+            focusOnItem(focusIndex);
+        }
     }
 
     /**
@@ -90,8 +94,7 @@ public class StudentListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                StudentCard currentStudent = new StudentCard(student);
-                currentStudent.setGlow(glowColorHexCode);
+                StudentCard currentStudent = new StudentCard(student, glowColorHexCode);
                 setGraphic(currentStudent.getRoot());
             }
         }

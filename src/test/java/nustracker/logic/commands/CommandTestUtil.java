@@ -20,6 +20,7 @@ import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Contains helper methods for testing commands.
@@ -97,6 +98,8 @@ public class CommandTestUtil {
     public static final String INVALID_EVENTTIME_DESC = " " + PREFIX_TIME + "12:30 pm"; // needs to be 24hr format
 
     public static final String VALID_EXPORT_FILE_NAME = "Exports";
+    public static final String VALID_EXPORT_FILE_LENGTH =
+            "01234567890123456789012345678901234567890123456789"; // 50 Characters
     public static final String INVALID_EXPORT_FILE_NAME_1 = "Exports\\";
     public static final String INVALID_EXPORT_FILE_NAME_2 = "Exports:";
     public static final String INVALID_EXPORT_FILE_NAME_3 = "Exports*";
@@ -105,6 +108,8 @@ public class CommandTestUtil {
     public static final String INVALID_EXPORT_FILE_NAME_6 = "Exports<";
     public static final String INVALID_EXPORT_FILE_NAME_7 = "Exports>";
     public static final String INVALID_EXPORT_FILE_NAME_8 = "Exports|";
+    public static final String INVALID_EXPORT_FILE_LENGTH =
+            "012345678901234567890123456789012345678901234567890"; // 51 Characters
 
 
     static {
@@ -128,7 +133,7 @@ public class CommandTestUtil {
     public static void assertCommandSuccess(Command command, Model actualModel, CommandResult expectedCommandResult,
                                             Model expectedModel) {
         try {
-            CommandResult result = command.execute(actualModel);
+            CommandResult result = command.execute(actualModel, CurrentlyShownList.STUDENTS_LIST);
             assertEquals(expectedCommandResult, result);
             assertEquals(expectedModel, actualModel);
         } catch (CommandException ce) {
@@ -147,18 +152,39 @@ public class CommandTestUtil {
     }
 
     /**
-     * Executes the given {@code command}, confirms that <br>
+     * Executes the given {@code command} when students list is shown on the Gui, confirms that <br>
      * - a {@code CommandException} is thrown <br>
      * - the CommandException message matches {@code expectedMessage} <br>
      * - the address book, filtered student list and selected student in {@code actualModel} remain unchanged
      */
-    public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
+    public static void assertCommandFailureShownStudentList(Command command, Model actualModel,
+                                                            String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
         List<Student> expectedFilteredList = new ArrayList<>(actualModel.getFilteredStudentList());
 
-        Assert.assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
+        Assert.assertThrows(CommandException.class, expectedMessage, () ->
+                command.execute(actualModel, CurrentlyShownList.STUDENTS_LIST));
+        assertEquals(expectedAddressBook, actualModel.getAddressBook());
+        assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
+    }
+
+    /**
+     * Executes the given {@code command} when events list is shown on the Gui, confirms that <br>
+     * - a {@code CommandException} is thrown <br>
+     * - the CommandException message matches {@code expectedMessage} <br>
+     * - the address book, filtered student list and selected student in {@code actualModel} remain unchanged
+     */
+    public static void assertCommandFailureShownEventList(Command command, Model actualModel,
+                                                            String expectedMessage) {
+        // we are unable to defensively copy the model for comparison later, so we can
+        // only do so by copying its components.
+        AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
+        List<Student> expectedFilteredList = new ArrayList<>(actualModel.getFilteredStudentList());
+
+        Assert.assertThrows(CommandException.class, expectedMessage, () ->
+                command.execute(actualModel, CurrentlyShownList.EVENTS_LIST));
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
     }
