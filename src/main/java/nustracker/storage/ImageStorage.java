@@ -37,11 +37,8 @@ public class ImageStorage {
     public Image readImage(String studentId) {
         Image studentImage;
 
-        Path pathOfProfilePictureJpg = Paths.get(pathOfProfilePictureFolder.toString(), studentId + ".jpg");
-        Path pathOfProfilePicturePng = Paths.get(pathOfProfilePictureFolder.toString(), studentId + ".png");
-
-        File jpg = pathOfProfilePictureJpg.toFile();
-        File png = pathOfProfilePicturePng.toFile();
+        File jpg = studentIdToImageFile(studentId, ".jpg");
+        File png = studentIdToImageFile(studentId, ".png");
 
         //Checks if an image with the student's name exists
         if (jpg.isFile()) {
@@ -57,6 +54,36 @@ public class ImageStorage {
         Objects.requireNonNull(studentImage);
 
         return studentImage;
+    }
+
+    /**
+     * Deletes the student's image from the profile-pictures folder.
+     *
+     * @param studentId The studentId of the student to be deleted.
+     */
+    public void deleteImage(String studentId) {
+
+        File jpg = studentIdToImageFile(studentId, ".jpg");
+        File png = studentIdToImageFile(studentId, ".png");
+
+        if (jpg.isFile()) {
+            jpg.delete();
+        } else if (png.isFile()) {
+            png.delete();
+        }
+    }
+
+    /**
+     * Takes the studentId, and returns a File that potentially contains a profile picture belonging to a
+     * student with that studentId.
+     *
+     * @param studentId The studentId to be used.
+     * @param fileExtension The file extension of the file (.png or .jpg).
+     * @return A file that potentially contains the student's image.
+     */
+    private File studentIdToImageFile(String studentId, String fileExtension) {
+        Path pathOfImageFile = Paths.get(pathOfProfilePictureFolder.toString(), studentId + fileExtension);
+        return pathOfImageFile.toFile();
     }
 
     /**
