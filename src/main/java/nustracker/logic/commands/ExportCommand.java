@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static nustracker.logic.parser.CliSyntax.PREFIX_FILENAME;
 
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 import javafx.collections.ObservableList;
@@ -39,7 +40,7 @@ public class ExportCommand extends Command {
      */
     public ExportCommand(String fileName) {
         requireNonNull(fileName);
-        this.pathToExport = Path.of("data\\" + fileName + ".csv");
+        this.pathToExport = Paths.get("data", fileName + ".csv");
     }
 
 
