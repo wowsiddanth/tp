@@ -4,10 +4,11 @@ import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 import static nustracker.testutil.Assert.assertThrows;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
+import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
-import static nustracker.testutil.TypicalStudents.getTypicalAddressBook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,12 +66,12 @@ class BlackListCommandTest {
 
     @Test
     public void execute_blacklistRejected_studentIdAlreadyBlacklisted() throws Exception {
-        Participant blacklisted = (Participant) ORIENTATION.getBlacklist().toArray()[0];
+        Participant blacklisted = (Participant) MATH_OLYMPIAD.getBlacklist().toArray()[0];
 
         assertThrows(CommandException.class,
                 String.format(BlackListCommand.MESSAGE_STUDENTID_ALREADY_BLACKLISTED,
-                        blacklisted.getStudentId(), ORIENTATION.getName()), () ->
-                        new BlackListCommand(blacklisted.getStudentId(), ORIENTATION.getName()).execute(model,
+                        blacklisted.getStudentId(), MATH_OLYMPIAD.getName()), () ->
+                        new BlackListCommand(blacklisted.getStudentId(), MATH_OLYMPIAD.getName()).execute(model,
                                 CurrentlyShownList.STUDENTS_LIST));
     }
 
