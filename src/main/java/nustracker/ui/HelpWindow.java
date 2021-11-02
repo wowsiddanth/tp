@@ -36,7 +36,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String EDIT_COMMAND = "edit";
     public static final String EDIT_COMMAND_EXAMPLE = " " + EDIT_COMMAND
-            + " [id/ID_OF_STUDENT_TO_EDIT] [n/NEW_NAME] [m/NEW_MAJOR]"
+            + " id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR]"
             + " \n[id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]";
 
     public static final String DELETE_COMMAND = "delete";
