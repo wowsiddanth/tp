@@ -1,6 +1,6 @@
 package nustracker.logic.commands;
 
-import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
+import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
 import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
@@ -19,6 +19,7 @@ import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.TypicalStudents;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 
 /**
@@ -45,11 +46,11 @@ public class DeleteStudentCommandTest {
     public void execute_invalidStudentIdUnfilteredList_throwsCommandException() {
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
         try {
-            deleteStudentCommand.execute(model);
+            deleteStudentCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
         } catch (CommandException e) {
             e.printStackTrace();
         }
-        assertCommandFailure(deleteStudentCommand, model,
+        assertCommandFailureShownStudentList(deleteStudentCommand, model,
                 String.format(Messages.MESSAGE_INVALID_STUDENTID, STUDENTID_MISSING));
     }
 
@@ -74,7 +75,7 @@ public class DeleteStudentCommandTest {
 
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
 
-        assertCommandFailure(deleteStudentCommand, model,
+        assertCommandFailureShownStudentList(deleteStudentCommand, model,
                 String.format(Messages.MESSAGE_INVALID_STUDENTID, STUDENTID_MISSING));
     }
 

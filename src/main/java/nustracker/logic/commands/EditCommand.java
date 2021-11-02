@@ -26,6 +26,7 @@ import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.model.student.Year;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Edits the details of an existing student in the address book.
@@ -72,7 +73,8 @@ public class EditCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
         requireNonNull(model);
 
         Student studentToEdit = model.getStudent(studentIdToEdit);

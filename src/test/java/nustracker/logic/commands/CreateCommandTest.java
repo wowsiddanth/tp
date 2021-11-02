@@ -15,6 +15,7 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.event.Event;
 import nustracker.testutil.EventBuilder;
 import nustracker.testutil.ModelStub;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 class CreateCommandTest {
 
@@ -29,7 +30,8 @@ class CreateCommandTest {
                 new ModelStubAcceptingEventAdded();
         Event validEvent = new EventBuilder().build();
 
-        CommandResult commandResult = new CreateCommand(validEvent).execute(modelStub);
+        CommandResult commandResult = new CreateCommand(validEvent).execute(modelStub,
+                CurrentlyShownList.STUDENTS_LIST);
 
         Assertions.assertEquals(String.format(CreateCommand.MESSAGE_SUCCESS, validEvent),
                 commandResult.getFeedbackToUser());
@@ -43,7 +45,7 @@ class CreateCommandTest {
         ModelStub modelStub = new ModelStubWithEvent(validEvent);
 
         assertThrows(CommandException.class, CreateCommand.MESSAGE_DUPLICATE_EVENT, () ->
-                createCommand.execute(modelStub));
+                createCommand.execute(modelStub, CurrentlyShownList.STUDENTS_LIST));
     }
 
     /**

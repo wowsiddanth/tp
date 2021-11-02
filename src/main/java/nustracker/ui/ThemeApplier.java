@@ -13,7 +13,7 @@ public class ThemeApplier {
     /**
      * An enum that represents the themes of the application.
      */
-    public enum Theme {
+    private enum Theme {
         DARK {
             @Override
             public String toString() {

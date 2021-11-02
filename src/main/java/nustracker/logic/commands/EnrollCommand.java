@@ -17,6 +17,7 @@ import nustracker.model.event.Participant;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Adds a student to an existing event.
@@ -38,7 +39,8 @@ public class EnrollCommand extends Command {
     public static final String MESSAGE_STUDENT_ALREADY_ENROLLED =
             "The Student %1$s with student Id %2$s is already enrolled into the event: %3$s";
     public static final String MESSAGE_STUDENT_ON_BLACKLIST =
-            "The Student %1$s with student Id %2$s is already enrolled into the event: %3$s";
+            "The Student %1$s with student Id %2$s is on the blacklist of the event: %3$s"
+                    + " and hence cannot be enrolled.";
 
     private final StudentId studentId;
     private final EventName eventName;
@@ -55,7 +57,8 @@ public class EnrollCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
 
         // Enroll Student to event (4 Cases)
         // 1. Success
@@ -91,7 +94,7 @@ public class EnrollCommand extends Command {
         boolean isAlreadyInEvent = currEvent.isInEvent(studentId);
 
         if (isAlreadyInEvent) {
-            throw new CommandException(String.format(MESSAGE_STUDENT_ON_BLACKLIST,
+            throw new CommandException(String.format(MESSAGE_STUDENT_ALREADY_ENROLLED,
                     currStudent.getName().toString(),
                     currStudent.getStudentId().getStudentIdString(),
                     currEvent.getName().getEventName()));

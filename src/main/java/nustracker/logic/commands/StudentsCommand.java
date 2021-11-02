@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.Student;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Displays the students list.
@@ -16,14 +17,18 @@ public class StudentsCommand extends Command {
             "Here is the list of students.";
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
+
         model.updateFilteredStudentList(new Predicate<Student>() {
             @Override
             public boolean test(Student student) {
                 return true;
             }
         });
+
         return new CommandResult(MESSAGE_SHOW_STUDENTS_SUCCESS, false, false, false,
+                false, false,
                 true, false);
     }
 

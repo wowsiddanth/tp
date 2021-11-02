@@ -8,6 +8,7 @@ import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Deletes an event identified by its name.
@@ -29,7 +30,8 @@ public class DeleteEventCommand extends DeleteCommand {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
         requireNonNull(model);
 
         Event toDelete = model.getEvent(eventName);
