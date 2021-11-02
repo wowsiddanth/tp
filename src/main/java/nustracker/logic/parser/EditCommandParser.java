@@ -44,11 +44,20 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         StudentId studentIdToEdit = ParserUtil.parseStudentId(argMultimap.getAllValues(PREFIX_STUDENTID).get(0));
 
-
-
         EditCommand.EditStudentDescriptor editStudentDescriptor = new EditCommand.EditStudentDescriptor();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editStudentDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
+        }
+        if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
+            editStudentDescriptor.setMajor(ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get()));
+        }
+        if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()
+                && argMultimap.getAllValues(PREFIX_STUDENTID).size() >= 2) {
+            editStudentDescriptor.setStudentId(ParserUtil.parseStudentId(
+                    argMultimap.getValue(PREFIX_STUDENTID).get()));
+        }
+        if (argMultimap.getValue(PREFIX_YEAR).isPresent()) {
+            editStudentDescriptor.setYear(ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get()));
         }
         if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
             editStudentDescriptor.setPhone(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));
@@ -56,19 +65,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_EMAIL).isPresent()) {
             editStudentDescriptor.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
         }
-        if (argMultimap.getValue(PREFIX_YEAR).isPresent()) {
-            editStudentDescriptor.setYear(ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get()));
-        }
-        if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
-            editStudentDescriptor.setMajor(ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get()));
-        }
 
-        if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()
-                && argMultimap.getAllValues(PREFIX_STUDENTID).size() >= 2) {
-            editStudentDescriptor.setStudentId(ParserUtil.parseStudentId(
-                    argMultimap.getValue(PREFIX_STUDENTID).get()));
-        }
-
+        
         if (!editStudentDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
