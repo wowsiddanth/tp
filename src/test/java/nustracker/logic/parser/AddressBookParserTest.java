@@ -36,6 +36,7 @@ import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 import nustracker.testutil.Assert;
 import nustracker.testutil.EditStudentDescriptorBuilder;
@@ -90,10 +91,13 @@ public class AddressBookParserTest {
                 FilterCommand.COMMAND_WORD + " " + PREFIX_NAME + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new FilterNameCommand(new NameContainsKeywordsPredicate(keywords)), nameCommand);
 
+        List<String> ids = Arrays.asList("e0000000", "e0000001", "e0000002");
+
         FilterCommand idCommand = (FilterCommand) parser.parseCommand(
-                FilterCommand.COMMAND_WORD + " " + PREFIX_STUDENTID + keywords.stream().collect(
+                FilterCommand.COMMAND_WORD + " " + PREFIX_STUDENTID + ids.stream().collect(
                         Collectors.joining(" ")));
-        assertEquals(new FilterIdCommand(new StudentIdContainsKeywordsPredicate(keywords)), idCommand);
+        assertEquals(new FilterIdCommand(new StudentIdContainsKeywordsPredicate(ids.stream().map(
+                x -> new StudentId(x)).collect(Collectors.toUnmodifiableList()))), idCommand);
 
         FilterCommand eventCommand = (FilterCommand) parser.parseCommand(
                 FilterCommand.COMMAND_WORD + " " + PREFIX_EVENT + "foo");
