@@ -6,7 +6,12 @@ title: nustracker
 [![CI Status](https://github.com/AY2122S1-CS2103T-T11-1/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S1-CS2103T-T11-1/tp/actions)
 [![codecov](https://codecov.io/gh/AY2122S1-CS2103T-T11-1/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2122S1-CS2103T-T11-1/tp)
 
-![nustracker](images/nustracker.png)
+
+<p align="center">
+  <img src="images/nustracker.png" />
+</p>
+
+
 ![Ui](images/Ui.png)
 
 **nustracker is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to keep track and manage events that their members are a part of.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
