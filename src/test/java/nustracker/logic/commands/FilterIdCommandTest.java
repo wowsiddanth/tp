@@ -15,7 +15,6 @@ import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
-import nustracker.model.student.Major;
 import nustracker.model.student.StudentId;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 import nustracker.testutil.TypicalStudents;
@@ -81,6 +80,6 @@ public class FilterIdCommandTest {
      */
     private StudentIdContainsKeywordsPredicate preparePredicate(String userInput) {
         return new StudentIdContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")).stream().map(
-                x -> new StudentId(x)).collect(Collectors.toUnmodifiableList()));
+            x -> new StudentId(x)).collect(Collectors.toUnmodifiableList()));
     }
 }

@@ -97,7 +97,7 @@ public class AddressBookParserTest {
                 FilterCommand.COMMAND_WORD + " " + PREFIX_STUDENTID + ids.stream().collect(
                         Collectors.joining(" ")));
         assertEquals(new FilterIdCommand(new StudentIdContainsKeywordsPredicate(ids.stream().map(
-                x -> new StudentId(x)).collect(Collectors.toUnmodifiableList()))), idCommand);
+            x -> new StudentId(x)).collect(Collectors.toUnmodifiableList()))), idCommand);
 
         FilterCommand eventCommand = (FilterCommand) parser.parseCommand(
                 FilterCommand.COMMAND_WORD + " " + PREFIX_EVENT + "foo");
