@@ -6,6 +6,7 @@ import static nustracker.commons.util.AppUtil.checkArgument;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 
 /**
  * Represents an Event's Date.
@@ -13,9 +14,11 @@ import java.time.format.DateTimeParseException;
 public class EventDate {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "EventDates should be in the format DD-MM-YYYY. E.g. 09-10-2021.";
+            "EventDates should be in the format DD-MM-YYYY. E.g. 09-10-2021.\n"
+            + "Ensure that the month has that day. E.g. Feb only has 28 days (29 for leap years).";
 
-    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-uuuu")
+            .withResolverStyle(ResolverStyle.STRICT);
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy");
 
     public final LocalDate eventDate;

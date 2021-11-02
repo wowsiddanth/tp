@@ -11,6 +11,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.Student;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Adds a student to the address book.
@@ -21,22 +22,23 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a student to the address book. "
             + "Parameters: "
-            + PREFIX_NAME + "NAME "
+            + PREFIX_NAME + "STUDENT_NAME "
+            + PREFIX_MAJOR + "MAJOR "
+            + PREFIX_STUDENTID + "STUDENT_ID "
+            + PREFIX_YEAR + "YEAR "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_YEAR + "YEAR "
-            + PREFIX_MAJOR + "MAJOR "
-            + PREFIX_STUDENTID + "STUDENTID "
-            + "Example: " + COMMAND_WORD + " "
+            + "\nExample: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
-            + PREFIX_PHONE + "98765432 "
-            + PREFIX_EMAIL + "johnd@example.com "
-            + PREFIX_YEAR + "1 "
             + PREFIX_MAJOR + "CS "
-            + PREFIX_STUDENTID + "e1234567 ";
+            + PREFIX_STUDENTID + "e1234567 "
+            + PREFIX_YEAR + "1 "
+            + PREFIX_PHONE + "98765432 "
+            + PREFIX_EMAIL + "johnd@example.com ";
 
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
-    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book. "
+            + "Please ensure the StudentID, phone number and email are all unique.";
 
     private final Student toAdd;
 
@@ -49,7 +51,8 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
         requireNonNull(model);
 
         if (model.hasStudent(toAdd)) {
