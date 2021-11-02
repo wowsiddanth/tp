@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.BlackListCommand;
-import nustracker.logic.commands.ClearCommand;
 import nustracker.logic.commands.Command;
 import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
+import nustracker.logic.commands.DeleteFilteredStudentsCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.commands.EnrollCommand;
 import nustracker.logic.commands.EventsCommand;
@@ -17,9 +17,11 @@ import nustracker.logic.commands.ExitCommand;
 import nustracker.logic.commands.ExportCommand;
 import nustracker.logic.commands.FilterCommand;
 import nustracker.logic.commands.HelpCommand;
+import nustracker.logic.commands.RefreshCommand;
 import nustracker.logic.commands.RemoveCommand;
 import nustracker.logic.commands.SettingsCommand;
 import nustracker.logic.commands.StudentsCommand;
+import nustracker.logic.commands.ThemeCommand;
 import nustracker.logic.commands.WhiteListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 
@@ -59,8 +61,11 @@ public class AddressBookParser {
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
 
-        case ClearCommand.COMMAND_WORD:
-            return new ClearCommand();
+        case RefreshCommand.COMMAND_WORD:
+            return new RefreshCommand();
+
+        case ThemeCommand.COMMAND_WORD:
+            return new ThemeCommand();
 
         case FilterCommand.COMMAND_WORD:
             return new FilterCommandParser().parse(arguments);
@@ -97,6 +102,9 @@ public class AddressBookParser {
 
         case StudentsCommand.COMMAND_WORD:
             return new StudentsCommand();
+
+        case DeleteFilteredStudentsCommand.COMMAND_WORD:
+            return new DeleteFilteredStudentsCommand();
 
         default:
             throw new ParseException(Messages.MESSAGE_UNKNOWN_COMMAND);

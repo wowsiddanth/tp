@@ -1,6 +1,6 @@
 package nustracker.logic.commands;
 
-import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
+import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_INVALID;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
@@ -42,7 +42,7 @@ class DeleteEventCommandTest {
     public void execute_invalidEventUnfilteredList_throwsCommandException() {
         DeleteEventCommand deleteEventCommand = new DeleteEventCommand(EVENTNAME_INVALID);
 
-        assertCommandFailure(deleteEventCommand, model,
+        assertCommandFailureShownStudentList(deleteEventCommand, model,
                 String.format(Messages.MESSAGE_INVALID_EVENT_NAME, EVENTNAME_INVALID));
     }
 

@@ -13,4 +13,8 @@ public class Messages {
     public static final String MESSAGE_INVALID_YEAR = "The year %1$s is invalid";
     public static final String MESSAGE_STUDENTS_LISTED_OVERVIEW = "%1$d students listed!";
     public static final String MESSAGE_MULTIPLE_FILTER_FIELDS = "Cannot filter by multiple fields!";
+    public static final String MESSAGE_STUDENT_LIST_NOT_SHOWN =
+            "The Student list has to be shown before this command can be used.";
+    public static final String MESSAGE_EVENT_LIST_NOT_SHOWN =
+            "The Event list has to be shown before this command can be used.";
 }
