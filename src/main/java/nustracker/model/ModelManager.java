@@ -16,7 +16,6 @@ import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
-import nustracker.storage.ImageStorage;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -109,11 +108,7 @@ public class ModelManager implements Model {
 
     @Override
     public void deleteStudent(Student target) {
-        //Instantiate new instance in order to delete profile picture from file.
-        ImageStorage imageStorage = new ImageStorage();
-
         addressBook.removeStudent(target, this);
-        imageStorage.deleteImage(target.getStudentId().toString());
         Major.removeStudent(target);
     }
 

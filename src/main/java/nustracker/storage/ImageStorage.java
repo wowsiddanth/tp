@@ -1,10 +1,12 @@
 package nustracker.storage;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.scene.image.Image;
@@ -55,23 +57,6 @@ public class ImageStorage {
     }
 
     /**
-     * Deletes the student's image from the profile-pictures folder.
-     *
-     * @param studentId The studentId of the student to be deleted.
-     */
-    public void deleteImage(String studentId) {
-
-        File jpg = studentIdToImageFile(studentId, ".jpg");
-        File png = studentIdToImageFile(studentId, ".png");
-
-        if (jpg.isFile()) {
-            jpg.delete();
-        } else if (png.isFile()) {
-            png.delete();
-        }
-    }
-
-    /**
      * Takes the studentId, and returns a File that potentially contains a profile picture belonging to a
      * student with that studentId.
      *
@@ -88,10 +73,13 @@ public class ImageStorage {
      * Creates a folder called profile-pictures, that stores the profile pictures of the students.
      */
     private void createImageFolder() {
-        if (Files.exists(pathOfProfilePictureFolder)) {
-            return;
+        try {
+            if (Files.exists(pathOfProfilePictureFolder)) {
+                return;
+            }
+            Files.createDirectories(pathOfProfilePictureFolder);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "profile-pictures folder could not be created.");
         }
-        File profilePicturesFolder = new File(String.valueOf(pathOfProfilePictureFolder));
-        profilePicturesFolder.mkdir();
     }
 }
