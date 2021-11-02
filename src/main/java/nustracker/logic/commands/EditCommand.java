@@ -1,5 +1,6 @@
 package nustracker.logic.commands;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
@@ -55,7 +56,10 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited Student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "A student with %1$s already exists in the address book. \n"
+            + "Please ensure that the Student ID, Phone and Emails to edit to are all unique.";
+    public static final String MESSAGE_EDIT_SHOULD_UPDATE_VALUES = "All fields being edited should be"
+            + " updated to contain different values.";
 
     private final StudentId studentIdToEdit;
     private final EditStudentDescriptor editStudentDescriptor;
@@ -86,9 +90,29 @@ public class EditCommand extends Command {
 
         Student editedStudent = createEditedStudent(studentToEdit, editStudentDescriptor);
 
-        if (!studentToEdit.hasDuplicateCredentials(editedStudent) && model.hasStudent(editedStudent)) {
-            throw new CommandException(MESSAGE_DUPLICATE_STUDENT);
+        if (!editStudentDescriptor.isStudentDifferent(studentToEdit)) {
+            throw new CommandException(MESSAGE_EDIT_SHOULD_UPDATE_VALUES);
         }
+
+        Student studentWithSameId = model.getStudent(editedStudent.getStudentId());
+        Student studentWithSamePhone = model.getStudentByPhone(editedStudent.getPhone());
+        Student studentWithSameEmail = model.getStudentByEmail(editedStudent.getEmail());
+
+        if (studentWithSameId != null && editStudentDescriptor.getStudentId().isPresent()) {
+            throw new CommandException(String.format(MESSAGE_DUPLICATE_STUDENT, "the STUDENT ID "
+                    + editedStudent.getStudentId().getStudentIdString()));
+        }
+
+        if (studentWithSamePhone != null && editStudentDescriptor.getPhone().isPresent()) {
+            throw new CommandException(String.format(MESSAGE_DUPLICATE_STUDENT, "the PHONE "
+                    + editedStudent.getPhone().toString()));
+        }
+
+        if (studentWithSameEmail != null && editStudentDescriptor.getEmail().isPresent()) {
+            throw new CommandException(String.format(MESSAGE_DUPLICATE_STUDENT, "the EMAIL "
+                    + editedStudent.getEmail().toString()));
+        }
+
 
         editStudentIdInEventList(studentToEdit, editedStudent, model);
 
@@ -216,6 +240,22 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, major, year, studentId);
+        }
+
+        /**
+         * Checks if a student already contains the same values that the fields being edited by this
+         * descriptor contains.
+         *
+         * @param currStudent the student to check.
+         * @return true if all fields being edited are different from what is in the student, false otherwise.
+         */
+        public boolean isStudentDifferent(Student currStudent) {
+            return (isNull(name) || !currStudent.getName().equals(name))
+                    && (isNull(phone) || !currStudent.getPhone().equals(phone))
+                    && (isNull(email) || !currStudent.getEmail().equals(email))
+                    && (isNull(year) || !currStudent.getYear().equals(year))
+                    && (isNull(major) || !currStudent.getMajor().equals(major))
+                    && (isNull(studentId) || !currStudent.getStudentId().equals(studentId));
         }
 
         public void setName(Name name) {
