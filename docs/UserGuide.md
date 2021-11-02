@@ -160,17 +160,71 @@ The following is a description of the general layout of nustracker.
 Now, you are ready to learn the basics of NUSTracker.
 But, before we do anything, let’s set the premise. Imagine that you are the manpower executive of a newly-formed NUS society called the Imaginary Society (very creative we know). 
 
-It plans on holding a fair—appropriately titled the Imaginary Fair.
+It plans on holding a fair—appropriately titled the Imaginary Fair on the 1st of December 2021, at 9am.
 
-Here's the particulars of our first member and participants: Sae Byeok!
-
+Here's the particulars of our first member and participant: <br>
 **Name**: Sae-Byeok <br>
-**Phone number**: 87438007 <br>             
+**Phone number**: 87438007 <br>
 **Major**: CS <br>
 **Year**: 1 <br>
 **Student ID**: e1111111 <br>
 **Email**: saebyeok@example.com <br>
 **Wants to join**: Imaginary Fair
+
+### Adding your first student
+
+Okay, now that we know who our first member is, let's add her to nustracker.
+
+To add her, we are going to be using the `add` command, which follows the format:
+` add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL`
+
+So, in the case of Sae Byeok, her fields would be:
+- `STUDENT_NAME`: Sae Byeok
+- `MAJOR`: CS
+- `STUDENT_ID`: e1111111
+- `YEAR`: 1
+- `PHONE`: 87438007
+- `EMAIL`: saebyeok@example.com
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The fields do not have to be any specific order. So, name can come before major etc.
+</div>
+
+After entering the command and pressing **Enter**, nustracker should look like this:
+![added-first-student](images/user-guide/after-pressing-enter.PNG)
+
+Congrats! You have just added your first member! Next, we will learn how to create an event and 
+eventually, how to added Sae Byeok as a participant!
+
+### Adding your first event
+
+Let's create the event `Imaginary Fair`.
+
+Intuitively, the command for creating an event is `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`.
+
+So, in the case of Imaginary Fair, it would be:
+- `EVENT_NAME`: Imaginary Fair
+- `EVENT_DATE`: 01-12-2021
+- `EVENT_TIME`: 1900
+
+Like before, enter the command into the command box and press **Enter**.
+
+To check if it has been created, you can either type `events` into the command box or press the **Events** button in the top bar
+(_if you are unsure about the buttons, refer [here](#general-layout)._)
+
+If done right, nustracker should look like this:
+
+![created-event](images/user-guide/created-event.PNG)
+
+Congrats! You have now added an event as well!
+
+
+
+
+
+
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 ## Student Commands
@@ -500,7 +554,7 @@ customized to your liking.
 ### 1. Changing between Light/Dark Theme
 nustracker has a light/dark theme. To toggle between the two, either type `refresh` or click the button (to the left of **Settings**) as shown in the image below and voila!
  
-![change_theme](images/change_theme.PNG)
+![change_theme](images/user-guide/change_theme.PNG)
 
 ### 2. Setting a profile picture
 nustracker has the ability to add a profile picture to a student. Follow the steps given to add a picture:
@@ -509,7 +563,7 @@ nustracker has the ability to add a profile picture to a student. Follow the ste
 
 2. Once it runs, a folder called _**profile-pictures**_ is created within the folder that contains nustracker.
 
-    ![profile-pictures-folder](images/profile-pictures-folder.PNG)
+    ![profile-pictures-folder](images/user-guide/profile-pictures-folder.PNG)
 
     *The **profile-pictures** folder is highlighted in blue*
 
@@ -523,9 +577,9 @@ nustracker has the ability to add a profile picture to a student. Follow the ste
 
        For example, let's say there is a student in nustracker with the Student ID **e1111111**.
 
-      ![match-student-id](images/match-student-id.PNG)
+      ![match-student-id](images/user-guide/match-student-id.PNG)
  
-      ![changed-profile-picture](images/changed-profile-picture.PNG)
+      ![changed-profile-picture](images/user-guide/changed-profile-picture.PNG)
 
       *The updated student card (belonging to student with Student ID **e1111111** in nustracker)*
       <br><br>
@@ -541,12 +595,12 @@ nustracker allows you to change the color of the glow of the profile picture.
 
 2. Click the dropdown menu, and pick a color. You can pick a custom color as well.
 
-   ![pre-selected](images/pre-selected.PNG)
+   ![pre-selected](images/user-guide/pre-selected.PNG)
 
     *You can choose one of the pre-selected colors.* 
 
    <br><br>
-   ![custom-color](images/custom-color.PNG)
+   ![custom-color](images/user-guide/custom-color.PNG)
 
    *Or you can  customize the color precisely.*
 
