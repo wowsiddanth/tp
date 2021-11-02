@@ -1,5 +1,6 @@
 package nustracker.logic.parser;
 
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
@@ -9,6 +10,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
+import nustracker.logic.parser.exceptions.ExtraBackslashException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
@@ -30,9 +32,16 @@ public class AddCommandParser implements Parser<AddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_YEAR, PREFIX_MAJOR, PREFIX_STUDENTID);
+
+        ArgumentMultimap argMultimap = null;
+
+        try {
+            argMultimap =
+                    ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                            PREFIX_YEAR, PREFIX_MAJOR, PREFIX_STUDENTID);
+        } catch (ExtraBackslashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES, AddCommand.MESSAGE_USAGE));
+        }
 
         if (!argMultimap.arePrefixesPresent(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                 PREFIX_YEAR, PREFIX_MAJOR, PREFIX_STUDENTID)

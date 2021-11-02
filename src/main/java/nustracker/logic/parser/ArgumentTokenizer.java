@@ -1,9 +1,13 @@
 package nustracker.logic.parser;
 
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import nustracker.logic.parser.exceptions.ExtraBackslashException;
 
 /**
  * Tokenizes arguments string of the form: {@code preamble <prefix>value <prefix>value ...}<br>
@@ -23,7 +27,7 @@ public class ArgumentTokenizer {
      * @param prefixes   Prefixes to tokenize the arguments string with
      * @return           ArgumentMultimap object that maps prefixes to their arguments
      */
-    public static ArgumentMultimap tokenize(String argsString, Prefix... prefixes) {
+    public static ArgumentMultimap tokenize(String argsString, Prefix... prefixes) throws ExtraBackslashException {
         List<PrefixPosition> positions = findAllPrefixPositions(argsString, prefixes);
         return extractArguments(argsString, positions);
     }
@@ -84,7 +88,9 @@ public class ArgumentTokenizer {
      * @param prefixPositions Zero-based positions of all prefixes in {@code argsString}
      * @return                ArgumentMultimap object that maps prefixes to their arguments
      */
-    private static ArgumentMultimap extractArguments(String argsString, List<PrefixPosition> prefixPositions) {
+    private static ArgumentMultimap extractArguments(String argsString,
+                                                     List<PrefixPosition> prefixPositions)
+            throws ExtraBackslashException {
 
         // Sort by start position
         prefixPositions.sort((prefix1, prefix2) -> prefix1.getStartPosition() - prefix2.getStartPosition());
@@ -115,11 +121,17 @@ public class ArgumentTokenizer {
      */
     private static String extractArgumentValue(String argsString,
                                         PrefixPosition currentPrefixPosition,
-                                        PrefixPosition nextPrefixPosition) {
+                                        PrefixPosition nextPrefixPosition) throws ExtraBackslashException {
         Prefix prefix = currentPrefixPosition.getPrefix();
 
         int valueStartPos = currentPrefixPosition.getStartPosition() + prefix.getPrefix().length();
         String value = argsString.substring(valueStartPos, nextPrefixPosition.getStartPosition());
+
+        boolean hasExtraBackslash = value.contains("/");
+
+        if (hasExtraBackslash) {
+            throw new ExtraBackslashException();
+        }
 
         return value.trim();
     }
