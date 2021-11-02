@@ -1,7 +1,5 @@
 package nustracker.logic.parser;
 
-import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
