@@ -1,12 +1,10 @@
 package nustracker.storage;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.scene.image.Image;
@@ -93,10 +91,7 @@ public class ImageStorage {
         if (Files.exists(pathOfProfilePictureFolder)) {
             return;
         }
-        try {
-            Files.createDirectories(pathOfProfilePictureFolder);
-        } catch (IOException io) {
-            logger.log(Level.SEVERE, "Profile pictures folder could not be created.");
-        }
+        File profilePicturesFolder = new File(String.valueOf(pathOfProfilePictureFolder));
+        profilePicturesFolder.mkdir();
     }
 }
