@@ -161,6 +161,20 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Toggles the students list from GUI.
+     * Required as model is inaccessible from MainWindow.java. Model filter needs to be reset.
+     */
+    @FXML
+    public void toggleStudents() {
+        try {
+            executeCommand("students");
+        } catch (CommandException | ParseException e) {
+            // Exception should never be thrown
+            assert false : "ensure command is \"students\"";
+        }
+    }
+
+    /**
      * Toggles the students list.
      */
     @FXML
@@ -169,6 +183,20 @@ public class MainWindow extends UiPart<Stage> {
         listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
 
         currentlyShownList = CurrentlyShownList.STUDENTS_LIST;
+    }
+
+    /**
+     * Toggles the events list from GUI.
+     * Required as model is inaccessible from MainWindow.java. Model filter needs to be reset.
+     */
+    @FXML
+    public void toggleEvents() {
+        try {
+            executeCommand("events");
+        } catch (CommandException | ParseException e) {
+            // Exception should never be thrown
+            assert false : "ensure command is \"events\"";
+        }
     }
 
     /**

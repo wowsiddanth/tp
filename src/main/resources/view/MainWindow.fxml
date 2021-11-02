@@ -50,8 +50,8 @@
             </graphic>
           </Button>
           <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSettings" text="Settings" translateX="-22.0" translateY="8.0" />
-          <Button fx:id="studentsButton" mnemonicParsing="false" onAction="#handleStudents" text="Students" translateX="-18.0" translateY="8.0" />
-          <Button fx:id="eventsButton" mnemonicParsing="false" onAction="#handleEvents" text="Events" translateX="-14.0" translateY="8.0" />
+          <Button fx:id="studentsButton" mnemonicParsing="false" onAction="#toggleStudents" text="Students" translateX="-18.0" translateY="8.0" />
+          <Button fx:id="eventsButton" mnemonicParsing="false" onAction="#toggleEvents" text="Events" translateX="-14.0" translateY="8.0" />
           <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" text="Help" translateX="-10.0" translateY="8.0" />
           <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExit" text="Exit" translateX="-6.0" translateY="8.0" />
         </HBox>
