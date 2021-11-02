@@ -50,12 +50,12 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
-        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
-        Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Year year = ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get());
         Major major = ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get());
         StudentId studentId = ParserUtil.parseStudentId(argMultimap.getValue(PREFIX_STUDENTID).get());
-
+        Year year = ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get());
+        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
+        Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
+        
         EnrolledEvents enrolledEvents = new EnrolledEvents();
 
         Student student = new Student(name, phone, email, year, major, studentId, enrolledEvents);
