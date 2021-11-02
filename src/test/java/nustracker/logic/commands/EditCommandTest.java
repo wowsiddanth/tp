@@ -110,7 +110,7 @@ public class EditCommandTest {
                 STUDENTID_TWO,
                 descriptor);
 
-        CommandTestUtil.assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class EditCommandTest {
                 STUDENTID_ONE,
                 new EditStudentDescriptorBuilder(studentInList).build());
 
-        CommandTestUtil.assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
     }
 
     @Test
@@ -136,7 +136,7 @@ public class EditCommandTest {
                 studentId,
                 descriptor);
 
-        CommandTestUtil.assertCommandFailure(editCommand,
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand,
                 model,
                 String.format(Messages.MESSAGE_INVALID_STUDENTID, studentId.getStudentIdString()));
     }
@@ -163,7 +163,7 @@ public class EditCommandTest {
         assertFalse(standardCommand.equals(null));
 
         // different types -> returns false
-        assertFalse(standardCommand.equals(new ClearCommand()));
+        assertFalse(standardCommand.equals(new StudentsCommand()));
 
         // different student ID -> returns false
         assertFalse(standardCommand.equals(new EditCommand(

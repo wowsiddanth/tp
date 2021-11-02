@@ -1,5 +1,6 @@
 package nustracker.logic.parser;
 
+import static nustracker.logic.commands.CommandTestUtil.INVALID_EXPORT_FILE_LENGTH;
 import static nustracker.logic.commands.CommandTestUtil.INVALID_EXPORT_FILE_NAME_1;
 import static nustracker.logic.commands.CommandTestUtil.INVALID_EXPORT_FILE_NAME_2;
 import static nustracker.logic.commands.CommandTestUtil.INVALID_EXPORT_FILE_NAME_3;
@@ -62,5 +63,11 @@ class ExportCommandParserTest {
     void parse_invalidCharacter8_throwsParseException() {
         Assert.assertThrows(ParseException.class, () ->
                 new ExportCommandParser().parse(INVALID_EXPORT_FILE_NAME_8));
+    }
+
+    @Test
+    void parse_invalidExportFileLength_throwsParseException() {
+        Assert.assertThrows(ParseException.class, () ->
+                new ExportCommandParser().parse(INVALID_EXPORT_FILE_LENGTH));
     }
 }

@@ -21,8 +21,13 @@ import nustracker.logic.parser.exceptions.ParseException;
  */
 public class MainWindow extends UiPart<Stage> {
 
+    public enum CurrentlyShownList {
+        STUDENTS_LIST,
+        EVENTS_LIST
+    }
+
     public static final double MIN_HEIGHT = 747.0;
-    public static final double MIN_WIDTH = 914.0;
+    public static final double MIN_WIDTH = 976.0;
     private static final String FXML = "MainWindow.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
@@ -63,6 +68,10 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusBarPlaceholder;
 
+    private CurrentlyShownList currentlyShownList = CurrentlyShownList.STUDENTS_LIST;
+
+
+
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
@@ -76,13 +85,12 @@ public class MainWindow extends UiPart<Stage> {
 
         helpWindow = new HelpWindow();
         settingsWindow = new SettingsWindow(guiSettings);
-        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow, guiSettings.getIsLightMode());
+        themeApplier = new ThemeApplier(this, helpWindow, settingsWindow, guiSettings.getIsLightTheme());
 
         // Configure the UI
         setWindowSize(guiSettings);
         fillInnerParts(guiSettings);
         settingsWindow.setStudentListPanel(studentListPanel);
-
         themeApplier.applyOnStartUp();
     }
 
@@ -153,12 +161,42 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Toggles the students list from GUI.
+     * Required as model is inaccessible from MainWindow.java. Model filter needs to be reset.
+     */
+    @FXML
+    public void toggleStudents() {
+        try {
+            executeCommand("students");
+        } catch (CommandException | ParseException e) {
+            // Exception should never be thrown
+            assert false : "ensure command is \"students\"";
+        }
+    }
+
+    /**
      * Toggles the students list.
      */
     @FXML
     public void handleStudents() {
         listPanelPlaceholder.getChildren().clear();
         listPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
+
+        currentlyShownList = CurrentlyShownList.STUDENTS_LIST;
+    }
+
+    /**
+     * Toggles the events list from GUI.
+     * Required as model is inaccessible from MainWindow.java. Model filter needs to be reset.
+     */
+    @FXML
+    public void toggleEvents() {
+        try {
+            executeCommand("events");
+        } catch (CommandException | ParseException e) {
+            // Exception should never be thrown
+            assert false : "ensure command is \"events\"";
+        }
     }
 
     /**
@@ -168,6 +206,8 @@ public class MainWindow extends UiPart<Stage> {
     public void handleEvents() {
         listPanelPlaceholder.getChildren().clear();
         listPanelPlaceholder.getChildren().add(eventListPanel.getRoot());
+
+        currentlyShownList = CurrentlyShownList.EVENTS_LIST;
     }
 
     /**
@@ -175,15 +215,23 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleExit() {
-        boolean isLightMode = themeApplier.themeOnExit();
+        boolean isLightTheme = themeApplier.isLightTheme();
 
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY(), isLightMode, settingsWindow.getGlowHexCode());
+                (int) primaryStage.getX(), (int) primaryStage.getY(), isLightTheme, settingsWindow.getGlowHexCode());
         logic.setGuiSettings(guiSettings);
 
         settingsWindow.hide();
         helpWindow.hide();
         primaryStage.hide();
+    }
+
+    /**
+     * Refreshes the student panel
+     */
+    @FXML
+    private void handleRefresh() {
+        studentListPanel.refreshPanel();
     }
 
     /**
@@ -203,11 +251,11 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Executes the command and returns the result.
      *
-     * @see nustracker.logic.Logic#execute(String)
+     * @see nustracker.logic.Logic#execute(String, CurrentlyShownList)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
-            CommandResult commandResult = logic.execute(commandText);
+            CommandResult commandResult = logic.execute(commandText, currentlyShownList);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
@@ -227,6 +275,14 @@ public class MainWindow extends UiPart<Stage> {
                 handleStudents();
             }
 
+            if (commandResult.isToggleTheme()) {
+                changeTheme();
+            }
+
+            if (commandResult.isToggleRefresh()) {
+                handleRefresh();
+            }
+
             if (commandResult.isToggleEvents()) {
                 handleEvents();
             }
@@ -238,4 +294,5 @@ public class MainWindow extends UiPart<Stage> {
             throw e;
         }
     }
+
 }
