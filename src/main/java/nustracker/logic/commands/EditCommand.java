@@ -57,7 +57,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited Student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with %1$s already exists in the address book. \n"
-            + "Please ensure that the Student ID, Phone and Emails to edit to are all unique.";
+            + "Please ensure that the Student ID, Phone and Email to edit to are all unique.";
     public static final String MESSAGE_EDIT_SHOULD_UPDATE_VALUES = "All fields being edited should be"
             + " updated to contain different values.";
 

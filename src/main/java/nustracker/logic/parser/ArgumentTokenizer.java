@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import nustracker.logic.parser.exceptions.ExtraBackslashException;
+import nustracker.logic.parser.exceptions.ExtraSlashException;
 
 /**
  * Tokenizes arguments string of the form: {@code preamble <prefix>value <prefix>value ...}<br>
@@ -25,7 +25,7 @@ public class ArgumentTokenizer {
      * @param prefixes   Prefixes to tokenize the arguments string with
      * @return           ArgumentMultimap object that maps prefixes to their arguments
      */
-    public static ArgumentMultimap tokenize(String argsString, Prefix... prefixes) throws ExtraBackslashException {
+    public static ArgumentMultimap tokenize(String argsString, Prefix... prefixes) throws ExtraSlashException {
         List<PrefixPosition> positions = findAllPrefixPositions(argsString, prefixes);
         return extractArguments(argsString, positions);
     }
@@ -88,7 +88,7 @@ public class ArgumentTokenizer {
      */
     private static ArgumentMultimap extractArguments(String argsString,
                                                      List<PrefixPosition> prefixPositions)
-            throws ExtraBackslashException {
+            throws ExtraSlashException {
 
         // Sort by start position
         prefixPositions.sort((prefix1, prefix2) -> prefix1.getStartPosition() - prefix2.getStartPosition());
@@ -119,16 +119,16 @@ public class ArgumentTokenizer {
      */
     private static String extractArgumentValue(String argsString,
                                         PrefixPosition currentPrefixPosition,
-                                        PrefixPosition nextPrefixPosition) throws ExtraBackslashException {
+                                        PrefixPosition nextPrefixPosition) throws ExtraSlashException {
         Prefix prefix = currentPrefixPosition.getPrefix();
 
         int valueStartPos = currentPrefixPosition.getStartPosition() + prefix.getPrefix().length();
         String value = argsString.substring(valueStartPos, nextPrefixPosition.getStartPosition());
 
-        boolean hasExtraBackslash = value.contains("/");
+        boolean hasExtraSlash = value.contains("/");
 
-        if (hasExtraBackslash) {
-            throw new ExtraBackslashException();
+        if (hasExtraSlash) {
+            throw new ExtraSlashException();
         }
 
         return value.trim();

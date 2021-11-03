@@ -1,13 +1,13 @@
 package nustracker.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES;
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_SLASHES;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 
 import nustracker.logic.commands.RemoveCommand;
-import nustracker.logic.parser.exceptions.ExtraBackslashException;
+import nustracker.logic.parser.exceptions.ExtraSlashException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
 import nustracker.model.student.StudentId;
@@ -24,8 +24,8 @@ public class RemoveCommandParser implements Parser<RemoveCommand> {
             argMultimap = ArgumentTokenizer.tokenize(args,
                     PREFIX_STUDENTID,
                     PREFIX_EVENT);
-        } catch (ExtraBackslashException e) {
-            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES,
+        } catch (ExtraSlashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES,
                     RemoveCommand.MESSAGE_USAGE));
         }
 

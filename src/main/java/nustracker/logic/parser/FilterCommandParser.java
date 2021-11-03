@@ -1,6 +1,6 @@
 package nustracker.logic.parser;
 
-import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES;
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_SLASHES;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_MAJOR;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_YEAR;
@@ -21,7 +21,7 @@ import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterMajorCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.FilterYearCommand;
-import nustracker.logic.parser.exceptions.ExtraBackslashException;
+import nustracker.logic.parser.exceptions.ExtraSlashException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
@@ -86,8 +86,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
             }
 
-        } catch (ExtraBackslashException e) {
-            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES,
+        } catch (ExtraSlashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES,
                     FilterCommand.MESSAGE_USAGE));
         }
     }
@@ -104,8 +104,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             }
 
             return trimmedArgs.trim();
-        } catch (ExtraBackslashException e) {
-            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES,
+        } catch (ExtraSlashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES,
                     FilterCommand.MESSAGE_USAGE));
         }
     }

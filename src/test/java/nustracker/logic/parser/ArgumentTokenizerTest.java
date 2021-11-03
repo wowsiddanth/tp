@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
-import nustracker.logic.parser.exceptions.ExtraBackslashException;
+import nustracker.logic.parser.exceptions.ExtraSlashException;
 
 public class ArgumentTokenizerTest {
 
@@ -24,8 +24,8 @@ public class ArgumentTokenizerTest {
         ArgumentMultimap argMultimap = null;
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
 
         assertPreambleEmpty(argMultimap);
@@ -64,14 +64,14 @@ public class ArgumentTokenizerTest {
 
     @Test
     public void tokenize_noPrefixesNoBackslash_allTakenAsPreamble() {
-        String argsString = "  some random string no backslash with leading and trailing spaces ";
+        String argsString = "  some random string no slash with leading and trailing spaces ";
 
         ArgumentMultimap argMultimap = null;
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");;
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");;
         }
 
         // Same string expected as preamble, but leading/trailing spaces should be trimmed
@@ -87,12 +87,12 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString);
-        } catch (ExtraBackslashException e) {
+        } catch (ExtraSlashException e) {
             assertTrue(true);
             return;
         }
 
-        fail("Expected Extra Backslash Exception but it was not thrown.");
+        fail("Expected Extra Slash Exception but it was not thrown.");
 
     }
 
@@ -105,8 +105,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");;
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");;
         }
         assertPreamblePresent(argMultimap, "Some preamble string");
         assertArgumentPresent(argMultimap, pSlash, "Argument value");
@@ -116,8 +116,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
 
         assertPreambleEmpty(argMultimap);
@@ -134,8 +134,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash, dashT, hatQ);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
         assertPreamblePresent(argMultimap, "SomePreambleString");
         assertArgumentPresent(argMultimap, pSlash, "pSlash value");
@@ -147,8 +147,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash, dashT, hatQ);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
 
         assertPreamblePresent(argMultimap, "Different Preamble String");
@@ -164,8 +164,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash, dashT, hatQ);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
 
         assertPreambleEmpty(argMultimap);
@@ -178,8 +178,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash, dashT, hatQ);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
 
         assertArgumentAbsent(argMultimap, unknownPrefix);
@@ -194,8 +194,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash, dashT, hatQ);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
         assertPreamblePresent(argMultimap, "SomePreambleString");
         assertArgumentPresent(argMultimap, pSlash, "pSlash value");
@@ -210,8 +210,8 @@ public class ArgumentTokenizerTest {
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(argsString, pSlash, dashT, hatQ);
-        } catch (ExtraBackslashException e) {
-            fail("Unexpected Extra Backslash Exception thrown.");
+        } catch (ExtraSlashException e) {
+            fail("Unexpected Extra Slash Exception thrown.");
         }
 
         assertPreamblePresent(argMultimap, "SomePreambleString-t t-dash joined-tjoined");

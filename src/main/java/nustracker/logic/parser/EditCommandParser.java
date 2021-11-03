@@ -1,7 +1,7 @@
 package nustracker.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES;
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_SLASHES;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
@@ -11,7 +11,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import nustracker.logic.commands.EditCommand;
-import nustracker.logic.parser.exceptions.ExtraBackslashException;
+import nustracker.logic.parser.exceptions.ExtraSlashException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.StudentId;
 
@@ -34,8 +34,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         try {
             argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                             PREFIX_YEAR, PREFIX_STUDENTID, PREFIX_MAJOR);
-        } catch (ExtraBackslashException e) {
-            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_BACKSLASHES, EditCommand.MESSAGE_USAGE));
+        } catch (ExtraSlashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES, EditCommand.MESSAGE_USAGE));
         }
 
         if (!argMultimap.arePrefixesPresent(PREFIX_STUDENTID) || !argMultimap.getPreamble().isEmpty()) {

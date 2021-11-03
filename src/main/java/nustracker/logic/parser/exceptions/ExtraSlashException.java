@@ -5,21 +5,21 @@ import nustracker.commons.exceptions.IllegalValueException;
 /**
  * Represents an error where the values contains extraneous backslashes.
  */
-public class ExtraBackslashException extends IllegalValueException {
+public class ExtraSlashException extends IllegalValueException {
 
     /**
-     * Creates an ExtraBackslashException with a default message.
+     * Creates an ExtraSlashException with a default message.
      */
-    public ExtraBackslashException() {
+    public ExtraSlashException() {
         super("Invalid command format! Commands that have arguments cannot have extraneous"
                 + " backslashes or prefixes. ");
     }
 
-    public ExtraBackslashException(String message) {
+    public ExtraSlashException(String message) {
         super(message);
     }
 
-    public ExtraBackslashException(String message, Throwable cause) {
+    public ExtraSlashException(String message, Throwable cause) {
         super(message, cause);
     }
 
