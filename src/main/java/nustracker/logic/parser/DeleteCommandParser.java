@@ -30,6 +30,10 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
         }
 
+        if (argMultimap.getValue(PREFIX_STUDENTID).isPresent() && argMultimap.getValue(PREFIX_EVENT).isPresent()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.ONE_PREFIX_ONLY));
+        }
+
         if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
             StudentId studentId = ParserUtil.parseStudentId(argMultimap.getValue(PREFIX_STUDENTID).get());
             return new DeleteStudentCommand(studentId);
@@ -39,7 +43,6 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         } else {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
         }
-
     }
 
 }

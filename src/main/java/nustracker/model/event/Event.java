@@ -82,8 +82,7 @@ public class Event {
     }
 
     /**
-     * Returns an immutable {@code Student} set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
+     * Returns an {@code Student} set.
      *
      * @param addressBook to find the students from.
      * @return the set of {@code Student} from this model that are in this {@code Event}.
@@ -140,7 +139,7 @@ public class Event {
 
 
     /**
-     * Creates an new Event object that has the same details but different participants.
+     * Creates a new Event object that has the same details but different participants.
      *
      * @param newParticipants the new Set of {@code Participants} that are attending this {@code Event}.
      * @return the newly created {@code Event}.
@@ -148,7 +147,6 @@ public class Event {
     public Event getNewEventWithUpdatedParticipants(Set<Participant> newParticipants) {
         return new Event(getName(), getDate(), getTime(), newParticipants, getBlacklist());
     }
-
 
     /**
      * Wraps the EventName in an Event for easy re-usability with other methods.

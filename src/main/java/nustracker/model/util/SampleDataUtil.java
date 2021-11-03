@@ -28,36 +28,52 @@ import nustracker.model.student.Year;
 public class SampleDataUtil {
     public static Student[] getSampleStudents() {
         return new Student[] {
-//            new Student(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-//                new Year("1"),
-//                new Major("CS"),
-//                new StudentId("e1111111"),
-//                new EnrolledEvents()),
-//            new Student(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
-//                new Year("2"),
-//                new Major("CS"),
-//                new StudentId("e3223223"),
-//                new EnrolledEvents()),
-//            new Student(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-//                new Year("3"),
-//                new Major("CS"),
-//                new StudentId("e1783902"),
-//                new EnrolledEvents()),
-//            new Student(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
-//                new Year("4"),
-//                new Major("CS"),
-//                new StudentId("e7307307"),
-//                new EnrolledEvents()),
-//            new Student(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-//                new Year("1"),
-//                new Major("CS"),
-//                new StudentId("e9654321"),
-//                new EnrolledEvents()),
-//            new Student(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
-//                new Year("2"),
-//                new Major("CS"),
-//                new StudentId("e0542362"),
-//                new EnrolledEvents())
+            new Student(new Name("Rajesh Chopra"), new Phone("98765432"), new Email("rajesh@example.com"),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1234567"),
+                new EnrolledEvents()),
+            new Student(new Name("Sonia Gupta"), new Phone("91013810"), new Email("soniagupta@example.com"),
+                new Year("2"),
+                new Major("CS"),
+                new StudentId("e1123911"),
+                new EnrolledEvents()),
+            new Student(new Name("Vanessa Lee"), new Phone("91231313"), new Email("vanessalee@example.com"),
+                new Year("3"),
+                new Major("CS"),
+                new StudentId("e1237781"),
+                new EnrolledEvents()),
+            new Student(new Name("Samantha Richardson"), new Phone("91231231"),
+                new Email("samantharichardson@example.com"),
+                new Year("4"),
+                new Major("CS"),
+                new StudentId("e1238811"),
+                new EnrolledEvents()),
+            new Student(new Name("Emily Roberts"), new Phone("91238181"), new Email("emilyroberts@example.com"),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1231418"),
+                new EnrolledEvents()),
+            new Student(new Name("Kim Hyun"), new Phone("93191109"), new Email("kimhyun@example.com"),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e9102931"),
+                new EnrolledEvents()),
+            new Student(new Name("Amy Madison"), new Phone("90123901"), new Email("amymadison@example.com"),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1913019"),
+                new EnrolledEvents()),
+            new Student(new Name("Timothy Goh"), new Phone("91231291"), new Email("timothygoh@example.com"),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1231910"),
+                new EnrolledEvents()),
+            new Student(new Name("Richard Watt"), new Phone("92138921"), new Email("richardwatt@example.com"),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1239191"),
+                new EnrolledEvents()),
         };
     }
 
@@ -66,16 +82,16 @@ public class SampleDataUtil {
             new Event(new EventName("Orientation Camp"),
                     new EventDate("01-08-2022"),
                     new EventTime("0900"),
-                    new HashSet<Participant>(List.of(
-                        new Participant("e1111111"),
-                        new Participant("e3223223"))
+                    new HashSet<>(List.of(
+                            new Participant("e1111111"),
+                            new Participant("e3223223"))
                     ),
                     new HashSet<Participant>()
             ),
             new Event(new EventName("Sports Camp"),
                     new EventDate("10-09-2021"),
                     new EventTime("1200"),
-                    new HashSet<Participant>(List.of(
+                    new HashSet<>(List.of(
                             new Participant("e3223223"))
                     ),
                     new HashSet<Participant>(List.of(
@@ -86,7 +102,7 @@ public class SampleDataUtil {
             new Event(new EventName("Math Olympiad"),
                     new EventDate("05-03-2017"),
                     new EventTime("1615"),
-                    new HashSet<Participant>(List.of(
+                    new HashSet<>(List.of(
                             new Participant("e0542362"),
                             new Participant("e9654321"),
                             new Participant("e7307307"))

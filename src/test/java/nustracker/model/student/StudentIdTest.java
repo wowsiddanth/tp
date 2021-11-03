@@ -24,7 +24,7 @@ public class StudentIdTest {
         //null studentId
         assertThrows(NullPointerException.class, () -> new StudentId(null));
 
-        //invalid studentIds
+        // invalid studentIds
         assertFalse(StudentId.isValidStudentId("e012323"));
         assertFalse(StudentId.isValidStudentId("e123133"));
         assertFalse(StudentId.isValidStudentId("e931138"));
@@ -34,7 +34,7 @@ public class StudentIdTest {
         assertFalse(StudentId.isValidStudentId("e918329"));
         assertFalse(StudentId.isValidStudentId("e912812"));
 
-        //valid majors
+        // valid majors
         assertTrue(StudentId.isValidStudentId("e1234897"));
         assertTrue(StudentId.isValidStudentId("e1234890"));
         assertTrue(StudentId.isValidStudentId("e8971232"));
