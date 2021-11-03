@@ -179,8 +179,6 @@ public class HelpWindow extends UiPart<Stage> {
 
         helpMessage.setText(HELP_MESSAGE);
 
-        titledPane.setFont(new Font(40));
-
         // STUDENTS COMMANDS
         addCommandExample.setText(ADD_COMMAND_EXAMPLE);
         studentsCommandExample.setText(STUDENTS_COMMAND_EXAMPLE);
