@@ -105,7 +105,7 @@ The following is a description of the general layout of nustracker.
 
 1. **Top bar**
     
-    * **Refresh**
+    * **Refresh**<br>
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
 
     * **Toggle Theme**<br>
@@ -128,8 +128,10 @@ The following is a description of the general layout of nustracker.
 
 2. **Command bar**<br>
     This space is for the user (you) to type in the commands. For more information about commands, see the section below.
+ 
 3. **Result Display**<br>
     The empty box directly below the command bar is the result display, where error/success messages are displayed.
+ 
 4. **Students**<br>
     The students, their information, and the events they are taking part in are displayed here.
 
