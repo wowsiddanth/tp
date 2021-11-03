@@ -13,11 +13,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<fx:root height="700" resizable="false" title="Help" type="Stage" width="1300" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root height="700" resizable="false" title="Help" type="Stage" width="1300" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <icons>
       <Image url="@/images/help_icon.png" />
    </icons>
@@ -53,22 +52,22 @@
                      <content>
                         <Accordion>
                           <panes>
-                              <TitledPane style="-fx-font-family: 'Open Sans'" fx:id="titledPane" text="Student Commands" textFill="#377adf">
+                              <TitledPane fx:id="titledPane" style="-fx-font-family: 'Open Sans'" text="Student Commands" textFill="#377adf">
                                  <content>
-                                    <GridPane fx:id="firstGridPane" gridLinesVisible="true">
+                                    <GridPane fx:id="firstGridPane" gridLinesVisible="true" prefHeight="428.0" prefWidth="1196.0">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.20001220703125" minWidth="0.0" prefWidth="109.6" />
-                                        <ColumnConstraints hgrow="ALWAYS" maxWidth="950.3999267578124" minWidth="10.0" prefWidth="920.0" />
-                                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="273.79997558593755" minWidth="10.0" prefWidth="147.8000244140626" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.20001220703125" minWidth="0.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" maxWidth="950.3999267578124" minWidth="10.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="677.0" minWidth="10.0"  />
                                       </columnConstraints>
                                       <rowConstraints>
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                         <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                         <RowConstraints maxHeight="44.0" minHeight="20.0" prefHeight="44.0" vgrow="ALWAYS" />
+                                         <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                         <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                         <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -76,53 +75,53 @@
                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 20" fill="#e9afff" text=" Command" />
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 20" fill="#e9afff" text=" Example" GridPane.columnIndex="1" />
+                                          <Text fill="#e9afff" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14" text=" Command" />
+                                          <Text fill="#e9afff" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14" text=" Example" GridPane.columnIndex="1" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" add" GridPane.rowIndex="1" />
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 20; -fx-fill: #779CFF;" fx:id="addCommandExample" text=" addCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" add" GridPane.rowIndex="1" />
+                                          <Text fx:id="addCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" addCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyAddCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" students" GridPane.rowIndex="2" />
-                                          <Text fx:id="studentsCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 20; -fx-fill: #779CFF;" text=" studentsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyStudentsCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" students" GridPane.rowIndex="2" />
+                                          <Text fx:id="studentsCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" studentsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyStudentsCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" edit" GridPane.rowIndex="3" />
-                                          <Text fx:id="editCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 20; -fx-fill: #779CFF;" text=" editCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEditCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" edit" GridPane.rowIndex="3" />
+                                          <Text fx:id="editCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" editCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEditCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" delete" GridPane.rowIndex="4" />
-                                          <Text fx:id="deleteCommandExample1" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" deleteCommandExample1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyDeleteCommand1" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" delete" GridPane.rowIndex="4" />
+                                          <Text fx:id="deleteCommandExample1" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" deleteCommandExample1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyDeleteCommand1" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" filter" GridPane.rowIndex="5" />
-                                          <Text fx:id="filterCommandExample1" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" filterCommandExample1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand1" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" filter" GridPane.rowIndex="5" />
+                                          <Text fx:id="filterCommandExample1" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" filterCommandExample1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand1" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
 
-                                          <Text fx:id="filterCommandExample2" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" filterCommandExample2" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand2" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                          <Text fx:id="filterCommandExample2" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" filterCommandExample2" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand2" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="6" />
 
-                                          <Text fx:id="filterCommandExample3" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" filterCommandExample3" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand3" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                          <Text fx:id="filterCommandExample3" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" filterCommandExample3" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand3" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="7" />
 
-                                          <Text fx:id="filterCommandExample4" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" filterCommandExample4" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand4" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                          <Text fx:id="filterCommandExample4" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" filterCommandExample4" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand4" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="8" />
 
-                                          <Text fx:id="filterCommandExample5" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" filterCommandExample5" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand5" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                          <Text fx:id="filterCommandExample5" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" filterCommandExample5" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyFilterCommand5" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="9" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" blacklist" GridPane.rowIndex="10" />
-                                          <Text fx:id="blacklistCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" blacklistCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1049.0" layoutY="292.0" mnemonicParsing="false" onAction="#copyBlacklistCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" blacklist" GridPane.rowIndex="10" />
+                                          <Text fx:id="blacklistCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" blacklistCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1049.0" layoutY="292.0" mnemonicParsing="false" onAction="#copyBlacklistCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="10" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" whitelist" GridPane.rowIndex="11" />
-                                          <Text fx:id="whitelistCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" whitelistCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyWhitelistCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" whitelist" GridPane.rowIndex="11" />
+                                          <Text fx:id="whitelistCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" whitelistCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyWhitelistCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="11" />
                                        </children>
                                     </GridPane>
                                  </content>
                             </TitledPane>
-                              <TitledPane style="-fx-font-family: 'Open Sans'" expanded="false" layoutX="10.0" layoutY="10.0" text="Event Commands" textFill="#377adf">
+                              <TitledPane expanded="false" layoutX="10.0" layoutY="10.0" style="-fx-font-family: 'Open Sans'" text="Event Commands" textFill="#377adf">
                                  <content>
                                     <GridPane fx:id="secondGridPane" gridLinesVisible="true">
                                        <columnConstraints>
@@ -140,34 +139,34 @@
                                        </rowConstraints>
                                        <children>
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #e9afff" text=" Command" GridPane.vgrow="SOMETIMES" />
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #e9afff" text=" Example" GridPane.columnIndex="1" />
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" create" GridPane.rowIndex="1" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #e9afff" text=" Command" GridPane.vgrow="SOMETIMES" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #e9afff" text=" Example" GridPane.columnIndex="1" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" create" GridPane.rowIndex="1" />
 
-                                          <Text fx:id="createCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" createCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyCreateCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Text fx:id="createCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" createCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyCreateCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" events" GridPane.rowIndex="2" />
-                                          <Text fx:id="eventsCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" eventsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEventsCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" events" GridPane.rowIndex="2" />
+                                          <Text fx:id="eventsCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" eventsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEventsCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" enroll" GridPane.rowIndex="3" />
-                                          <Text fx:id="enrollCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" enrollCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEnrollCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" enroll" GridPane.rowIndex="3" />
+                                          <Text fx:id="enrollCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" enrollCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyEnrollCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" remove" GridPane.rowIndex="4" />
-                                          <Text fx:id="removeCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" removeCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyRemoveCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" remove" GridPane.rowIndex="4" />
+                                          <Text fx:id="removeCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" removeCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyRemoveCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" delete" GridPane.rowIndex="5" />
-                                          <Text fx:id="deleteCommandExample2" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" deleteCommandExample2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyDeleteCommand2" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" delete" GridPane.rowIndex="5" />
+                                          <Text fx:id="deleteCommandExample2" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" deleteCommandExample2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyDeleteCommand2" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
 
                                        </children>
                                     </GridPane>
                                  </content>
                               </TitledPane>
-                              <TitledPane style="-fx-font-family: 'Open Sans'" expanded="false" layoutX="10.0" layoutY="10.0" text="Other Commands" textFill="#377adf">
+                              <TitledPane expanded="false" layoutX="10.0" layoutY="10.0" style="-fx-font-family: 'Open Sans'" text="Other Commands" textFill="#377adf">
                                  <content>
                                     <GridPane fx:id="thirdGridPane" gridLinesVisible="true">
                                        <columnConstraints>
@@ -185,32 +184,32 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #e9afff" text=" Command" GridPane.vgrow="SOMETIMES" />
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #e9afff" text=" Example" GridPane.columnIndex="1" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #e9afff" text=" Command" GridPane.vgrow="SOMETIMES" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #e9afff" text=" Example" GridPane.columnIndex="1" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" help" GridPane.rowIndex="1" />
-                                          <Text fx:id="helpCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" helpCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyHelpCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" help" GridPane.rowIndex="1" />
+                                          <Text fx:id="helpCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" helpCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyHelpCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" settings" GridPane.rowIndex="2" />
-                                          <Text fx:id="settingsCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" settingsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copySettingsCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" settings" GridPane.rowIndex="2" />
+                                          <Text fx:id="settingsCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" settingsCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copySettingsCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" export" GridPane.rowIndex="3" />
-                                          <Text fx:id="exportCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" exportCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExportCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" export" GridPane.rowIndex="3" />
+                                          <Text fx:id="exportCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" exportCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExportCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" refresh" GridPane.rowIndex="4" />
-                                          <Text fx:id="refreshCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" refreshCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyRefreshCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" refresh" GridPane.rowIndex="4" />
+                                          <Text fx:id="refreshCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" refreshCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyRefreshCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" theme" GridPane.rowIndex="5" />
-                                          <Text fx:id="themeCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" themeCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyThemeCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" theme" GridPane.rowIndex="5" />
+                                          <Text fx:id="themeCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" themeCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyThemeCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
 
-                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" exit" GridPane.rowIndex="6" />
-                                          <Text fx:id="exitCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size:20; -fx-fill: #779CFF;" text=" exitCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExitCommand" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                          <Text style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" exit" GridPane.rowIndex="6" />
+                                          <Text fx:id="exitCommandExample" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 14; -fx-fill: #779CFF;" text=" exitCommandExample" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#copyExitCommand" scaleX="0.6" scaleY="0.6" text="Copy Command" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                                        </children>
                                     </GridPane>
                                  </content>
