@@ -3,10 +3,9 @@ package nustracker.model.student;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import nustracker.model.event.EventName;
-
 import org.junit.jupiter.api.Test;
 
+import nustracker.model.event.EventName;
 
 public class EnrolledEventsContainsKeywordsPredicateTest {
 
