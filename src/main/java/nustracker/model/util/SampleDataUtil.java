@@ -43,7 +43,8 @@ public class SampleDataUtil {
                 new Major("CS"),
                 new StudentId("e1237781"),
                 new EnrolledEvents()),
-            new Student(new Name("Samantha Richardson"), new Phone("91231231"), new Email("samantharichardson@example.com"),
+            new Student(new Name("Samantha Richardson"), new Phone("91231231"),
+                new Email("samantharichardson@example.com"),
                 new Year("4"),
                 new Major("CS"),
                 new StudentId("e1238811"),
@@ -59,20 +60,20 @@ public class SampleDataUtil {
                 new StudentId("e9102931"),
                 new EnrolledEvents()),
             new Student(new Name("Amy Madison"), new Phone("90123901"), new Email("amymadison@example.com"),
-                    new Year("1"),
-                    new Major("CS"),
-                    new StudentId("e1913019"),
-                    new EnrolledEvents()),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1913019"),
+                new EnrolledEvents()),
             new Student(new Name("Timothy Goh"), new Phone("91231291"), new Email("timothygoh@example.com"),
-                    new Year("1"),
-                    new Major("CS"),
-                    new StudentId("e1231910"),
-                    new EnrolledEvents()),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1231910"),
+                new EnrolledEvents()),
             new Student(new Name("Richard Watt"), new Phone("92138921"), new Email("richardwatt@example.com"),
-                    new Year("1"),
-                    new Major("CS"),
-                    new StudentId("e1239191"),
-                    new EnrolledEvents()),
+                new Year("1"),
+                new Major("CS"),
+                new StudentId("e1239191"),
+                new EnrolledEvents()),
         };
     }
 
@@ -81,16 +82,16 @@ public class SampleDataUtil {
             new Event(new EventName("Orientation Camp"),
                     new EventDate("01-08-2022"),
                     new EventTime("0900"),
-                    new HashSet<Participant>(List.of(
-                        new Participant("e1111111"),
-                        new Participant("e3223223"))
+                    new HashSet<>(List.of(
+                            new Participant("e1111111"),
+                            new Participant("e3223223"))
                     ),
                     new HashSet<Participant>()
             ),
             new Event(new EventName("Sports Camp"),
                     new EventDate("10-09-2021"),
                     new EventTime("1200"),
-                    new HashSet<Participant>(List.of(
+                    new HashSet<>(List.of(
                             new Participant("e3223223"))
                     ),
                     new HashSet<Participant>(List.of(
@@ -101,7 +102,7 @@ public class SampleDataUtil {
             new Event(new EventName("Math Olympiad"),
                     new EventDate("05-03-2017"),
                     new EventTime("1615"),
-                    new HashSet<Participant>(List.of(
+                    new HashSet<>(List.of(
                             new Participant("e0542362"),
                             new Participant("e9654321"),
                             new Participant("e7307307"))

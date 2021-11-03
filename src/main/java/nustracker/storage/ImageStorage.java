@@ -38,10 +38,10 @@ public class ImageStorage {
 
         //Checks if an image with the student's name exists
         if (jpg.isFile()) {
-            studentImage = new Image(jpg.toURI().toString(), 400.0, 400.0, true,
+            studentImage = new Image(jpg.toURI().toString(), 120, 120, true,
                     true, false);
         } else if (png.isFile()) {
-            studentImage = new Image(png.toURI().toString(), 400.0, 400.0, true,
+            studentImage = new Image(png.toURI().toString(), 120, 120, true,
                     true, false);
         } else {
             studentImage = new Image(Objects.requireNonNull(this.getClass()
