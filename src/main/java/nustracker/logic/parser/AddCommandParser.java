@@ -1,5 +1,6 @@
 package nustracker.logic.parser;
 
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_SLASHES;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static nustracker.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
@@ -9,6 +10,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
+import nustracker.logic.parser.exceptions.ExtraSlashException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.student.Email;
 import nustracker.model.student.EnrolledEvents;
@@ -30,9 +32,16 @@ public class AddCommandParser implements Parser<AddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_YEAR, PREFIX_MAJOR, PREFIX_STUDENTID);
+
+        ArgumentMultimap argMultimap;
+
+        try {
+            argMultimap =
+                    ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                            PREFIX_YEAR, PREFIX_MAJOR, PREFIX_STUDENTID);
+        } catch (ExtraSlashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES, AddCommand.MESSAGE_USAGE));
+        }
 
         if (!argMultimap.arePrefixesPresent(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                 PREFIX_YEAR, PREFIX_MAJOR, PREFIX_STUDENTID)
@@ -41,11 +50,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
-        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
-        Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Year year = ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get());
         Major major = ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get());
         StudentId studentId = ParserUtil.parseStudentId(argMultimap.getValue(PREFIX_STUDENTID).get());
+        Year year = ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get());
+        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
+        Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
 
         EnrolledEvents enrolledEvents = new EnrolledEvents();
 

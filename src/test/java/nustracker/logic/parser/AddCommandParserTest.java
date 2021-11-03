@@ -9,9 +9,12 @@ import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.CommandTestUtil;
 import nustracker.model.student.Email;
+import nustracker.model.student.Major;
 import nustracker.model.student.Name;
 import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
+import nustracker.model.student.StudentId;
+import nustracker.model.student.Year;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalStudents;
 
@@ -176,14 +179,14 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.INVALID_YEAR_DESC
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.STUDENTID_DESC_BOB, Email.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.STUDENTID_DESC_BOB, Year.MESSAGE_CONSTRAINTS);
 
         // invalid major
         assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.INVALID_MAJOR_DESC
-                + CommandTestUtil.STUDENTID_DESC_BOB, Email.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.STUDENTID_DESC_BOB, Major.MESSAGE_CONSTRAINTS);
 
 
         // invalid student ID
@@ -191,7 +194,7 @@ public class AddCommandParserTest {
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.INVALID_EMAIL_DESC
                 + CommandTestUtil.YEAR_DESC_BOB
                 + CommandTestUtil.MAJOR_DESC_BOB
-                + CommandTestUtil.INVALID_STUDENTID_DESC, Email.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.INVALID_STUDENTID_DESC, StudentId.MESSAGE_CONSTRAINTS);
 
 
         // non-empty preamble

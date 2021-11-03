@@ -121,8 +121,24 @@ public class SampleDataUtil {
         }
         for (Event sampleEvent : getSampleEvents()) {
             sampleAb.addEvent(sampleEvent);
+
+            Set<Student> sampleStudentParticipants = sampleEvent.getParticipantsAsStudents(sampleAb);
+            for (Student sampleStudent : sampleStudentParticipants) {
+
+                EnrolledEvents currentlyEnrolledEvents = sampleStudent.getEvents();
+                EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(sampleEvent);
+
+                Student sampleEnrolledStudent = new Student(
+                        sampleStudent.getName(), sampleStudent.getPhone(), sampleStudent.getEmail(),
+                        sampleStudent.getYear(), sampleStudent.getMajor(), sampleStudent.getStudentId(),
+                        updatedEnrolledEvents);
+
+                sampleAb.setStudent(sampleStudent, sampleEnrolledStudent);
+            }
+
         }
         return sampleAb;
+
     }
 
     /**

@@ -1,5 +1,6 @@
 package nustracker.logic.parser;
 
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_SLASHES;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_MAJOR;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_YEAR;
@@ -20,6 +21,7 @@ import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterMajorCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.FilterYearCommand;
+import nustracker.logic.parser.exceptions.ExtraSlashException;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
@@ -41,59 +43,73 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public FilterCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_YEAR,
-                        PREFIX_EVENT);
 
-        if (!argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
-        }
+        try {
+            ArgumentMultimap argMultimap =
+                    ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_YEAR,
+                            PREFIX_EVENT);
 
-        List<Prefix> prefixes = Arrays.asList(PREFIX_NAME, PREFIX_STUDENTID, PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
-        long arguments = prefixes.stream().filter(prefix -> argMultimap.getValue(prefix).isPresent()).count();
 
-        if (arguments > 1) {
-            throw new ParseException(MESSAGE_MULTIPLE_FILTER_FIELDS);
-        }
+            if (!argMultimap.getPreamble().isEmpty()) {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+            }
 
-        if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            String trimmedArgs = getTrimmedArgs(args, PREFIX_NAME);
-            String[] nameKeywords = trimmedArgs.split("\\s+");
-            return new FilterNameCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
-        } else if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
-            String trimmedArgs = getTrimmedArgs(args, PREFIX_STUDENTID);
-            String[] idKeywords = trimmedArgs.split("\\s+");
-            StudentId[] studentIds = getStudentIds(idKeywords);
-            return new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList(studentIds)));
-        } else if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
-            String trimmedArgs = getTrimmedArgs(args, PREFIX_MAJOR);
-            String[] splitMajors = trimmedArgs.split("\\s+");
-            Major[] majors = getMajors(splitMajors);
-            return new FilterMajorCommand(new MajorContainsKeywordsPredicate(Arrays.asList(majors)));
-        } else if (argMultimap.getValue(PREFIX_YEAR).isPresent()) {
-            String trimmedArgs = getTrimmedArgs(args, PREFIX_YEAR);
-            String[] yearKeywords = trimmedArgs.split("\\s+");
-            Year[] years = getYears(yearKeywords);
-            return new FilterYearCommand(new YearContainsKeywordsPredicate(Arrays.asList(years)));
-        } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
-            EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
-            return new FilterEventCommand(eventName);
-        } else {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+            List<Prefix> prefixes = Arrays.asList(PREFIX_NAME, PREFIX_STUDENTID,
+                    PREFIX_MAJOR, PREFIX_YEAR, PREFIX_EVENT);
+            long arguments = prefixes.stream().filter(prefix -> argMultimap.getValue(prefix).isPresent()).count();
+
+            if (arguments > 1) {
+                throw new ParseException(MESSAGE_MULTIPLE_FILTER_FIELDS);
+            }
+
+            if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
+                String trimmedArgs = getTrimmedArgs(args, PREFIX_NAME);
+                String[] nameKeywords = trimmedArgs.split("\\s+");
+                return new FilterNameCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+            } else if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
+                String trimmedArgs = getTrimmedArgs(args, PREFIX_STUDENTID);
+                String[] idKeywords = trimmedArgs.split("\\s+");
+                StudentId[] studentIds = getStudentIds(idKeywords);
+                return new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList(studentIds)));
+            } else if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
+                String trimmedArgs = getTrimmedArgs(args, PREFIX_MAJOR);
+                String[] splitMajors = trimmedArgs.split("\\s+");
+                Major[] majors = getMajors(splitMajors);
+                return new FilterMajorCommand(new MajorContainsKeywordsPredicate(Arrays.asList(majors)));
+            } else if (argMultimap.getValue(PREFIX_YEAR).isPresent()) {
+                String trimmedArgs = getTrimmedArgs(args, PREFIX_YEAR);
+                String[] yearKeywords = trimmedArgs.split("\\s+");
+                Year[] years = getYears(yearKeywords);
+                return new FilterYearCommand(new YearContainsKeywordsPredicate(Arrays.asList(years)));
+            } else if (argMultimap.getValue(PREFIX_EVENT).isPresent()) {
+                EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
+                return new FilterEventCommand(eventName);
+            } else {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+            }
+
+        } catch (ExtraSlashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES,
+                    FilterCommand.MESSAGE_USAGE));
         }
     }
 
     public String getTrimmedArgs(String args, Prefix prefix) throws ParseException {
-        ArgumentMultimap argMap = ArgumentTokenizer.tokenize(args, prefix);
+        try {
+            ArgumentMultimap argMap = ArgumentTokenizer.tokenize(args, prefix);
 
-        String trimmedArgs = argMap.getValue(prefix).get();
+            String trimmedArgs = argMap.getValue(prefix).get();
 
-        if (trimmedArgs.isEmpty()) {
-            throw new ParseException(
-                    String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+            if (trimmedArgs.isEmpty()) {
+                throw new ParseException(
+                        String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+            }
+
+            return trimmedArgs.trim();
+        } catch (ExtraSlashException e) {
+            throw new ParseException(String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES,
+                    FilterCommand.MESSAGE_USAGE));
         }
-
-        return trimmedArgs.trim();
     }
 
     public Major[] getMajors(String[] splitMajors) throws ParseException {

@@ -10,6 +10,8 @@ import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.ReadOnlyUserPrefs;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.student.Email;
+import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 
@@ -58,6 +60,14 @@ public class ModelStub implements Model {
         throw new AssertionError("This method should not be called.");
     }
 
+    @Override
+    public Student getStudentByPhone(Phone studentId) {
+        throw new AssertionError("This method should not be called.");
+    }
+    @Override
+    public Student getStudentByEmail(Email studentId) {
+        throw new AssertionError("This method should not be called.");
+    }
     @Override
     public Event getEvent(EventName name) {
         throw new AssertionError("This method should not be called.");
