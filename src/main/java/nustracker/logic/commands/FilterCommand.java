@@ -18,7 +18,7 @@ public abstract class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Filters all students by name, student ID, major, year,or Events"
+            + ": Filters all students by name, student ID, major, year, or Events "
             + "by the specified keywords.\n"
             + "Parameters: " + PREFIX_NAME + "STUDENT_NAME [MORE_STUDENT_NAMES]... \n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice bob charlie\n"

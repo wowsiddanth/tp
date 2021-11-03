@@ -8,21 +8,21 @@ import java.util.function.Predicate;
  * Tests that a {@code Student}'s {@code StudentId} matches any of the keywords given.
  */
 public class StudentIdContainsKeywordsPredicate implements Predicate<Student> {
-    private final List<String> keywords;
+    private final List<StudentId> keywords;
 
     /**
      * Constructs an {@code StudentIdContainsKeywordsPredicate}.
      *
      * @param keywords A list of StudentIds as keywords.
      */
-    public StudentIdContainsKeywordsPredicate(List<String> keywords) {
+    public StudentIdContainsKeywordsPredicate(List<StudentId> keywords) {
         this.keywords = keywords;
     }
 
     @Override
     public boolean test(Student student) {
         return keywords.stream()
-                .anyMatch(keyword -> student.getStudentId().value.toLowerCase().contains(keyword.toLowerCase()));
+                .anyMatch(keyword -> student.getStudentId().equals(keyword));
     }
 
     @Override
