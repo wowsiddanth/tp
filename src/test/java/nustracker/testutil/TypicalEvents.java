@@ -9,6 +9,10 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_EVENTTIME_TEST;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PARTICIPANT_FINAL;
 import static nustracker.logic.commands.CommandTestUtil.VALID_PARTICIPANT_TEST;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 
@@ -20,16 +24,18 @@ public class TypicalEvents {
     public static final Event ORIENTATION = new EventBuilder().withName("Orientation Camp")
             .withDate("01-08-2022")
             .withTime("0900")
-            .withBlacklist("e8765432").build();
+            .withParticipants("e9123119", "e9192390")
+            .withBlacklist("e9382710").build();
     public static final Event SPORTS_CAMP = new EventBuilder().withName("Sports Camp")
             .withDate("10-09-2021")
             .withTime("1200")
-            .withParticipants("e9831818").build();
+            .withParticipants("e9831818")
+            .withBlacklist("e0456789").build();
     public static final Event MATH_OLYMPIAD = new EventBuilder().withName("Math Olympiad")
             .withDate("05-03-2017")
             .withTime("1615")
-            .withParticipants("e9123119", "e0123456", "e0322322")
-            .withBlacklist("e1234567", "e0544182").build();
+            .withParticipants("e0322322", "e9123119", "e0123456")
+            .withBlacklist("e9123119").build();
 
     // For delete event tests
     public static final EventName EVENTNAME_ONE = new EventName("Orientation Camp");
@@ -44,4 +50,8 @@ public class TypicalEvents {
             .withTime(VALID_EVENTTIME_FINAL).withParticipants(VALID_PARTICIPANT_FINAL).build();
 
     private TypicalEvents() {} // prevents instantiation
+
+    public static List<Event> getTypicalEvents() {
+        return new ArrayList<>(Arrays.asList(ORIENTATION, SPORTS_CAMP, MATH_OLYMPIAD));
+    }
 }

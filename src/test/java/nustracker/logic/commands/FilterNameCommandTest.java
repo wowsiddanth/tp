@@ -1,6 +1,7 @@
 package nustracker.logic.commands;
 
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,8 +22,8 @@ import nustracker.testutil.TypicalStudents;
  * Contains integration tests (interaction with the Model) for {@code FilterNameCommand}.
  */
 public class FilterNameCommandTest {
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void equals() {

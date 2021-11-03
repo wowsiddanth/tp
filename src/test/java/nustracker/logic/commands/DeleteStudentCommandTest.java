@@ -3,6 +3,7 @@ package nustracker.logic.commands;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 import static nustracker.testutil.TypicalStudents.STUDENTID_MISSING;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
@@ -18,7 +19,6 @@ import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
-import nustracker.testutil.TypicalStudents;
 import nustracker.ui.MainWindow.CurrentlyShownList;
 
 
@@ -28,7 +28,7 @@ import nustracker.ui.MainWindow.CurrentlyShownList;
  */
 public class DeleteStudentCommandTest {
 
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_validStudentIdUnfilteredList_success() {
