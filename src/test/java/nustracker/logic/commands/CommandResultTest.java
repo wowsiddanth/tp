@@ -20,46 +20,6 @@ public class CommandResultTest {
         }
     }
 
-    CommandResult allFalse = new CommandResult("feedback",
-            false, false, false,
-            false, false,
-            false, false);
-
-    @Test
-    public void isShowHelp() {
-        assertFalse(allFalse.isShowHelp());
-    }
-
-    @Test
-    public void isShowSettings() {
-        assertFalse(allFalse.isShowSettings());
-    }
-
-    @Test
-    public void isExit() {
-        assertFalse(allFalse.isExit());
-    }
-
-    @Test
-    public void isToggleTheme() {
-        assertFalse(allFalse.isToggleTheme());
-    }
-
-    @Test
-    public void isToggleRefresh() {
-        assertFalse(allFalse.isToggleRefresh());
-    }
-
-    @Test
-    public void isToggleEvents() {
-        assertFalse(allFalse.isToggleEvents());
-    }
-
-    @Test
-    public void isToggleStudents() {
-        assertFalse(allFalse.isToggleStudents());
-    }
-
     @Test
     public void equals() {
         CommandResult commandResult = new CommandResult("feedback");
