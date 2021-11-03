@@ -3,11 +3,11 @@ layout: page
 title: User Guide
 ---
 
-**nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
+****nustracker**** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
-As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
+As an event director/student leader, you will be able to add students and events into ****nustracker**** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. ****nustracker**** is also customized to your needs, and is simple, intuitive and easy to pick up.
 
-All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using **nustracker**.
+All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using ****nustracker****.
 
 
 
@@ -24,66 +24,66 @@ current Mac security restrictions on file creation. For Window users, it is also
 via the terminal as well (but double-clicking should work fine).
 </div>
 
-**You finally have your hands on _*nustracker*_. Great! Let's learn how to use it now.**
+**You finally have your hands on _***nustracker***_. Great! Let's learn how to use it now.**
 
 1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
 
-2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
+2. Download the latest `**nustracker**.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
 
-3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for nustracker. <br><br>
+3. Copy the `**nustracker**.jar` to the folder you want to use as the _home folder_ for **nustracker**. <br><br>
 
 4. For Windows Users (**Macs users see Step 5!**): 
 
 
 5. For Mac Users: 
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
-   2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called nustracker,
-      you would type `cd Desktop/nustracker/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
-   3. Type the following command: `java -jar nustracker.jar`.
+   2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called **nustracker**,
+      you would type `cd Desktop/**nustracker**/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
+   3. Type the following command: `java -jar **nustracker**.jar`.
 
 
 6. You should see the following:
    ![Ui](images/Ui.png)
 
 
-**nustracker is now up and running on your system! To getting started, we suggest this flow:**
+****nustracker** is now up and running on your system! To getting started, we suggest this flow:**
 1. [General Layout](#general-layout)
-2. [Basics of nustracker](#basics-of-nustracker)
+2. [Basics of **nustracker**](#basics-of-**nustracker**)
 3. [List of Commands](#student-commands)
 
 _If you are an experienced user, you can jump straight to the [List of Commands](#student-commands)._
 
 
-**Get ready for an unprecedented overhaul in student and event management using nustracker!**
+**Get ready for an unprecedented overhaul in student and event management using **nustracker**!**
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Features
 
-nustracker was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum
+**nustracker** was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum
 in clubs and societies—specifically **student and event management**.
 
 
-### What can nustracker do?
+### What can **nustracker** do?
 1. **Keep track of students**
 
-    nustracker displays all students currently associated with the organization neatly. The students have their details
+    **nustracker** displays all students currently associated with the organization neatly. The students have their details
    and a profile picture (optional) listed with them as well, allowing quick and convenient access to student particulars.
 
 
 2. **Keep tracks of events and event _attendance_**
 
-    nustracker can also display the events stored, their information, and the participants taking part in those events.
+    **nustracker** can also display the events stored, their information, and the participants taking part in those events.
 
 
 4. **Keep track of event blacklists**
     
-    Events often have blacklists, which can also be tracked within nustracker.
+    Events often have blacklists, which can also be tracked within **nustracker**.
 
 
 5. **Be customized to the user's liking**
     
-    One of the key points of nustracker is its customization. For more information, see [Customization](#customization).
+    One of the key points of **nustracker** is its customization. For more information, see [Customization](#customization).
 
 
 <div markdown="block" class="alert alert-info">
@@ -114,7 +114,7 @@ in clubs and societies—specifically **student and event management**.
 
 ## General Layout
 
-The following is a description of the general layout of nustracker.
+The following is a description of the general layout of **nustracker**.
 
 ![general-layout](images/user-guide/general-layout.png)
 
@@ -124,7 +124,7 @@ The following is a description of the general layout of nustracker.
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
 
     * **Toggle Theme**<br>
-        Toggles the theme of nustracker, from Dark theme to Light theme, and vice versa.
+        Toggles the theme of **nustracker**, from Dark theme to Light theme, and vice versa.
 
     * **Settings**<br>
          Opens the Settings Window.
@@ -139,7 +139,7 @@ The following is a description of the general layout of nustracker.
         Opens the Help window.
 
     * **Exit**<br>
-      Exit nustracker.
+      Exit **nustracker**.
 
 3. **Command bar**
  
@@ -154,20 +154,20 @@ The following is a description of the general layout of nustracker.
     The students, their information, and the events they are taking part in are displayed here.
 
 --------------------------------------------------------------------------------------------------------------------
-## Basics of nustracker
+## Basics of **nustracker**
 
 <div markdown="span" class="alert alert-info">
-The next few section assume that nustracker is empty, and that we are adding our first student. When you first open nustracker,
+The next few section assume that **nustracker** is empty, and that we are adding our first student. When you first open **nustracker**,
 you will see sample data. But don't worry, it works regardless! 
 </div>
 
-We hope you are excited to learn the basics of NUSTracker!
+We hope you are excited to learn the basics of **nustracker**!
 But, before we do anything, let’s set the premise. Imagine that you are the manpower executive of a newly-formed NUS society called the Imaginary Society (very creative we know). 
 
 It plans on holding a fair—appropriately titled the Imaginary Fair—on the 1st of December 2021, at 9am.
 
 Here are the particulars of our first member and participant: <br><br>
-**Name**: Sae-Byeok <br> <img style="float: right;" height="120" width="120" alt="" src="images/user-guide/introduction.png"/>
+**Name**: Sae-Byeok <br> <img style="float: right;" height="200" width="200" alt="" src="images/user-guide/introduction.png"/>
 **Phone number**: 87438007 <br>
 **Major**: CS <br>
 **Year**: 1 <br>
@@ -177,7 +177,7 @@ Here are the particulars of our first member and participant: <br><br>
 
 ### Adding your first student
 
-Okay, now that we know who our first member is, let's add her to nustracker.
+Okay, now that we know who our first member is, let's add her to **nustracker**.
 
 To add her, we are going to be using the `add` command, which follows the format:
 ` add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL`
@@ -196,7 +196,7 @@ The fields do not have to be any specific order. So, name can come before major 
 
 Using the fields above, type this into the command box: `add n/Sae Byeok Fair m/CS id/e1111111 y/1 p/87438007 e/saebyeok@example.com` and press **Enter**.
 
-After entering the command and pressing **Enter**, nustracker should look like this:
+After entering the command and pressing **Enter**, **nustracker** should look like this:
 ![added-first-student](images/user-guide/after-pressing-enter.PNG)
 
 Congrats! You have just added your first member! Next, we will learn how to create an event and 
@@ -210,15 +210,15 @@ Intuitively, the command for creating an event is `create n/EVENT_NAME d/EVENT_D
 
 So, in the case of Imaginary Fair, it would be:
 - `EVENT_NAME`: Imaginary Fair
-- `EVENT_DATE`: 01-12-2021
-- `EVENT_TIME`: 0900
+- `EVENT_DATE (DD-MM-YYYY)`: 01-12-2021
+- `EVENT_TIME (24 Hour Time)`: 0900
 
 Using the fields above, type this into the command box: `event n/Imaginary Fair d/01-12-2021 t/0900` and press **Enter**.
 
 To check if it has been created, you can either type `events` into the command box or press the **Events** button in the top bar
 (_if you are unsure about the buttons, refer [here](#general-layout)._)
 
-If done right, nustracker should look like this:
+If done right, **nustracker** should look like this:
 
 ![created-event](images/user-guide/created-event.PNG)
 
@@ -232,7 +232,7 @@ itself as a participant.
 To do this, we will make use of the `enroll` command:`enroll id/STUDENT_ID ev/EVENT`.
 
 So, in the case of Sae Byeok and the Imaginary Fair, it would be:
-- `STUDENT_ID`: e1111111
+- `STUDENT_ID`: e1111111 
 - `EVENT`: Imaginary Fair
 
 Using the fields above, type this into the command box: `enroll id/e1111111 ev/Imaginary Fair` and press **Enter**.
@@ -247,7 +247,7 @@ _Under participants, there is a participants with Student ID `e111111` or Sae By
 
 
 **Congratulations!** You have made it to the end of this very brief tutorial to adding your first student, creating your
-first event, and then adding that student to the event! But remember, nustracker is much more powerful that this!
+first event, and then adding that student to the event! But remember, **nustracker** is much more powerful that this!
 
 You can:
 - Edit the Sae Byeok's details
@@ -257,15 +257,15 @@ You can:
 - Add profile pictures
 - And much _much_ more!
 
-For a more comprehensive list of commands, please refer to the sections below.
+For a more comprehensive list of commands, please refer to the sections below or the [Command summary](#command-summary).
 
-You're on your way to becoming an nustracker pro!
+You're on your way to becoming an **nustracker** pro!
 
 --------------------------------------------------------------------------------------------------------------------
 ## Student Commands
 ### Adding a student: `add`
 
-Adds a student to nustracker
+Adds a student to **nustracker**
 
 Command: `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL`
 
@@ -312,7 +312,7 @@ Examples:
 
 ### Listing all students: `students`
 
-Shows all students in nustracker.
+Shows all students in **nustracker**.
 
 This command essentially removes any filters that have been applied with the `filter` command.
 
@@ -320,7 +320,7 @@ Command: `students`
 
 ### Editing a student : `edit`
 
-Edits an existing student in nustracker.
+Edits an existing student in **nustracker**.
 
 Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]`
 
@@ -335,7 +335,7 @@ Examples:
  
 ### Deleting a student : `delete`
 
-Deletes the specified student from nustracker.
+Deletes the specified student from **nustracker**.
 
 Command: `delete id/STUDENT_ID`
 
@@ -365,8 +365,8 @@ Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STU
 * You can search by partial keywords for names and student IDs. e.g. `n/al` will match with `n/alice` and `id/e12` will match with `id/e1234567`
 
 Examples:
-* `filter id/e1234567` returns the student with the ID e1234567 if that student exists in nustracker.
-* `filter id/e1234567 e2345678` returns two students whose student IDs are e1234567 and e2345678 if they exist in nustracker.
+* `filter id/e1234567` returns the student with the ID e1234567 if that student exists in **nustracker**.
+* `filter id/e1234567 e2345678` returns two students whose student IDs are e1234567 and e2345678 if they exist in **nustracker**.
 * `filter id/e09` returns all students with student IDs that contain e09.
 * `filter n/John` returns the students whose names contain John.
 * `filter n/John alice` returns the students whose names contain John OR Alice.
@@ -385,9 +385,9 @@ command to delete students based on a certain criteria.
 
 Command: `delfiltered`
 
-* This command can only be used when nustracker is showing the Student list.
+* This command can only be used when **nustracker** is showing the Student list.
 * Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in
-  nustracker would be deleted since all of them are shown.
+  **nustracker** would be deleted since all of them are shown.
 * After all the filtered students are deleted, the remaining students would then all be shown in the list, if any.
 * At least one student needs to be shown in the filtered list for `delfiltered` to work.
 
@@ -424,12 +424,10 @@ Examples:
 
 
 --------------------------------------------------------------------------------------------------------------------
-
 ## Event Commands
-
 ### Creating an event: `create`
 
-Adds an event to nustracker
+Adds an event to **nustracker**
 
 Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
 
@@ -486,7 +484,7 @@ Examples:
 
 ### Deleting an event : `delete`
 
-Deletes the specified event from nustracker.
+Deletes the specified event from **nustracker**.
 
 Command: `delete ev/EVENT_NAME`
 
@@ -524,8 +522,7 @@ The file will be located in the `data` directory, which is where the app's save 
 
 If the "events" page is currently being shown, export will still function and will export the emails of the most recent student list.
 
-<div markdown="block" class="alert alert-block alert-danger">
-If you are exporting with a filename that already exists, the file will be overwritten!
+<div markdown="block" class="alert alert-block alert-danger">If you are exporting with a filename that already exists, the file will be overwritten!
 </div >
 
 Examples:
@@ -549,20 +546,20 @@ Command: `exit`
 ---------------------------------------------------------------------------------------
 ## Customization
 
-Another key feature of nustracker is its ability to be customized greatly. This section covers how nustracker can be
+Another key feature of **nustracker** is its ability to be customized greatly. This section covers how **nustracker** can be
 customized to your liking.
 
-### 1. Changing between Light/Dark Theme
-nustracker has a light/dark theme. To toggle between the two, either type `refresh` or click the button (to the left of **Settings**) as shown in the image below and voila!
+### Changing between Light/Dark Theme
+**nustracker** has a light/dark theme. To toggle between the two, either type `refresh` or click the button (to the left of **Settings**) as shown in the image below and voila!
  
 ![change_theme](images/user-guide/change_theme.PNG)
 
-### 2. Setting a profile picture
-nustracker has the ability to add a profile picture to a student. Follow the steps given to add a picture:
+### Setting a profile picture
+**nustracker** has the ability to add a profile picture to a student. Follow the steps given to add a picture:
 
-1. If you have not started nustracker before, run nustracker within a folder of your choice.
+1. If you have not started ****nustracker**** before, run **nustracker** within a folder of your choice.
 
-2. Once it runs, a folder called _**profile-pictures**_ is created within the folder that contains nustracker.
+2. Once it runs, a folder called _**profile-pictures**_ is created within the folder that contains **nustracker**.
 
     ![profile-pictures-folder](images/user-guide/profile-pictures-folder.PNG)
 
@@ -572,41 +569,41 @@ nustracker has the ability to add a profile picture to a student. Follow the ste
 
 3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. The image must be either a **.png** or a **.jpg** image.
 
-4. <br>
 
-   1. Rename the image to correspond to the **Student ID** of the student in nustracker that will use this profile picture.
+4. 
 
-       For example, let's say there is a student in nustracker with the Student ID **e1111111**.
+   1. Rename the image to correspond to the **Student ID** of the student in **nustracker** that will use this profile picture.
+
+       For example, let's say there is a student in **nustracker** with the Student ID **e1111111**.
 
       ![match-student-id](images/user-guide/match-student-id.PNG)
  
       ![changed-profile-picture](images/user-guide/changed-profile-picture.PNG)
 
-      *The updated student card (belonging to student with Student ID **e1111111** in nustracker)*
+      *The updated student card (belonging to student with Student ID **e1111111** in **nustracker**)*
       <br><br>
-   3. The image will update once you **type `refresh`, click the Refresh button, or restart nustracker**.
+   3. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
    4. You're done!
 
-### 3. Changing the _glow_ of the profile picture border
+### Changing the _glow_ of the profile picture border
 
-nustracker allows you to change the color of the glow of the profile picture.
+**nustracker** allows you to change the color of the glow of the profile picture.
 
 1. Open up the **Settings** window either by clicking the **Settings** button or by typing in `settings` into the command box.
  
 
-2. Click the dropdown menu, and pick a color. You can pick a custom color as well.
+2. Click the dropdown menu, and pick a color. You can pick a custom color as well. <br><br>
 
    ![pre-selected](images/user-guide/pre-selected.PNG)
 
     *You can choose one of the pre-selected colors.* 
 
-   <br><br>
-   ![custom-color](images/user-guide/custom-color.PNG)
 
-   *Or you can  customize the color precisely.*
-
-
-3. This change is **immediate**, and does not require a restart.
+4. This change is **immediate**, and does not require a restart.
+ 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
+</div>
 
 ### 4. Customization FAQs
  
@@ -614,29 +611,29 @@ nustracker allows you to change the color of the glow of the profile picture.
 
 **A**:
 * Please check if the image is either **.jpg** or **.png**. Other image types are NOT supported. 
-* Please check if you have the correct name format used—refer to **"_Setting a profile picture_" point 3** above. 
-* Please check if the image size is too small or too large. Due to the limitations of JavaFX, extreme image sizes cannot be displayed. 
+* Please check if you have the correct name format used—refer to [Setting a profile picture](#setting-a-profile-picture) point 3 above. 
+* Please check if the image size is too small or too large. Due to the limitations of JavaFX, extreme image sizes cannot be displayed (more than 10 mb). 
 
 If you have
 exhausted all options, you can file a bug report on our [GitHub page](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues).
 <br>
 
-You have now learnt to customize nustracker to its fullest. Go ahead and play around with the settings!
+You have now learnt to customize **nustracker** to its fullest. Go ahead and play around with the settings!
     
 
 ---------------------------------------------------------------------------------------
 ## Misc
 ### Saving the data
 
-nustracker data is saved in the hard disk automatically after executing any command that changes the data. There is no need to save manually.
+**nustracker** data is saved in the hard disk automatically after executing any command that changes the data. There is no need to save manually.
 
 The file is saved in a folder where you ran the application. If you ran the application in `C:\Users\JohnDoe`, the data file will be in `C:\Users\JohnDoe\data` and is named `addressbook.json`
 
 ### Editing the data file
 
-nustracker data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
+**nustracker** data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
-_Please edit carefully! nustracker will start a fresh run if errors are present!_
+_Please edit carefully! **nustracker** will start a fresh run if errors are present!_
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -644,11 +641,11 @@ _Please edit carefully! nustracker will start a fresh run if errors are present!
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous nustracker home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous **nustracker** home folder.
 
-**Q**: I noticed a bug in nustracker. How do I report it?<br>
+**Q**: I noticed a bug in **nustracker**. How do I report it?<br>
 **A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a
-bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues). Thank you for contributing to nustracker!
+bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues). Thank you for contributing to **nustracker**!
 
 --------------------------------------------------------------------------------------------------------------------
 
