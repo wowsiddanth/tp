@@ -17,9 +17,16 @@ import nustracker.commons.core.LogsCenter;
  */
 public class ImageStorage {
 
-    private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
-    private static final String userDirectoryPath = System.getProperty("user.dir");
-    private static final String pathOfImageFolder = userDirectoryPath + File.separator + "profile-pictures";
+    private static final Path pathOfProfilePictureFolder = Paths.get(System.getProperty("user.dir"),
+            "profile-pictures");
+    private final Logger logger = LogsCenter.getLogger(StorageManager.class);
+
+    /**
+     * Instantiates a new ImageStorage instance and creates the profile-pictures folder (if not created previously).
+     */
+    public ImageStorage() {
+        createImageFolder();
+    }
 
     /**
      * Reads an image from the images stored in the profile-pictures folder.
@@ -30,11 +37,8 @@ public class ImageStorage {
     public Image readImage(String studentId) {
         Image studentImage;
 
-        String pathOfProfilePictureJpg = pathOfImageFolder + File.separator + studentId + ".jpg";
-        String pathOfProfilePicturePng = pathOfImageFolder + File.separator + studentId + ".png";
-
-        File jpg = new File(pathOfProfilePictureJpg);
-        File png = new File(pathOfProfilePicturePng);
+        File jpg = studentIdToImageFile(studentId, ".jpg");
+        File png = studentIdToImageFile(studentId, ".png");
 
         //Checks if an image with the student's name exists
         if (jpg.isFile()) {
@@ -53,16 +57,29 @@ public class ImageStorage {
     }
 
     /**
+     * Takes the studentId, and returns a File that potentially contains a profile picture belonging to a
+     * student with that studentId.
+     *
+     * @param studentId The studentId to be used.
+     * @param fileExtension The file extension of the file (.png or .jpg).
+     * @return A file that potentially contains the student's image.
+     */
+    private File studentIdToImageFile(String studentId, String fileExtension) {
+        Path pathOfImageFile = Paths.get(pathOfProfilePictureFolder.toString(), studentId + fileExtension);
+        return pathOfImageFile.toFile();
+    }
+
+    /**
      * Creates a folder called profile-pictures, that stores the profile pictures of the students.
      */
-    public static void createImageFolder() {
-        if (Files.exists(Path.of(pathOfImageFolder))) {
-            return;
-        }
+    private void createImageFolder() {
         try {
-            Files.createDirectories(Paths.get(pathOfImageFolder));
-        } catch (IOException io) {
-            logger.log(Level.SEVERE, "Profile pictures folder could not be created.");
+            if (Files.exists(pathOfProfilePictureFolder)) {
+                return;
+            }
+            Files.createDirectories(pathOfProfilePictureFolder);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "profile-pictures folder could not be created.");
         }
     }
 }

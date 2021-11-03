@@ -264,19 +264,18 @@ Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STU
 * You have to filter by at least 1 parameter (simply typing `filter` will not work)
 * The search is case-insensitive. e.g. `n/john` will match with `n/JOHN`.
 * You can search using multiple keywords except for events.
-* You can search by partial keywords for names and student IDs. e.g. `n/al` will match with `n/alice` and `id/e12` will match with `id/e1234567`
+* You can search by partial keywords for names. e.g. `n/al` will match with `n/alice`
 
 Examples:
 * `filter id/e1234567` returns the student with the ID e1234567 if that student exists in nustracker.
 * `filter id/e1234567 e2345678` returns two students whose student IDs are e1234567 and e2345678 if they exist in nustracker.
-* `filter id/e09` returns all students with student IDs that contain e09.
 * `filter n/John` returns the students whose names contain John.
 * `filter n/John alice` returns the students whose names contain John OR Alice.
 * `filter m/CS IS` returns the students majoring in CS or IS.
 * `filter y/1 2 3` returns the students in years 1, 2, or 3.
 * `filter ev/orientation` returns a list of students who are tagged to the Orientation event.
 
-_**Coming soon:** Additional fields to filter by._
+_**Coming soon:** Filter by phone number._
 
 _**Coming soon:** Filter by multiple fields._
 
