@@ -301,8 +301,7 @@ Formatting:
 Examples:
 * `add n/John Doe m/CS id/e7474831 y/2 p/81631293 e/JohnDoe99@example.com`
 * `add n/Melissa Chong m/ISEC id/e3434827 y/5 p/90025837 e/MelissaChongxx@example.com`
-
-<br><br>
+<br>
 
 ### Listing all students: `students`
 
@@ -311,8 +310,7 @@ Shows all students in nustracker.
 This command essentially removes any filters that have been applied with the `filter` command.
 
 Command: `students`
-
-<br><br>
+<br>
 
 
 ### Editing a student : `edit`
@@ -329,7 +327,7 @@ Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDE
 Examples:
 * `edit id/e0322322 p/91234567 e/johndoe@example.com` Edits the phone number and email of the student with student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
 * `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name and student ID of the student with student ID `e0542341` to be `Betsy Crower` and `e0543212` respectively.
-<br><br>
+<br>
  
 ### Deleting a student : `delete`
 
@@ -342,7 +340,7 @@ Command: `delete id/STUDENT_ID`
 Examples:
 * `delete id/e1234567` deletes the student with the student ID `e1234567`.
 * `delete id/e0589162` deletes the student with the student ID `e0589162`.
-<br><br>
+<br>
 
 ### Filtering students: `filter`
 
@@ -377,7 +375,7 @@ _**Coming soon:** Additional fields to filter by._
 
 _**Coming soon:** Filter by multiple fields._
 
-<br><br>
+<br>
 
 ### Delete shown students : `delfiltered`
 
@@ -396,7 +394,7 @@ Examples:
 * `filter y/4` followed by `delfiltered` will delete all students who are in Year 4, possibly because they are graduating soon.
 * `filter ev/Graduation 2021` followed by `delfiltered` will delete all students that have attended the Graduation Ceremony in 2021.
 
-<br><br>
+<br>
 
 ### Blacklisting students: `blacklist`
 
@@ -411,7 +409,7 @@ Examples:
 * `blacklist id/e1234567 ev/Orientation Camp` blacklists the student ID e1234567 from the Orientation Camp event.
 * `blacklist id/e0000000 ev/Sports Camp` blacklists the student ID e0000000 from the Sports Camp event.
 
-<br><br>
+<br>
 
 ### Whitelisting students: `whitelist`
 
