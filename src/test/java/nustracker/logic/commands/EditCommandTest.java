@@ -1,6 +1,7 @@
 package nustracker.logic.commands;
 
 import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
+import static nustracker.testutil.TypicalStudents.ALICE;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
 import static nustracker.testutil.TypicalStudents.STUDENTID_TWO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -33,7 +34,7 @@ public class EditCommandTest {
         Student editedStudent = new StudentBuilder().build();
         EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent).build();
         EditCommand editCommand = new EditCommand(
-                STUDENTID_ONE,
+                ALICE.getStudentId(),
                 descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS, editedStudent);
