@@ -10,7 +10,7 @@ title: User Guide
 As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
 
 All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using **nustracker**.
-<h2 align="center">Let's jump right into nustracker!</h1>
+<h2 align="center">Let's jump right into nustracker!</h2>
 
 * Table of Contents
 {:toc}
