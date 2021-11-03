@@ -404,9 +404,11 @@ command to delete students based on a certain criteria.
 
 Command: `delfiltered`
 
+<div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
+Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in **nustracker** would be deleted since all of them are shown.
+</div>
+
 * This command can only be used when **nustracker** is showing the Student list.
-* Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in
-  **nustracker** would be deleted since all of them are shown.
 * After all the filtered students are deleted, the remaining students would then all be shown in the list, if any.
 * At least one student needs to be shown in the filtered list for `delfiltered` to work.
 
@@ -416,7 +418,7 @@ Examples:
 
 ### Blacklisting students: `blacklist`
 
-Blacklists students from the given event by student ID. Blacklisted student IDs will not be allowed to enroll into the event.
+Blacklists students from the given event by Student ID. Blacklisted Student IDs will not be allowed to enroll into the event.
 
 Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 
