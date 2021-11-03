@@ -20,32 +20,26 @@ All these things can be done through a simple and intuitive Command Line Interfa
 
 **You finally have your hands on _*nustracker*_. Great! Let's learn how to use it now.**
 
-1. Ensure you have `Java 11` or above installed in your Computer.
+1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
 
-2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases).
+2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
 
+3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for nustracker. <br><br>
 
-3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for nustracker.
-
-4. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. The app already contains some sample data.<br>
+4. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. The app already contains some sample data. <br><br>
 
    ![Ui](images/Ui.png)
 
 
-5. Type the command in the command box and press Enter to execute it. For example, typing `help` and pressing Enter will open the help window.<br>
- 
- 
-   Here are some example commands you can try:
+**nustracker is now up and running on your system! To getting started, we suggest this flow:**
+1. [General Layout](#general-layout)
+2. [Basics of nustracker](#basics-of-nustracker)
+3. [List of Commands](#student-commands)
 
-   * **`add n/John Doe m/CS id/e1283011 y/2 p/81231293 e/johndoe@example.com`** : Adds a contact named `John Doe` with the major `CS`,
-      student ID `e1283011`, year `2`, phone number `81231293`, and email `johndoe@example.com` to nustracker.
-   
-   * **`exit`** : Exits the app.
+_If you are an experienced user, you can jump straight to the [List of Commands](#student-commands)._
 
 
-6. For a full and comprehensive overview of each command, refer to the [Feature](#features) section!
-
-**Now, you are ready for an unprecedented overhaul in student and event management using nustracker!**
+**Get ready for an unprecedented overhaul in student and event management using nustracker!**
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -111,7 +105,6 @@ The following is a description of the general layout of nustracker.
 
 1. **Top bar**
     
-    The top bar consists of the buttons: **Refresh, Toggle theme, Settings, Students, Events, Help, and Exit**.
     * **Refresh**
       
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
@@ -144,7 +137,7 @@ The following is a description of the general layout of nustracker.
 
 2. **Command bar**
 
-    This space is for the user (you!) to type in the commands. For more information about commands, see the section below.
+    This space is for the user (you) to type in the commands. For more information about commands, see the section below.
    <br><br>
 3. **Result Display**
    
@@ -155,15 +148,20 @@ The following is a description of the general layout of nustracker.
     The students, their information, and the events they are taking part in are displayed here.
 
 --------------------------------------------------------------------------------------------------------------------
-## The Basics of NUSTracker
+## Basics of nustracker
 
-Now, you are ready to learn the basics of NUSTracker.
+<div markdown="span" class="alert alert-info">
+The next few section assume that nustracker is empty, and that we are adding our first student. When you first open nustracker,
+you will see sample data. But don't worry, it works regardless! 
+</div>
+
+We hope you are excited to learn the basics of NUSTracker!
 But, before we do anything, let’s set the premise. Imagine that you are the manpower executive of a newly-formed NUS society called the Imaginary Society (very creative we know). 
 
-It plans on holding a fair—appropriately titled the Imaginary Fair on the 1st of December 2021, at 9am.
+It plans on holding a fair—appropriately titled the Imaginary Fair—on the 1st of December 2021, at 9am.
 
-Here's the particulars of our first member and participant: <br>
-**Name**: Sae-Byeok <br>
+Here are the particulars of our first member and participant: <br><br>
+**Name**: Sae-Byeok <br> <img style="float: right;" height="120" width="120" alt="" src="images/user-guide/introduction.png"/>
 **Phone number**: 87438007 <br>
 **Major**: CS <br>
 **Year**: 1 <br>
@@ -205,7 +203,7 @@ Intuitively, the command for creating an event is `create n/EVENT_NAME d/EVENT_D
 So, in the case of Imaginary Fair, it would be:
 - `EVENT_NAME`: Imaginary Fair
 - `EVENT_DATE`: 01-12-2021
-- `EVENT_TIME`: 1900
+- `EVENT_TIME`: 0900
 
 Like before, enter the command into the command box and press **Enter**.
 
@@ -218,13 +216,42 @@ If done right, nustracker should look like this:
 
 Congrats! You have now added an event as well!
 
+### Adding your first student to your first event
+
+You have added Sae Byeok as a student, and created the _Imaginary Fair_ event. Let's add her to the event 
+itself as a participant.
+
+To do this, we will make use of the `enroll` command:`enroll id/STUDENT_ID ev/EVENT`.
+
+So, in the case of Sae Byeok and the Imaginary Fair, it would be:
+- `STUDENT_ID`: e1111111
+- `EVENT`: Imaginary Fair
+
+Using the fields above, type this into the command box: `enroll id/e1111111 ev/Imaginary Fair` and press **Enter**.
+
+If done correctly, this change should be reflected in both Sae Byeok's particulars and the Imaginary Fair's details.
+
+![student-card](images/user-guide/sae-byeok-student-card.PNG)
+_Under Enrolled Events, Sae Byeok is enrolled in the Imaginary Fair_ <br>
+
+![event-card](images/user-guide/Event%20Card.PNG)
+_Under participants, there is a participants with Student ID `e111111` or Sae Byeok_
 
 
+**Congratulations!** You have made it to the end of this very brief tutorial to adding your first student, creating your
+first event, and then adding that student to the event! But remember, nustracker is much more powerful that this!
 
+You can:
+- Edit the Sae Byeok's details
+- Delete events
+- Blacklist students
+- Export the entire list of students
+- Add profile pictures
+- And much _much_ more!
 
+For a more comprehensive list of commands, please refer to the sections below.
 
-
-
+You're on your way to becoming an nustracker pro!
 
 --------------------------------------------------------------------------------------------------------------------
 ## Student Commands
