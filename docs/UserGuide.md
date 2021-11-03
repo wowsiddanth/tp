@@ -214,9 +214,7 @@ Shows all students in nustracker.
 This command essentially removes any filters that have been applied with the `filter` command.
 
 Command: `students`
-
 <br><br>
-
 
 ### Editing a student : `edit`
 
@@ -245,6 +243,15 @@ Command: `delete id/STUDENT_ID`
 Examples:
 * `delete id/e1234567` deletes the student with the student ID `e1234567`.
 * `delete id/e0589162` deletes the student with the student ID `e0589162`.
+
+_**Note**_: 
+The command to delete both students and events are `delete`.
+<br>
+However, `delete` will only delete either a student or an event and 
+**cannot contain both student and event prefixes at once**.
+<br>
+I.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed. 
+(Refer to "Deleting an event" for more information.)
 <br><br>
 
 ### Filtering students: `filter`
@@ -409,6 +416,15 @@ Examples:
 * `delete ev/Orientation` deletes the event with the name `Orientation`.
 * `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
 
+
+_**Note**_:
+The command to delete both students and events are `delete`.
+<br>
+However, `delete` will only delete either a student or an event and
+**cannot contain both student and event prefixes at once**.
+<br>
+I.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed.
+(Refer to "Deleting a student" for more information.)
 <br><br>
 
 --------------------------------------------------------------------------------------------------------------------
