@@ -6,7 +6,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import nustracker.model.student.Student;
-import nustracker.storage.ImageStorage;
 
 /**
  * Panel containing the list of students.
@@ -29,7 +28,6 @@ public class StudentListPanel extends UiPart<Region> {
         this.glowColorHexCode = glowColor;
         this.studentList = studentList;
 
-        ImageStorage.createImageFolder();
         fillPanelWithCells(studentList, 0);
     }
 

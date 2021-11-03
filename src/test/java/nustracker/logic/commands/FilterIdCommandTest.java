@@ -1,12 +1,14 @@
 package nustracker.logic.commands;
 
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,7 @@ import nustracker.commons.core.Messages;
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 import nustracker.testutil.TypicalStudents;
 
@@ -22,15 +25,15 @@ import nustracker.testutil.TypicalStudents;
  * Contains integration tests (interaction with the Model) for {@code FilterIdCommand}.
  */
 public class FilterIdCommandTest {
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void equals() {
         StudentIdContainsKeywordsPredicate firstPredicate =
-                new StudentIdContainsKeywordsPredicate(Collections.singletonList("first"));
+                new StudentIdContainsKeywordsPredicate(Collections.singletonList(new StudentId("e0000000")));
         StudentIdContainsKeywordsPredicate secondPredicate =
-                new StudentIdContainsKeywordsPredicate(Collections.singletonList("second"));
+                new StudentIdContainsKeywordsPredicate(Collections.singletonList(new StudentId("e1111111")));
 
         FilterCommand filterFirstCommand = new FilterIdCommand(firstPredicate);
         FilterCommand filterSecondCommand = new FilterIdCommand(secondPredicate);
@@ -73,21 +76,11 @@ public class FilterIdCommandTest {
                 model.getFilteredStudentList());
     }
 
-    @Test
-    public void execute_multiplePartialKeywords_multipleStudentsFound() {
-        String expectedMessage = String.format(Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW, 4);
-        StudentIdContainsKeywordsPredicate predicate = preparePredicate("e90 e81");
-        FilterCommand command = new FilterIdCommand(predicate);
-        expectedModel.updateFilteredStudentList(predicate);
-        CommandTestUtil.assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(TypicalStudents.ALICE, TypicalStudents.BENSON, TypicalStudents.CARL,
-                TypicalStudents.DANIEL), model.getFilteredStudentList());
-    }
-
     /**
      * Parses {@code userInput} into a {@code StudentIdContainsKeywordsPredicate}.
      */
     private StudentIdContainsKeywordsPredicate preparePredicate(String userInput) {
-        return new StudentIdContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
+        return new StudentIdContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")).stream().map(
+            x -> new StudentId(x)).collect(Collectors.toUnmodifiableList()));
     }
 }

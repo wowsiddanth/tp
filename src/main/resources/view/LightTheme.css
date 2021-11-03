@@ -28,6 +28,18 @@
 
 /**========================================= End of Student Card =====================================================*/
 
+/**========================================= Start of Color picker ===================================================*/
+
+.color-palette .hyperlink {
+    visibility: hidden ;
+}
+
+.color-picker .label {
+    -fx-font-family: "Open Sans";
+}
+
+/**========================================= End of Color picker =====================================================*/
+
 /**========================================= Start of Titled Pane ====================================================*/
 
 .titled-pane:default {
@@ -67,8 +79,8 @@
 
 .result-display {
     -fx-background-color: transparent;
-    -fx-font-family: "Open Sans Light Bold";
-    -fx-font-size: 16pt;
+    -fx-font-family: "Open Sans Light";
+    -fx-font-size: 14pt;
     -fx-text-fill: black;
 }
 
@@ -105,7 +117,7 @@
 
 .button:pressed, .button:default:hover:pressed {
     -fx-text-fill: #779CFF;
-    -fx-font-family: Roboto-Bold;
+    -fx-font-family: "Roboto Bold";
 }
 
 /**========================================= End of buttons ==========================================================*/
@@ -183,6 +195,7 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+    -fx-font-family: "Open Sans";
 }
 
 #blacklist .label {
@@ -192,6 +205,7 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+    -fx-font-family: "Open Sans";
 }
 
 /**==========================================End of participant label ================================================*/

@@ -2,10 +2,10 @@ package nustracker.logic.commands;
 
 import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_INVALID;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_TWO;
-import static nustracker.testutil.TypicalStudents.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

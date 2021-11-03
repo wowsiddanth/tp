@@ -4,10 +4,10 @@ import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
 import static nustracker.testutil.Assert.assertThrows;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
-import static nustracker.testutil.TypicalStudents.getTypicalAddressBook;
 
 import java.util.ArrayList;
 import java.util.List;
