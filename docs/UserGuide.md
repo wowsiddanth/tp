@@ -15,7 +15,7 @@ All these things can be done through a simple and intuitive Command Line Interfa
 
 You might see text formatted within colored boxes, so here's a quick run-through what they mean:
 
-<div markdown="span" class="alert alert-info"> :label: **Tip:**:
+<div markdown="span" class="alert alert-info"> :label: **Note:**
 Stuff written here serves as additional information.
 </div>
 
@@ -23,9 +23,8 @@ Stuff written here serves as additional information.
 Here, tips are given.
 </div>
 
-<div markdown="span" class="alert alert-danger">:bulb: **Caution:**
-Whilst here, very important warnings are given. As such, it is imperative your read this or nustracker 
-might behave unexpectedly!
+<div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
+Whilst here, very important warnings are given. As such, it is imperative your read this or nustracker might behave unexpecetedly.
 </div>
 
 <h1 align="center"> Let's get started with nustracker!</h1>
@@ -37,11 +36,10 @@ might behave unexpectedly!
 --------------------------------------------------------------------------------------------------------------------
 ## Getting Started
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br>
+<div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br><br>
 
 **For Mac OS users**: Please start the jar file via the terminal (see: step 4 below). If you do not, the files may not be created due to 
-current Mac OS security restrictions on file creation. 
-
+current Mac OS security restrictions on file creation. <br>
 **For Windows users**: it is also recommended that the jar be started
 via the terminal as well (but double-clicking should work fine).
 </div>
@@ -179,7 +177,7 @@ The following is a description of the general layout of **nustracker**.
 --------------------------------------------------------------------------------------------------------------------
 ## Basics of **nustracker**
 
-<div markdown="span" class="alert alert-info">
+<div markdown="span" class="alert alert-info"> :label:
 The next few section assume that **nustracker** is empty, and that we are adding our first student. When you first open **nustracker**,
 you will see sample data. But don't worry, it works regardless! 
 </div>
