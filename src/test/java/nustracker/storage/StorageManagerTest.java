@@ -1,5 +1,6 @@
 package nustracker.storage;
 
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -13,7 +14,6 @@ import nustracker.commons.core.GuiSettings;
 import nustracker.model.AddressBook;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.UserPrefs;
-import nustracker.testutil.TypicalStudents;
 
 public class StorageManagerTest {
 
@@ -55,7 +55,7 @@ public class StorageManagerTest {
          * {@link JsonAddressBookStorage} class.
          * More extensive testing of UserPref saving/reading is done in {@link JsonAddressBookStorageTest} class.
          */
-        AddressBook original = TypicalStudents.getTypicalAddressBook();
+        AddressBook original = getTypicalAddressBook();
         storageManager.saveAddressBook(original);
         ReadOnlyAddressBook retrieved = storageManager.readAddressBook().get();
         assertEquals(original, new AddressBook(retrieved));

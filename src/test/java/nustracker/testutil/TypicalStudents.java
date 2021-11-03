@@ -20,8 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import nustracker.model.AddressBook;
-import nustracker.model.event.Event;
+import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 
@@ -68,13 +67,14 @@ public class TypicalStudents {
             .withYear("4")
             .withMajor("CS")
             .withStudentId("e9192390")
-            .withEmail("lydia@example.com").build();
+            .withEmail("lydia@example.com")
+            .withEvent(ORIENTATION).build();
     public static final Student GEORGE = new StudentBuilder().withName("George Best").withPhone("94824112")
             .withYear("2")
             .withMajor("IS")
             .withStudentId("e9123119")
             .withEmail("anna@example.com")
-            .withEvent(MATH_OLYMPIAD).build();
+            .withEvents(new EnrolledEvents(ORIENTATION, MATH_OLYMPIAD)).build();
 
     // Manually added
     public static final Student HOON = new StudentBuilder().withName("Hoon Meier").withPhone("8482424")
@@ -129,26 +129,9 @@ public class TypicalStudents {
     private TypicalStudents() {
     } // prevents instantiation
 
-    /**
-     * Returns an {@code AddressBook} with all the typical students.
-     */
-    public static AddressBook getTypicalAddressBook() {
-        AddressBook ab = new AddressBook();
-        for (Student student : getTypicalStudents()) {
-            ab.addStudent(student);
-        }
-        for (Event event : getTypicalEvents()) {
-            ab.addEvent(event);
-        }
-        return ab;
-    }
-
     public static List<Student> getTypicalStudents() {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, GOD, HANS));
     }
 
-    public static List<Event> getTypicalEvents() {
-        return new ArrayList<>(Arrays.asList(ORIENTATION, SPORTS_CAMP, MATH_OLYMPIAD));
-    }
 
 }

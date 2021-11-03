@@ -1,5 +1,6 @@
 package nustracker.logic.commands;
 
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
 import static nustracker.testutil.TypicalStudents.STUDENTID_TWO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -18,7 +19,6 @@ import nustracker.model.student.StudentId;
 import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalIndexes;
-import nustracker.testutil.TypicalStudents;
 
 
 /**
@@ -26,7 +26,7 @@ import nustracker.testutil.TypicalStudents;
  */
 public class EditCommandTest {
 
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
