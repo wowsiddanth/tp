@@ -106,45 +106,31 @@ The following is a description of the general layout of nustracker.
 1. **Top bar**
     
     * **Refresh**
-      
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
 
-    * **Toggle Theme**
-        
+    * **Toggle Theme**<br>
         Toggles the theme of nustracker, from Dark theme to Light theme, and vice versa.
 
-    * **Settings**
-
+    * **Settings**<br>
          Opens the Settings Window.
      
-    * **Students**
-
+    * **Students**<br>
         Displays current students.
 
-   * **Events**
+    * **Events**<br>
+        Displays current events.
 
-     Displays current events.
+    * **Help**<br>
+        Opens the Help window.
 
-   * **Help**
+    * **Exit**<br>
+      Exit nustracker.
 
-     Opens the Help window.
-
-   * **Exit**
-
-     Exit nustracker.
-
-
-
-2. **Command bar**
-
+2. **Command bar**<br>
     This space is for the user (you) to type in the commands. For more information about commands, see the section below.
-   <br><br>
-3. **Result Display**
-   
+3. **Result Display**<br>
     The empty box directly below the command bar is the result display, where error/success messages are displayed.
-   <br><br>
-4. **Students**
-
+4. **Students**<br>
     The students, their information, and the events they are taking part in are displayed here.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -301,7 +287,6 @@ Formatting:
 Examples:
 * `add n/John Doe m/CS id/e7474831 y/2 p/81631293 e/JohnDoe99@example.com`
 * `add n/Melissa Chong m/ISEC id/e3434827 y/5 p/90025837 e/MelissaChongxx@example.com`
-<br>
 
 ### Listing all students: `students`
 
@@ -310,8 +295,6 @@ Shows all students in nustracker.
 This command essentially removes any filters that have been applied with the `filter` command.
 
 Command: `students`
-<br>
-
 
 ### Editing a student : `edit`
 
@@ -327,7 +310,6 @@ Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDE
 Examples:
 * `edit id/e0322322 p/91234567 e/johndoe@example.com` Edits the phone number and email of the student with student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
 * `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name and student ID of the student with student ID `e0542341` to be `Betsy Crower` and `e0543212` respectively.
-<br>
  
 ### Deleting a student : `delete`
 
@@ -340,7 +322,6 @@ Command: `delete id/STUDENT_ID`
 Examples:
 * `delete id/e1234567` deletes the student with the student ID `e1234567`.
 * `delete id/e0589162` deletes the student with the student ID `e0589162`.
-<br>
 
 ### Filtering students: `filter`
 
@@ -375,8 +356,6 @@ _**Coming soon:** Additional fields to filter by._
 
 _**Coming soon:** Filter by multiple fields._
 
-<br>
-
 ### Delete shown students : `delfiltered`
 
 Mass deletes all students currently shown in the student list. This is typically used after a filter
@@ -394,8 +373,6 @@ Examples:
 * `filter y/4` followed by `delfiltered` will delete all students who are in Year 4, possibly because they are graduating soon.
 * `filter ev/Graduation 2021` followed by `delfiltered` will delete all students that have attended the Graduation Ceremony in 2021.
 
-<br>
-
 ### Blacklisting students: `blacklist`
 
 Blacklists students from the given event by student ID. Blacklisted student IDs will not be allowed to enroll into the event.
@@ -408,9 +385,7 @@ Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 Examples:
 * `blacklist id/e1234567 ev/Orientation Camp` blacklists the student ID e1234567 from the Orientation Camp event.
 * `blacklist id/e0000000 ev/Sports Camp` blacklists the student ID e0000000 from the Sports Camp event.
-
-<br>
-
+ 
 ### Whitelisting students: `whitelist`
 
 Whitelists students from the given event by student ID. Whitelisted student IDs are removed from the event's blacklist.
@@ -452,14 +427,12 @@ Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
     
 Examples:
 * `create n/Orientation Camp d/01-08-2022 t/1000` creates an event with the name Orientation Camp, date 01-08-2022 or 1 August 2022, and time 1000 hrs or 10:00 am.
-<br><br>
 
 ### Listing all events : `events`
 
 Shows all events in the app.
 
 Format: `events`
-<br><br>
 
 ### Enrolling a student : `enroll`
 
@@ -474,8 +447,6 @@ Command: `enroll id/STUDENT_ID ev/EVENT`
 Examples:
 * `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with student ID e0544111 into the event "CS1101S Mock PE".
 * `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with student ID e0322322 into the event "Orientation Camp".
-  <br><br>
-
 
 ### Removing a student : `remove`
 
@@ -491,8 +462,6 @@ Examples:
 * `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
 * `remove id/e0264853 ev/Fun Run` removes the specified student with student ID e0264853 into the event "Fun Run".
 
-<br><br>
-
 ### Deleting an event : `delete`
 
 Deletes the specified event from nustracker.
@@ -504,9 +473,6 @@ Command: `delete ev/EVENT_NAME`
 Examples:
 * `delete ev/Orientation` deletes the event with the name `Orientation`.
 * `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
-
-<br><br>
-
 --------------------------------------------------------------------------------------------------------------------
 ## Other Commands
 
@@ -516,15 +482,11 @@ Opens the Help window
 
 Command: `help`
 
-<br>
-
 ### Viewing the settings: `settings`
 
 Opens the Settings window
 
 Command: `settings`
-
-<br>
 
 ### Exporting Emails : `export`
 
@@ -548,27 +510,19 @@ Examples:
 * `export fn/StudentsAttendingOrientation`
 * `export fn/AllStudents`
 
-<br>
-
 ### Refreshing the main window: `refresh`
 
 Refreshes the main window. Often used to update the main window after adding profile pictures, etc.
 
-<br>
-
 ### Changing the theme: `theme`
 
 Toggles the theme between Dark and Light theme.
-
-<br>
 
 ### Exiting the program : `exit`
 
 Exits the program.
 
 Command: `exit`
-
-<br>
 
 ---------------------------------------------------------------------------------------
 ## Customization
