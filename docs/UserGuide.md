@@ -38,9 +38,9 @@ Whilst here, very important warnings are given. As such, it is imperative your r
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br><br>
 
-**For Mac OS users**: Please start the jar file via the terminal (see: step 4 below). If you do not, the files may not be created due to 
+**For Mac OS users**: Please start the .jar file via the terminal (see: step 4 below). If you do not, the files may not be created due to 
 current Mac OS security restrictions on file creation. <br><br>
-**For Windows users**: it is also recommended that the jar be started
+**For Windows users**: it is also recommended that the .jar be started
 via the terminal as well (but double-clicking should work fine).
 </div>
 
@@ -107,7 +107,7 @@ in clubs and societies—specifically **student and event management**.
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Notes about the command format:**<br>
+**:label: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
