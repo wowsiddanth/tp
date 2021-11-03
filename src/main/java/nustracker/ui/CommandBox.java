@@ -76,8 +76,6 @@ public class CommandBox extends UiPart<Region> {
     public interface CommandExecutor {
         /**
          * Executes the command and returns the result.
-         *
-         * @see nustracker.logic.Logic#execute(String)
          */
         CommandResult execute(String commandText) throws CommandException, ParseException;
     }

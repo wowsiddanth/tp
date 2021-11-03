@@ -25,6 +25,7 @@ import nustracker.model.event.EventName;
 import nustracker.model.student.Major;
 import nustracker.model.student.MajorContainsKeywordsPredicate;
 import nustracker.model.student.NameContainsKeywordsPredicate;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 import nustracker.model.student.Year;
 import nustracker.model.student.YearContainsKeywordsPredicate;
@@ -62,7 +63,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         } else if (argMultimap.getValue(PREFIX_STUDENTID).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_STUDENTID);
             String[] idKeywords = trimmedArgs.split("\\s+");
-            return new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList(idKeywords)));
+            StudentId[] studentIds = getStudentIds(idKeywords);
+            return new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList(studentIds)));
         } else if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
             String trimmedArgs = getTrimmedArgs(args, PREFIX_MAJOR);
             String[] splitMajors = trimmedArgs.split("\\s+");
@@ -124,4 +126,13 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         return years;
     }
 
+    public StudentId[] getStudentIds(String[] splitStudentIds) throws ParseException {
+        StudentId[] studentIds = new StudentId[splitStudentIds.length];
+
+        for (int i = 0; i < studentIds.length; i++) {
+            studentIds[i] = ParserUtil.parseStudentId(splitStudentIds[i]);
+        }
+
+        return studentIds;
+    }
 }

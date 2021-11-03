@@ -160,7 +160,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * {@code key} must exist in the address book.
      */
     public void removeStudent(Student key, Model currModel) {
-        // Before removing the student, we remove the student from all it's enrolled events first.
+        // Before removing the student, we remove the student from all their enrolled events first.
         EnrolledEvents enrolledEvents = key.getEvents();
         Set<Event> upToDateEventSet = enrolledEvents.getAllEventsEnrolledIn(currModel);
         StudentId currStudentId = key.getStudentId();
@@ -170,8 +170,7 @@ public class AddressBook implements ReadOnlyAddressBook {
             RemoveCommand currRemoveCmd = new RemoveCommand(currStudentId, currEvent.getName());
 
             try {
-                CommandResult currCmdResult = currRemoveCmd.execute(currModel,
-                        CurrentlyShownList.STUDENTS_LIST);
+                CommandResult currCmdResult = currRemoveCmd.execute(currModel, CurrentlyShownList.STUDENTS_LIST);
             } catch (CommandException e) {
                 // Means either Invalid Student ID (Not possible)
                 // or invalid event name (Not possible)
@@ -179,7 +178,7 @@ public class AddressBook implements ReadOnlyAddressBook {
             }
         }
 
-        // key does not exist in model anymore since it was modified when being removed from events
+        // Key does not exist in model anymore since it was modified when being removed from events
         Student newKey = currModel.getStudent(currStudentId);
 
         students.remove(newKey);
