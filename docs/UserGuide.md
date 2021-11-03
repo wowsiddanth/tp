@@ -101,10 +101,8 @@ in clubs and societies—specifically **student and event management**.
 
 The following is a description of the general layout of nustracker.
 
-![general-layout](images/general-layout.png)
 
-1. **Top bar**
-    
+1. **Top bar**<br>
     * **Refresh**<br>
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
 
