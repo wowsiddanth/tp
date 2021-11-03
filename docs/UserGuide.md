@@ -39,7 +39,7 @@ Whilst here, very important warnings are given. As such, it is imperative your r
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br><br>
 
 **For Mac OS users**: Please start the jar file via the terminal (see: step 4 below). If you do not, the files may not be created due to 
-current Mac OS security restrictions on file creation. <br>
+current Mac OS security restrictions on file creation. <br><br>
 **For Windows users**: it is also recommended that the jar be started
 via the terminal as well (but double-clicking should work fine).
 </div>
@@ -53,15 +53,13 @@ via the terminal as well (but double-clicking should work fine).
 3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for **nustracker**. <br><br>
 
 4. For Windows Users (**Mac OS user see Step 5**)
-    1. Double-click the jar file.
-
+    1. Double-click the jar file.<br><br>
 
 5. For Mac Users: 
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
    2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called **myfolder**,
       you would type `cd /Desktop/myfolder/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
-   3. Type the following command into the Terminal: `java -jar nustracker.jar`. 
-
+   3. Type the following command into the Terminal: `java -jar nustracker.jar`. <br><br>
 
 6. You should see the following:
    ![Ui](images/Ui.png)
