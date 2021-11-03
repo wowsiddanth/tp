@@ -1,5 +1,6 @@
 package nustracker.logic.parser;
 
+import static nustracker.commons.core.Messages.MESSAGE_MULTIPLE_FILTER_FIELDS;
 import static nustracker.logic.parser.CliSyntax.PREFIX_EVENT;
 import static nustracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
@@ -25,6 +26,18 @@ public class FilterCommandParserTest {
     public void parse_emptyArg_throwsParseException() {
         CommandParserTestUtil.assertParseFailure(parser, "     ",
                 String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+    }
+
+    @Test
+    public void parse_emptyPreamble() {
+        CommandParserTestUtil.assertParseFailure(parser, " " + PREFIX_STUDENTID,
+                String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+    }
+
+    @Test
+    public void parse_validArgs_multipleFileds() {
+        CommandParserTestUtil.assertParseFailure(parser,
+                " " + PREFIX_STUDENTID + "e0000000 " + PREFIX_NAME + " Alice", MESSAGE_MULTIPLE_FILTER_FIELDS);
     }
 
     @Test
