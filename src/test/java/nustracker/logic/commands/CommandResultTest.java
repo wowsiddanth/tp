@@ -10,6 +10,11 @@ import org.junit.jupiter.api.Test;
 
 public class CommandResultTest {
 
+    private CommandResult allFalse = new CommandResult("feedback",
+            false, false, false,
+            false, false,
+            false, false);
+
     @Test
     public void constructor_toggleStudentsAndToggleEventsBothTrue_throwsAssertionError() {
         try {
@@ -19,11 +24,6 @@ public class CommandResultTest {
             assertTrue(true);
         }
     }
-
-    CommandResult allFalse = new CommandResult("feedback",
-            false, false, false,
-            false, false,
-            false, false);
 
     @Test
     public void isShowHelp() {
