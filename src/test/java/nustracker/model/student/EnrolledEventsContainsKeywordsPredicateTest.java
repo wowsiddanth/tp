@@ -13,7 +13,7 @@ public class EnrolledEventsContainsKeywordsPredicateTest {
     @Test
     public void equals() {
         EventName firstEvent = new EventName("first event");
-        EventName secondEvent = new EventName("first event");
+        EventName secondEvent = new EventName("seconds event");
 
         EnrolledEventsContainsKeywordsPredicate firstPredicate =
                 new EnrolledEventsContainsKeywordsPredicate(firstEvent);
