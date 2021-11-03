@@ -7,12 +7,14 @@ import static nustracker.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static nustracker.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
+import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.EventName;
 import nustracker.model.student.StudentId;
 
@@ -33,22 +35,19 @@ public class DeleteCommandParserTest {
     public void parse_validArgs_returnsDeleteStudentCommand() {
         assertParseSuccess(parser, " " + PREFIX_STUDENTID + STUDENTID_ONE,
                 new DeleteStudentCommand(STUDENTID_ONE));
-
-        assertParseSuccess(parser, " "
-                        + PREFIX_STUDENTID + STUDENTID_ONE + " "
-                        + PREFIX_EVENT + EVENTNAME_ONE,
-                new DeleteStudentCommand(STUDENTID_ONE));
-
-        assertParseSuccess(parser, " "
-                        + PREFIX_EVENT + EVENTNAME_ONE + " "
-                        + PREFIX_STUDENTID + STUDENTID_ONE,
-                new DeleteStudentCommand(STUDENTID_ONE));
     }
 
     @Test
     public void parse_validArgs_returnsDeleteEventCommand() {
         assertParseSuccess(parser, " " + PREFIX_EVENT + EVENTNAME_ONE,
                 new DeleteEventCommand(EVENTNAME_ONE));
+    }
+
+    @Test
+    public void parse_bothStudentIdAndEventPrefix_throwsParseException() {
+        assertThrows(ParseException.class, () -> parser.parse(" "
+                + PREFIX_STUDENTID + STUDENTID_ONE + " "
+                + PREFIX_EVENT + EVENTNAME_ONE));
     }
 
     @Test

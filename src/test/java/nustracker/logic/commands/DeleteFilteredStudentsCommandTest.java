@@ -5,6 +5,7 @@ import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShow
 import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static nustracker.logic.commands.DeleteFilteredStudentsCommand.MESSAGE_AT_LEAST_ONE_STUDENT_REQ_FOR_DELFILTER;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,7 +20,6 @@ import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.EnrolledEventsContainsKeywordsPredicate;
 import nustracker.model.student.Student;
-import nustracker.testutil.TypicalStudents;
 
 
 /**
@@ -28,7 +28,7 @@ import nustracker.testutil.TypicalStudents;
  */
 public class DeleteFilteredStudentsCommandTest {
 
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_unfilteredList_success() {

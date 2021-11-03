@@ -34,6 +34,18 @@ public class EnrolledEvents {
     }
 
     /**
+     * Constructs a new {@code EnrolledEvents} with the given events.
+     *
+     * @param events the events the student is to be enrolled in.
+     */
+    public EnrolledEvents(Event... events) {
+        eventsEnrolledIn = new HashMap<EventName, Event>();
+        for (Event event : events) {
+            eventsEnrolledIn.put(event.getName(), event);
+        }
+    }
+
+    /**
      * Gets a new EnrolledEvents with this student's enrolled events as well as the specified {@code Event} added.
      *
      * @param event A valid event to be added.

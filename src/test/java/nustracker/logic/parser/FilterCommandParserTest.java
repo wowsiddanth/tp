@@ -16,6 +16,7 @@ import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.model.event.EventName;
 import nustracker.model.student.NameContainsKeywordsPredicate;
+import nustracker.model.student.StudentId;
 import nustracker.model.student.StudentIdContainsKeywordsPredicate;
 
 public class FilterCommandParserTest {
@@ -53,7 +54,8 @@ public class FilterCommandParserTest {
     @Test
     public void parse_validArgs_returnsFilterIdCommand() {
         FilterCommand expectedFilterCommand =
-                new FilterIdCommand(new StudentIdContainsKeywordsPredicate(Arrays.asList("e1234567", "e2345678")));
+                new FilterIdCommand(new StudentIdContainsKeywordsPredicate(
+                        Arrays.asList(new StudentId("e1234567"), new StudentId("e2345678"))));
 
         CommandParserTestUtil.assertParseSuccess(parser, " " + PREFIX_STUDENTID + "e1234567 e2345678",
                 expectedFilterCommand);

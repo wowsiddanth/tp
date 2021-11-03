@@ -78,8 +78,8 @@ public class CommandTestUtil {
     public static final String VALID_EVENTDATE_FINAL = "20-11-2021";
     public static final String VALID_EVENTTIME_TEST = "1800";
     public static final String VALID_EVENTTIME_FINAL = "2010";
-    public static final String VALID_PARTICIPANT_TEST = "Joel";
-    public static final String VALID_PARTICIPANT_FINAL = "Sung";
+    public static final String VALID_PARTICIPANT_TEST = "e1234567";
+    public static final String VALID_PARTICIPANT_FINAL = "e0544182";
 
     // With name prefix
     public static final String NAME_DESC_TEST = " " + PREFIX_NAME + VALID_EVENTNAME_TEST;
