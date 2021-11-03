@@ -17,7 +17,7 @@ public class WhiteListCommandParser implements Parser<WhiteListCommand> {
     public WhiteListCommand parse(String args) throws ParseException {
         requireNonNull(args);
 
-        ArgumentMultimap argMultimap = null;
+        ArgumentMultimap argMultimap;
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(args,

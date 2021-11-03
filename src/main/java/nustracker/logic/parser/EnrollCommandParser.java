@@ -18,7 +18,7 @@ public class EnrollCommandParser implements Parser<EnrollCommand> {
     public EnrollCommand parse(String args) throws ParseException {
         requireNonNull(args);
 
-        ArgumentMultimap argMultimap = null;
+        ArgumentMultimap argMultimap;
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(args,

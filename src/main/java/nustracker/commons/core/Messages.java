@@ -18,6 +18,6 @@ public class Messages {
     public static final String MESSAGE_EVENT_LIST_NOT_SHOWN =
             "The Event list has to be shown before this command can be used.";
     public static final String MESSAGE_COMMAND_EXTRANEOUS_SLASHES =
-            "Invalid command format! Commands that uses parameters cannot contain extraneous"
+            "Invalid command format! Commands that use parameters cannot contain extraneous"
                     + " slashes or prefixes. \n%1$s";
 }

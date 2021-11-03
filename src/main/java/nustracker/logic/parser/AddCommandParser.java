@@ -33,7 +33,7 @@ public class AddCommandParser implements Parser<AddCommand> {
      */
     public AddCommand parse(String args) throws ParseException {
 
-        ArgumentMultimap argMultimap = null;
+        ArgumentMultimap argMultimap;
 
         try {
             argMultimap =

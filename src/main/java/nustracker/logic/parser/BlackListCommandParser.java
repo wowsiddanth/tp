@@ -17,7 +17,7 @@ public class BlackListCommandParser implements Parser<BlackListCommand> {
     public BlackListCommand parse(String args) throws ParseException {
         requireNonNull(args);
 
-        ArgumentMultimap argMultimap = null;
+        ArgumentMultimap argMultimap;
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(args,

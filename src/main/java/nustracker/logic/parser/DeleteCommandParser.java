@@ -25,7 +25,7 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
      */
     public DeleteCommand parse(String args) throws ParseException {
 
-        ArgumentMultimap argMultimap = null;
+        ArgumentMultimap argMultimap;
 
         try {
             argMultimap =

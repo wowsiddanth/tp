@@ -18,7 +18,7 @@ public class RemoveCommandParser implements Parser<RemoveCommand> {
     public RemoveCommand parse(String args) throws ParseException {
         requireNonNull(args);
 
-        ArgumentMultimap argMultimap = null;
+        ArgumentMultimap argMultimap;
 
         try {
             argMultimap = ArgumentTokenizer.tokenize(args,

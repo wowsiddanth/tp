@@ -24,7 +24,7 @@ public class CreateCommandParser implements Parser<CreateCommand> {
     @Override
     public CreateCommand parse(String args) throws ParseException {
 
-        ArgumentMultimap argMultimap = null;
+        ArgumentMultimap argMultimap;
 
         try {
             argMultimap =
