@@ -14,6 +14,11 @@
 }
 
 @font-face {
+    font-family: "Open Sans Bold";
+    src: url("/fonts/open-sans/OpenSans-Bold.ttf");
+}
+
+@font-face {
     font-family: "Open Sans Bold Italic";
     src: url("/fonts/open-sans/OpenSans-BoldItalic.ttf");
 }
@@ -59,11 +64,11 @@
 }
 
 @font-face {
-    font-family: "Spartan-Bold";
+    font-family: "Spartan Bold";
     src: url("/fonts/spartan/Spartan-Bold.ttf");
 }
 
 @font-face {
-    font-family: "Spartan-ExtraBold";
+    font-family: "Spartan Extra Bold";
     src: url("/fonts/spartan/Spartan-ExtraBold.ttf");
 }
