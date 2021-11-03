@@ -19,9 +19,9 @@ All these things can be done through a simple and intuitive Command Line Interfa
 ## Getting Started
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
-Mac user: Please start the jar file via the terminal! If you do not, the files may not be created due to 
-current Mac security restrictions on file creation. For Window user, it is recommended that the jar be started
-via the terminal as well.
+Mac users: Please start the jar file via the terminal (See: Opening via Terminal)! If you do not, the files may not be created due to 
+current Mac security restrictions on file creation. For Window users, it is also recommended that the jar be started
+via the terminal as well (but double-clicking should work fine).
 </div>
 
 **You finally have your hands on _*nustracker*_. Great! Let's learn how to use it now.**
@@ -32,8 +32,17 @@ via the terminal as well.
 
 3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for nustracker. <br><br>
 
-4. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. The app already contains some sample data. <br><br>
+4. For Windows Users (**Macs users see Step 5!**): 
 
+
+5. For Mac Users: 
+   1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
+   2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called nustracker,
+      you would type `cd Desktop/nustracker/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
+   3. Type the following command: `java -jar nustracker.jar`.
+
+
+6. You should see the following:
    ![Ui](images/Ui.png)
 
 
@@ -110,6 +119,7 @@ The following is a description of the general layout of nustracker.
 ![general-layout](images/user-guide/general-layout.png)
 
 1. **Top bar**
+ 
     * **Refresh**<br>
         Refreshes the currently displayed students/events. Press this button when you add profile pictures.
 
@@ -131,13 +141,16 @@ The following is a description of the general layout of nustracker.
     * **Exit**<br>
       Exit nustracker.
 
-2. **Command bar**<br>
+3. **Command bar**
+ 
     This space is for the user (you) to type in the commands. For more information about commands, see the section below.
  
-3. **Result Display**<br>
+4. **Result Display**
+
     The empty box directly below the command bar is the result display, where error/success messages are displayed.
  
-4. **Students**<br>
+5. **Students**
+ 
     The students, their information, and the events they are taking part in are displayed here.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -181,6 +194,8 @@ So, in the case of Sae Byeok, her fields would be:
 The fields do not have to be any specific order. So, name can come before major etc.
 </div>
 
+Using the fields above, type this into the command box: `add n/Sae Byeok Fair m/CS id/e1111111 y/1 p/87438007 e/saebyeok@example.com` and press **Enter**.
+
 After entering the command and pressing **Enter**, nustracker should look like this:
 ![added-first-student](images/user-guide/after-pressing-enter.PNG)
 
@@ -198,7 +213,7 @@ So, in the case of Imaginary Fair, it would be:
 - `EVENT_DATE`: 01-12-2021
 - `EVENT_TIME`: 0900
 
-Like before, enter the command into the command box and press **Enter**.
+Using the fields above, type this into the command box: `event n/Imaginary Fair d/01-12-2021 t/0900` and press **Enter**.
 
 To check if it has been created, you can either type `events` into the command box or press the **Events** button in the top bar
 (_if you are unsure about the buttons, refer [here](#general-layout)._)
