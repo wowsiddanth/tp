@@ -99,6 +99,13 @@ in clubs and societies—specifically **student and event management**.
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
+* However, commands that take in parameters cannot contain extraneous prefixes nor slashes.
+
+* This means none of the input parameters should contain any slashes, since slashes are used to identify prefixes.
+
+* If a command is entered with the correct prefixes but multiple inputs to the prefixes are not accepted, 
+the error message shown would be based on the leftmost invalid prefix parameter in the command's command format.
+
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
@@ -348,6 +355,7 @@ Adds an event to nustracker
 Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
 
 - Event name cannot be empty.
+- Event name cannot contain the slash character as slashes are used to identify prefixes.
 
 - Event date has to be in the format `DD-MM-YYYY`.
     - DD represents the day (from 01-31 inclusive)

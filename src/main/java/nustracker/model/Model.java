@@ -7,6 +7,8 @@ import javafx.collections.ObservableList;
 import nustracker.commons.core.GuiSettings;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.student.Email;
+import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 
@@ -96,16 +98,34 @@ public interface Model {
      * Gets a Student by his/her studentId.
      * Null is returned if {@code StudentId} does not exist in the address book.
      *
-     * @param studentId The student's studentId
+     * @param studentId The student's studentId.
      * @return The student that has the same studentId as the given ID.
      */
     Student getStudent(StudentId studentId);
 
     /**
+     * Gets a Student by his/her Phone.
+     * Null is returned if {@code Phone} does not exist in any {@code Student} in the address book.
+     *
+     * @param phone The student's phone.
+     * @return The student that has the same Phone number as the given Phone.
+     */
+    Student getStudentByPhone(Phone phone);
+
+    /**
+     * Gets a Student by his/her Email.
+     * Null is returned if {@code Email} does not exist in any {@code Student} in the address book.
+     *
+     * @param email The student's email.
+     * @return The student that has the same Email as the given Email.
+     */
+    Student getStudentByEmail(Email email);
+
+    /**
      * Gets an event by its name.
      * Null is returned if {@code name} does not exist in the address book.
      *
-     * @param name The name of the event
+     * @param name The name of the event.
      * @return The event that has the same EventName as the given name.
      */
     Event getEvent(EventName name);
