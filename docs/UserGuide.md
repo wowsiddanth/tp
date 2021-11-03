@@ -193,7 +193,7 @@ But, before we do anything, let’s set the premise. Imagine that you are the ma
 It plans on holding a fair—appropriately titled the Imaginary Fair—on the 1st of December 2021, at 9am.
 
 Here are the particulars of our first member and participant: <br><br>
-**Name**: Sae-Byeok <br> <img style="float: right;" height="140" width="140" alt="" src="images/user-guide/introduction.png"/>
+**Name**: Sae Byeok <br> <img style="float: right;" height="140" width="140" alt="" src="images/user-guide/sae-byeok.gif"/>
 **Phone number**: 87438007 <br>
 **Major**: CS <br>
 **Year**: 1 <br>

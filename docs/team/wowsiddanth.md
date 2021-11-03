@@ -5,7 +5,7 @@ title: wowsiddanth's Project Portfolio Page
 
 ### Project: NUSTracker
 
-_NUSTracker_ is an event-management software that was built specifically for the NUS student/manpower executive in mind. It is
+__*nustracker*__ is an event-management software that was built specifically for the NUS student/manpower executive in mind. It is
 a brownfield project that extends the AddressBook3 project, which is around 10kLoC.
 
 * **New Feature**: Redesign Person class to behave like a Student class
