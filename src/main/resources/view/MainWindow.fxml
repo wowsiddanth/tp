@@ -32,25 +32,15 @@
             <Insets left="10" right="5" />
           </padding>
 
-          <Text fill="#fdb703" text="nus" translateY="-5.0">
-                  <font>
-                     <Font name="System Bold" size="40.0" />
-                  </font>
-          </Text>
-          <Text fill="#377adf" text="tracker" translateY="-5.0">
-            <font>
-              <Font name="System Bold" size="40.0" />
-            </font>
-          </Text>
+          <Text fill="#fdb703" text="nus" translateY="-5.0" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 40"/>
+          <Text fill="#377adf" text="tracker" translateY="-5.0" style="-fx-font-family: 'Open Sans Bold'; -fx-font-size: 40" />
 
           <Pane prefHeight="54.0" prefWidth="59.0" HBox.hgrow="ALWAYS" />
           <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" translateX="-30.0" translateY="8.0">
                   <graphic>
-                     <ImageView fitHeight="21.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../images/refresh.png" />
-                        </image>
-                     </ImageView>
+                    <ImageView fitHeight="21.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                      <Image url="@../images/refresh.png"/>
+                    </ImageView>
                   </graphic></Button>
           <Button mnemonicParsing="false" onAction="#changeTheme" prefHeight="38.0" prefWidth="65.0" translateX="-26.0" translateY="8.0">
             <graphic>
