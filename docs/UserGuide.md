@@ -18,6 +18,12 @@ All these things can be done through a simple and intuitive Command Line Interfa
 
 ## Getting Started
 
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+Mac user: Please start the jar file via the terminal! If you do not, the files may not be created due to 
+current Mac security restrictions on file creation. For Window user, it is recommended that the jar be started
+via the terminal as well.
+</div>
+
 **You finally have your hands on _*nustracker*_. Great! Let's learn how to use it now.**
 
 1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
