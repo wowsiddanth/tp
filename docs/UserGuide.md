@@ -10,13 +10,13 @@ title: User Guide
 As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
 
 All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using **nustracker**.
-<h2 align="center">Let's jump right into nustracker!</h2>
+<h1 align="center"> Let's get started with nustracker!</h1>
 
+<br><br>
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
-
 ## Getting Started
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
@@ -28,7 +28,7 @@ current Mac security restrictions on file creation.
 via the terminal as well (but double-clicking should work fine).
 </div>
 
-**You finally have your hands on _***nustracker***_. Great! Let's learn how to use it now.**
+**You finally have your hands on nustracker. Great! Let's learn how to use it now.**
 
 1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
 
@@ -37,20 +37,21 @@ via the terminal as well (but double-clicking should work fine).
 3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for **nustracker**. <br><br>
 
 4. For Windows Users (**Macs users see Step 5!**): 
+    1. Double-click the jar file.
 
 
 5. For Mac Users: 
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
    2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called **nustracker**,
-      you would type `cd Desktop/**nustracker**/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
-   3. Type the following command: `java -jar nustracker.jar`.
+      you would type `cd Desktop/nustracker/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
+   3. Type the following command: `java -jar nustracker.jar`. 
 
 
 6. You should see the following:
    ![Ui](images/Ui.png)
 
 
-****nustracker** is now up and running on your system! To getting started, we suggest this flow:**
+**nustracker** is now up and running on your system! To getting started, we suggest this flow:
 1. [General Layout](#general-layout)
 2. [Basics of **nustracker**](#basics-of-**nustracker**)
 3. [List of Commands](#student-commands)
