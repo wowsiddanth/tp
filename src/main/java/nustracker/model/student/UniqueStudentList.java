@@ -70,6 +70,40 @@ public class UniqueStudentList implements Iterable<Student> {
 
     }
 
+    /**
+     * Gets a Student by his/her Phone.
+     * Null is returned if the {@code Student} with this {@code Phone} does not exist.
+     *
+     * @param phone The student's phone.
+     * @return The student that has the same Phone number as the given Phone, null if that student does not exist.
+     */
+    public Student getByPhone(Phone phone) {
+        for (Student currStudent : internalUnmodifiableList) {
+            if (currStudent.getPhone().equals(phone)) {
+                return currStudent;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets a Student by his/her Email.
+     * Null is returned if the {@code Student} with this {@code Email} does not exist.
+     *
+     * @param email The student's email.
+     * @return The student that has the same Email as the given Email, null if that student does not exist.
+     */
+    public Student getByEmail(Email email) {
+        for (Student currStudent : internalUnmodifiableList) {
+            if (currStudent.getEmail().equals(email)) {
+                return currStudent;
+            }
+        }
+
+        return null;
+    }
+
 
     /**
      * Replaces the student {@code target} in the list with {@code editedStudent}.

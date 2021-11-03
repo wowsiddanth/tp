@@ -1,5 +1,6 @@
 package nustracker.logic.parser;
 
+import static nustracker.commons.core.Messages.MESSAGE_COMMAND_EXTRANEOUS_SLASHES;
 import static nustracker.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static nustracker.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static nustracker.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
@@ -64,7 +65,8 @@ public class EditCommandParserTest {
         CommandParserTestUtil.assertParseFailure(parser, "1 some random string", MESSAGE_INVALID_FORMAT);
 
         // invalid prefix being parsed as preamble
-        CommandParserTestUtil.assertParseFailure(parser, "1 i/ string", MESSAGE_INVALID_FORMAT);
+        CommandParserTestUtil.assertParseFailure(parser, "1 i/ string",
+                String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES, EditCommand.MESSAGE_USAGE));
     }
 
     @Test
