@@ -130,11 +130,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         StudentId[] studentIds = new StudentId[splitStudentIds.length];
 
         for (int i = 0; i < studentIds.length; i++) {
-            try {
-                studentIds[i] = ParserUtil.parseStudentId(splitStudentIds[i]);
-            } catch (ParseException e) {
-                throw e;
-            }
+            studentIds[i] = ParserUtil.parseStudentId(splitStudentIds[i]);
         }
 
         return studentIds;
