@@ -2,14 +2,15 @@
 layout: page
 title: User Guide
 ---
+<p align="center">
+  <img width="200" src="images/user-guide/nustracker-logo.PNG">
+</p>
+**nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
-****nustracker**** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
+As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
 
-As an event director/student leader, you will be able to add students and events into ****nustracker**** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. ****nustracker**** is also customized to your needs, and is simple, intuitive and easy to pick up.
-
-All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using ****nustracker****.
-
-
+All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using **nustracker**.
+<h2 align="center">Let's jump right into nustracker!</h1>
 
 * Table of Contents
 {:toc}
@@ -19,8 +20,11 @@ All these things can be done through a simple and intuitive Command Line Interfa
 ## Getting Started
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
-Mac users: Please start the jar file via the terminal (See: Opening via Terminal)! If you do not, the files may not be created due to 
-current Mac security restrictions on file creation. For Window users, it is also recommended that the jar be started
+
+**For Mac users**: Please start the jar file via the terminal (See: Opening via Terminal)! If you do not, the files may not be created due to 
+current Mac security restrictions on file creation. 
+
+**For Window users**: it is also recommended that the jar be started
 via the terminal as well (but double-clicking should work fine).
 </div>
 
@@ -28,9 +32,9 @@ via the terminal as well (but double-clicking should work fine).
 
 1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
 
-2. Download the latest `**nustracker**.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
+2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
 
-3. Copy the `**nustracker**.jar` to the folder you want to use as the _home folder_ for **nustracker**. <br><br>
+3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for **nustracker**. <br><br>
 
 4. For Windows Users (**Macs users see Step 5!**): 
 
@@ -39,7 +43,7 @@ via the terminal as well (but double-clicking should work fine).
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
    2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called **nustracker**,
       you would type `cd Desktop/**nustracker**/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
-   3. Type the following command: `java -jar **nustracker**.jar`.
+   3. Type the following command: `java -jar nustracker.jar`.
 
 
 6. You should see the following:
@@ -54,7 +58,7 @@ via the terminal as well (but double-clicking should work fine).
 _If you are an experienced user, you can jump straight to the [List of Commands](#student-commands)._
 
 
-**Get ready for an unprecedented overhaul in student and event management using **nustracker**!**
+Get ready for an unprecedented overhaul in student and event management using **nustracker**!
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -167,7 +171,7 @@ But, before we do anything, let’s set the premise. Imagine that you are the ma
 It plans on holding a fair—appropriately titled the Imaginary Fair—on the 1st of December 2021, at 9am.
 
 Here are the particulars of our first member and participant: <br><br>
-**Name**: Sae-Byeok <br> <img style="float: right;" height="200" width="200" alt="" src="images/user-guide/introduction.png"/>
+**Name**: Sae-Byeok <br> <img style="float: right;" height="140" width="140" alt="" src="images/user-guide/introduction.png"/>
 **Phone number**: 87438007 <br>
 **Major**: CS <br>
 **Year**: 1 <br>
@@ -557,7 +561,7 @@ customized to your liking.
 ### Setting a profile picture
 **nustracker** has the ability to add a profile picture to a student. Follow the steps given to add a picture:
 
-1. If you have not started ****nustracker**** before, run **nustracker** within a folder of your choice.
+1. If you have not started **nustracker** before, run **nustracker** within a folder of your choice.
 
 2. Once it runs, a folder called _**profile-pictures**_ is created within the folder that contains **nustracker**.
 
