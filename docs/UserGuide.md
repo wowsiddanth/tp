@@ -5,11 +5,29 @@ title: User Guide
 <p align="center">
   <img width="200" src="images/user-guide/nustracker-logo.PNG">
 </p>
+
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
 As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
 
 All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using **nustracker**.
+
+
+You might see text formatted within colored boxes, so here's a quick run-through what they mean:
+
+<div markdown="span" class="alert alert-info"> :label: **Tip:**:
+Stuff written here serves as additional information.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Here, tips are given.
+</div>
+
+<div markdown="span" class="alert alert-danger">:bulb: **Caution:**
+Whilst here, very important warnings are given. As such, it is imperative your read this or nustracker 
+might behave unexpectedly!
+</div>
+
 <h1 align="center"> Let's get started with nustracker!</h1>
 
 <br><br>
@@ -19,12 +37,12 @@ All these things can be done through a simple and intuitive Command Line Interfa
 --------------------------------------------------------------------------------------------------------------------
 ## Getting Started
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
+<div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br>
 
-**For Mac users**: Please start the jar file via the terminal (See: Opening via Terminal)! If you do not, the files may not be created due to 
-current Mac security restrictions on file creation. 
+**For Mac OS users**: Please start the jar file via the terminal (see: step 4 below). If you do not, the files may not be created due to 
+current Mac OS security restrictions on file creation. 
 
-**For Window users**: it is also recommended that the jar be started
+**For Windows users**: it is also recommended that the jar be started
 via the terminal as well (but double-clicking should work fine).
 </div>
 
@@ -36,15 +54,15 @@ via the terminal as well (but double-clicking should work fine).
 
 3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for **nustracker**. <br><br>
 
-4. For Windows Users (**Macs users see Step 5!**): 
+4. For Windows Users (**Mac OS user see Step 5**)
     1. Double-click the jar file.
 
 
 5. For Mac Users: 
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
-   2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called **nustracker**,
-      you would type `cd Desktop/nustracker/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
-   3. Type the following command: `java -jar nustracker.jar`. 
+   2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called **myfolder**,
+      you would type `cd /Desktop/myfolder/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
+   3. Type the following command into the Terminal: `java -jar nustracker.jar`. 
 
 
 6. You should see the following:
@@ -53,7 +71,7 @@ via the terminal as well (but double-clicking should work fine).
 
 **nustracker** is now up and running on your system! To getting started, we suggest this flow:
 1. [General Layout](#general-layout)
-2. [Basics of **nustracker**](#basics-of-**nustracker**)
+2. [Basics of nustracker](#basics-of-**nustracker**)
 3. [List of Commands](#student-commands)
 
 _If you are an experienced user, you can jump straight to the [List of Commands](#student-commands)._
@@ -498,6 +516,7 @@ Command: `delete ev/EVENT_NAME`
 Examples:
 * `delete ev/Orientation` deletes the event with the name `Orientation`.
 * `delete ev/Sports Camp` deletes the event with the name `Sports Camp`.
+ 
 --------------------------------------------------------------------------------------------------------------------
 ## Other Commands
 
