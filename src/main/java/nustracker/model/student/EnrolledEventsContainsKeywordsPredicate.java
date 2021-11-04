@@ -28,15 +28,6 @@ public class EnrolledEventsContainsKeywordsPredicate implements Predicate<Studen
         return student.getEvents().isEnrolledInEvent(keyword);
     }
 
-    /**
-     * Returns the keyword.
-     *
-     * @return the keyword.
-     */
-    public EventName getKeyword() {
-        return keyword;
-    }
-
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
