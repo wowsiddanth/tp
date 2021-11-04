@@ -40,7 +40,7 @@ public class FilterCommandParserTest {
     }
 
     @Test
-    public void parse_emptyPreamble() {
+    public void parse_emptyStudentIdPrefix() {
         CommandParserTestUtil.assertParseFailure(parser, " " + PREFIX_STUDENTID,
                 String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
     }
