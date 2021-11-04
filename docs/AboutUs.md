@@ -43,7 +43,7 @@ You can reach us through the [team repository](https://github.com/AY2122S1-CS210
 <img src="images/joel-sung.png" width="200px">
 
 [[github](http://github.com/joelsung)]
-[[portfolio](team/joelsung.md)]
+[[portfolio](team/joel-sung.md)]
 
 * Role: Team lead
 * Responsibilities: Overall project coordination + Project documentation quality

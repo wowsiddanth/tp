@@ -1,7 +1,8 @@
 package nustracker.logic.commands;
 
-import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
+import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,6 @@ import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
 import nustracker.testutil.StudentBuilder;
-import nustracker.testutil.TypicalStudents;
 
 
 /**
@@ -23,7 +23,7 @@ public class AddCommandIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+        model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     }
 
     @Test
@@ -40,7 +40,8 @@ public class AddCommandIntegrationTest {
     @Test
     public void execute_duplicateStudent_throwsCommandException() {
         Student studentInList = model.getAddressBook().getStudentList().get(0);
-        assertCommandFailure(new AddCommand(studentInList), model, AddCommand.MESSAGE_DUPLICATE_STUDENT);
+        assertCommandFailureShownStudentList(new AddCommand(studentInList), model,
+                AddCommand.MESSAGE_DUPLICATE_STUDENT);
     }
 
 }

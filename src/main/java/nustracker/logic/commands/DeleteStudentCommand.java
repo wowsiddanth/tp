@@ -8,6 +8,7 @@ import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Deletes a student identified by his/her student ID.
@@ -28,7 +29,8 @@ public class DeleteStudentCommand extends DeleteCommand {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model,
+                                 CurrentlyShownList currentlyShownList) throws CommandException {
         requireNonNull(model);
 
         Student toDelete = model.getStudent(studentId);

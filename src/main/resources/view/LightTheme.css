@@ -28,21 +28,22 @@
 
 /**========================================= End of Student Card =====================================================*/
 
+/**========================================= Start of Color picker ===================================================*/
+
+.color-palette .hyperlink {
+    visibility: hidden ;
+}
+
+.color-picker .label {
+    -fx-font-family: "Open Sans";
+}
+
+/**========================================= End of Color picker =====================================================*/
+
 /**========================================= Start of Titled Pane ====================================================*/
 
 .titled-pane:default {
     -fx-text-fill: white;
-}
-
-.titled-pane:focused > .title {
-    -fx-color: #FDB703;
-}
-
-.titled-pane > .title {
-    -fx-background-color: #f2f2f2, #f2f2f2, #FFFFFF;
-    -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 5 5 0 0, 4 4 0 0, 3 3 0 0;
-    -fx-padding: 0.166667em 0.833333em 0.25em 0.833333em; /* 2 10 3 10 */
 }
 
 /**========================================= End of Titled Pane ======================================================*/
@@ -67,8 +68,8 @@
 
 .result-display {
     -fx-background-color: transparent;
-    -fx-font-family: "Open Sans Light Bold";
-    -fx-font-size: 16pt;
+    -fx-font-family: "Open Sans Light";
+    -fx-font-size: 14pt;
     -fx-text-fill: black;
 }
 
@@ -105,7 +106,7 @@
 
 .button:pressed, .button:default:hover:pressed {
     -fx-text-fill: #779CFF;
-    -fx-font-family: Roboto-Bold;
+    -fx-font-family: "Roboto Bold";
 }
 
 /**========================================= End of buttons ==========================================================*/
@@ -183,6 +184,7 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+    -fx-font-family: "Open Sans";
 }
 
 #blacklist .label {
@@ -192,6 +194,7 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+    -fx-font-family: "Open Sans";
 }
 
 /**==========================================End of participant label ================================================*/

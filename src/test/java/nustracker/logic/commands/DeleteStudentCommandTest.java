@@ -1,8 +1,9 @@
 package nustracker.logic.commands;
 
-import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
+import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 import static nustracker.testutil.TypicalStudents.STUDENTID_MISSING;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
@@ -18,7 +19,7 @@ import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
 import nustracker.model.student.Student;
-import nustracker.testutil.TypicalStudents;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 
 /**
@@ -27,7 +28,7 @@ import nustracker.testutil.TypicalStudents;
  */
 public class DeleteStudentCommandTest {
 
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_validStudentIdUnfilteredList_success() {
@@ -45,11 +46,11 @@ public class DeleteStudentCommandTest {
     public void execute_invalidStudentIdUnfilteredList_throwsCommandException() {
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
         try {
-            deleteStudentCommand.execute(model);
+            deleteStudentCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
         } catch (CommandException e) {
             e.printStackTrace();
         }
-        assertCommandFailure(deleteStudentCommand, model,
+        assertCommandFailureShownStudentList(deleteStudentCommand, model,
                 String.format(Messages.MESSAGE_INVALID_STUDENTID, STUDENTID_MISSING));
     }
 
@@ -74,7 +75,7 @@ public class DeleteStudentCommandTest {
 
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(STUDENTID_MISSING);
 
-        assertCommandFailure(deleteStudentCommand, model,
+        assertCommandFailureShownStudentList(deleteStudentCommand, model,
                 String.format(Messages.MESSAGE_INVALID_STUDENTID, STUDENTID_MISSING));
     }
 

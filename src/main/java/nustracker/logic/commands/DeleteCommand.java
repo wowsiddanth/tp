@@ -17,4 +17,8 @@ public abstract class DeleteCommand extends Command {
             + "Example: " + COMMAND_WORD + " " + PREFIX_STUDENTID + "e1234567\n"
             + "Parameters:" + PREFIX_EVENT + "[Event name]\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_EVENT + "Orientation";
+
+    public static final String ONE_PREFIX_ONLY = COMMAND_WORD
+            + ": Deletes only a student OR an event. Do not include both id/ and ev/ prefixes in one delete command.\n"
+            + "Run 2 separate delete commands if necessary.";
 }

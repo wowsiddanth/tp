@@ -8,6 +8,7 @@ import static nustracker.logic.parser.CliSyntax.PREFIX_YEAR;
 
 import nustracker.logic.commands.exceptions.CommandException;
 import nustracker.model.Model;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Filters and lists all students whose data contain a specific field.
@@ -17,7 +18,7 @@ public abstract class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Filters all students by name, student ID, major, year,or Events"
+            + ": Filters all students by name, student ID, major, year, or Events "
             + "by the specified keywords.\n"
             + "Parameters: " + PREFIX_NAME + "STUDENT_NAME [MORE_STUDENT_NAMES]... \n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice bob charlie\n"
@@ -32,5 +33,6 @@ public abstract class FilterCommand extends Command {
 
 
     @Override
-    public abstract CommandResult execute(Model model) throws CommandException;
+    public abstract CommandResult execute(Model model,
+                                          CurrentlyShownList currentlyShownList) throws CommandException;
 }

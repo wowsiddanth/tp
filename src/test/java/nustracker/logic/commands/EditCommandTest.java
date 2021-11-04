@@ -1,5 +1,6 @@
 package nustracker.logic.commands;
 
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
 import static nustracker.testutil.TypicalStudents.STUDENTID_TWO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -18,7 +19,6 @@ import nustracker.model.student.StudentId;
 import nustracker.testutil.EditStudentDescriptorBuilder;
 import nustracker.testutil.StudentBuilder;
 import nustracker.testutil.TypicalIndexes;
-import nustracker.testutil.TypicalStudents;
 
 
 /**
@@ -26,12 +26,13 @@ import nustracker.testutil.TypicalStudents;
  */
 public class EditCommandTest {
 
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        Student editedStudent = new StudentBuilder().build();
-        EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent).build();
+        Student editedStudent = new StudentBuilder().withMajor("IS").build();
+        EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent)
+                .withMajor("IS").build();
         EditCommand editCommand = new EditCommand(
                 STUDENTID_ONE,
                 descriptor);
@@ -110,7 +111,8 @@ public class EditCommandTest {
                 STUDENTID_TWO,
                 descriptor);
 
-        CommandTestUtil.assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model,
+                String.format(EditCommand.MESSAGE_DUPLICATE_STUDENT, "the STUDENT ID " + firstStudent.getStudentId()));
     }
 
     @Test
@@ -124,7 +126,8 @@ public class EditCommandTest {
                 STUDENTID_ONE,
                 new EditStudentDescriptorBuilder(studentInList).build());
 
-        CommandTestUtil.assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model,
+                String.format(EditCommand.MESSAGE_DUPLICATE_STUDENT, "the STUDENT ID " + studentInList.getStudentId()));
     }
 
     @Test
@@ -136,7 +139,7 @@ public class EditCommandTest {
                 studentId,
                 descriptor);
 
-        CommandTestUtil.assertCommandFailure(editCommand,
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand,
                 model,
                 String.format(Messages.MESSAGE_INVALID_STUDENTID, studentId.getStudentIdString()));
     }
@@ -163,7 +166,7 @@ public class EditCommandTest {
         assertFalse(standardCommand.equals(null));
 
         // different types -> returns false
-        assertFalse(standardCommand.equals(new ClearCommand()));
+        assertFalse(standardCommand.equals(new StudentsCommand()));
 
         // different student ID -> returns false
         assertFalse(standardCommand.equals(new EditCommand(

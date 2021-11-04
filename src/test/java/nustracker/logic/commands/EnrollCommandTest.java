@@ -1,7 +1,7 @@
 package nustracker.logic.commands;
 
 //import static nustracker.logic.commands.CommandTestUtil.VALID_EVENTNAME_TEST;
-//import static nustracker.logic.commands.CommandTestUtil.assertCommandFailure;
+//import static nustracker.logic.commands.CommandTestUtil.assertCommandFailureShownStudentList;
 //import static nustracker.logic.commands.CommandTestUtil.assertCommandSuccess;
 //import static nustracker.logic.commands.CommandTestUtil.showStudentAtIndex;
 //import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
@@ -18,13 +18,11 @@ package nustracker.logic.commands;
 //import nustracker.commons.core.index.Index;
 //import nustracker.model.AddressBook;
 
+import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
+
 import nustracker.model.Model;
 import nustracker.model.ModelManager;
 import nustracker.model.UserPrefs;
-//import nustracker.model.student.EnrolledEvents;
-//import nustracker.model.student.Student;
-//import nustracker.testutil.StudentBuilder;
-import nustracker.testutil.TypicalStudents;
 
 /**
  * Contains methods for testing the event commands
@@ -33,7 +31,7 @@ class EnrollCommandTest {
 
     private static final String EVENT_STUB = "Some event";
 
-    private Model model = new ModelManager(TypicalStudents.getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     //    @Test
     //    void execute_addEventUnfilteredList_success() {
@@ -103,7 +101,8 @@ class EnrollCommandTest {
     //        EnrollCommand enrollCommand = new EnrollCommand(outOfBoundIndex,
     //                  new EnrolledEvents(VALID_EVENTNAME_TEST));
     //
-    //        assertCommandFailure(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+    //        assertCommandFailureShownStudentList(enrollCommand, model,
+    //                                             Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     //    }
     //
     //    @Test
@@ -116,6 +115,7 @@ class EnrollCommandTest {
     //        EnrollCommand enrollCommand = new EnrollCommand(outOfBoundIndex,
     //                  new EnrolledEvents(VALID_EVENTNAME_TEST));
     //
-    //        assertCommandFailure(enrollCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+    //        assertCommandFailureShownStudentList(enrollCommand, model,
+    //                                             Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     //    }
 }

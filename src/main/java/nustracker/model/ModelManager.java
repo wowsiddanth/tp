@@ -13,7 +13,9 @@ import nustracker.commons.core.LogsCenter;
 import nustracker.commons.util.CollectionUtil;
 import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
+import nustracker.model.student.Email;
 import nustracker.model.student.Major;
+import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 
@@ -108,7 +110,7 @@ public class ModelManager implements Model {
 
     @Override
     public void deleteStudent(Student target) {
-        addressBook.removeStudent(target);
+        addressBook.removeStudent(target, this);
         Major.removeStudent(target);
     }
 
@@ -132,6 +134,16 @@ public class ModelManager implements Model {
     @Override
     public Student getStudent(StudentId studentId) {
         return addressBook.getStudent(studentId);
+    }
+
+    @Override
+    public Student getStudentByPhone(Phone phone) {
+        return addressBook.getStudentByPhone(phone);
+    }
+
+    @Override
+    public Student getStudentByEmail(Email email) {
+        return addressBook.getStudentByEmail(email);
     }
 
     @Override

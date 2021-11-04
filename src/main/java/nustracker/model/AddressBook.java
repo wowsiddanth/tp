@@ -15,9 +15,13 @@ import nustracker.model.event.Event;
 import nustracker.model.event.EventName;
 import nustracker.model.event.Participant;
 import nustracker.model.event.UniqueEventList;
+import nustracker.model.student.Email;
+import nustracker.model.student.EnrolledEvents;
+import nustracker.model.student.Phone;
 import nustracker.model.student.Student;
 import nustracker.model.student.StudentId;
 import nustracker.model.student.UniqueStudentList;
+import nustracker.ui.MainWindow.CurrentlyShownList;
 
 /**
  * Wraps all data at the address-book level
@@ -116,15 +120,35 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Gets a student from the address book by his/her student ID.
      *
      * @param studentId the relevant student ID.
-     * @return the {@code Student} with this studentId, null if the student does not exist.
+     * @return the {@code Student} with this studentId, null if that student does not exist.
      */
     public Student getStudent(StudentId studentId) {
         return students.get(studentId);
     }
 
     /**
+     * Gets a Student by his/her Phone.
+     *
+     * @param phone The corresponding student's phone.
+     * @return The student with this Phone number, null if that student does not exist.
+     */
+    public Student getStudentByPhone(Phone phone) {
+        return students.getByPhone(phone);
+    }
+
+    /**
+     * Gets a Student by his/her Email.
+     *
+     * @param email The corresponding student's email.
+     * @return The student with this Email, null if that student does not exist.
+     */
+    public Student getStudentByEmail(Email email) {
+        return students.getByEmail(email);
+    }
+
+    /**
      * Gets an event from the address book by its name.
-     * Returns null if event does not exist.
+     * Returns null if that event does not exist.
      */
     public Event getEvent(EventName name) {
         return events.get(name);
@@ -157,8 +181,29 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removeStudent(Student key) {
-        students.remove(key);
+    public void removeStudent(Student key, Model currModel) {
+        // Before removing the student, we remove the student from all their enrolled events first.
+        EnrolledEvents enrolledEvents = key.getEvents();
+        Set<Event> upToDateEventSet = enrolledEvents.getAllEventsEnrolledIn(currModel);
+        StudentId currStudentId = key.getStudentId();
+
+        for (Event currEvent : upToDateEventSet) {
+
+            RemoveCommand currRemoveCmd = new RemoveCommand(currStudentId, currEvent.getName());
+
+            try {
+                CommandResult currCmdResult = currRemoveCmd.execute(currModel, CurrentlyShownList.STUDENTS_LIST);
+            } catch (CommandException e) {
+                // Means either Invalid Student ID (Not possible)
+                // or invalid event name (Not possible)
+                // or the student does not have this event in its EnrolledEvents (Not Possible)
+            }
+        }
+
+        // Key does not exist in model anymore since it was modified when being removed from events
+        Student newKey = currModel.getStudent(currStudentId);
+
+        students.remove(newKey);
     }
 
     /**
@@ -181,7 +226,8 @@ public class AddressBook implements ReadOnlyAddressBook {
             RemoveCommand currRemoveCmd = new RemoveCommand(currStudentId, key.getName());
 
             try {
-                CommandResult currCmdResult = currRemoveCmd.execute(currModel);
+                CommandResult currCmdResult = currRemoveCmd.execute(currModel,
+                        CurrentlyShownList.STUDENTS_LIST);
             } catch (CommandException e) {
                 // Means either Invalid Student ID (Not possible)
                 // or invalid event name (Not possible)
@@ -190,7 +236,10 @@ public class AddressBook implements ReadOnlyAddressBook {
             }
         }
 
-        events.remove(key);
+        // key does not exist in model anymore since it was modified when removing all participants
+        Event newKey = currModel.getEvent(key.getName());
+
+        events.remove(newKey);
 
     }
 
