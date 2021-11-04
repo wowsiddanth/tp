@@ -18,6 +18,7 @@ Class StudentCard
 Class EventCard
 Class StatusBarFooter
 Class CommandBox
+Class ThemeApplier
 }
 
 package Model <<Rectangle>> {
@@ -38,14 +39,16 @@ MainWindow *-down-> "1" ResultDisplay
 MainWindow *-down-> "1" StudentListPanel
 MainWindow *-down-> "1" EventListPanel
 MainWindow *-down-> "1" StatusBarFooter
-MainWindow -down-> "0..1" HelpWindow
-MainWindow -down-> "0..1" SettingsWindow
+MainWindow *-down-> "0..1" HelpWindow
+MainWindow *-down-> "0..1" SettingsWindow
+MainWindow <-down-> "1" ThemeApplier
+ThemeApplier -down-> "1" HelpWindow
+ThemeApplier -down-> "1" SettingsWindow
 
 StudentListPanel -down-> "*" StudentCard
 EventListPanel -down-> "*" EventCard
 
-MainWindow -left-|> UiPart
-
+MainWindow --|> UiPart
 ResultDisplay --|> UiPart
 CommandBox --|> UiPart
 StudentListPanel --|> UiPart
