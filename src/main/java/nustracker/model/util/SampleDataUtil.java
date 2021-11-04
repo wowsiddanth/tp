@@ -83,8 +83,12 @@ public class SampleDataUtil {
                     new EventDate("01-08-2022"),
                     new EventTime("0900"),
                     new HashSet<>(List.of(
-                            new Participant("e1111111"),
-                            new Participant("e3223223"))
+                            new Participant("e1234567"),
+                            new Participant("e1123911"),
+                            new Participant("e1231418"),
+                            new Participant("e9102931"),
+                            new Participant("e1237781"),
+                            new Participant("e1238811"))
                     ),
                     new HashSet<Participant>()
             ),
@@ -92,23 +96,24 @@ public class SampleDataUtil {
                     new EventDate("10-09-2021"),
                     new EventTime("1200"),
                     new HashSet<>(List.of(
-                            new Participant("e3223223"))
+                            new Participant("e1239191"),
+                            new Participant("e1231910"))
                     ),
                     new HashSet<Participant>(List.of(
-                            new Participant("e1111111"),
-                            new Participant("e0000007"))
+                            new Participant("e1913019"),
+                            new Participant("e1238811"))
                     )
             ),
             new Event(new EventName("Math Olympiad"),
                     new EventDate("05-03-2017"),
                     new EventTime("1615"),
                     new HashSet<>(List.of(
-                            new Participant("e0542362"),
-                            new Participant("e9654321"),
-                            new Participant("e7307307"))
+                            new Participant("e1123911"),
+                            new Participant("e1238811"),
+                            new Participant("e1231910"))
                     ),
                     new HashSet<Participant>(List.of(
-                            new Participant("e3223223"))
+                            new Participant("e1239191"))
                     )
             ),
         };
@@ -121,8 +126,25 @@ public class SampleDataUtil {
         }
         for (Event sampleEvent : getSampleEvents()) {
             sampleAb.addEvent(sampleEvent);
+
+            Set<Student> sampleStudentParticipants = sampleEvent.getParticipantsAsStudents(sampleAb);
+            for (Student sampleStudent : sampleStudentParticipants) {
+
+
+                EnrolledEvents currentlyEnrolledEvents = sampleStudent.getEvents();
+                EnrolledEvents updatedEnrolledEvents = currentlyEnrolledEvents.enrollIntoEvent(sampleEvent);
+
+                Student sampleEnrolledStudent = new Student(
+                        sampleStudent.getName(), sampleStudent.getPhone(), sampleStudent.getEmail(),
+                        sampleStudent.getYear(), sampleStudent.getMajor(), sampleStudent.getStudentId(),
+                        updatedEnrolledEvents);
+
+                sampleAb.setStudent(sampleStudent, sampleEnrolledStudent);
+            }
+
         }
         return sampleAb;
+
     }
 
     /**

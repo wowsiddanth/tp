@@ -1,5 +1,9 @@
 package nustracker.logic.parser;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
 /**
  * Contains Command Line Interface (CLI) syntax definitions common to multiple commands
  */
@@ -16,5 +20,27 @@ public class CliSyntax {
     public static final Prefix PREFIX_TIME = new Prefix("t/");
     public static final Prefix PREFIX_EVENT = new Prefix("ev/");
     public static final Prefix PREFIX_FILENAME = new Prefix("fn/");
+
+    /**
+     * Gets a list of all the valid prefixes for NUSTracker.
+     *
+     * @return the list of prefixes in an ArrayList.
+     */
+    public static ArrayList<Prefix> getAllValidPrefixes() {
+        ArrayList<Prefix> allPrefixes = new ArrayList<>(
+                Arrays.asList(PREFIX_NAME,
+                        PREFIX_PHONE,
+                        PREFIX_EMAIL,
+                        PREFIX_YEAR,
+                        PREFIX_MAJOR,
+                        PREFIX_STUDENTID,
+                        PREFIX_DATE,
+                        PREFIX_TIME,
+                        PREFIX_EVENT,
+                        PREFIX_FILENAME)
+        );
+
+        return allPrefixes;
+    }
 
 }

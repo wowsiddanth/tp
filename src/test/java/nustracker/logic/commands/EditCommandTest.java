@@ -30,8 +30,9 @@ public class EditCommandTest {
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        Student editedStudent = new StudentBuilder().build();
-        EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent).build();
+        Student editedStudent = new StudentBuilder().withMajor("IS").build();
+        EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent)
+                .withMajor("IS").build();
         EditCommand editCommand = new EditCommand(
                 STUDENTID_ONE,
                 descriptor);
@@ -110,7 +111,8 @@ public class EditCommandTest {
                 STUDENTID_TWO,
                 descriptor);
 
-        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model,
+                String.format(EditCommand.MESSAGE_DUPLICATE_STUDENT, "the STUDENT ID " + firstStudent.getStudentId()));
     }
 
     @Test
@@ -124,7 +126,8 @@ public class EditCommandTest {
                 STUDENTID_ONE,
                 new EditStudentDescriptorBuilder(studentInList).build());
 
-        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
+        CommandTestUtil.assertCommandFailureShownStudentList(editCommand, model,
+                String.format(EditCommand.MESSAGE_DUPLICATE_STUDENT, "the STUDENT ID " + studentInList.getStudentId()));
     }
 
     @Test
