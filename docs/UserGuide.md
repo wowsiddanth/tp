@@ -38,7 +38,7 @@ Whilst here, very important warnings are given. As such, it is imperative your r
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br><br>
 
-**For Mac OS users**: Please start the .jar file via the terminal (see: step 4 below). If you do not, the files may not be created due to 
+**For Mac OS users**: Please start the .jar file via the terminal (see: step 5 below). If you do not, the files may not be created due to 
 current Mac OS security restrictions on file creation. <br><br>
 **For Windows users**: it is also recommended that the .jar be started
 via the terminal as well (but double-clicking should work fine).
@@ -50,7 +50,7 @@ via the terminal as well (but double-clicking should work fine).
 
 2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
 
-3. Copy the `nustracker.jar` to the folder you want to use as the _home folder_ for **nustracker**. <br><br>
+3. Copy the `nustracker.jar` to the folder you want to use as the _containing folder_ for **nustracker**. We recommend something easy to type, like _myfolder_.<br><br>
 
 4. For Windows Users (**Mac OS user see Step 5**)
     1. Double-click the jar file.<br><br>
@@ -67,10 +67,10 @@ via the terminal as well (but double-clicking should work fine).
 
 **nustracker** is now up and running on your system! To getting started, we suggest this flow:
 1. [General Layout](#general-layout)
-2. [Basics of nustracker](#basics-of-**nustracker**)
+2. [Basics of nustracker](#basics-of-nustracker)
 3. [List of Commands](#student-commands)
 
-_If you are an experienced user, you can jump straight to the [List of Commands](#student-commands)._
+_If you are an experienced user, you can jump straight to the [List of Commands](#command-summary);
 
 
 Get ready for an unprecedented overhaul in student and event management using **nustracker**!
@@ -105,36 +105,6 @@ in clubs and societies—specifically **student and event management**.
     One of the key points of **nustracker** is its customization. For more information, see [Customization](#customization).
 
 
-<div markdown="block" class="alert alert-info">
-
-**:label: Notes about the command format:**<br>
-
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-
-* Items in square brackets are optional.<br>
-  e.g. `n/NAME [m/MAJOR]` can be used as `n/John Doe m/CS` or as `n/John Doe`.
-
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[y/YEAR]…​` can be used as ` ` (i.e. 0 times), `y/1`, `y/ 1 2 3` etc.
-
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE`, `p/PHONE n/NAME` is also acceptable.
-
-* If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
-  e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
-
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
-
-* However, commands that take in parameters cannot contain extraneous prefixes nor slashes.
-
-* This means none of the input parameters should contain any slashes, since slashes are used to identify prefixes.
-
-* If a command is entered with the correct prefixes but multiple inputs to the prefixes are not accepted, 
-the error message shown would be based on the leftmost invalid prefix parameter in the command's command format.
-
-</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -167,10 +137,11 @@ The following is a description of the general layout of **nustracker**.
     * **Exit**<br>
       Exit **nustracker**.
 
-3. **Command bar**
- 
-    This space is for the user (you) to type in the commands. For more information about commands, see the section below.
- 
+2. **Command bar**
+
+    This space is for you to type in your commands. For more information about commands, either check out 
+    our step-by-step [guide](#basics-of-nustracker) or the [commands section](#commands-section).
+
 4. **Result Display**
 
     The empty box directly below the command bar is the result display, where error/success messages are displayed.
@@ -180,7 +151,7 @@ The following is a description of the general layout of **nustracker**.
     The students, their information, and the events they are taking part in are displayed here.
 
 --------------------------------------------------------------------------------------------------------------------
-## Basics of **nustracker**
+## Basics of nustracker
 
 <div markdown="span" class="alert alert-info"> :label:
 The next few section assume that **nustracker** is empty, and that we are adding our first student. When you first open **nustracker**,
@@ -265,7 +236,7 @@ Using the fields above, type this into the command box: `enroll id/e1111111 ev/I
 
 If done correctly, this change should be reflected in both Sae Byeok's particulars and the Imaginary Fair's details.
 
-![student-card](images/user-guide/sae-byeok-student-card.PNG)
+![student-card](images/user-guide/sae-byeok-student-card.PNG)<br>
 _Under Enrolled Events, Sae Byeok is enrolled in the Imaginary Fair_ <br>
 
 ![event-card](images/user-guide/Event%20Card.PNG)
@@ -273,13 +244,13 @@ _Under participants, there is a participants with Student ID `e111111` or Sae By
 
 
 **Congratulations!** You have made it to the end of this very brief tutorial to adding your first student, creating your
-first event, and then adding that student to the event! But remember, **nustracker** is much more powerful that this!
+first event, and then adding that student to the event! But remember, **nustracker** is much more powerful than this!
 
 You can:
-- Edit the Sae Byeok's details
+- Edit Sae Byeok's details
 - Delete events
 - Blacklist students
-- Export the entire list of students
+- Export the emails of the entire list of students
 - Add profile pictures
 - And much _much_ more!
 
@@ -287,7 +258,41 @@ For a more comprehensive list of commands, please refer to the sections below or
 
 You're on your way to becoming an **nustracker** pro!
 
---------------------------------------------------------------------------------------------------------------------
+----------
+## Commands Section
+
+<div markdown="block" class="alert alert-info">
+
+**:label: Notes about the command format:**<br>
+
+* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+
+* Items in square brackets are optional.<br>
+  e.g. `n/NAME [m/MAJOR]` can be used as `n/John Doe m/CS` or as `n/John Doe`.
+
+* Items with `…`​ after them can be used multiple times including zero times.<br>
+  e.g. `[y/YEAR]…​` can be used as ` ` (i.e. 0 times), `y/1`, `y/ 1 2 3` etc.
+
+* Parameters can be in any order.<br>
+  e.g. if the command specifies `n/NAME p/PHONE`, `p/PHONE n/NAME` is also acceptable.
+
+* If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+  e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
+
+* Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, `exit` and `clear`) will be ignored.<br>
+  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+
+* However, commands that take in parameters cannot contain extraneous prefixes nor slashes.
+
+* This means none of the input parameters should contain any slashes, since slashes are used to identify prefixes.
+
+* If a command is entered with the correct prefixes but multiple inputs to the prefixes are not accepted,
+  the error message shown would be based on the leftmost invalid prefix parameter in the command's command format.
+
+</div>
+
+----------
 ## Student Commands
 ### Adding a student: `add`
 
