@@ -40,4 +40,4 @@ Given below are my contributions to the project.
 * **Community**:
     * [Reviewed multiple PRs](https://github.com/AY2122S1-CS2103T-T11-1/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Arehad-a).
     * Reported bugs and suggestions for other team's product.
-    
+ 
