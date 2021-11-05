@@ -44,12 +44,6 @@ public class ImageEditorTest {
         assertFalse(ImageEditor.isValidColorHexCode(""));
     }
 
-    //EP: Invalid glow color (Null)
-    @Test
-    public void invalidColor_null_false() {
-        assertFalse(ImageEditor.isValidColorHexCode(null));
-    }
-
     //EP: Valid glow color (Green)
     @Test
     public void correctGlowColor_greenHexCode_greenGlow() {
@@ -121,7 +115,7 @@ public class ImageEditorTest {
         assertEquals(ImageEditor.DEFAULT_COLOR, dropShadow.getColor());
     }
 
-    //EP: Valid stroke color (green)
+    //EP: Valid stroke color (Green)
     @Test
     public void correctStrokeColor_green_greenStroke() {
         testCircle = new Circle();
@@ -134,7 +128,7 @@ public class ImageEditorTest {
         assertEquals(Color.web(testColorHexCode), testCircle.getStroke());
     }
 
-    //EP: Valid stroke color (pink)
+    //EP: Valid stroke color (Neon pink)
     @Test
     public void correctStrokeColor_pink_pinkStroke() {
         testCircle = new Circle();
@@ -147,7 +141,7 @@ public class ImageEditorTest {
         assertEquals(Color.web(testColorHexCode), testCircle.getStroke());
     }
 
-    //EP: Invalid stroke color (random hex code)
+    //EP: Invalid stroke color (Random hex code)
     @Test
     public void incorrectStrokeColor_random_whiteStroke() {
         testCircle = new Circle();
