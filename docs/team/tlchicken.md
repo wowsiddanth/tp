@@ -6,7 +6,7 @@ title: Elvis Teo's Project Portfolio Page
 ### Project: nustracker
 
 NUSTracker is a standalone desktop app that aims to help event directors and administrative personnel of
-student organisations from NUS School of Computing to manage the organisation of undergraduate student events more easily.
+student organisations from the NUS School of Computing to manage the organisation of undergraduate student events more easily.
 It is built on top of **[AddressBook - Level 3](https://se-education.org/addressbook-level3)**, which is a desktop address book application used for teaching Software Engineering principles. 
 
 Given below are my contributions to the project.
@@ -14,7 +14,7 @@ Given below are my contributions to the project.
 * **New Feature**: Added the ability to enroll students into events.
   * What it does: `enroll` - Allows the user to enroll students into the events that the students want to participate in.
   * Justification: This feature forms part of the base product as it allows students to be used together with events.
-  * Highlights: This implementation was challenging as it required interaction between 2 different sets of classes which contain a wide array of subclasses - Student and Event, while making them all work together.
+  * Highlights: This implementation was challenging as it required interlinking 2 different sets of classes which contain a wide array of subclasses - Student and Event, making them all work together.
   It was also tricky to devise a way to load the current enrolled events of a student from the JSON file, as all students and events have to be loaded fully first before this can happen.
 
 * **New Feature**: Added the ability to remove students from events.
