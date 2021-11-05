@@ -8,9 +8,11 @@ title: User Guide
 
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
-As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
+As an event director and student leader, you will be able to add students and events into **nustracker** and use it to keep track event attendance, blacklist students, etc. These are just _some_ of the features and there will be more to come in the future. **nustracker** is customized to your needs—simple, intuitive, and easy to pick up.
 
-All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using **nustracker**.
+All these things can be done through a simple and intuitive Command Line Interface (CLI), whilst being complimented by a detailed and elegant interface. 
+
+This document will guide you through on how to start using **nustracker**.
 
 
 You might see text formatted within colored boxes, so here's a quick run-through what they mean:
@@ -40,7 +42,7 @@ Whilst here, very important warnings are given. As such, it is imperative your r
 
 **For Mac OS users**: Please start the .jar file via the terminal (see: step 5 below). If you do not, the files may not be created due to 
 current Mac OS security restrictions on file creation. <br><br>
-**For Windows users**: it is also recommended that the .jar be started
+**For Windows users**: It is also recommended that the .jar be started
 via the terminal as well (but double-clicking should work fine).
 </div>
 
@@ -57,7 +59,7 @@ via the terminal as well (but double-clicking should work fine).
 
 5. For Mac Users: 
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
-   2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop, and is called **myfolder**,
+   2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop and is called **myfolder**,
       you would type `cd /Desktop/myfolder/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
    3. Type the following command into the Terminal: `java -jar nustracker.jar`. <br><br>
 
@@ -68,9 +70,9 @@ via the terminal as well (but double-clicking should work fine).
 **nustracker** is now up and running on your system! To getting started, we suggest this flow:
 1. [General Layout](#general-layout)
 2. [Basics of nustracker](#basics-of-nustracker)
-3. [List of Commands](#student-commands)
+3. [Commands](#commands-section)
 
-_If you are an experienced user, you can jump straight to the [List of Commands](#command-summary)._
+_If you are an experienced CLI user, you can jump straight to the [Command Summary](#command-summary)._
 
 
 Get ready for an unprecedented overhaul in student and event management using **nustracker**!
@@ -294,6 +296,16 @@ You're on your way to becoming an **nustracker** pro!
 
 ----------
 ## Student Commands
+
+1. [**Adding a student**](#adding-a-student-add)
+2. [**Listing all students**](#listing-all-students-students)
+3. [**Editing a student**](#editing-a-student--edit)
+4. [**Deleting a student**](#deleting-a-student--delete)
+5. [**Filtering students**](#filtering-students-filter)
+6. [**Delete shown students**](#delete-shown-students--delfiltered)
+7. [**Blacklist students**](#blacklisting-students-blacklist)
+8. [**Whitelist students**](#whitelisting-students-whitelist)
+
 ### Adding a student: `add`
 
 Adds a student to **nustracker**
@@ -426,7 +438,7 @@ command to delete students based on a certain criteria.
 Command: `delfiltered`
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
-Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in **nustracker** would be deleted since all of them are shown.
+Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in **nustracker** will be deleted since all of them are shown.
 </div>
 
 * This command can only be used when **nustracker** is showing the Student list.
