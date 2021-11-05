@@ -297,14 +297,14 @@ You're on your way to becoming an **nustracker** pro!
 ----------
 ## Student Commands
 
-1. [**Adding a student**](#adding-a-student-add)
-2. [**Listing all students**](#listing-all-students-students)
-3. [**Editing a student**](#editing-a-student--edit)
-4. [**Deleting a student**](#deleting-a-student--delete)
-5. [**Filtering students**](#filtering-students-filter)
-6. [**Delete shown students**](#delete-shown-students--delfiltered)
-7. [**Blacklist students**](#blacklisting-students-blacklist)
-8. [**Whitelist students**](#whitelisting-students-whitelist)
+1. [Adding a student](#adding-a-student-add)
+2. [Listing all students](#listing-all-students-students)
+3. [Editing a student](#editing-a-student--edit)
+4. [Deleting a student](#deleting-a-student--delete)
+5. [Filtering students](#filtering-students-filter)
+6. [Delete shown students](#delete-shown-students--delfiltered)
+7. [Blacklist students](#blacklisting-students-blacklist)
+8. [Whitelist students](#whitelisting-students-whitelist)
 
 ### Adding a student: `add`
 
@@ -481,6 +481,12 @@ Examples:
 ## Event Commands
 ### Creating an event: `create`
 
+1. [Creating an event](#creating-an-event-create)
+2. [Listing all events](#listing-all-events--events)
+3. [Enrolling a student in an event](#enrolling-a-student--enroll)
+4. [Removing a student from an event](#removing-a-student--remove)
+5. [Deleting an event](#deleting-an-event--delete)
+
 Adds an event to **nustracker**
 
 Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
@@ -509,7 +515,7 @@ Shows all events in the app.
 
 Format: `events`
 
-### Enrolling a student : `enroll`
+### Enrolling a student in an event : `enroll`
 
 Enrolls the specified student into the specified event.
 
@@ -523,7 +529,7 @@ Examples:
 * `enroll id/e0544111 ev/CS1101S Mock PE` enrolls the specified student with student ID e0544111 into the event "CS1101S Mock PE".
 * `enroll id/e0322322 ev/Orientation Camp` enrolls the specified student with student ID e0322322 into the event "Orientation Camp".
 
-### Removing a student : `remove`
+### Removing a student from an event : `remove`
 
 Removes the specified student from the specified event.
 
@@ -562,6 +568,13 @@ I.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed.
 
 --------------------------------------------------------------------------------------------------------------------
 ## Other Commands
+
+1. [Viewing help](#viewing-help--help)
+2. [Viewing the settings](#viewing-the-settings-settings)
+3. [Exporting Emails](#exporting-emails--export)
+4. [Refreshing the main window](#refreshing-the-main-window)
+5. [Changing the theme](#changing-the-theme-theme)
+6. [Exiting the program](#exiting-the-program--exit)
 
 ### Viewing help : `help`
 
@@ -612,6 +625,10 @@ Command: `exit`
 
 ---------------------------------------------------------------------------------------
 ## Customization
+
+1. [Changing between Light/Dark theme](#changing-between-lightdark-theme)
+2. [Setting a profile picture](#setting-a-profile-picture)
+3. [Changing the glow of the profile picture](#changing-the-_glow_-of-the-profile-picture-border)
 
 Another key feature of **nustracker** is its ability to be customized greatly. This section covers how **nustracker** can be
 customized to your liking.
