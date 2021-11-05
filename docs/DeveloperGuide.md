@@ -98,7 +98,7 @@ The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `Re
 The `UI` component uses the JavaFX UI framework and heavily utilizes CSS as well. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml) is specified in [`MainWindow.fxml`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The styling for the UI components is controlled by the DarkTheme.css and LightTheme.css files. These .css files
-are also switched for every componenet whenever the user requests a change in theme, via the `ThemeApplier`.
+are also switched for every component whenever the user requests a change in theme, via the `ThemeApplier`.
 
 The `UI` component,
 
