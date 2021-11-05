@@ -647,20 +647,20 @@ customized to your liking.
 1. Open up the **Settings** window either by clicking the **Settings** button or by typing in `settings` into the command box.
  
 
-2. Click the dropdown menu, and pick a color. 
+2. Click the dropdown menu, and pick a color. You can pick a custom color as well. <br><br>
 
    ![pre-selected](images/user-guide/pre-selected.PNG)
 
-    *You can choose one of the pre-selected colors.* 
+    *You can choose one of the pre-selected colors.*
+ 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The fields do not have to be any specific order. So, name can come before major etc.
+Advanced users: You can manually input your own color hex code in preferences.json! (If it is incorrect,
+the glow will always appear white).
 </div>
 
 3. This change is **immediate**, and does not require a restart.
- 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Advanced users: You can manually input your own color hex code in the preferences.json file!
-</div>
+
+Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
 
 ### 4. Customization FAQs
  
