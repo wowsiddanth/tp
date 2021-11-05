@@ -70,7 +70,7 @@ via the terminal as well (but double-clicking should work fine).
 2. [Basics of nustracker](#basics-of-nustracker)
 3. [List of Commands](#student-commands)
 
-_If you are an experienced user, you can jump straight to the [List of Commands](#command-summary);
+_If you are an experienced user, you can jump straight to the [List of Commands](#command-summary)._
 
 
 Get ready for an unprecedented overhaul in student and event management using **nustracker**!
