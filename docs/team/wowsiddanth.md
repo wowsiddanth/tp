@@ -5,7 +5,7 @@ title: wowsiddanth's Project Portfolio Page
 
 ### Project: nustracker
 
-![siddanth](names/siddanth.png)
+![siddanth](names/siddanth.PNG)
 
 __*nustracker*__ is an event-management software that was built specifically for the NUS student/manpower executive in mind. It is
 a brownfield project that extends the AddressBook3 project, which is around 10kLoC.
@@ -70,8 +70,16 @@ a brownfield project that extends the AddressBook3 project, which is around 10kL
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `add` and `delete` [\#27](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/27)A 
+    * Added documentation for the features `add` and `delete` ([#27](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/27)).
+    * Added documentation for the features `refresh` and `theme` ([#144](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/144))
+    * Added _'Adding your first student', 'Adding your first event', and 'Adding your first student to your first event'_ sections to the UG ([#223](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/223)).
+    * Added _'Customization'_ section to the UG. ([#132](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/132/files)) 
+    * Added _'General Layout'_ section to the UG. ([#132](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/132/files))
+    * Edited _'Features'_ section of the UG. ([#123](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/123), [#223](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/223))
+    * Rephrased many paragraphs, formatted whitespaces, etc. 
+    
   * Developer Guide:
+    * Edit UML diagram for UI component, and add more description about the different components ([#102](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/102))
     * Edit Developer Guide to add use cases for add/delete student information
 
 
@@ -81,5 +89,5 @@ a brownfield project that extends the AddressBook3 project, which is around 10kL
 
 
 * **Tools**:
-  * Integrated a new Github plugin (CircleCI) to the team repo
+  * Integrated a new GitHub plugin (CircleCI) to the team repo
 
