@@ -728,7 +728,7 @@ The folder `C:\Users\JohnDoe\data` is also where exported files are contained!
 <div markdown="span" class="alert alert-danger">
 
 :exclamation: **Caution:**
-_Please edit carefully! **nustracker** will start a fresh run if errors are present!_
+Please edit carefully! **nustracker** will reset your data to the default data if any errors are present. We recommend that you make a backup of the file first just in case.
 
 </div>
 
