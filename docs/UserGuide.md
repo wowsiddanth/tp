@@ -3,7 +3,9 @@ layout: page
 title: User Guide
 ---
 <p align="center">
+
   <img width="200" src="images/user-guide/nustracker-logo.PNG">
+
 </p>
 
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
@@ -86,7 +88,7 @@ Get ready for an unprecedented overhaul in student and event management using **
 **nustracker** was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum in clubs and societies—specifically **student and event management**.
 
 
-### What can **nustracker** do?
+### What can nustracker do?
 1. **Keep track of students**
 
     **nustracker** displays all students currently associated with the organization neatly. The students have their details and a profile picture (optional) listed with them as well, allowing quick and convenient access to student particulars.
