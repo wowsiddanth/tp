@@ -411,6 +411,7 @@ Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STU
     - Multiple years.
     - **A single** event name.
 
+* This command can only be used when **nustracker** is showing the Student list.
 * You can only filter by one field (i.e. filter only by student ID, student name, year, major, or event name).
 * You have to filter by at least 1 parameter (simply typing `filter` will not work)
 * The search is case-insensitive. e.g. `n/john` will match with `n/JOHN`.
