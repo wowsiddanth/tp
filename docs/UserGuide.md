@@ -714,16 +714,32 @@ You have now learnt to customize **nustracker** to its fullest. Go ahead and pla
 
 The file is saved in a folder where you ran the application. If you ran the application in `C:\Users\JohnDoe`, the data file will be in `C:\Users\JohnDoe\data` and is named `addressbook.json`
 
+<div markdown="span" class="alert alert-info">
+
+:label: **Note:**
+The folder `C:\Users\JohnDoe\data` is also where exported files are contained!
+
+</div>
+
 ### Editing the data file
 
 **nustracker** data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
+<div markdown="span" class="alert alert-danger">
+
+:exclamation: **Caution:**
 _Please edit carefully! **nustracker** will start a fresh run if errors are present!_
+
+</div>
+
 
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
+
+**Q**: Is nustracker free?<br>
+**A**: Yes! nustracker is completely free to use.
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous **nustracker** home folder.
@@ -731,17 +747,11 @@ _Please edit carefully! **nustracker** will start a fresh run if errors are pres
 **Q**: Is my data in **nustracker** secure?<br>
 **A**: Yes! Your data is stored locally on your computer, so it cannot be stolen unless someone has physcial access to your computer.
 
-**Q**:<br>
-**A**:
+**Q**: Do I need an internet connection to use nustracker?<br>
+**A**: No. An internet connection is not required. nustracker can work completely offline.
 
-**Q**:<br>
-**A**:
-
-**Q**:<br>
-**A**:
-
-**Q**:<br>
-**A**:
+**Q**: Can I use nustracker on a mobile device?<br>
+**A**: Unfortunately not. nustracker is designed to work best on a desktop / laptop with the ability to make full use of the command line interface.
 
 **Q**: I noticed a bug in **nustracker**. How do I report it?<br>
 **A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a bug report, please visit the [issues](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues) page. Thank you for contributing to **nustracker**!
@@ -784,3 +794,4 @@ _Please edit carefully! **nustracker** will start a fresh run if errors are pres
 **[refresh](#refreshing-the-main-window-refresh)**| Refresh the main window | `refresh` |
 **[theme](#changing-the-theme-theme)** | Toggles the current theme | `theme` |
 **[exit](#exiting-the-program--exit)** | Exits the app | `exit` |
+
