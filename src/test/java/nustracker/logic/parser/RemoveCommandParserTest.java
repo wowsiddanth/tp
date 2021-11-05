@@ -25,7 +25,7 @@ import nustracker.model.student.StudentId;
 
 public class RemoveCommandParserTest {
 
-    private RemoveCommandParser RemoveCommandParser = new RemoveCommandParser();
+    private RemoveCommandParser removeCommandParser = new RemoveCommandParser();
 
     @Test
     public void parse_allFieldsSpecified_success() {
@@ -37,7 +37,7 @@ public class RemoveCommandParserTest {
 
         String input = STUDENTID_DESC_BOB + EVENTNAME_DESC_FINAL;
 
-        assertParseSuccess(RemoveCommandParser, input, expectedCommand);
+        assertParseSuccess(removeCommandParser, input, expectedCommand);
 
         // Whitespace Preamble
         expectedCommand = new RemoveCommand(
@@ -46,7 +46,7 @@ public class RemoveCommandParserTest {
 
         input = "                   " + STUDENTID_DESC_AMY + EVENTNAME_DESC_FINAL;
 
-        assertParseSuccess(RemoveCommandParser, input, expectedCommand);
+        assertParseSuccess(removeCommandParser, input, expectedCommand);
 
 
         // Multiple Student IDs
@@ -57,7 +57,7 @@ public class RemoveCommandParserTest {
         input = STUDENTID_DESC_AMY + EVENTNAME_DESC_TEST + STUDENTID_DESC_AMY
                 + STUDENTID_DESC_BOB + STUDENTID_DESC_BOB;
 
-        assertParseSuccess(RemoveCommandParser, input, expectedCommand);
+        assertParseSuccess(removeCommandParser, input, expectedCommand);
 
         // Multiple Events
         expectedCommand = new RemoveCommand(
@@ -67,7 +67,7 @@ public class RemoveCommandParserTest {
         input = EVENTNAME_DESC_TEST + EVENTNAME_DESC_FINAL + STUDENTID_DESC_BOB + EVENTNAME_DESC_TEST
                 + EVENTNAME_DESC_FINAL + EVENTNAME_DESC_TEST;
 
-        assertParseSuccess(RemoveCommandParser, input, expectedCommand);
+        assertParseSuccess(removeCommandParser, input, expectedCommand);
 
         // Invalid value followed by valid value
         expectedCommand = new RemoveCommand(
@@ -76,7 +76,7 @@ public class RemoveCommandParserTest {
 
         input = INVALID_STUDENTID_DESC + EVENTNAME_DESC_TEST + STUDENTID_DESC_BOB;
 
-        assertParseSuccess(RemoveCommandParser, input, expectedCommand);
+        assertParseSuccess(removeCommandParser, input, expectedCommand);
 
     }
 
@@ -86,19 +86,19 @@ public class RemoveCommandParserTest {
         String input = STUDENTID_DESC_AMY;
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemoveCommand.MESSAGE_USAGE);
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
         // Student ID Missing
         input = EVENTNAME_DESC_FINAL;
         expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemoveCommand.MESSAGE_USAGE);
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
         // Both missing
         input = "                                                                   ";
         expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemoveCommand.MESSAGE_USAGE);
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
     }
 
@@ -108,31 +108,31 @@ public class RemoveCommandParserTest {
         String input = "kalis mind364136431" + STUDENTID_DESC_AMY + EVENTNAME_DESC_FINAL;
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemoveCommand.MESSAGE_USAGE);
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
         // Extra unrelated parameter
         input = STUDENTID_DESC_AMY + EVENTNAME_DESC_FINAL + PHONE_DESC_BOB + YEAR_DESC_AMY;
         expectedMessage = String.format(MESSAGE_COMMAND_EXTRANEOUS_SLASHES, RemoveCommand.MESSAGE_USAGE);
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
         // Missing Prefix
         input = STUDENTID_DESC_BOB + VALID_EVENTNAME_TEST;
         expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemoveCommand.MESSAGE_USAGE);
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
         // Invalid Event Name
         input = STUDENTID_DESC_AMY + INVALID_EVENTNAME_DESC;
         expectedMessage = EventName.MESSAGE_CONSTRAINTS;
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
         // Invalid Student ID
         input = INVALID_STUDENTID_DESC + EVENTNAME_DESC_FINAL;
         expectedMessage = StudentId.MESSAGE_CONSTRAINTS;
 
-        assertParseFailure(RemoveCommandParser, input, expectedMessage);
+        assertParseFailure(removeCommandParser, input, expectedMessage);
 
 
     }
