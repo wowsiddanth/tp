@@ -4,14 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import javafx.scene.image.Image;
+import java.util.Objects;
+
 import org.junit.jupiter.api.Test;
 
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-
-import java.util.Objects;
 
 public class ImageEditorTest {
 
