@@ -658,11 +658,11 @@ Advanced users: You can manually input your own color hex code in preferences.js
 the glow will always appear white).
 </div>
 
-3. This change is **immediate**, and does not require a restart.
+ 3. This change is **immediate**, and does not require a restart.
 
 Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
 
-### 4. Customization FAQs
+### Customization FAQs
  
 **Q**: I have added the image, but it doesn't appear. <br>
 
