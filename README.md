@@ -26,18 +26,6 @@ While it has a GUI, most of the user interactions happen using a CLI (Command Li
 4. Easily export e-mails of a group of students
 5. Be customized to the user’s liking
 
-------
 
-### Getting Started With nustracker
-If you are interested in using nustracker, head over to the [_Getting Started_ section of the **User Guide**](UserGuide.html#getting-started).
-
-### Developer Guide
-If you are interested about developing nustracker, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
-
-### About Us
-If you are interested in learning about the team behind nustracker, head over to the [**About Us** page](AboutUs.html).
-
-### Acknowledgements
-
-Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+Check out the [**nustracker** website](https://ay2122s1-cs2103t-t11-1.github.io/tp/) to find out more about **nustracker**.
 

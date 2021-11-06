@@ -7,9 +7,7 @@ title: nustracker
 [![codecov](https://codecov.io/gh/AY2122S1-CS2103T-T11-1/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2122S1-CS2103T-T11-1/tp)
 
 
-<p align="center">
-  <img src="images/nustracker.png" />
-</p>
+![developer-guide](images/nustracker.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
