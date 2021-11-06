@@ -41,8 +41,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
-</div>
+:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder.
 
 ### Architecture
 
@@ -73,7 +72,7 @@ The rest of the App consists of four components.
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete id/e1234567`.
 
 ![Architecture Sequence Diagram](images/ArchitectureSequenceDiagram.png)
-_Sequence diagram of execution of delete id/e1234567_
+<br>_Sequence diagram of execution of delete id/e1234567_
 
 Each of the four main components (also shown in the diagram above),
 
@@ -98,7 +97,7 @@ The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `Re
 
 The `UI` component uses the JavaFX UI framework and heavily utilizes CSS as well. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml) is specified in [`MainWindow.fxml`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
-The styling for the UI components is controlled by the DarkTheme.css and LightTheme.css files. These .css files
+The styling for the UI components is controlled by the [`DarkTheme.css`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/DarkTheme.css) and [`LightTheme.css`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/LightTheme.css) files. These .css files
 are also switched for every component whenever the user requests a change in theme, via the `ThemeApplier`.
 
 The `UI` component,
@@ -106,7 +105,7 @@ The `UI` component,
 * executes user commands using the `Logic` component.
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Student` object residing in the `Model`.
+* depends on some classes in the `Model` component, as it displays `Student` objects residing in the `Model`.
 
 ### Logic component
 
@@ -122,9 +121,10 @@ How the `Logic` component works:
 1. The command can communicate with the `Model` when it is executed (e.g. to add a student).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned from `Logic`.
 
-The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete s/e0123456")` API call.
+The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete id/e0123456")` API call.
 
 ![Delete Sequence Diagram](images/DeleteSequenceDiagram.png)
+<br>_Detailed sequence diagram for delete id/e0123456_
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
@@ -187,7 +187,7 @@ The following sequence diagram shows how the create operation works:<br>
 ![CreateSequenceDiagram](images/CreateSequenceDiagram.png)
 _Sequence diagram for creating an event_<br>
 
-* Note that LogicManager is called using execute("create n/Orientation d/08-01-2021 t/1000"). This information was truncated to reduce clutter in diagram.<br>
+* Note that LogicManager is called using execute("create n/Orientation d/08-01-2021 t/1000"). This information was truncated to reduce clutter in the diagram.<br>
 * The event is only added if there are no other events in the model that have the same name. This is checked using the `hasEvent` method.
 
 The following sequence diagram shows how a create operation gets its arguments from the prefixes:
@@ -195,14 +195,15 @@ The following sequence diagram shows how a create operation gets its arguments f
 ![CreateParseArguments](images/CreateParseArguments.png)
 _Sequence diagram for parsing a create command's arguments_
 
-AddressBook contains a UniqueEventList to hold a list of events. UniqueEventList implements the [Iterable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html) interface and stores events in an [ObservableList](https://docs.oracle.com/javase/10/docs/api/javafx/collections/ObservableList.html).
+AddressBook contains a UniqueEventList to hold a list of events. UniqueEventList implements the [`Iterable<Event>`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html) interface and stores events in an [`ObservableList<Event>`](https://docs.oracle.com/javase/10/docs/api/javafx/collections/ObservableList.html).
 
-The following sequence diagram shows how the Model adds an event to the AddressBook:
+The following sequence diagram shows how an event is added to the UniqueEventList through the Model:
 
 ![AddEventToStorageSequenceDiagram](images/AddEventToStorageSequenceDiagram.png) <br>
-_Sequence diagram for adding an event to AddressBook_
+_Sequence diagram for adding an event to UniqueEventList_
 
 * The UniqueEventList checks for duplicate events using the `hasEvent` method before adding the event.
+* After the event is added, the UI is immediately updated and the new event is reflected as an `EventCard` in the `EventListPanel`.
 
 ### Exporting Feature
 
@@ -216,7 +217,7 @@ This feature comes with the following classes:
 The following sequence diagram shows how the export operation works:
 
 ![ExportSequenceDiagram](images/ExportSequenceDiagram.png)
-_Sequence diagram for exporting_
+<br>_Sequence diagram for exporting_
 
 #### Design Considerations
 * **Alternative 1 (current choice)**: Parameters are passed to the Exporting class to instruct it on how and what to export. There is only 1 Exporting class with 1 method.
@@ -224,8 +225,8 @@ _Sequence diagram for exporting_
     * Cons: The Exporting class might become convoluted and complicated as it gets updated in the future.
 * **Alternative 2**: Each command manages its own formatting and passes the formatted content to Exporting class.
     * Pros: Exporting class will have a very specific purpose and is very clear.
-    * Cons: Changes to a specific filetype might incur changes in many commands. (e.g. if the way that we export csv files are changed, then every command that exports as a csv file will have to change)
-* **Alternative 3**: Exporting class is extended to accommodate for filetypes, and also does the formatting of the data.
+    * Cons: Changes to a specific filetype might incur changes in many commands. (e.g. if the way that we export csv files is changed, then every command that exports as a csv file will have to change)
+* **Alternative 3**: Exporting class is extended to accommodate for filetypes, and also accounts for the formatting of the data.
     * Pros: Very structured, easy to extend and add new commands that require export. Easy to add new filetypes for exporting and change which filetypes different commands use.
     * Cons: Takes longer to implement than the other 2 options
 
@@ -249,7 +250,7 @@ Step 1. The user launches the application for the first time. The `VersionedAddr
 
 ![UndoRedoState0](images/UndoRedoState0.png)
 
-Step 2. The user executes `delete 5` command to delete the 5th student in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delete id/e1234567` command to delete the student with student ID "e1234567" in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete id/e1234567` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
 
 ![UndoRedoState1](images/UndoRedoState1.png)
 
@@ -259,7 +260,7 @@ Step 3. The user executes `add n/David …​` to add a new student. The `add` c
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
 
-</div>
+</div><br>
 
 Step 4. The user now decides that adding the student was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
 
@@ -281,16 +282,11 @@ The following sequence diagram shows how the undo operation works:
 The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+</div><br>
 
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
+Step 5. The user then decides to execute the command `events`. Commands that do not modify the address book, such as `events`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
 
 ![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
@@ -308,10 +304,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
     * Pros: Will use less memory (e.g. for `delete`, just save the student being deleted).
     * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -331,21 +323,19 @@ _{more aspects and alternatives to be added}_
 
 **Target user profile**:
 
-* manpower and administrative personnel of student organisations.
-* has a need to manage a significant number of NUS undergraduate students attendance information.
-* needs an app to collate NUS student events and their corresponding manpower
-  information in one place.
-* prefer desktop apps over other types.
-* can type fast.
-* prefers typing to mouse interactions.
+* manpower and administrative personnel of NUS student organisations.
+* has a need to manage the attendance of a significant number of students in their organisation.
+* needs an app to collate their organisation's events and their corresponding manpower/participants information in one place.
+* prefers desktop apps over other types.
+* can type fast and prefers typing to mouse interactions.
 * is reasonably comfortable using CLI apps.
 
 **Value proposition**:
 
-* able to store NUS undergraduate student information.
-* create and track attendance for NUS student events.
+* able to store information of students in an NUS student organisation.
+* create and track attendance for the organisation's events.
 * manage attendance more efficiently and faster than a typical mouse/GUI driven app.
-* automates a bulk of attendance management processes.
+* automates the extraction of the contact details (like email) of an event's participants.
 
 
 ### User stories
@@ -378,19 +368,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *  `  | user                                       | view event list of student                  | see what events a student has attended before or are attending |
 | `* *  `  | user                                       | filter students by major                    | find students of a particular major |
 | `* *  `  | user                                       | filter students by faculty                  | find students from a particular faculty |
-| `* *  `  | user                                       | open settings menu                          | adjust settings |
+| `* *  `  | user                                       | open settings menu                          | adjust the settings of the app to my preferences |
 | `* *  `  | user                                       | toggle between the events and students list | quickly and efficiently view the list I want to see |
 | `* *  `  | user                                       | use auto save                               | save the database constantly and automatically                             |
 | `*    `  | expert user                                | mass edit student data                      | update data of similar students more efficiently |
 
 
-*{More to be added}*
-
 ### Use cases
 
-For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the **user**, unless specified otherwise
-
-<br><br>
+For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the **user**, unless specified otherwise.
 
 **<u>Use case UC1 - Add a student</u>**
 
@@ -400,18 +386,18 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 1. User types in command
-2. AddressBook adds the user to the address book
-3. AddressBook displays that user has been added, and corresponding details
+2. nustracker adds the user to the address book
+3. nustracker displays that user has been added, and corresponding details
 
    Use case ends
 
 **Extensions:**
 * 1a. User types in an invalid format
-    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.
 
       Use case ends.
 
-<br><br>
+<br>
 
 **<u>Use case UC2 - Delete a student</u>**
 
@@ -422,22 +408,22 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 **MSS:**
 
 1. User requests to delete a specific student in the list
-2. AddressBook deletes the student, and informs user
+2. nustracker deletes the student, and informs user
 
     Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
-    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.
 
       Use case ends
   
 * 1b. The student does not exist.
-  * 1b1. AddressBook shows an error message, informing the user that the student does not exist.
+  * 1b1. nustracker shows an error message, informing the user that the student does not exist.
 
     Use case ends.
 
-<br><br>
+<br>
 
 **<u>Use case UC3 - Filter students by name</u>**
 
@@ -465,7 +451,7 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
         Use case ends.
 
-<br><br>
+<br>
 
 **<u>Use case UC4 - Filter students by student ID</u>**
 
@@ -494,7 +480,7 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
         Use case ends.
     
 
-<br><br>
+<br>
 
 **<u>Use case UC5 - Find the students attending a certain event</u>**
 
@@ -527,8 +513,8 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     * 2b1. nustracker displays an empty list.
 
         Use case ends.
- 
-<br><br>
+  
+<br>
 
 **<u>Use case UC6 - Filter students by year</u>**
 
@@ -562,9 +548,9 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
         Use case ends.
     
-<br><br>
+<br>
 
-**<u>Use case UC4 - Filter students by student ID</u>**
+**<u>Use case UC7 - Filter students by student ID</u>**
 
 **Preconditions:** -
 
@@ -594,9 +580,9 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     
         Use case ends.
 
-<br><br>
+<br>
 
-**<u>Use case UC5 - Find the students attending a certain event</u>**
+**<u>Use case UC8 - Find the students attending a certain event</u>**
 
 **Preconditions:** -
 
@@ -626,9 +612,9 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     
         Use case ends.
 
-<br><br>
+<br>
 
-**<u>Use case UC6 - Filter students by year</u>**
+**<u>Use case UC9 - Filter students by year</u>**
 
 **Preconditions:** -
 
@@ -664,9 +650,9 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
         
         Use case ends.
 
-<br><br>
+<br>
 
-**<u>Use case UC7 - Filter students by major</u>**
+**<u>Use case UC10 - Filter students by major</u>**
 
 **Preconditions:** -
 
@@ -702,9 +688,9 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
         
         Use case ends.
 
-<br><br>
+<br>
 
-**<u>Use case UC8 - Add an event</u>**
+**<u>Use case UC11 - Add an event</u>**
 
 **Preconditions:** -
 
@@ -713,26 +699,26 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 **MSS:**
 
 1. User types in command
-2. AddressBook adds the event to the address book
-3. AddressBook displays that the event has been added, and corresponding details
+2. nustracker adds the event to the address book
+3. nustracker displays that the event has been added, and corresponding details
 
     Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
-  * 1a1. AddressBook shows an error message, and displays the correct format to use.
+  * 1a1. nustracker shows an error message, and displays the correct format to use.
 
     Use case ends.
 
 
 * 1b. An event with the same name already exists in the address book.
-  * 1b1. AddressBook shows an error message, informing the user that an event with the same name already exists.
+  * 1b1. nustracker shows an error message, informing the user that an event with the same name already exists.
 
     Use case ends.
 
-<br><br>
+<br>
 
-**<u>Use case UC9 - Delete an event</u>**
+**<u>Use case UC12 - Delete an event</u>**
 
 **Preconditions:** -
 
@@ -741,17 +727,23 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 **MSS:**
 
 1. User types in command
-2. AddressBook deletes the event from the address book
-3. AddressBook displays that the event has been deleted, and corresponding details
-
+2. nustracker deletes the event from the address book
+3. nustracker displays that the event has been deleted, and corresponding details<br>
    Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
+  * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
+      Use case ends.
 
-<br><br>
 
-**<u>Use case UC10 - Blacklist a student</u>**
+* 1b. The event does not exist in the address book.
+    * 1b1. nustracker shows an error message, informing the user that the event does not exiss. <br>
+    Use case ends.
+
+<br>
+
+**<u>Use case UC13 - Blacklist a student</u>**
 
 **Preconditions:** -
 
@@ -760,32 +752,34 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 **MSS:**
 
 1. User types in command
-2. AddressBook adds student to the event's blacklist
-3. AddressBook displays that the student has been blacklisted
+2. nustracker adds student to the event's blacklist
+3. nustracker displays that the student has been blacklisted
 
    Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
-    * 1a1. AddressBook shows an error message, and displays the correct format to use.
-
+    * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
       Use case ends.
 
 
 * 1b. The event does not exist in the address book.
-    * 1b1. AddressBook shows an error message, informing the user that the event does not exist.
-
+    * 1b1. nustracker shows an error message, informing the user that the event does not exist.<br>
       Use case ends.
 
 
 * 1c. The student is already in the event's blacklist.
-    * 1b1. AddressBook shows an error message, informing the user that the student is already in the event's blacklist.
-
+    * 1c1. nustracker shows an error message, informing the user that the student is already in the event's blacklist.<br>
       Use case ends.
 
-<br><br>
 
-**<u>Use case UC11 - Whitelist a student</u>**
+* 1d. The student is enrolled in the event.
+    * 1d1. nustracker shows an error message, informing the user that the student is enrolled in the event.<br>
+      Use case ends.
+
+<br>
+
+**<u>Use case UC14 - Whitelist a student</u>**
 
 **Preconditions:** -
 
@@ -794,32 +788,32 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 **MSS:**
 
 1. User types in command
-2. AddressBook removes student from the event's blacklist
-3. AddressBook displays that the student has been removed from the blacklist
+2. nustracker removes student from the event's blacklist
+3. nustracker displays that the student has been removed from the blacklist
 
    Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
-    * 1a1. AddressBook shows an error message, and displays the correct format to use.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.
 
       Use case ends.
 
 
 * 1b. The event does not exist in the address book.
-    * 1b1. AddressBook shows an error message, informing the user that the event does not exist.
+    * 1b1. nustracker shows an error message, informing the user that the event does not exist.
 
       Use case ends.
 
 
 * 1c. The student is not in the event's blacklist.
-    * 1b1. AddressBook shows an error message, informing the user that the student is not in the event's blacklist.
+    * 1c1. nustracker shows an error message, informing the user that the student is not in the event's blacklist.
 
       Use case ends.
 
-<br><br>
+<br>
 
-**<u>Use case UC12 - Enroll a student into an event</u>**
+**<u>Use case UC15 - Enroll a student into an event</u>**
 
 **Preconditions:** -
 
@@ -836,24 +830,27 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **Extensions:**
 * 1a. User types in an invalid format.
-    * 1a1. nustracker shows an error message, and displays the correct format to use.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
       Use case ends.
 
+
 * 1b. The specified student does not exist in nustracker.
-    * 1b1. nustracker shows an error message, informing the user that the specified student does not exist.
+    * 1b1. nustracker shows an error message, informing the user that the specified student does not exist.<br>
     Use case ends.
 
+
 * 1c. The specified event does not exist in nustracker.
-    * 1c1. nustracker shows an error message, informing the user that the specified event does not exist.
+    * 1c1. nustracker shows an error message, informing the user that the specified event does not exist.<br>
   Use case ends.
+
 
 * 1d. The specified student is currently already enrolled into the event.
-    * 1d1. nustracker shows an error message, informing the user that the specified student is already currently enrolled.
+    * 1d1. nustracker shows an error message, informing the user that the specified student is already currently enrolled.<br>
   Use case ends.
 
-<br><br>
+<br>
 
-**<u>Use case UC13 - Remove a student from an event</u>**
+**<u>Use case UC16 - Remove a student from an event</u>**
 
 **Preconditions:** -
 
@@ -870,28 +867,28 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **Extensions:**
 * 1a. User types in an invalid format.
-    * 1a1. nustracker shows an error message, and displays the correct format to use.
-
+    * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
       Use case ends.
     
-* 1b. The specified student does not exist in the AddressBook.
-    * 1b1. nustracker shows an error message, informing the user that the specified student does not exist.
 
+* 1b. The specified student does not exist in the nustracker.
+    * 1b1. nustracker shows an error message, informing the user that the specified student does not exist.<br>
   Use case ends.
 
-* 1c. The specified event does not exist in the AddressBook.
-    * 1c1. nustracker shows an error message, informing the user that the specified event does not exist.
 
+* 1c. The specified event does not exist in the nustracker.
+    * 1c1. nustracker shows an error message, informing the user that the specified event does not exist.<br>
   Use case ends.
+
 
 * 1d. The specified student is not currently enrolled into the event.
-    * 1d1. nustracker shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.
-
+    * 1d1. nustracker shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.<br>
   Use case ends.
 
-<br><br>
 
-**<u>Use case UC14 - Exporting emails</u>**
+<br>
+
+**<u>Use case UC17 - Exporting emails</u>**
 
 **Preconditions:** -
 
@@ -907,25 +904,26 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **Extensions:**
 * 1a. User types in an invalid format.
-    * 1a1. nustracker shows an error message, and displays the correct format to use.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
       Use case ends.
 
+
 * 1b. User types in an invalid name for the save file.
-    * 1b1. nustracker shows an error message, informing the user that the file name they have chosen is invalid.
+    * 1b1. nustracker shows an error message, informing the user that the file name they have chosen is invalid.<br>
   Use case ends.
     
-<br><br>
+
+<br>
 
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 1.  Should be able to hold up to 40000 students and still be able to respond to user input within 2 seconds.
 1.  Should be able to hold a reasonable amount of events without any degradation in performance.
-1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands rather than using the mouse.
 1.  Should be able to save all data on local storage.
 1.  The application should work without having to be installed first.
 
-*{More to be added}*
 
 ### Glossary
 
@@ -951,7 +949,8 @@ testers are expected to do more *exploratory* testing.
 
     1. Download the jar file and copy into an empty folder
 
-    1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+    2. Double-click the jar file. <br>
+   Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
@@ -960,16 +959,17 @@ testers are expected to do more *exploratory* testing.
     1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+
+### Manual test cases:
 
 ### Deleting a student
 
 1. Deleting a student
 
-   1. Test case 1: `delete id/e3223223`<br>
-       Prerequisites: Load sample data or ensure a student with the student id e3223223 exists in the address book.
+   1. Test case 1: `delete id/1234567`<br>
+       Prerequisites: Load sample data or ensure a student with the student id e1234567 exists in the address book.
    
-       Expected: Student with student ID "e3223223" is deleted. Details of the deleted student shown in the status message. Timestamp in the status bar is updated.
+       Expected: Student with student ID "e1234567" is deleted. Details of the deleted student shown in the status message. Timestamp in the status bar is updated.
 
    2. Test case: `delete id/e0000000`<br>
      Prerequisites: Load sample data or ensure no student has the student id e0000000 exists in the address book.
@@ -982,13 +982,9 @@ testers are expected to do more *exploratory* testing.
    4. Other incorrect delete commands to try: `delete id/`, `delete id/abc`, `delete id/[incorrect student id format]` (correct student id format : `eXXXXXXX` where X is an integer from 0-9)<br>
       Expected: Similar to previous.
 
-3. _{ more test cases …​ }_
-
 ### Saving data
 
 1. Dealing with missing/corrupted data files
 
     1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
 
