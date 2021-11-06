@@ -284,7 +284,7 @@ _Sequence diagram for exporting_
 #### Design Considerations
 * **Alternative 1 (current choice)**: Parameters are passed to the Exporting class to instruct it on how and what to export. There is only 1 Exporting class with 1 method.
   * Pros: Commands are free from clutter, and all exporting changes are done in the Exporting class (i.e. formatting the string, choosing a filetype etc.)
-  * Cons: The Exporting class might become convoluted and complicated.
+  * Cons: The Exporting class might become convoluted and complicated as it gets updated in the future.
 * **Alternative 2**: Each command manages its own formatting and passes the formatted content to Exporting class.
   * Pros: Exporting class will have a very specific purpose and is very clear.
   * Cons: Changes to a specific filetype might incur changes in many commands. (e.g. if the way that we export csv files are changed, then every command that exports as a csv file will have to change)
