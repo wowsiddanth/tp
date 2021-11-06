@@ -72,7 +72,8 @@ The rest of the App consists of four components.
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete id/e1234567`.
 
-<img src="images/ArchitectureSequenceDiagram.png" width="574" />
+![Architecture Sequence Diagram](images/ArchitectureSequenceDiagram.png)
+_Sequence diagram of execution of delete id/e1234567_
 
 Each of the four main components (also shown in the diagram above),
 
@@ -123,7 +124,7 @@ How the `Logic` component works:
 
 The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete s/e0123456")` API call.
 
-<img src="images/DeleteSequenceDiagram.png" width="600"/>
+![Delete Sequence Diagram](images/DeleteSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
@@ -139,8 +140,7 @@ How the parsing works:
 ### Model component
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
-<img src="images/ModelClassDiagram.png" width="600" />
-
+![Model Class Diagram](images/ModelClassDiagram.png)
 
 The `Model` component,
 
@@ -152,16 +152,6 @@ The `Model` component,
 * the UI is bound to these lists so the UI can automatically update when the data in either list changes.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
-
-**<<<Check if this part can delete**
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Student` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Student` needing their own `Tag` objects.<br>
-
-<img src="images/BetterModelClassDiagram.png" width="450" />
-
-**>>>**
-
-</div>
-
 
 ### Storage component
 
@@ -184,8 +174,62 @@ Classes used by multiple components are in the `nustracker.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Creating an event
+This is a feature to allow the user to create an event. Currently, each event has a name, date, time, participant list and blacklist. Users can specify the name, date and time of an event using the `create` command.
 
-**<<< Check if we are going to keep this `undo` feature >>>**
+This feature comes with the following classes:
+- nustracker.logic.commands.CreateCommand
+- nustracker.logic.parser.CreateCommandParser
+- nustracker.model.event.*
+
+The following sequence diagram shows how the create operation works:<br>
+
+![CreateSequenceDiagram](images/CreateSequenceDiagram.png)
+_Sequence diagram for creating an event_<br>
+
+* Note that LogicManager is called using execute("create n/Orientation d/08-01-2021 t/1000"). This information was truncated to reduce clutter in diagram.<br>
+* The event is only added if there are no other events in the model that have the same name. This is checked using the `hasEvent` method.
+
+The following sequence diagram shows how a create operation gets its arguments from the prefixes:
+
+![CreateParseArguments](images/CreateParseArguments.png)
+_Sequence diagram for parsing a create command's arguments_
+
+AddressBook contains a UniqueEventList to hold a list of events. UniqueEventList implements the [Iterable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html) interface and stores events in an [ObservableList](https://docs.oracle.com/javase/10/docs/api/javafx/collections/ObservableList.html).
+
+The following sequence diagram shows how the Model adds an event to the AddressBook:
+
+![AddEventToStorageSequenceDiagram](images/AddEventToStorageSequenceDiagram.png) <br>
+_Sequence diagram for adding an event to AddressBook_
+
+* The UniqueEventList checks for duplicate events using the `hasEvent` method before adding the event.
+
+### Exporting Feature
+
+This is a feature to allow the user to export a given data field. Currently, the implementation only works for emails and can only export a csv file.
+
+This feature comes with the following classes:
+- nustracker.logic.commands.ExportCommand
+- nustracker.logic.parser.ExportCommandParser
+- nustracker.storage.Exporting
+
+The following sequence diagram shows how the export operation works:
+
+![ExportSequenceDiagram](images/ExportSequenceDiagram.png)
+_Sequence diagram for exporting_
+
+#### Design Considerations
+* **Alternative 1 (current choice)**: Parameters are passed to the Exporting class to instruct it on how and what to export. There is only 1 Exporting class with 1 method.
+    * Pros: Commands are free from clutter, and all exporting changes are done in the Exporting class (i.e. formatting the string, choosing a filetype etc.)
+    * Cons: The Exporting class might become convoluted and complicated as it gets updated in the future.
+* **Alternative 2**: Each command manages its own formatting and passes the formatted content to Exporting class.
+    * Pros: Exporting class will have a very specific purpose and is very clear.
+    * Cons: Changes to a specific filetype might incur changes in many commands. (e.g. if the way that we export csv files are changed, then every command that exports as a csv file will have to change)
+* **Alternative 3**: Exporting class is extended to accommodate for filetypes, and also does the formatting of the data.
+    * Pros: Very structured, easy to extend and add new commands that require export. Easy to add new filetypes for exporting and change which filetypes different commands use.
+    * Cons: Takes longer to implement than the other 2 options
+
+In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. I would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
 
 ### \[Proposed\] Undo/redo feature
 
@@ -267,32 +311,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### Exporting Feature
 
-This is a feature to allow user to export a given data field. Currently, the implementation only works for emails and can only export a csv file.
-
-This feature comes with the following classes:
-- nustracker.logic.commands.ExportCommand
-- nustracker.logic.parser.ExportCommandParser
-- nustracker.storage.Exporting
-
-The following sequence diagram shows how the export operation works:
-
-![ExportSequenceDiagram](images/ExportSequenceDiagram.png)
-_Sequence diagram for exporting_ 
-
-#### Design Considerations
-* **Alternative 1 (current choice)**: Parameters are passed to the Exporting class to instruct it on how and what to export. There is only 1 Exporting class with 1 method.
-  * Pros: Commands are free from clutter, and all exporting changes are done in the Exporting class (i.e. formatting the string, choosing a filetype etc.)
-  * Cons: The Exporting class might become convoluted and complicated as it gets updated in the future.
-* **Alternative 2**: Each command manages its own formatting and passes the formatted content to Exporting class.
-  * Pros: Exporting class will have a very specific purpose and is very clear.
-  * Cons: Changes to a specific filetype might incur changes in many commands. (e.g. if the way that we export csv files are changed, then every command that exports as a csv file will have to change)
-* **Alternative 3**: Exporting class is extended to accommodate for filetypes, and also does the formatting of the data.
-  * Pros: Very structured, easy to extend and add new commands that require export. Easy to add new filetypes for exporting and change which filetypes different commands use.
-  * Cons: Takes longer to implement than the other 2 options
-
-In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. I would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
 
 --------------------------------------------------------------------------------------------------------------------
 
