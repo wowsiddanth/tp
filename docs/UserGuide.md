@@ -3,33 +3,36 @@ layout: page
 title: User Guide
 ---
 <p align="center">
+
   <img width="200" src="images/user-guide/nustracker-logo.PNG">
+
 </p>
 
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
-As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, and is simple, intuitive and easy to pick up.
+As an event director/student leader, you will be able to add students and events into **nustracker** and use it to keep track of which students are attending which event, and even blacklist students from certain events. These are just some of the features, and there will be even more coming in the future. **nustracker** is also customized to your needs, simple, intuitive and easy to pick up.
 
-All these things can be done through a simple and intuitive Command Line Interface (CLI), while being complimented by a detailed and elegant application. This document will guide you through on how to start using **nustracker**.
+All these things can be done through a Command Line Interface (CLI), while being complimented by a detailed and elegant application interface. This document will guide you through on how to start using **nustracker**.
 
+<br>
 
 You might see text formatted within colored boxes, so here's a quick run-through what they mean:
 
-<div markdown="span" class="alert alert-info"> :label: **Note:**
-Stuff written here serves as additional information.
+<div markdown="span" class="alert alert-info"> :label: **Note:** These boxes will provide you with extra information that is good to know.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Here, tips are given.
+These boxes will give you tips on how to use the application better.
 </div>
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
-Whilst here, very important warnings are given. As such, it is imperative your read this or nustracker might behave unexpecetedly.
+These boxes warn you about important things! It is imperative that you read these, otherwise bad things might happen.
 </div>
 
 <h1 align="center"> Let's get started with nustracker!</h1>
 
 <br><br>
+
 * Table of Contents
 {:toc}
 
@@ -42,7 +45,10 @@ Whilst here, very important warnings are given. As such, it is imperative your r
 current Mac OS security restrictions on file creation. <br><br>
 **For Windows users**: it is also recommended that the .jar be started
 via the terminal as well (but double-clicking should work fine).
+
 </div>
+
+<br> 
 
 **You finally have your hands on nustracker. Great! Let's learn how to use it now.**
 
@@ -79,15 +85,13 @@ Get ready for an unprecedented overhaul in student and event management using **
 
 ## Features
 
-**nustracker** was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum
-in clubs and societies—specifically **student and event management**.
+**nustracker** was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum in clubs and societies—specifically **student and event management**.
 
 
-### What can **nustracker** do?
+### What can nustracker do?
 1. **Keep track of students**
 
-    **nustracker** displays all students currently associated with the organization neatly. The students have their details
-   and a profile picture (optional) listed with them as well, allowing quick and convenient access to student particulars.
+    **nustracker** displays all students currently associated with the organization neatly. The students have their details and a profile picture (optional) listed with them as well, allowing quick and convenient access to student particulars.
 
 
 2. **Keep tracks of events and event _attendance_**
@@ -97,7 +101,7 @@ in clubs and societies—specifically **student and event management**.
 
 4. **Keep track of event blacklists**
     
-    Events often have blacklists, which can also be tracked within **nustracker**.
+    Events often have blacklists, which can also be managed using **nustracker**.
 
 
 5. **Be customized to the user's liking**
@@ -283,9 +287,7 @@ You're on your way to becoming an **nustracker** pro!
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-* However, commands that take in parameters cannot contain extraneous prefixes nor slashes.
-
-* This means none of the input parameters should contain any slashes, since slashes are used to identify prefixes.
+* Commands that take in parameters cannot contain extraneous prefixes nor slashes. This means none of the input parameters should contain any slashes, since slashes are used to identify prefixes.
 
 * If a command is entered with the correct prefixes but multiple inputs to the prefixes are not accepted,
   the error message shown would be based on the leftmost invalid prefix parameter in the command's command format.
@@ -347,6 +349,8 @@ Shows all students in **nustracker**.
 
 This command essentially removes any filters that have been applied with the `filter` command.
 
+This command has the same function as clicking the **_students_** button in the top bar.
+
 Command: `students`
 
 ### Editing a student : `edit`
@@ -358,10 +362,10 @@ Command: `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDE
 * Edits the student who currently has the specified `STUDENT_ID`.
 * **At least one of the optional fields** must be provided.
 * Existing values will be updated to the input values.
-* Events of a student cannot be directly edited with the `edit` command, the `enroll` and `remove` commands serve this purpose.
+* Events of a student cannot be directly edited with the `edit` command, please make use of the `enroll` and `remove` commands for this purpose.
 
 Examples:
-* `edit id/e0322322 p/91234567 e/johndoe@example.com` Edits the phone number and email of the student with student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
+* `edit id/e0322322 p/91234567 e/johndoe@example.com` edits the phone number and email of the student with student ID `e0322322` to be `91234567` and `johndoe@example.com` respectively.
 * `edit id/e0542341 n/Betsy Crower id/e0543212` Edits the name and student ID of the student with student ID `e0542341` to be `Betsy Crower` and `e0543212` respectively.
  
 ### Deleting a student : `delete`
@@ -376,19 +380,17 @@ Examples:
 * `delete id/e1234567` deletes the student with the student ID `e1234567`.
 * `delete id/e0589162` deletes the student with the student ID `e0589162`.
 
-_**Note**_: 
-The command to delete both students and events are `delete`.
-<br>
-However, `delete` will only delete either a student or an event and 
-**cannot contain both student and event prefixes at once**.
-<br>
-I.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed. 
-(Refer to "Deleting an event" for more information.)
-<br><br>
+<div markdown="span" class="alert alert-info">
+
+:label: **Note:** The command for deleting students and events are both `delete`.<br>
+However, `delete` will delete either a student or an event and **cannot contain both student and event prefixes at once**.<br>
+i.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed. (Refer to [Deleting an event](#deleting-an-event--delete) for more information.)
+
+</div>
 
 ### Filtering students: `filter`
 
-Filters students whose data contains the given field, the search is case-insensitive.
+Filters students whose data contains the given field.
 
 Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STUDENT_NAMES]...] [m/MAJOR [MORE_MAJORS]...] [y/YEAR [MORE_YEARS]...] [ev/EVENT_NAME]`
 
@@ -399,6 +401,7 @@ Command: `filter [id/STUDENT_ID [MORE_STUDENT_IDs]...] [n/STUDENT_NAME [MORE_STU
     - Multiple years.
     - **A single** event name.
 
+* This command can only be used when **nustracker** is showing the Student list.
 * You can only filter by one field (i.e. filter only by student ID, student name, year, major, or event name).
 * You have to filter by at least 1 parameter (simply typing `filter` will not work)
 * The search is case-insensitive. e.g. `n/john` will match with `n/JOHN`.
@@ -425,8 +428,11 @@ command to delete students based on a certain criteria.
 
 Command: `delfiltered`
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
-Use with caution! If the student list is not filtered before using `delfiltered`, all the students currently in **nustracker** would be deleted since all of them are shown.
+<div markdown="span" class="alert alert-danger">
+
+:exclamation: **Caution:**
+If the student list is not filtered before using `delfiltered`, all the students currently in **nustracker** would be deleted since all of them are shown.
+
 </div>
 
 * This command can only be used when **nustracker** is showing the Student list.
@@ -434,12 +440,12 @@ Use with caution! If the student list is not filtered before using `delfiltered`
 * At least one student needs to be shown in the filtered list for `delfiltered` to work.
 
 Examples:
-* `filter y/4` followed by `delfiltered` will delete all students who are in Year 4, possibly because they are graduating soon.
+* `filter y/4` followed by `delfiltered` will delete all students who are in Year 4.
 * `filter ev/Graduation 2021` followed by `delfiltered` will delete all students that have attended the Graduation Ceremony in 2021.
 
 ### Blacklisting students: `blacklist`
 
-Blacklists students from the given event by Student ID. Blacklisted Student IDs will not be allowed to enroll into the event.
+Blacklists students from an event. Blacklisted Students will not be allowed to enroll into the events they are blacklisted from.
 
 Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 
@@ -452,7 +458,7 @@ Examples:
  
 ### Whitelisting students: `whitelist`
 
-Whitelists students from the given event by student ID. Whitelisted student IDs are removed from the event's blacklist.
+Whitelists students from an event. Whitelisted students are removed from an event's blacklist.
 
 Command: `whitelist id/STUDENT_ID ev/EVENT_NAME`
 
@@ -495,6 +501,8 @@ Examples:
 
 Shows all events in the app.
 
+This command has the same function as clicking the **_events_** button in the top bar.
+
 Format: `events`
 
 ### Enrolling a student : `enroll`
@@ -504,7 +512,6 @@ Enrolls the specified student into the specified event.
 Command: `enroll id/STUDENT_ID ev/EVENT`
 
 * Enrolls the student specified by student ID into the event specified by its event name.
-
 * Event name is case-insensitive.
 
 Examples:
@@ -518,16 +525,15 @@ Removes the specified student from the specified event.
 Command: `remove id/STUDENT_ID ev/EVENT`
 
 * Removes the student specified by student ID from the event specified by its event name.
-
 * Event name is case-insensitive.
 
 Examples:
-* `remove id/e0986472 ev/Tea Making Workshop` removes the specified student with student ID e0986472 from the event "Tea Making Workshop".
-* `remove id/e0264853 ev/Fun Run` removes the specified student with student ID e0264853 into the event "Fun Run".
+* `remove id/e0986472 ev/Tea Making Workshop` removes the student with student ID e0986472 from the event "Tea Making Workshop".
+* `remove id/e0264853 ev/Fun Run` removes the student with student ID e0264853 into the event "Fun Run".
 
 ### Deleting an event : `delete`
 
-Deletes the specified event from **nustracker**.
+Deletes an event from **nustracker**.
 
 Command: `delete ev/EVENT_NAME`
 
@@ -548,18 +554,32 @@ I.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed.
 (Refer to "Deleting a student" for more information.)
 <br><br>
 
+
+<div markdown="span" class="alert alert-info">
+
+:label: **Note:** The command to delete both students and events are `delete`.<br>
+However, `delete` will only delete either a student or an event and **cannot contain both student and event prefixes at once**.<br>
+i.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed. (Refer to [Deleting a student](#deleting-a-student--delete) for more information.)
+
+</div>
+
 --------------------------------------------------------------------------------------------------------------------
+
 ## Other Commands
 
 ### Viewing help : `help`
 
 Opens the Help window
 
+This command has the same function as clicking the **_help_** button in the top bar.
+
 Command: `help`
 
 ### Viewing the settings: `settings`
 
 Opens the Settings window
+
+This command has the same function as clicking the **_settings_** button in the top bar.
 
 Command: `settings`
 
@@ -577,8 +597,12 @@ The file will be located in the `data` directory, which is where the app's save 
 
 If the "events" page is currently being shown, export will still function and will export the emails of the most recent student list.
 
-<div markdown="block" class="alert alert-block alert-danger">If you are exporting with a filename that already exists, the file will be overwritten!
-</div >
+<div markdown="span" class="alert alert-danger">
+
+:exclamation: **Caution:**
+If you are exporting with a filename that already exists, the file will be overwritten!
+
+</div>
 
 Examples:
 * `export fn/StudentsAttendingOrientation`
@@ -588,24 +612,29 @@ Examples:
 
 Refreshes the main window. Often used to update the main window after adding profile pictures, etc.
 
+This command has the same function as clicking the **_refresh_** button in the top bar.
+
 ### Changing the theme: `theme`
 
 Toggles the theme between Dark and Light theme.
 
+This command has the same function as clicking the **_toggle theme_** button in the top bar.
+
 ### Exiting the program : `exit`
 
 Exits the program.
+
+This command has the same function as clicking the **_exit_** button in the top bar.
 
 Command: `exit`
 
 ---------------------------------------------------------------------------------------
 ## Customization
 
-Another key feature of **nustracker** is its ability to be customized greatly. This section covers how **nustracker** can be
-customized to your liking.
+Another key feature of **nustracker** is its ability to be customized. This section covers how **nustracker** can be customized to your liking.
 
 ### Changing between Light/Dark Theme
-**nustracker** has a light/dark theme. To toggle between the two, either type `refresh` or click the button (to the left of **Settings**) as shown in the image below and voila!
+**nustracker** has a light/dark theme. To toggle between the two, click the button (to the left of _**Settings**_) as shown in the image below and voila!
  
 ![change_theme](images/user-guide/change_theme.PNG)
 
@@ -625,20 +654,25 @@ customized to your liking.
 3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. The image must be either a **.png** or a **.jpg** image.
 
 
-4. 
+4. Rename the image to correspond to the **Student ID** of the student in **nustracker** that will use this profile picture.
 
-   1. Rename the image to correspond to the **Student ID** of the student in **nustracker** that will use this profile picture.
+    For example, let's say there is a student in **nustracker** with the Student ID **e1111111**.
 
-       For example, let's say there is a student in **nustracker** with the Student ID **e1111111**.
-
-      ![match-student-id](images/user-guide/match-student-id.PNG)
+   ![match-student-id](images/user-guide/match-student-id.PNG)
  
-      ![changed-profile-picture](images/user-guide/changed-profile-picture.PNG)
+   ![changed-profile-picture](images/user-guide/changed-profile-picture.PNG)
 
-      *The updated student card (belonging to student with Student ID **e1111111** in **nustracker**)*
-      <br><br>
-   3. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
-   4. You're done!
+   *The updated student card (belonging to student with Student ID **e1111111** in **nustracker**)*
+   <br><br>
+5. The profile picture will update once you **type `refresh` into the command box, click the refresh button, or restart **nustracker****.
+6. You're done!
+
+<div markdown="span" class="alert alert-primary">
+
+:bulb: **Tip:**
+Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
+
+</div>
 
 ### Changing the _glow_ of the profile picture border
 
@@ -656,9 +690,6 @@ customized to your liking.
 
 4. This change is **immediate**, and does not require a restart.
  
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
-</div>
 
 ### 4. Customization FAQs
  
@@ -666,11 +697,10 @@ Although most image sizes will work perfectly fine, the best image sizes are 120
 
 **A**:
 * Please check if the image is either **.jpg** or **.png**. Other image types are NOT supported. 
-* Please check if you have the correct name format used—refer to [Setting a profile picture](#setting-a-profile-picture) point 3 above. 
+* Please check if you have the correct name format used—refer to [Setting a profile picture](#setting-a-profile-picture) point 3 above.
 * Please check if the image size is too small or too large. Due to the limitations of JavaFX, extreme image sizes cannot be displayed (more than 10 mb). 
 
-If you have
-exhausted all options, you can file a bug report on our [GitHub page](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues).
+If you have exhausted all options, you can file a bug report on our [GitHub page](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues).
 <br>
 
 You have now learnt to customize **nustracker** to its fullest. Go ahead and play around with the settings!
@@ -684,23 +714,47 @@ You have now learnt to customize **nustracker** to its fullest. Go ahead and pla
 
 The file is saved in a folder where you ran the application. If you ran the application in `C:\Users\JohnDoe`, the data file will be in `C:\Users\JohnDoe\data` and is named `addressbook.json`
 
+<div markdown="span" class="alert alert-info">
+
+:label: **Note:**
+The folder `C:\Users\JohnDoe\data` is also where exported files are contained!
+
+</div>
+
 ### Editing the data file
 
 **nustracker** data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
-_Please edit carefully! **nustracker** will start a fresh run if errors are present!_
+<div markdown="span" class="alert alert-danger">
+
+:exclamation: **Caution:**
+Please edit carefully! **nustracker** will reset your data to the default data if any errors are present. We recommend that you make a backup of the file first just in case.
+
+</div>
+
 
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
 
+**Q**: Is nustracker free?<br>
+**A**: Yes! nustracker is completely free to use.
+
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous **nustracker** home folder.
 
+**Q**: Is my data in **nustracker** secure?<br>
+**A**: Yes! Your data is stored locally on your computer, so it cannot be stolen unless someone has physcial access to your computer.
+
+**Q**: Do I need an internet connection to use nustracker?<br>
+**A**: No. An internet connection is not required. nustracker can work completely offline.
+
+**Q**: Can I use nustracker on a mobile device?<br>
+**A**: Unfortunately not. nustracker is designed to work best on a desktop / laptop with the ability to make full use of the command line interface.
+
 **Q**: I noticed a bug in **nustracker**. How do I report it?<br>
-**A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a
-bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues). Thank you for contributing to **nustracker**!
+**A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a bug report, please visit the [issues](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues) page. Thank you for contributing to **nustracker**!
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -709,34 +763,35 @@ bug report, please visit the **Issues** page [here](https://github.com/AY2122S1-
 ### Student Commands
 
 **Command** | **Description** | **Example** |
-----------------------------|------------------------------|-------------------------------------------------------|
-**add** | Adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL` |
-**students** | Lists students | `students` |
-**edit** | Edits a student | `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]` |
-**delete** | Deletes a student | `delete id/STUDENT_ID` |
-**filter** | Filters by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
-**delfiltered** | mass deletes shown students | `delfiltered` |
-**blacklist** | Blacklists a student from attending an event | `blacklist id/STUDENT_ID ev/EVENT_NAME` |
-**whitelist** | Whitelists a student from attending an event | `whitelist id/STUDENT_ID ev/EVENT_NAME` |
+----------------------------|------------------------------|-----------------------------------------------------
+**[add](#adding-a-student-add)** | Adds a student | `add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL` |
+**[students](#listing-all-students-students)** | Lists all students | `students` |
+**[edit](#editing-a-student--edit)** | Edits a student | `edit id/ID_OF_STUDENT_TO_EDIT [n/NEW_NAME] [m/NEW_MAJOR] [id/NEW_STUDENT_ID] [y/NEW_YEAR] [p/NEW_PHONE] [e/NEW_EMAIL]` |
+**[delete](#deleting-a-student--delete)** | Deletes a student | `delete id/STUDENT_ID` |
+**[filter](#filtering-students-filter)** | Filters by field  | `filter n/STUDENT_NAME [MORE_STUDENT_NAMES]...` <br> `filter id/STUDENT_ID [MORE_STUDENT_IDS]...` <br> `filter m/MAJOR [MORE_MAJORS]...` <br> `filter y/YEAR [MORE_YEARS]...` <br> `filter ev/EVENT_NAME` |
+**[delfiltered](#delete-shown-students--delfiltered)** | Mass deletes shown students | `delfiltered` |
+**[blacklist](#blacklisting-students-blacklist)** | Blacklists a student from attending an event | `blacklist id/STUDENT_ID ev/EVENT_NAME` |
+**[whitelist](#whitelisting-students-whitelist)** | Whitelists a student from attending an event | `whitelist id/STUDENT_ID ev/EVENT_NAME` |
 
 
 ### Event Commands
 
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
-**create**  | Creates an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHMM_ |
-**events**  | Lists events | `events` |
-**enroll**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
-**remove**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
-**delete**  | Deletes an event | `delete ev/EVENT_NAME` |
+**[create](#creating-an-event-create)**  | Creates an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHMM_ |
+**[events](#listing-all-events--events)**  | Lists events | `events` |
+**[enroll](#enrolling-a-student--enroll)**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
+**[remove](#removing-a-student--remove)**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
+**[delete](#deleting-an-event--delete)**  | Deletes an event | `delete ev/EVENT_NAME` |
 
 ### Other Commands
 
 **Command** | **Description** | **Example** |
 ----------------|-------------------------|-----------------|
-**help** | Opens the help window | `help` |
-**settings** | Opens the settings window | `settings`|
-**export** | Exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
-**refresh**| Refresh the main window | `refresh` |
-**theme** | Toggles the current theme | `theme` |
-**exit** | Exits the app | `exit` |
+**[help](#viewing-help--help)** | Opens the help window | `help` |
+**[settings](#viewing-the-settings-settings)** | Opens the settings window | `settings`|
+**[export](#exporting-emails--export)** | Exports the emails of the students that are currently displayed | `export fn/FILE_NAME` |
+**[refresh](#refreshing-the-main-window-refresh)**| Refresh the main window | `refresh` |
+**[theme](#changing-the-theme-theme)** | Toggles the current theme | `theme` |
+**[exit](#exiting-the-program--exit)** | Exits the app | `exit` |
+

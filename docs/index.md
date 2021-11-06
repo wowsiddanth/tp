@@ -14,7 +14,13 @@ title: nustracker
 
 ![Ui](images/Ui.png)
 
-**nustracker is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to keep track and manage events that their members are a part of.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
+**nustracker** is a desktop application, made for NUS event directors and student leaders of student organizations in NUS School of Computing to:
+* keep track
+* manage events
+
+that their members are a part of.
+
+While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
 ## What nustracker can do:
 1. Keep track of students
