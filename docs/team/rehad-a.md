@@ -20,16 +20,16 @@ Given below are my contributions to the project.
   * Justification: This feature allows the users to easily find student based on a certain criteria.
   Additionally, this feature is crucial as some commands depend on the filtered list of students. The `export` and `delfiltered` commands both operate
   on the filtered list of students.
- 
+
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=rehad-a&tabRepo=AY2122S1-CS2103T-T11-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false)
 
 * **Project management**:
     * Helped in maintaining issue tracker by creating and closing some issues as well as linking some issues to their corresponding pull requests.
-    
+
 * **Enhancements to existing features**:
     * Changed event names to be case insensitive so that the commands `delete` (for events), `enroll`, `remove`, `blacklist`, `whitelist`, and `filter`
       can accept case insensitive event names.
-    
+
 * **Documentation**:
   * User Guide:
     * Added documentation for the `filter` feature.
@@ -40,7 +40,3 @@ Given below are my contributions to the project.
 * **Community**:
     * [Reviewed multiple PRs](https://github.com/AY2122S1-CS2103T-T11-1/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Arehad-a).
     * Reported bugs and suggestions for other team's product.
-    
-    
-
-
