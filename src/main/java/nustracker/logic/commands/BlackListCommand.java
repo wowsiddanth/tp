@@ -32,9 +32,14 @@ public class BlackListCommand extends Command {
             + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_BLACKLIST_SUCCESS =
-            "Student ID %1$s blacklisted for the Event: %2$s";
+            "Student ID %1$s blacklisted for %2$s.";
     public static final String MESSAGE_STUDENTID_ALREADY_BLACKLISTED =
-            "Student ID %1$s is already blacklisted for the Event: %2$s";
+            "Student ID %1$s is already blacklisted for %2$s.";
+    public static final String MESSAGE_STUDENTID_CURRENTLY_ENROLLED =
+            "Student ID %1$s is currently enrolled in %2$s. Enrolled student IDs cannot be blacklisted.\n"
+            + "If you want to blacklist the student ID, remove the student ID from the event first using the remove "
+            + "command:\n"
+            + RemoveCommand.MESSAGE_USAGE;
 
     private final StudentId studentId;
     private final EventName eventName;
@@ -66,6 +71,15 @@ public class BlackListCommand extends Command {
 
         if (isOnBlacklist) {
             throw new CommandException(String.format(MESSAGE_STUDENTID_ALREADY_BLACKLISTED,
+                    studentId.toString(),
+                    eventName.toString()));
+        }
+
+        // Check if student ID is enrolled in event
+        boolean isEnrolled = currEvent.isInEvent(studentId);
+
+        if (isEnrolled) {
+            throw new CommandException(String.format(MESSAGE_STUDENTID_CURRENTLY_ENROLLED,
                     studentId.toString(),
                     eventName.toString()));
         }
