@@ -455,6 +455,8 @@ Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 
 * Student ID need not exist in the database.
 * Event name has to exist in the database.
+* Student ID cannot be enrolled in event.
+  * Use the [remove](#removing-a-student--remove) command to un-enroll the student ID before running the `blacklist` command.
 
 Examples:
 * `blacklist id/e1234567 ev/Orientation Camp` blacklists the student ID e1234567 from the Orientation Camp event.

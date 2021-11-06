@@ -89,7 +89,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String EXPORT_COMMAND = "export";
     public static final String EXPORT_COMMAND_EXAMPLE = " " + EXPORT_COMMAND
-            + " fn/FILE_NAME;";
+            + " fn/FILE_NAME";
 
     public static final String REFRESH_COMMAND = "refresh";
     public static final String REFRESH_COMMAND_EXAMPLE = " " + REFRESH_COMMAND;
