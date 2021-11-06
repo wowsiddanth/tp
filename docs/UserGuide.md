@@ -158,12 +158,11 @@ The following is a description of the general layout of **nustracker**.
 ## Basics of nustracker
 
 <div markdown="span" class="alert alert-info"> :label:
-The next few section assume that **nustracker** is empty, and that we are adding our first student. When you first open **nustracker**,
-you will see sample data. But don't worry, it works regardless! 
+This section assumes that you are using a fresh copy of **nustracker** that contains only the sample data. 
 </div>
 
 We hope you are excited to learn the basics of **nustracker**!
-But, before we do anything, let’s set the premise. Imagine that you are the manpower executive of a newly-formed NUS society called the Imaginary Society (very creative we know). 
+But, before we do anything, let’s set the premise. Imagine that you are the manpower executive of a newly-formed NUS society called the Imaginary Society (Very creative we know). 
 
 It plans on holding a fair—appropriately titled the Imaginary Fair—on the 1st of December 2021, at 9am.
 
@@ -178,9 +177,9 @@ Here are the particulars of our first member and participant: <br><br>
 
 ### Adding your first student
 
-Okay, now that we know who our first member is, let's add her to **nustracker**.
+Okay, now that we know who our first member is, let's add her as a student to **nustracker**.
 
-To add her, we are going to be using the `add` command, which follows the format:
+To add her, we are going to use the `add` command, which follows the format:
 ` add n/STUDENT_NAME m/MAJOR id/STUDENT_ID y/YEAR p/PHONE e/EMAIL`
 
 So, in the case of Sae Byeok, her fields would be:
@@ -192,45 +191,46 @@ So, in the case of Sae Byeok, her fields would be:
 - `EMAIL`: saebyeok@example.com
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The fields do not have to be any specific order. So, name can come before major etc.
+The fields do not have to be any specific order. For example, `MAJOR` can come before `STUDENT_NAME`.
 </div>
 
-Using the fields above, type this into the command box: `add n/Sae Byeok Fair m/CS id/e1111111 y/1 p/87438007 e/saebyeok@example.com` and press **Enter**.
+Using the fields above, type this into the command box: `add n/Sae Byeok m/CS id/e1111111 y/1 p/87438007 e/saebyeok@example.com` and press **Enter**.
 
-After entering the command and pressing **Enter**, **nustracker** should look like this:
+After entering the command and pressing **Enter**, scroll all the way down using the scrollbar on the right to view your newly added student!
+**nustracker** should look like this:
 ![added-first-student](images/user-guide/after-pressing-enter.PNG)
 
-Congrats! You have just added your first member! Next, we will learn how to create an event and 
+Congratulations! You have just added your first student! Next, we will learn how to create an event and 
 eventually, how to added Sae Byeok as a participant!
 
-### Adding your first event
+### Creating your first event
 
-Let's create the event `Imaginary Fair`.
+Let's create the event `Imaginary Fair` to contain information about the Fair that the Imaginary Society wants to organise.
 
-Intuitively, the command for creating an event is `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`.
+To create this event, we are going to use the `create` command, which follows the format: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`.
 
-So, in the case of Imaginary Fair, it would be:
+So, in the case of Imaginary Fair, the fields would be:
 - `EVENT_NAME`: Imaginary Fair
 - `EVENT_DATE (DD-MM-YYYY)`: 01-12-2021
 - `EVENT_TIME (24 Hour Time)`: 0900
 
-Using the fields above, type this into the command box: `event n/Imaginary Fair d/01-12-2021 t/0900` and press **Enter**.
+Using the fields above, type this into the command box: `create n/Imaginary Fair d/01-12-2021 t/0900` and press **Enter**.
 
-To check if it has been created, you can either type `events` into the command box or press the **Events** button in the top bar
-(_if you are unsure about the buttons, refer [here](#general-layout)._)
+Now lets view the newly created event! To make **nustracker** show the current list of events, either press the **Events** button in the top bar, or type `events` into the command box and press **Enter**.
+(_If you are unsure about the buttons, refer [here](#general-layout)._) Then scroll down using the scrollbar on the right.
 
 If done right, **nustracker** should look like this:
 
 ![created-event](images/user-guide/created-event.PNG)
 
-Congrats! You have now added an event as well!
+Congratulations! You have now created an event in **nustracker** as well!
 
-### Adding your first student to your first event
+### Enrolling your first student into your first event
 
-You have added Sae Byeok as a student, and created the _Imaginary Fair_ event. Let's add her to the event 
-itself as a participant.
+Previously, you had added Sae Byeok as a student, and created the _Imaginary Fair_ event. 
+Let's enroll her into the _Imaginary Fair_ as a participant.
 
-To do this, we will make use of the `enroll` command:`enroll id/STUDENT_ID ev/EVENT`.
+In order to do this, we will make use of the `enroll` command: `enroll id/STUDENT_ID ev/EVENT`.
 
 So, in the case of Sae Byeok and the Imaginary Fair, it would be:
 - `STUDENT_ID`: e1111111 
@@ -238,27 +238,31 @@ So, in the case of Sae Byeok and the Imaginary Fair, it would be:
 
 Using the fields above, type this into the command box: `enroll id/e1111111 ev/Imaginary Fair` and press **Enter**.
 
-If done correctly, this change should be reflected in both Sae Byeok's particulars and the Imaginary Fair's details.
-
-![student-card](images/user-guide/sae-byeok-student-card.PNG)<br>
-_Under Enrolled Events, Sae Byeok is enrolled in the Imaginary Fair_ <br>
+If done correctly, this change should be reflected in both the Imaginary Fair's details and Sae Byeok's particulars.
 
 ![event-card](images/user-guide/Event%20Card.PNG)
-_Under participants, there is a participants with Student ID `e111111` or Sae Byeok_
+_Under Participants, there is a participant with the Student ID `e111111`, which corresponds to Sae Byeok_
+
+To make **nustracker** go back to the students list, either press the **Students** button in the top bar, or type `students` into the command box and press **Enter**.
+
+![student-card](images/user-guide/sae-byeok-student-card.PNG)<br>
+_Under Enrolled Events, we can see that Sae Byeok is enrolled in the Imaginary Fair_ <br>
 
 
-**Congratulations!** You have made it to the end of this very brief tutorial to adding your first student, creating your
-first event, and then adding that student to the event! But remember, **nustracker** is much more powerful than this!
+
+
+**Congratulations!** You have reached the end of this very brief tutorial where you learnt how to add your first student, create your
+first event, as well as enrolling students into an event! But remember, **nustracker** is much more powerful than this!
 
 You can:
 - Edit Sae Byeok's details
 - Delete events
 - Blacklist students
-- Export the emails of the entire list of students
+- Export the emails of a list of students
 - Add profile pictures
 - And much _much_ more!
 
-For a more comprehensive list of commands, please refer to the sections below or the [Command summary](#command-summary).
+For a more comprehensive list of commands, please refer to the sections below or take a look at the [Command summary](#command-summary).
 
 You're on your way to becoming an **nustracker** pro!
 
