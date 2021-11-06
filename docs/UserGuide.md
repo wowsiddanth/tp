@@ -6,15 +6,6 @@ title: User Guide
   <img width="200" src="images/user-guide/nustracker-logo.PNG">
 </p>
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
 As an event director and student leader, you will be able to add students and events into **nustracker** and use it to keep track event attendance, blacklist students, etc. These are just _some_ of the features and there will be more to come in the future. **nustracker** is customized to your needs—simple, intuitive, and easy to pick up.
@@ -312,8 +303,8 @@ You're on your way to becoming an **nustracker** pro!
 4. [Deleting a student](#deleting-a-student--delete)
 5. [Filtering students](#filtering-students-filter)
 6. [Delete shown students](#delete-shown-students--delfiltered)
-7. [Blacklist students](#blacklisting-students-blacklist)
-8. [Whitelist students](#whitelisting-students-whitelist)
+7. [Blacklisting students](#blacklisting-students-blacklist)
+8. [Whitelisting students](#whitelisting-students-whitelist)
 
 ### Adding a student: `add`
 
@@ -489,14 +480,14 @@ Examples:
 
 --------------------------------------------------------------------------------------------------------------------
 ## Event Commands
-### Creating an event: `create`
 
 1. [Creating an event](#creating-an-event-create)
 2. [Listing all events](#listing-all-events--events)
-3. [Enrolling a student in an event](#enrolling-a-student--enroll)
-4. [Removing a student from an event](#removing-a-student--remove)
+3. [Enrolling a student in an event](#enrolling-a-student-in-an-event--enroll)
+4. [Removing a student from an event](#removing-a-student-from-an-event--remove)
 5. [Deleting an event](#deleting-an-event--delete)
 
+### Creating an event: `create`
 Adds an event to **nustracker**
 
 Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
@@ -582,7 +573,7 @@ I.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed.
 1. [Viewing help](#viewing-help--help)
 2. [Viewing the settings](#viewing-the-settings-settings)
 3. [Exporting Emails](#exporting-emails--export)
-4. [Refreshing the main window](#refreshing-the-main-window)
+4. [Refreshing the main window](#refreshing-the-main-window-refresh)
 5. [Changing the theme](#changing-the-theme-theme)
 6. [Exiting the program](#exiting-the-program--exit)
 
@@ -676,8 +667,10 @@ customized to your liking.
 
       *The updated student card (belonging to student with Student ID **e1111111** in **nustracker**)*
       <br><br>
-   3. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
-   4. You're done!
+   2. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
+   3. You're done!
+
+  Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
 
 ### Changing the _glow_ of the profile picture border
 
@@ -697,18 +690,16 @@ Advanced users: You can manually input your own color hex code in preferences.js
 the glow will always appear white).
 </div>
 
- 3. This change is **immediate**, and does not require a restart.
 
-Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
 
 ### Customization FAQs
  
 **Q**: I have added the image, but it doesn't appear. <br>
 
-**A**:
-* Please check if the image is either **.jpg** or **.png**. Other image types are NOT supported. 
-* Please check if you have the correct name format used—refer to [Setting a profile picture](#setting-a-profile-picture) point 3 above. 
-* Please check if the image size is too small or too large. Due to the limitations of JavaFX, extreme image sizes cannot be displayed (more than 10 mb). 
+**A**: Please check if:  
+* the image is either **.jpg** or **.png**. Other image types are NOT supported. 
+* you have the correct name format used—refer to [Setting a profile picture](#setting-a-profile-picture) point 3 above. 
+* the image size is too small or too large. Due to the limitations of JavaFX, extreme image sizes cannot be displayed (more than 10 mb). 
 
 If you have
 exhausted all options, you can file a bug report on our [GitHub page](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues).
@@ -729,9 +720,9 @@ The file is saved in a folder where you ran the application. If you ran the appl
 
 **nustracker** data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
+<div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
 _Please edit carefully! **nustracker** will start a fresh run if errors are present!_
-
-
+</div>
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
