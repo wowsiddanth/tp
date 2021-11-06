@@ -96,21 +96,27 @@ class EnrollCommandTest {
     public void execute_enrollStudent_studentAlreadyEnrolled() {
         EnrollCommand enrollCommand = new EnrollCommand(HANS.getStudentId(), MATH_OLYMPIAD.getName());
 
-        try {
-            enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-        } catch (CommandException actualCommandException) {
+        CommandException expectedCommandException = new CommandException(String.format(
+                MESSAGE_STUDENT_ALREADY_ENROLLED,
+                HANS.getName().toString(),
+                HANS.getStudentId().getStudentIdString(),
+                MATH_OLYMPIAD.getName().getEventName()));
 
-            CommandException expectedCommandException = new CommandException(String.format(
-                    MESSAGE_STUDENT_ALREADY_ENROLLED,
-                    HANS.getName().toString(),
-                    HANS.getStudentId().getStudentIdString(),
-                    MATH_OLYMPIAD.getName().getEventName()));
+//        try {
+//            enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
+//        } catch (CommandException actualCommandException) {
+//
+//
+//
+//            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
+//            return;
+//        }
+//
+//        fail("Command should not execute successfully.");
 
-            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-            return;
-        }
-
-        fail("Command should not execute successfully.");
+        assertThrows(CommandException.class,
+                expectedCommandException.getMessage(),
+                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
