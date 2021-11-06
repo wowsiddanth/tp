@@ -9,7 +9,7 @@ title: Joel Sung's Project Portfolio Page
 
 Given below are my contributions to the project.
 
-* Link to code contributed: https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=Joel-Sung&tabRepo=AY2122S1-CS2103T-T11-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false
+* [Link to code contributed](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=Joel-Sung&tabRepo=AY2122S1-CS2103T-T11-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~othe&authorshipIsBinaryFileTypeChecked=false)
 * Enhancements implemented:
   * `create` command: To create events
     * Added new event model: major changes made to address book, storage, GUI, test utility
@@ -42,10 +42,10 @@ Given below are my contributions to the project.
   * Maintained the issue tracker: most issues were created and assigned by me
   * In charge of the release of v1.3
 * Reviewing/mentoring contributions:
-  * Reviewed many PRs and gave my feedback. These are some of the more significant ones:
-    * https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/97
-    * https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/96
-    * https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/59
-    * https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/94
+  * [Reviewed many PRs and gave my feedback.](https://github.com/AY2122S1-CS2103T-T11-1/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
+  * These are some of the more significant ones:
+    * [PR #97](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/97)
+    * [PR #96](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/96)
+    * [PR #94](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/94)
   * Responded to my teammate's feedback as well:
-    * https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/30
+    * [PR #30](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/30)

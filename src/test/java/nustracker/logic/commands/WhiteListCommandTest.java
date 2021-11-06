@@ -8,6 +8,8 @@ import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,5 +120,21 @@ public class WhiteListCommandTest {
         public ReadOnlyAddressBook getAddressBook() {
             return new AddressBook();
         }
+    }
+
+    @Test
+    void equals() {
+        WhiteListCommand whiteListCommand = new WhiteListCommand(
+                new StudentId("e1234567"), new EventName("test event"));
+
+        assertTrue(whiteListCommand.equals(whiteListCommand));
+        assertTrue(whiteListCommand.equals(new WhiteListCommand(
+                new StudentId("e1234567"), new EventName("test event"))));
+
+        assertFalse(whiteListCommand.equals(null));
+        assertFalse(whiteListCommand.equals(new WhiteListCommand(
+                new StudentId("e7654321"), new EventName("event test"))));
+        assertFalse(whiteListCommand.equals(new BlackListCommand(
+                new StudentId("e1234567"), new EventName("test event"))));
     }
 }

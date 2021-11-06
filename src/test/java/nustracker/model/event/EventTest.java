@@ -146,8 +146,15 @@ class EventTest {
         assertFalse(TEST.equals(editedTest));
 
         // different blacklist -> returns false
-        editedTest = new EventBuilder(TEST).withBlacklist(VALID_PARTICIPANT_FINAL).build();
+        editedTest = new EventBuilder(TEST).withBlacklist(VALID_PARTICIPANT_TEST).build();
         assertFalse(TEST.equals(editedTest));
     }
+
+    @Test
+    public void toStringTest() {
+        String testEvent = "Test event; Date: Oct 09 2021; Time: 06:00 PM; Participants: e1234567; Blacklist: e0544182";
+        assertEquals(testEvent, TEST.toString());
+    }
+
 
 }
