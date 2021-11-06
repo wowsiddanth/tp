@@ -1,5 +1,8 @@
 package nustracker.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 import nustracker.model.Model;
@@ -15,5 +18,16 @@ public class SettingsCommandTest {
         CommandResult expectedCommandResult = new CommandResult(SettingsCommand.SHOWING_SETTINGS_MESSAGE,
                 false, false, true, false, false, false, false);
         CommandTestUtil.assertCommandSuccess(new SettingsCommand(), model, expectedCommandResult, expectedModel);
+    }
+
+    @Test
+    void equals() {
+        StudentsCommand studentsCommandCommand = new StudentsCommand();
+
+        assertTrue(studentsCommandCommand.equals(studentsCommandCommand));
+        assertTrue(studentsCommandCommand.equals(new StudentsCommand()));
+
+        assertFalse(studentsCommandCommand.equals(null));
+        assertFalse(studentsCommandCommand.equals(new EventsCommand()));
     }
 }

@@ -127,15 +127,15 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         return majors;
     }
 
-    public Year[] getYears(String[] splitMajors) throws ParseException {
-        Year[] years = new Year[splitMajors.length];
+    public Year[] getYears(String[] splitYears) throws ParseException {
+        Year[] years = new Year[splitYears.length];
 
         for (int i = 0; i < years.length; i++) {
             try {
-                years[i] = ParserUtil.parseYear(splitMajors[i]);
+                years[i] = ParserUtil.parseYear(splitYears[i]);
             } catch (ParseException e) {
                 throw new ParseException(
-                        String.format(MESSAGE_INVALID_YEAR + "\n" + e.getMessage(), splitMajors[i]));
+                        String.format(MESSAGE_INVALID_YEAR + "\n" + e.getMessage(), splitYears[i]));
             }
         }
 

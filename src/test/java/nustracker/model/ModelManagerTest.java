@@ -15,6 +15,7 @@ import nustracker.commons.core.GuiSettings;
 import nustracker.model.student.NameContainsKeywordsPredicate;
 import nustracker.testutil.AddressBookBuilder;
 import nustracker.testutil.Assert;
+import nustracker.testutil.TypicalEvents;
 import nustracker.testutil.TypicalStudents;
 
 public class ModelManagerTest {
@@ -85,6 +86,22 @@ public class ModelManagerTest {
     public void hasStudent_studentInAddressBook_returnsTrue() {
         modelManager.addStudent(TypicalStudents.ALICE);
         assertTrue(modelManager.hasStudent(TypicalStudents.ALICE));
+    }
+
+    @Test
+    public void hasEvent_nullEvent_throwsNullPointerException() {
+        Assert.assertThrows(NullPointerException.class, () -> modelManager.hasEvent(null));
+    }
+
+    @Test
+    public void hasEvent_eventNotInAddressBook_returnsFalse() {
+        assertFalse(modelManager.hasEvent(TypicalEvents.TEST));
+    }
+
+    @Test
+    public void hasEvent_eventInAddressBook_returnsTrue() {
+        modelManager.addEvent(TypicalEvents.TEST);
+        assertTrue(modelManager.hasEvent(TypicalEvents.TEST));
     }
 
     @Test

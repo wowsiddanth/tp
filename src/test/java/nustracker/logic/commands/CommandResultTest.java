@@ -10,6 +10,11 @@ import org.junit.jupiter.api.Test;
 
 public class CommandResultTest {
 
+    private CommandResult allFalse = new CommandResult("feedback",
+            false, false, false,
+            false, false,
+            false, false);
+
     @Test
     public void constructor_toggleStudentsAndToggleEventsBothTrue_throwsAssertionError() {
         try {
@@ -18,6 +23,41 @@ public class CommandResultTest {
         } catch (AssertionError e) {
             assertTrue(true);
         }
+    }
+
+    @Test
+    public void isShowHelp() {
+        assertFalse(allFalse.isShowHelp());
+    }
+
+    @Test
+    public void isShowSettings() {
+        assertFalse(allFalse.isShowSettings());
+    }
+
+    @Test
+    public void isExit() {
+        assertFalse(allFalse.isExit());
+    }
+
+    @Test
+    public void isToggleTheme() {
+        assertFalse(allFalse.isToggleTheme());
+    }
+
+    @Test
+    public void isToggleRefresh() {
+        assertFalse(allFalse.isToggleRefresh());
+    }
+
+    @Test
+    public void isToggleEvents() {
+        assertFalse(allFalse.isToggleEvents());
+    }
+
+    @Test
+    public void isToggleStudents() {
+        assertFalse(allFalse.isToggleStudents());
     }
 
     @Test
