@@ -100,8 +100,8 @@ public class RemoveCommandTest {
 
 
         assertThrows(CommandException.class,
-                expectedCommandException.getMessage(),
-                () -> removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                expectedCommandException.getMessage(), () ->
+                        removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -117,8 +117,8 @@ public class RemoveCommandTest {
 
 
         assertThrows(CommandException.class,
-                expectedCommandException.getMessage(),
-                () -> removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                expectedCommandException.getMessage(), () ->
+                        removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -132,8 +132,8 @@ public class RemoveCommandTest {
 
 
         assertThrows(CommandException.class,
-                expectedCommandException.getMessage(),
-                () -> removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                expectedCommandException.getMessage(), () ->
+                        removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 

@@ -7,7 +7,6 @@ import static nustracker.logic.commands.BlackListCommand.MESSAGE_STUDENTID_CURRE
 import static nustracker.testutil.Assert.assertThrows;
 import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
-import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
 import static org.junit.jupiter.api.Assertions.assertFalse;

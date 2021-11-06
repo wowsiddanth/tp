@@ -104,8 +104,8 @@ class EnrollCommandTest {
 
 
         assertThrows(CommandException.class,
-                expectedCommandException.getMessage(),
-                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                expectedCommandException.getMessage(), () ->
+                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -121,8 +121,8 @@ class EnrollCommandTest {
 
 
         assertThrows(CommandException.class,
-                expectedCommandException.getMessage(),
-                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                expectedCommandException.getMessage(), () ->
+                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -136,8 +136,8 @@ class EnrollCommandTest {
 
 
         assertThrows(CommandException.class,
-                expectedCommandException.getMessage(),
-                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                expectedCommandException.getMessage(), () ->
+                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -151,8 +151,8 @@ class EnrollCommandTest {
 
 
         assertThrows(CommandException.class,
-                expectedCommandException.getMessage(),
-                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                expectedCommandException.getMessage(), () ->
+                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
