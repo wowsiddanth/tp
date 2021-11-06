@@ -6,6 +6,15 @@ title: User Guide
   <img width="200" src="images/user-guide/nustracker-logo.PNG">
 </p>
 
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
 As an event director and student leader, you will be able to add students and events into **nustracker** and use it to keep track event attendance, blacklist students, etc. These are just _some_ of the features and there will be more to come in the future. **nustracker** is customized to your needs—simple, intuitive, and easy to pick up.
