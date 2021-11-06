@@ -186,7 +186,6 @@ Classes used by multiple components are in the `nustracker.commons` package.
 This section describes some noteworthy details on how certain features are implemented.
 
 
-**<<< Check if we are going to keep this `undo` feature >>>**
 
 ### \[Proposed\] Undo/redo feature
 
@@ -267,10 +266,6 @@ The following activity diagram summarizes what happens when a user executes a ne
     * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
