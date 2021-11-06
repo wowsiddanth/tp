@@ -288,7 +288,7 @@ You're on your way to becoming an **nustracker** pro!
 * If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, `exit` and `clear`) will be ignored.<br>
+* Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, and `exit`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 * Commands that take in parameters cannot contain extraneous prefixes nor slashes. This means none of the input parameters should contain any slashes, since slashes are used to identify prefixes.
