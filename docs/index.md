@@ -35,13 +35,13 @@ While it has a GUI, most of the user interactions happen using a CLI (Command Li
 ------
 
 ### Getting Started With nustracker
-If you are interested in using nustracker, head over to the [_Getting Started_ section of the **User Guide**](UserGuide.html#getting-started).
+If you are interested in using nustracker, head over to the [_Getting Started_ section of the **User Guide**](https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html#getting-started).
 
 ### Developer Guide
-If you are interested about developing nustracker, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
+If you are interested about developing nustracker, the [**Developer Guide**](https://ay2122s1-cs2103t-t11-1.github.io/tp/DeveloperGuide.html) is a good place to start.
 
 ### About Us
-If you are interested in learning about the team behind nustracker, head over to the [**About Us** page](AboutUs.html).
+If you are interested in learning about the team behind nustracker, head over to the [**About Us** page](https://ay2122s1-cs2103t-t11-1.github.io/tp/AboutUs.html).
 
 ### Acknowledgements
 
