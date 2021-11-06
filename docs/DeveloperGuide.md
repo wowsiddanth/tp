@@ -267,6 +267,32 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+### Exporting Feature
+
+This is a feature to allow user to export a given data field. Currently, the implementation only works for emails and can only export a csv file.
+
+This feature comes with the following classes:
+- nustracker.logic.commands.ExportCommand
+- nustracker.logic.parser.ExportCommandParser
+- nustracker.storage.Exporting
+
+The following sequence diagram shows how the export operation works:
+
+![ExportSequenceDiagram](images/ExportSequenceDiagram.png)
+_Sequence diagram for exporting_ 
+
+#### Design Considerations
+* **Alternative 1 (current choice)**: Parameters are passed to the Exporting class to instruct it on how and what to export. There is only 1 Exporting class with 1 method.
+  * Pros: Commands are free from clutter, and all exporting changes are done in the Exporting class (i.e. formatting the string, choosing a filetype etc.)
+  * Cons: The Exporting class might become convoluted and complicated as it gets updated in the future.
+* **Alternative 2**: Each command manages its own formatting and passes the formatted content to Exporting class.
+  * Pros: Exporting class will have a very specific purpose and is very clear.
+  * Cons: Changes to a specific filetype might incur changes in many commands. (e.g. if the way that we export csv files are changed, then every command that exports as a csv file will have to change)
+* **Alternative 3**: Exporting class is extended to accommodate for filetypes, and also does the formatting of the data.
+  * Pros: Very structured, easy to extend and add new commands that require export. Easy to add new filetypes for exporting and change which filetypes different commands use.
+  * Cons: Takes longer to implement than the other 2 options
+
+In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. I would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
 
 --------------------------------------------------------------------------------------------------------------------
 

@@ -1,0 +1,29 @@
+@startuml
+participant ":LogicManager"             as Foo
+participant ":AddressBookParser"        as Foo1
+participant ":ExportCommand"            as Foo2
+participant "Exporting"                 as Foo3
+
+box "Logic" #dcbcff
+participant Foo
+participant Foo1
+participant Foo2
+endbox
+
+box "Storage" #ffa0a0
+participant Foo3
+endbox
+
+Foo -> Foo1 : execute("export FILENAME")
+activate Foo1
+create Foo2
+Foo1 -> Foo2 : parseCommand("export FILENAME")
+activate Foo2
+return
+return
+
+Foo -> Foo2 : execute()
+activate Foo2
+Foo2 -> Foo3 : exportEmails()
+return Success Message
+@enduml
