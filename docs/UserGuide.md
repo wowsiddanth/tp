@@ -3,7 +3,7 @@ layout: page-noheader
 title: User Guide
 ---
 
-![developer-guide](images/userguide.png)
+![user-gudie](images/userguide.png)
 
 --------------------------------------------------------------------------------------------------------------------
 <p align="center">

@@ -3,7 +3,7 @@ layout: page-noheader
 title: About Us
 ---
 
-![developer-guide](images/aboutus.png)
+![about-us](images/aboutus.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
