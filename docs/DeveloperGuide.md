@@ -207,6 +207,20 @@ _Sequence diagram for adding an event to UniqueEventList_
 * The UniqueEventList checks for duplicate events using the `hasEvent` method before adding the event.
 * After the event is added, the UI is immediately updated and the new event is reflected as an `EventCard` in the `EventListPanel`.
 
+### Enrolling a Student into an Event
+
+This is a feature to allow the user to enroll a student into an event. Currently, the implementation allows for each student to be enrolled into any chosen event as long as 
+he/she is not on that event's blacklist. A student could be enrolled into more than one event.
+
+This feature comes with the following classes:
+- nustracker.logic.commands.EnrollCommand
+- nustracker.logic.parser.EnrollCommandParser
+
+The following sequence diagram shows how the enroll operation works:
+![EnrollSequenceDiagram](images/EnrollSequenceDiagram.png)
+<br>_Sequence diagram for enrolling a student into an event_
+
+
 ### Exporting Feature
 
 This is a feature to allow the user to export a given data field. Currently, the implementation only works for emails and can only export a csv file.
