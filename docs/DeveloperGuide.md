@@ -290,7 +290,7 @@ _Sequence diagram for exporting_
   * Cons: Changes to a specific filetype might incur changes in many commands. (e.g. if the way that we export csv files are changed, then every command that exports as a csv file will have to change)
 * **Alternative 3**: Exporting class is extended to accommodate for filetypes, and also does the formatting of the data.
   * Pros: Very structured, easy to extend and add new commands that require export. Easy to add new filetypes for exporting and change which filetypes different commands use.
-  * Cons: -
+  * Cons: Takes longer to implement than the other 2 options
 
 In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. I would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
 
