@@ -102,17 +102,6 @@ class EnrollCommandTest {
                 HANS.getStudentId().getStudentIdString(),
                 MATH_OLYMPIAD.getName().getEventName()));
 
-//        try {
-//            enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-//        } catch (CommandException actualCommandException) {
-//
-//
-//
-//            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-//            return;
-//        }
-//
-//        fail("Command should not execute successfully.");
 
         assertThrows(CommandException.class,
                 expectedCommandException.getMessage(),
@@ -124,21 +113,16 @@ class EnrollCommandTest {
     public void execute_enrollStudent_studentOnBlackList() {
         EnrollCommand enrollCommand = new EnrollCommand(GOD.getStudentId(), SPORTS_CAMP.getName());
 
-        try {
-            enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-        } catch (CommandException actualCommandException) {
+        CommandException expectedCommandException = new CommandException(String.format(
+                MESSAGE_STUDENT_ON_BLACKLIST,
+                GOD.getName().toString(),
+                GOD.getStudentId().getStudentIdString(),
+                SPORTS_CAMP.getName().getEventName()));
 
-            CommandException expectedCommandException = new CommandException(String.format(
-                    MESSAGE_STUDENT_ON_BLACKLIST,
-                    GOD.getName().toString(),
-                    GOD.getStudentId().getStudentIdString(),
-                    SPORTS_CAMP.getName().getEventName()));
 
-            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-            return;
-        }
-
-        fail("Command should not execute successfully.");
+        assertThrows(CommandException.class,
+                expectedCommandException.getMessage(),
+                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -146,19 +130,14 @@ class EnrollCommandTest {
     public void execute_enrollStudentIntoNonExistentEvent_throwsCommandException() {
         EnrollCommand enrollCommand = new EnrollCommand(GOD.getStudentId(), EVENTNAME_INVALID);
 
-        try {
-            enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-        } catch (CommandException actualCommandException) {
+        CommandException expectedCommandException = new CommandException(String.format(
+                MESSAGE_INVALID_EVENT_NAME,
+                EVENTNAME_INVALID));
 
-            CommandException expectedCommandException = new CommandException(String.format(
-                    MESSAGE_INVALID_EVENT_NAME,
-                    EVENTNAME_INVALID));
 
-            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-            return;
-        }
-
-        fail("Command should not execute successfully.");
+        assertThrows(CommandException.class,
+                expectedCommandException.getMessage(),
+                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -166,19 +145,14 @@ class EnrollCommandTest {
     public void execute_enrollNonExistentStudent_throwsCommandException() {
         EnrollCommand enrollCommand = new EnrollCommand(STUDENTID_MISSING, ORIENTATION.getName());
 
-        try {
-            enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-        } catch (CommandException actualCommandException) {
+        CommandException expectedCommandException = new CommandException(String.format(
+                MESSAGE_INVALID_STUDENTID,
+                STUDENTID_MISSING));
 
-            CommandException expectedCommandException = new CommandException(String.format(
-                    MESSAGE_INVALID_STUDENTID,
-                    STUDENTID_MISSING));
 
-            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-            return;
-        }
-
-        fail("Command should not execute successfully.");
+        assertThrows(CommandException.class,
+                expectedCommandException.getMessage(),
+                () -> enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 

@@ -92,21 +92,16 @@ public class RemoveCommandTest {
     public void execute_removeStudent_studentNotAlreadyEnrolled() {
         RemoveCommand removeCommand = new RemoveCommand(GOD.getStudentId(), SPORTS_CAMP.getName());
 
-        try {
-            removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-        } catch (CommandException actualCommandException) {
+        CommandException expectedCommandException = new CommandException(String.format(
+                MESSAGE_STUDENT_NOT_ALREADY_ENROLLED,
+                GOD.getName().toString(),
+                GOD.getStudentId().getStudentIdString(),
+                SPORTS_CAMP.getName().getEventName()));
 
-            CommandException expectedCommandException = new CommandException(String.format(
-                    MESSAGE_STUDENT_NOT_ALREADY_ENROLLED,
-                    GOD.getName().toString(),
-                    GOD.getStudentId().getStudentIdString(),
-                    SPORTS_CAMP.getName().getEventName()));
 
-            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-            return;
-        }
-
-        fail("Command should not execute successfully.");
+        assertThrows(CommandException.class,
+                expectedCommandException.getMessage(),
+                () -> removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -116,19 +111,14 @@ public class RemoveCommandTest {
     public void execute_removeStudentFromNonExistentEvent_throwsCommandException() {
         RemoveCommand removeCommand = new RemoveCommand(GOD.getStudentId(), EVENTNAME_INVALID);
 
-        try {
-            removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-        } catch (CommandException actualCommandException) {
+        CommandException expectedCommandException = new CommandException(String.format(
+                MESSAGE_INVALID_EVENT_NAME,
+                EVENTNAME_INVALID));
 
-            CommandException expectedCommandException = new CommandException(String.format(
-                    MESSAGE_INVALID_EVENT_NAME,
-                    EVENTNAME_INVALID));
 
-            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-            return;
-        }
-
-        fail("Command should not execute successfully.");
+        assertThrows(CommandException.class,
+                expectedCommandException.getMessage(),
+                () -> removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
@@ -136,19 +126,14 @@ public class RemoveCommandTest {
     public void execute_removeNonExistentStudent_throwsCommandException() {
         RemoveCommand removeCommand = new RemoveCommand(STUDENTID_MISSING, ORIENTATION.getName());
 
-        try {
-            removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
-        } catch (CommandException actualCommandException) {
+        CommandException expectedCommandException = new CommandException(String.format(
+                MESSAGE_INVALID_STUDENTID,
+                STUDENTID_MISSING));
 
-            CommandException expectedCommandException = new CommandException(String.format(
-                    MESSAGE_INVALID_STUDENTID,
-                    STUDENTID_MISSING));
 
-            assertEquals(expectedCommandException.toString(), actualCommandException.toString());
-            return;
-        }
-
-        fail("Command should not execute successfully.");
+        assertThrows(CommandException.class,
+                expectedCommandException.getMessage(),
+                () -> removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
