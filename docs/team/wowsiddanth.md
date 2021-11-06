@@ -5,7 +5,7 @@ title: wowsiddanth's Project Portfolio Page
 
 ### Project: nustracker
 
-![siddanth](names/siddanth.png)
+![siddanth](names/siddanth.PNG)
 
 __*nustracker*__ is an event-management software that was built specifically for the NUS student/manpower executive in mind. It is
 a brownfield project that extends the AddressBook3 project, which is around 10kLoC.
