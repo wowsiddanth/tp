@@ -20,6 +20,7 @@ import nustracker.logic.commands.BlackListCommand;
 import nustracker.logic.commands.CreateCommand;
 import nustracker.logic.commands.DeleteCommand;
 import nustracker.logic.commands.DeleteEventCommand;
+import nustracker.logic.commands.DeleteFilteredStudentsCommand;
 import nustracker.logic.commands.DeleteStudentCommand;
 import nustracker.logic.commands.EditCommand;
 import nustracker.logic.commands.EventsCommand;
@@ -29,7 +30,10 @@ import nustracker.logic.commands.FilterEventCommand;
 import nustracker.logic.commands.FilterIdCommand;
 import nustracker.logic.commands.FilterNameCommand;
 import nustracker.logic.commands.HelpCommand;
+import nustracker.logic.commands.RefreshCommand;
+import nustracker.logic.commands.SettingsCommand;
 import nustracker.logic.commands.StudentsCommand;
+import nustracker.logic.commands.ThemeCommand;
 import nustracker.logic.commands.WhiteListCommand;
 import nustracker.logic.parser.exceptions.ParseException;
 import nustracker.model.event.Event;
@@ -147,6 +151,32 @@ public class AddressBookParserTest {
     public void parseCommand_events() throws Exception {
         assertTrue(parser.parseCommand(EventsCommand.COMMAND_WORD) instanceof EventsCommand);
         assertTrue(parser.parseCommand(EventsCommand.COMMAND_WORD + " 3") instanceof EventsCommand);
+    }
+
+    @Test
+    public void parseCommand_refresh() throws Exception {
+        assertTrue(parser.parseCommand(RefreshCommand.COMMAND_WORD) instanceof RefreshCommand);
+        assertTrue(parser.parseCommand(RefreshCommand.COMMAND_WORD + " 3") instanceof RefreshCommand);
+    }
+
+    @Test
+    public void themeCommand_events() throws Exception {
+        assertTrue(parser.parseCommand(ThemeCommand.COMMAND_WORD) instanceof ThemeCommand);
+        assertTrue(parser.parseCommand(ThemeCommand.COMMAND_WORD + " 3") instanceof ThemeCommand);
+    }
+
+    @Test
+    public void settingsCommand_events() throws Exception {
+        assertTrue(parser.parseCommand(SettingsCommand.COMMAND_WORD) instanceof SettingsCommand);
+        assertTrue(parser.parseCommand(SettingsCommand.COMMAND_WORD + " 3") instanceof SettingsCommand);
+    }
+
+    @Test
+    public void deleteFilteredStudentsCommand_events() throws Exception {
+        assertTrue(parser.parseCommand(DeleteFilteredStudentsCommand.COMMAND_WORD)
+                instanceof DeleteFilteredStudentsCommand);
+        assertTrue(parser.parseCommand(DeleteFilteredStudentsCommand.COMMAND_WORD + " 3")
+                instanceof DeleteFilteredStudentsCommand);
     }
 
     @Test

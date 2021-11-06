@@ -9,6 +9,8 @@ import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,5 +118,21 @@ class BlackListCommandTest {
         public ReadOnlyAddressBook getAddressBook() {
             return new AddressBook();
         }
+    }
+
+    @Test
+    void equals() {
+        BlackListCommand blackListCommand = new BlackListCommand(
+                new StudentId("e1234567"), new EventName("test event"));
+
+        assertTrue(blackListCommand.equals(blackListCommand));
+        assertTrue(blackListCommand.equals(new BlackListCommand(
+                new StudentId("e1234567"), new EventName("test event"))));
+
+        assertFalse(blackListCommand.equals(null));
+        assertFalse(blackListCommand.equals(new BlackListCommand(
+                new StudentId("e7654321"), new EventName("event test"))));
+        assertFalse(blackListCommand.equals(new WhiteListCommand(
+                new StudentId("e1234567"), new EventName("test event"))));
     }
 }
