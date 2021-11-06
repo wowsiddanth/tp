@@ -3,6 +3,7 @@ package nustracker.logic;
 import static nustracker.logic.parser.CliSyntax.PREFIX_STUDENTID;
 import static nustracker.testutil.TypicalStudents.STUDENTID_MISSING;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import nustracker.commons.core.GuiSettings;
 import nustracker.commons.core.Messages;
 import nustracker.logic.commands.AddCommand;
 import nustracker.logic.commands.CommandResult;
@@ -95,6 +97,31 @@ public class LogicManagerTest {
     @Test
     public void getFilteredStudentList_modifyList_throwsUnsupportedOperationException() {
         Assert.assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredStudentList().remove(0));
+    }
+
+    @Test
+    public void setGuiSettings() {
+        JsonAddressBookStorage addressBookStorage =
+                new JsonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
+        JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
+        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        logic = new LogicManager(model, storage);
+
+        GuiSettings validGuiSettings = new GuiSettings(1, 2, 3, 4,
+                true, "#E9AFFF");
+        logic.setGuiSettings(validGuiSettings);
+        assertEquals(logic.getGuiSettings(), validGuiSettings);
+    }
+
+    @Test
+    public void setGuiSettings_nullSettings_throwsIllegalArgumentException() {
+        JsonAddressBookStorage addressBookStorage =
+                new JsonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
+        JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
+        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        logic = new LogicManager(model, storage);
+
+        assertThrows(IllegalArgumentException.class, () -> logic.setGuiSettings(null));
     }
 
     /**
