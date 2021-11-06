@@ -6,13 +6,13 @@ title: Developer Guide
 {:toc}
 
 
-# Developer Guide - NUSTracker
+![developer-guide](images/developer-guide.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Introduction**
 
-NUSTracker is a standalone desktop app that aims to help event directors and administrative personnel of
+nustracker is a standalone desktop app that aims to help event directors and administrative personnel of
 NUS student organisations to manage the organisation of undergraduate student events more easily.
 
 As this app is geared towards the tech-literate generation, it is designed to use
@@ -87,17 +87,18 @@ The sections below give more details of each component.
 
 ### UI component
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+The **API** of this component is specified in [`Ui.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/ui/Ui.java)
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter`, `EventListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter`, `EventListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart<T>` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 
-The `UI` component uses the JavaFx UI framework and heavily utilizes CSS as well. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml) is specified in [`MainWindow.fxml`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFX UI framework and heavily utilizes CSS as well. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml) is specified in [`MainWindow.fxml`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
-The 'UI' component makes use of .css files to change the theme of the application.
+The styling for the UI components is controlled by the DarkTheme.css and LightTheme.css files. These .css files
+are also switched for every component whenever the user requests a change in theme, via the `ThemeApplier`.
 
 The `UI` component,
 

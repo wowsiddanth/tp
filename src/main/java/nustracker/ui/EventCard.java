@@ -42,6 +42,8 @@ public class EventCard extends UiPart<Region> {
         date.setText(event.getDate().toString());
         time.setText(event.getTime().toString());
 
+        setSpacing();
+
         event.getParticipants().stream()
                 .sorted(Comparator.comparing(participant -> participant.studentId))
                 .forEach(participant -> participants.getChildren().add(
@@ -52,7 +54,12 @@ public class EventCard extends UiPart<Region> {
                 .forEach(blacklisted -> blacklist.getChildren().add(
                         new Label(blacklisted.studentId)));
 
-        //Ensures that the participants and blacklist will be evenly spaced out
+    }
+
+    /**
+     * Sets the spacing of the events and participant labels between each other . Always set to a value of 4.0.
+     */
+    private void setSpacing() {
         participants.setVgap(4.0);
         participants.setHgap(4.0);
         blacklist.setVgap(4.0);

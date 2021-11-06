@@ -21,10 +21,10 @@ public class YearTest {
 
     @Test
     public void isValidYear() {
-        //null year
+        //Null year
         assertThrows(NullPointerException.class, () -> new Year(null));
 
-        //invalid years
+        //Invalid years
         assertFalse(Year.isValidYear("First"));
         assertFalse(Year.isValidYear("Second"));
         assertFalse(Year.isValidYear("Third"));
@@ -38,7 +38,7 @@ public class YearTest {
         assertFalse(Year.isValidYear("Five"));
         assertFalse(Year.isValidYear("Six"));
 
-        //valid years
+        //Valid years
         assertTrue(Year.isValidYear("1"));
         assertTrue(Year.isValidYear("2"));
         assertTrue(Year.isValidYear("3"));
