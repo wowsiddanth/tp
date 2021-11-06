@@ -753,7 +753,7 @@ The folder `C:\Users\JohnDoe\data` is also where exported files are contained!
 **nustracker** data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:**
-_Please edit carefully! **nustracker** will start a fresh run if errors are present!_
+Please edit carefully! **nustracker** will start a fresh run if errors are present!
 </div>
 --------------------------------------------------------------------------------------------------------------------
 
