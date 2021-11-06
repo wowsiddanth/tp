@@ -11,6 +11,7 @@ import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
 import static nustracker.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -49,6 +50,13 @@ public class StudentTest {
         // different email, all other attributes same -> returns true (since studentId and phone is the same)
         editedAmy = new StudentBuilder(TypicalStudents.ALICE).withEmail(VALID_EMAIL_BOB).build();
         Assertions.assertTrue(TypicalStudents.ALICE.hasDuplicateCredentials(editedAmy));
+    }
+
+    @Test
+    public void pseudoStudent() {
+        Student student = new StudentBuilder().withStudentId("e1234567").build();
+        Student pseudoStudent = Student.pseudoStudent(new StudentId("e1234567"));
+        assertTrue(pseudoStudent.hasDuplicateCredentials(student));
     }
 
     @Test

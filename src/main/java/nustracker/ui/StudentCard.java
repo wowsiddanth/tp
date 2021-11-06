@@ -1,12 +1,9 @@
 package nustracker.ui;
 
 import javafx.fxml.FXML;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import nustracker.model.student.Student;
@@ -21,6 +18,7 @@ public class StudentCard extends UiPart<Region> {
     public final Student student;
     private final ImageStorage imageStorage;
     private final String glowColorHexCode;
+    private final ImageEditor imageEditor;
 
     @FXML
     private HBox cardPane;
@@ -49,9 +47,9 @@ public class StudentCard extends UiPart<Region> {
         this.student = student;
         this.glowColorHexCode = glowColorHexCode;
         imageStorage = new ImageStorage();
+        imageEditor = new ImageEditor(profilePictureHolder);
 
         setStudentFields();
-        setGlow(profilePictureHolder, glowColorHexCode);
         setProfilePicture();
     }
 
@@ -69,31 +67,13 @@ public class StudentCard extends UiPart<Region> {
     }
 
     /**
-     * Sets the profile picture holder's glow.
-     */
-    public void setGlow(Circle profilePictureHolder, String hexCode) {
-        profilePictureHolder.setRadius(60);
-
-        profilePictureHolder.setStroke(Color.web(hexCode));
-        profilePictureHolder.setStrokeWidth(4);
-
-        //Creating effect
-        DropShadow borderGlow = new DropShadow();
-        borderGlow.setOffsetY(0f);
-        borderGlow.setOffsetX(0f);
-        borderGlow.setColor(Color.web(hexCode));
-        borderGlow.setWidth(100);
-        borderGlow.setHeight(100);
-
-        profilePictureHolder.setEffect(borderGlow);
-    }
-
-    /**
      * Sets the profile picture holder with the student's image.
      */
     private void setProfilePicture() {
         Image userImage = imageStorage.readImage(student.getStudentId().value);
-        profilePictureHolder.setFill(new ImagePattern(userImage));
+
+        imageEditor.setUpHolder(glowColorHexCode);
+        imageEditor.fillImage(userImage);
     }
 
     @Override

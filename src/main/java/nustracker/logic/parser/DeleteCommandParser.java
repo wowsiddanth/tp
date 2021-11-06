@@ -50,6 +50,7 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
             EventName eventName = ParserUtil.parseEventName(argMultimap.getValue(PREFIX_EVENT).get());
             return new DeleteEventCommand(eventName);
         } else {
+            // Execution should not reach here.
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
         }
     }

@@ -3,12 +3,15 @@ package nustracker.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
+import static nustracker.logic.commands.BlackListCommand.MESSAGE_STUDENTID_CURRENTLY_ENROLLED;
 import static nustracker.testutil.Assert.assertThrows;
 import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_ONE;
 import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +49,6 @@ class BlackListCommandTest {
 
     @Test
     public void execute_blacklistAccepted_addSuccessful() throws Exception {
-
         CommandResult commandResult = new BlackListCommand(STUDENTID_ONE, ORIENTATION.getName()).execute(model,
                 CurrentlyShownList.STUDENTS_LIST);
 
@@ -85,6 +87,17 @@ class BlackListCommandTest {
                                 CurrentlyShownList.STUDENTS_LIST));
     }
 
+    @Test
+    public void execute_blacklistRejected_studentIdEnrolledInEvent() throws Exception {
+        // Student ID e9123119 should be enrolled into Orientation event as per typical AddressBook.
+        assertThrows(CommandException.class,
+                String.format(MESSAGE_STUDENTID_CURRENTLY_ENROLLED,
+                        "e9123119",
+                        ORIENTATION.getName().toString()), () ->
+                        new BlackListCommand(new StudentId("e9123119"), ORIENTATION.getName()).execute(model,
+                                CurrentlyShownList.STUDENTS_LIST));
+    }
+
     /**
      * A Model stub that always sets the event to be edited.
      */
@@ -98,6 +111,12 @@ class BlackListCommandTest {
             addressBook.setEvent(target, editedEvent);
         }
 
+        /**
+         * Sets the blacklist of the given event.
+         *
+         * @param target The event's blacklist to modify.
+         * @param blacklist The new blacklist.
+         */
         public void setBlacklist(Event target, List<String> blacklist) {
             Event withNewBlacklist = new EventBuilder(target)
                     .withBlacklist(blacklist.toArray(new String[0]))
@@ -116,5 +135,21 @@ class BlackListCommandTest {
         public ReadOnlyAddressBook getAddressBook() {
             return new AddressBook();
         }
+    }
+
+    @Test
+    void equals() {
+        BlackListCommand blackListCommand = new BlackListCommand(
+                new StudentId("e1234567"), new EventName("test event"));
+
+        assertTrue(blackListCommand.equals(blackListCommand));
+        assertTrue(blackListCommand.equals(new BlackListCommand(
+                new StudentId("e1234567"), new EventName("test event"))));
+
+        assertFalse(blackListCommand.equals(null));
+        assertFalse(blackListCommand.equals(new BlackListCommand(
+                new StudentId("e7654321"), new EventName("event test"))));
+        assertFalse(blackListCommand.equals(new WhiteListCommand(
+                new StudentId("e1234567"), new EventName("test event"))));
     }
 }
