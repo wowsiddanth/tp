@@ -68,12 +68,12 @@ class BlackListCommandTest {
 
     @Test
     public void execute_blacklistRejected_studentIdAlreadyBlacklisted() throws Exception {
-        Participant blacklisted = (Participant) MATH_OLYMPIAD.getBlacklist().toArray()[0];
+        Participant blacklisted = (Participant) ORIENTATION.getBlacklist().toArray()[0];
 
         assertThrows(CommandException.class,
                 String.format(BlackListCommand.MESSAGE_STUDENTID_ALREADY_BLACKLISTED,
-                        blacklisted.getStudentId(), MATH_OLYMPIAD.getName()), () ->
-                        new BlackListCommand(blacklisted.getStudentId(), MATH_OLYMPIAD.getName()).execute(model,
+                        blacklisted.getStudentId(), ORIENTATION.getName()), () ->
+                        new BlackListCommand(blacklisted.getStudentId(), ORIENTATION.getName()).execute(model,
                                 CurrentlyShownList.STUDENTS_LIST));
     }
 

@@ -35,7 +35,7 @@ public class TypicalEvents {
             .withDate("05-03-2017")
             .withTime("1615")
             .withParticipants("e0322322", "e9123119", "e0123456")
-            .withBlacklist("e9123119").build();
+            .withBlacklist().build();
 
     // For delete event tests
     public static final EventName EVENTNAME_ONE = new EventName("Orientation Camp");

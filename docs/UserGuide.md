@@ -487,6 +487,7 @@ Command: `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME`
 
 - Event name cannot be empty.
 - Event name cannot contain the slash character as slashes are used to identify prefixes.
+- The event name you choose must be unqiue and not already exist in the events list.
 
 - Event date has to be in the format `DD-MM-YYYY`.
     - DD represents the day (from 01-31 inclusive)
