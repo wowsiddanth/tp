@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: page-noheader
 title: User Guide
 ---
+
+![developer-guide](images/userguide.png)
+
+--------------------------------------------------------------------------------------------------------------------
 <p align="center">
 
   <img width="200" src="images/user-guide/nustracker-logo.PNG">
