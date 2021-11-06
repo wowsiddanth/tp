@@ -198,7 +198,7 @@ Using the fields above, type this into the command box: `add n/Sae Byeok m/CS id
 
 After entering the command and pressing **Enter**, scroll all the way down using the scrollbar on the right to view your newly added student!
 **nustracker** should look like this:
-![added-first-student](images/user-guide/after-pressing-enter.PNG)
+![added-first-student](images/user-guide/add-student-aft-press-enter.png)
 
 Congratulations! You have just added your first student! Next, we will learn how to create an event and 
 eventually, how to added Sae Byeok as a participant!
@@ -221,7 +221,7 @@ Now lets view the newly created event! To make **nustracker** show the current l
 
 If done right, **nustracker** should look like this:
 
-![created-event](images/user-guide/created-event.PNG)
+![created-event](images/user-guide/after-creating-event.png)
 
 Congratulations! You have now created an event in **nustracker** as well!
 
@@ -240,12 +240,12 @@ Using the fields above, type this into the command box: `enroll id/e1111111 ev/I
 
 If done correctly, this change should be reflected in both the Imaginary Fair's details and Sae Byeok's particulars.
 
-![event-card](images/user-guide/Event%20Card.PNG)
+![event-card](images/user-guide/imaginary-fair-event-card-after-enroll.png)
 _Under Participants, there is a participant with the Student ID `e111111`, which corresponds to Sae Byeok_
 
 To make **nustracker** go back to the students list, either press the **Students** button in the top bar, or type `students` into the command box and press **Enter**.
 
-![student-card](images/user-guide/sae-byeok-student-card.PNG)<br>
+![student-card](images/user-guide/student-card-after-enroll.png)<br>
 _Under Enrolled Events, we can see that Sae Byeok is enrolled in the Imaginary Fair_ <br>
 
 
