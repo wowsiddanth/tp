@@ -45,9 +45,11 @@ public class TypicalEvents {
 
     // Manually added - Event's details found in {@code CommandTestUtil}
     public static final Event TEST = new EventBuilder().withName(VALID_EVENTNAME_TEST).withDate(VALID_EVENTDATE_TEST)
-            .withTime(VALID_EVENTTIME_TEST).withParticipants(VALID_PARTICIPANT_TEST).build();
+            .withTime(VALID_EVENTTIME_TEST).withParticipants(VALID_PARTICIPANT_TEST)
+            .withBlacklist(VALID_PARTICIPANT_FINAL).build();
     public static final Event FINAL = new EventBuilder().withName(VALID_EVENTNAME_FINAL).withDate(VALID_EVENTDATE_FINAL)
-            .withTime(VALID_EVENTTIME_FINAL).withParticipants(VALID_PARTICIPANT_FINAL).build();
+            .withTime(VALID_EVENTTIME_FINAL).withParticipants(VALID_PARTICIPANT_FINAL)
+            .withBlacklist(VALID_PARTICIPANT_TEST).build();
 
     private TypicalEvents() {} // prevents instantiation
 

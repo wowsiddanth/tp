@@ -59,7 +59,7 @@ public class SettingsWindow extends UiPart<Stage> {
      * @see nustracker.ui.StudentListPanel#updateGlow(String)
      */
     private void updateGlowColor(String color) {
-        if (isValidColorHexCode(color)) {
+        if (ImageEditor.isValidColorHexCode(color)) {
             studentListPanel.updateGlow(color);
         }
     }
@@ -72,20 +72,14 @@ public class SettingsWindow extends UiPart<Stage> {
      * @param colorHexCode The hex code of the glow color
      */
     private void setCurrentColor(String colorHexCode) {
-        if (isValidColorHexCode(colorHexCode)) {
-            Color currentColour = Color.web(colorHexCode);
-            glowColorPicker.setValue(currentColour);
-        }
-    }
+        Color currentColour = ImageEditor.DEFAULT_COLOR;
 
-    /**
-     * Checks if the given string color hex code is a valid one or not.
-     *
-     * @param colorHexCode The string color hex code
-     * @return True if valid, false if not.
-     */
-    private boolean isValidColorHexCode(String colorHexCode) {
-        return colorHexCode.matches("[#][0-9a-fA-F]{6}");
+        if (ImageEditor.isValidColorHexCode(colorHexCode)) {
+            currentColour = Color.web(colorHexCode);
+        }
+
+        glowColorPicker.setValue(currentColour);
+
     }
 
     /**
