@@ -31,9 +31,9 @@ public class WhiteListCommand extends Command {
             + PREFIX_STUDENTID + "e0322322 "
             + PREFIX_EVENT + "Orientation Camp";
     public static final String MESSAGE_WHITELIST_SUCCESS =
-            "%1$s removed from the %2$s's blacklist";
+            "%1$s removed from %2$s's blacklist.";
     public static final String MESSAGE_STUDENTID_NOT_BLACKLISTED =
-            "%1$s is not on %2$s's blacklist";
+            "%1$s is not on %2$s's blacklist.";
 
     private final StudentId studentId;
     private final EventName eventName;
