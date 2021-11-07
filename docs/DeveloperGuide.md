@@ -5,9 +5,6 @@ title: Developer Guide
 
 ![developer-guide](images/developer-guide.png)
 
---------------------------------------------------------------------------------------------------------------------
-* Table of Contents
-{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -22,6 +19,11 @@ clean Graphical User Interface (GUI).
 
 NUSTracker allows event directors to manage student events attendance information of the large undergraduate
 student base.
+
+
+--------------------------------------------------------------------------------------------------------------------
+* Table of Contents
+{:toc}
 
 
 
