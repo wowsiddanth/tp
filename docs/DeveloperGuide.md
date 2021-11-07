@@ -281,7 +281,7 @@ The following sequence diagram shows how the export operation works:
     * Pros: Very structured, easy to extend and add new commands that require export. Easy to add new filetypes for exporting and change which filetypes different commands use.
     * Cons: Takes longer to implement than the other 2 options
 
-In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. I would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
+In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. We would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
 
 
 ### \[Proposed\] Undo/redo feature
