@@ -13,6 +13,7 @@ import nustracker.commons.exceptions.IllegalValueException;
 import nustracker.model.AddressBook;
 import nustracker.model.ReadOnlyAddressBook;
 import nustracker.model.event.Event;
+import nustracker.model.event.Participant;
 import nustracker.model.student.EnrolledEvents;
 import nustracker.model.student.Student;
 
@@ -24,6 +25,8 @@ class JsonSerializableAddressBook {
 
     public static final String MESSAGE_DUPLICATE_STUDENT = "Students list contains duplicate student(s).";
     public static final String MESSAGE_DUPLICATE_EVENT = "Events list contains duplicate event(s).";
+    public static final String MESSAGE_PARTICIPANTS_BLACKLIST_CONFLICT = "There were conflicts found "
+            + "between certain Participants and Blacklists when trying to load events.";
 
     private final List<JsonAdaptedStudent> students = new ArrayList<>();
     private final List<JsonAdaptedEvent> events = new ArrayList<>();
@@ -69,10 +72,18 @@ class JsonSerializableAddressBook {
             }
             addressBook.addEvent(event);
 
+            Set<Participant> currBlacklist = event.getBlacklist();
+
             Set<Student> studentParticipants = event.getParticipantsAsStudents(addressBook);
             for (Student currStudent : studentParticipants) {
                 if (currStudent == null) {
                     continue;
+                }
+
+                Participant currParticipant = new Participant(currStudent.getStudentId().getStudentIdString());
+
+                if (currBlacklist.contains(currParticipant)) {
+                    throw new IllegalValueException(MESSAGE_PARTICIPANTS_BLACKLIST_CONFLICT);
                 }
 
                 EnrolledEvents currentlyEnrolledEvents = currStudent.getEvents();
