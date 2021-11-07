@@ -184,8 +184,35 @@ Classes used by multiple components are in the `nustracker.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Changing the profile picture glow feature
 
-**<<< Check if we are going to keep this `undo` feature >>>**
+This feature allows the user to change the color of the glow surrounding the profile pictures, which by default is a purplish/pink (**#e9affff**). The main mechanism behind this feature is the use of *EventHandlers*, provided by the JavaFX platform, to listen for color selections made by the user to update the glow accordingly.
+
+These are the few main classes at play:
+* ColorPicker (default JavaFX class)
+* Settings Window
+* ImageEditor 
+* StudentListPanel
+
+The following sequence diagram shows the typical chain of events within the internal system, following by a brief description.
+
+![GlowSequenceDiagram](diagrams/GlowSequenceDiagram.png)
+
+1. When a color is selected (_change detected_), the SettingsWindow#updateGlowColor() is called. 
+2. There is a self-invocation of the getGlowHexCode() method, leading to the new  glow color hex code being retrieved by using ColorPicker#getValue(). 
+3. This value is then verified using the ImageEditor#isValidColorHexCode().
+4. This valid value (assuming Step 3 returns true, else ImageStorage.*DEFAULT_COLOR* is used) is then used as a parameter when calling StudentListPanel#updateGlow(), which updates the _glowColorHexCode_ attribute and calls refreshPanel().
+5. Within the refreshPanel(), every studentCard is refreshed with the new glow color.
+
+This is just an abstracted, high-level view of how the glow color is updated. A more in-depth view might show how the color is updated within the StudentCard, which is not required to gain an understanding of this feature.
+
+**Design Considerations**
+
+* **Option 1 (Current):** Change glow color via the ColorPicker GUI<br>
+This was chosen as the final choice over a command as it is more intuitive, as the user is able to browse through a large selection of colors and immediately view changes when selecting a color.
+* **Option 2 (CLI):** Change glow color via a command<br>
+This was not chosen as it is much less intuitive, as the user would have to input a color hex code which the everyday user might not be aware of (like white is **#ffffff**, etc.). Additionally, changing the glow color usually occurs once and is not an action a user might perform repeatedly, further reducing the necessity of a command.
+
 
 ### \[Proposed\] Undo/redo feature
 
@@ -381,8 +408,8 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 1. User types in command
-2. AddressBook adds the user to the address book
-3. AddressBook displays that user has been added, and corresponding details
+2. System adds the user to the address book
+3. System displays that user has been added, and corresponding details
 
    Use case ends
 
@@ -952,18 +979,32 @@ testers are expected to do more *exploratory* testing.
    
        Expected: Student with student ID "e3223223" is deleted. Details of the deleted student shown in the status message. Timestamp in the status bar is updated.
 
-   2. Test case: `delete id/e0000000`<br>
+   2. Test case 2: `delete id/e0000000`<br>
      Prerequisites: Load sample data or ensure no student has the student id e0000000 exists in the address book.
 
       Expected: No student is deleted. Error details shown in the status message. Status bar remains the same.
 
-   3. Test case: `delete id/e12345`<br>
+   3. Test case 3: `delete id/e12345`<br>
    Expected: Incorrect student id format. Error details shown in the status message. Status bar remains the same.
 
    4. Other incorrect delete commands to try: `delete id/`, `delete id/abc`, `delete id/[incorrect student id format]` (correct student id format : `eXXXXXXX` where X is an integer from 0-9)<br>
       Expected: Similar to previous.
 
-3. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
+
+### Changing the profile picture
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** 
+There are sample images provided within the .zip file you can utilize for testing.
+</div>
+
+1. Test case 1: `Rename sample image name to e*******.png`<br>
+Prerequisites: A student with Student ID `e*******` exists within **nustracker**. <br>
+Expected: After using the `Refresh` command or restarting **nustracker**, the student with Student ID `e*******` has that particular profile picture.
+
+2. Test case 2: `Remove profile picture beloning to e*******`<br>
+Prerequisites: A student with Student ID `e*******` exists and currently has a profile picture (_That is, there is an image in the **profile-pictures** with a name corresponding to the student's Student ID_).<br>
+Expected: After using the `Refresh` command or restarting **nustracker**, the student's profile picture reverts to the default image.
 
 ### Saving data
 
