@@ -25,7 +25,7 @@ No more sleepless night deriving Excel formulas. nustracker does everything for 
 nustracker specializes in displaying event information, each complete with student attendance and even a blacklist feature. Clean, silky management is here.
 </div><br>
 <p align="center">
-  <img src="images/Ui-dark.png" />
+  ![created-event](images/user-guide/after-creating-event.png)
 </p> 
 
 <h1 align="center">
