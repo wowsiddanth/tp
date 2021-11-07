@@ -10,7 +10,7 @@ title: User Guide
     Manage students with ease.
 </h1>
 <div align="center">
-No more sleepless night deriving Excel formulas. nustracker does everything for you, preserving your energy— for a happier school life.
+No more sleepless nights deriving Excel formulas. nustracker does everything for you, preserving your energy—for a happier school life.
 </div><br>
 <p align="center">
   <img src="images/Ui.png" />
@@ -88,7 +88,7 @@ via the terminal as well (but double-clicking should work fine).
 
 3. Copy the `nustracker.jar` to the folder you want to use as the _containing folder_ for **nustracker**. We recommend something easy to type, like _myfolder_.<br><br>
 
-4. For Windows Users (**Mac OS user see Step 5**)
+4. For Windows Users (**macOS user see Step 5**)
     1. Double-click the jar file.<br><br>
 
 5. For Mac Users: 
@@ -97,7 +97,7 @@ via the terminal as well (but double-clicking should work fine).
       you would type `cd /Desktop/myfolder/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
    3. Type the following command into the Terminal: `java -jar nustracker.jar`. <br><br>
 
-6. You should see the following:
+6. You should see the following (minus the profile pictures):
    ![Ui](images/Ui.png)
 
 
@@ -188,7 +188,7 @@ The following is a description of the general layout of **nustracker**.
 ## Basics of nustracker
 
 <div markdown="span" class="alert alert-info"> :label:
-This section assumes that you are using a fresh copy of **nustracker** that contains only the sample data. 
+The profile pictures shown here are provided with the .zip file! You can add them to the profile-pictures folder (see Customization for more information), or you can ignore them for now.
 </div>
 
 We hope you are excited to learn the basics of **nustracker**!
