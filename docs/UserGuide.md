@@ -32,7 +32,7 @@ nustracker specializes in displaying event information, each complete with stude
     Customize to your liking.
 </h1>
 <div align="center">
-    We know you're tired of staring at grid boxes (because we are too). With nustracker, you can switch between a light and dark mode, and customize the profile picture glow. The time of customization is here.
+    We know you're tired of staring at grid boxes (because we are too). With nustracker, you can switch between a light and dark mode, and customize the profile picture glow. Customization has never been simpler.
 </div><br>
 <p align="center">
   <img src="images/Ui-dark.png" />
