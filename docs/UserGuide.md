@@ -83,7 +83,7 @@ via the terminal as well (but double-clicking should work fine).
 
 **You finally have your hands on nustracker. Great! Let's learn how to use it now.**<br>
 
-1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
+1. Ensure you have `Java 11` or above installed in your Computer. 
 
 2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). 
 
@@ -98,7 +98,7 @@ via the terminal as well (but double-clicking should work fine).
       you would type `cd /Desktop/myfolder/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
    3. Type the following command into the Terminal: `java -jar nustracker.jar`. 
 
-6. You should see the following (minus the profile pictures):
+6. You should see the following (minus the profile pictures): <br>
    ![Ui](images/Ui.png)
 
 
@@ -114,10 +114,10 @@ Get ready for an unprecedented overhaul in student and event management using **
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
+
 ## Features
 
 **nustracker** was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum in clubs and societies—specifically **student and event management**.
-
 
 ### What can nustracker do?
 1. **Keep track of students**
@@ -187,6 +187,7 @@ The following is a description of the general layout of **nustracker**.
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
+
 ## Basics of nustracker
 
 <div markdown="span" class="alert alert-info"> :label:
@@ -229,7 +230,8 @@ The fields do not have to be any specific order. For example, `MAJOR` can come b
 Using the fields above, type this into the command box: `add n/Sae Byeok m/CS id/e1111111 y/1 p/87438007 e/saebyeok@example.com` and press **Enter**.
 
 After entering the command and pressing **Enter**, scroll all the way down using the scrollbar on the right to view your newly added student!
-**nustracker** should look like this:
+**nustracker** should look like this: 
+
 ![added-first-student](images/user-guide/add-student-aft-press-enter.png)
 
 Congratulations! You have just added your first student! Next, we will learn how to create an event and 
@@ -251,7 +253,7 @@ Using the fields above, type this into the command box: `create n/Imaginary Fair
 Now lets view the newly created event! To make **nustracker** show the current list of events, either press the **Events** button in the top bar, or type `events` into the command box and press **Enter**.
 (_If you are unsure about the buttons, refer [here](#general-layout)._) Then scroll down using the scrollbar on the right.
 
-If done right, **nustracker** should look like this:
+If done right, **nustracker** should look like this: 
 
 ![created-event](images/user-guide/after-creating-event.png)
 
@@ -299,6 +301,7 @@ For a more comprehensive list of commands, please refer to the sections below or
 You're on your way to becoming an **nustracker** pro!
 
 ----------
+<div style="page-break-after: always;"></div>
 ## Commands Section
 
 <div markdown="block" class="alert alert-info">
@@ -331,6 +334,7 @@ You're on your way to becoming an **nustracker** pro!
 </div>
 
 ----------
+<div style="page-break-after: always;"></div>
 ## Student Commands
 
 1. [Adding a student](#adding-a-student-add)
