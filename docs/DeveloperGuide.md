@@ -221,6 +221,39 @@ The following sequence diagram shows how the enroll operation works:
 ![EnrollSequenceDiagram](images/EnrollSequenceDiagram.png)
 <br>_Sequence diagram for enrolling a student into an event_
 
+### Filtering Feature
+
+This is a feature to allow the user to filter the data by different fields. Currently, the implementation allows the user to filter by student IDs, names, majors, years, or event.
+
+This feature comes with the following classes:
+- nustracker.logic.commands.FilterCommand
+- nustracker.logic.commands.FilterEventCommand
+- nustracker.logic.commands.FilterIdCommand
+- nustracker.logic.commands.FilterMajorCommand
+- nustracker.logic.commands.FilterNameCommand
+- nustracker.logic.commands.FilterYearCommand
+- nustracker.logic.parser.FilterCommandParser
+- nustracker.model.student.EnrolledEventsContainsKeywordsPredicate
+- nustracker.model.student.MajorContainsKeywordsPredicate
+- nustracker.model.student.NameContainsKeywordsPredicate
+- nustracker.model.student.StudentIdContainsKeywordsPredicate
+- nustracker.model.student.YearContainsKeywordsPredicate
+
+The filter mechanism is facilitated by `FilterCommand`, an abstract class that extends `Command`.
+Each field that can be used for filtering is created as a new child class which extends `FilterCommand` (e.x. filtering by name is implemented in `FilterNameCommand`).
+Each one of these children classes has a predicate attribute which stores the keywords given by the user and uses them to filter the list of students.
+
+The following class diagram gives an overview on the design of the `filter` command
+![FilterClassDiagram](images/FilterClassDiagram.png)
+<br>_Class diagram for the filter command_
+
+* Notes that `FilterEventCommand` is the only class which extends `FilterCommand` and does not store a predicate, but an `EventName` instead.
+
+The following sequence diagram shows how filtering by student ID works:
+![FilterSequenceDiagram](images/FilterSequenceDiagram.png)
+<br>_Sequence diagram for filtering by student ID_
+
+* `FilterCommandParser` determines which field is used for filtering from the prefix that the user inputs (in this case the prefix is `id/`, hence `FilterCommandParser` calls `FilterIdCommand`)
 
 ### Exporting Feature
 
