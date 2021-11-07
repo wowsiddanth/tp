@@ -16,6 +16,7 @@ No more sleepless nights deriving Excel formulas. nustracker does everything for
   <img src="images/Ui.png" />
 </p> 
 
+<div style="page-break-after: always;"></div>
 <h1 align="center">
     Track event attendance.
 </h1>
@@ -26,6 +27,7 @@ nustracker specializes in displaying event information, each complete with stude
   <img src="images/user-guide/after-creating-event.png" />
 </p> 
 
+<div style="page-break-after: always;"></div>
 <h1 align="center">
     Customize to your liking.
 </h1>
@@ -36,6 +38,7 @@ nustracker specializes in displaying event information, each complete with stude
   <img src="images/Ui-dark.png" />
 </p> 
 
+<div style="page-break-after: always;"></div>
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
 As an event director and student leader, you will be able to add students and events into **nustracker** and use it to keep track event attendance, blacklist students, etc. These are just _some_ of the features and there will be more to come in the future. **nustracker** is customized to your needs—simple, intuitive, and easy to pick up.
@@ -43,8 +46,6 @@ As an event director and student leader, you will be able to add students and ev
 All these things can be done through a simple and intuitive Command Line Interface (CLI), whilst being complimented by a detailed and elegant interface. 
 
 This document will guide you through on how to start using **nustracker**.
-
-<br>
 
 You might see text formatted within colored boxes, so here's a quick run-through what they mean:
 
@@ -59,14 +60,14 @@ These boxes will give you tips on how to use the application better.
 These boxes warn you about important things! It is imperative that you read these, otherwise bad things might happen.
 </div>
 
-<h1 align="center"> Let's get started with nustracker!</h1>
-
-<br><br>
-
+<h1 align="center"> Let's get started with nustracker!</h1><br>
+<div style="page-break-after: always;"></div>
+<h1> Table of contents </h1>
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Getting Started
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br><br>
@@ -80,13 +81,13 @@ via the terminal as well (but double-clicking should work fine).
 
 <br> 
 
-**You finally have your hands on nustracker. Great! Let's learn how to use it now.**
+**You finally have your hands on nustracker. Great! Let's learn how to use it now.**<br>
 
-1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
+1. Ensure you have `Java 11` or above installed in your Computer. 
 
-2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
+2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). 
 
-3. Copy the `nustracker.jar` to the folder you want to use as the _containing folder_ for **nustracker**. We recommend something easy to type, like _myfolder_.<br><br>
+3. Copy the `nustracker.jar` to the folder you want to use as the _containing folder_ for **nustracker**. We recommend something easy to type, like _myfolder_.
 
 4. For Windows Users (**macOS user see Step 5**)
     1. Double-click the jar file.<br><br>
@@ -95,9 +96,9 @@ via the terminal as well (but double-clicking should work fine).
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
    2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop and is called **myfolder**,
       you would type `cd /Desktop/myfolder/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
-   3. Type the following command into the Terminal: `java -jar nustracker.jar`. <br><br>
+   3. Type the following command into the Terminal: `java -jar nustracker.jar`. 
 
-6. You should see the following (minus the profile pictures):
+6. You should see the following (minus the profile pictures): <br>
    ![Ui](images/Ui.png)
 
 
@@ -112,11 +113,11 @@ _If you are an experienced CLI user, you can jump straight to the [Command Summa
 Get ready for an unprecedented overhaul in student and event management using **nustracker**!
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Features
 
 **nustracker** was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum in clubs and societies—specifically **student and event management**.
-
 
 ### What can nustracker do?
 1. **Keep track of students**
@@ -141,7 +142,7 @@ Get ready for an unprecedented overhaul in student and event management using **
 
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## General Layout
 
 The following is a description of the general layout of **nustracker**.
@@ -185,6 +186,8 @@ The following is a description of the general layout of **nustracker**.
     The students, their information, and the events they are taking part in are displayed here.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
+
 ## Basics of nustracker
 
 <div markdown="span" class="alert alert-info"> :label:
@@ -227,7 +230,8 @@ The fields do not have to be any specific order. For example, `MAJOR` can come b
 Using the fields above, type this into the command box: `add n/Sae Byeok m/CS id/e1111111 y/1 p/87438007 e/saebyeok@example.com` and press **Enter**.
 
 After entering the command and pressing **Enter**, scroll all the way down using the scrollbar on the right to view your newly added student!
-**nustracker** should look like this:
+**nustracker** should look like this: 
+
 ![added-first-student](images/user-guide/add-student-aft-press-enter.png)
 
 Congratulations! You have just added your first student! Next, we will learn how to create an event and 
@@ -249,7 +253,7 @@ Using the fields above, type this into the command box: `create n/Imaginary Fair
 Now lets view the newly created event! To make **nustracker** show the current list of events, either press the **Events** button in the top bar, or type `events` into the command box and press **Enter**.
 (_If you are unsure about the buttons, refer [here](#general-layout)._) Then scroll down using the scrollbar on the right.
 
-If done right, **nustracker** should look like this:
+If done right, **nustracker** should look like this: 
 
 ![created-event](images/user-guide/after-creating-event.png)
 
@@ -297,6 +301,7 @@ For a more comprehensive list of commands, please refer to the sections below or
 You're on your way to becoming an **nustracker** pro!
 
 ----------
+<div style="page-break-after: always;"></div>
 ## Commands Section
 
 <div markdown="block" class="alert alert-info">
@@ -329,6 +334,7 @@ You're on your way to becoming an **nustracker** pro!
 </div>
 
 ----------
+<div style="page-break-after: always;"></div>
 ## Student Commands
 
 1. [Adding a student](#adding-a-student-add)
@@ -495,7 +501,7 @@ Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 * Student ID need not exist in the database.
 * Event name has to exist in the database.
 * Student ID cannot be enrolled in event.
-  * Use the [remove](#removing-a-student--remove) command to un-enroll the student ID before running the `blacklist` command.
+  * Use the [remove](#removing-a-student-from-an-event--remove) command to un-enroll the student ID before running the `blacklist` command.
 
 Examples:
 * `blacklist id/e1234567 ev/Orientation Camp` blacklists the student ID e1234567 from the Orientation Camp event.
@@ -517,6 +523,7 @@ Examples:
 
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Event Commands
 
 1. [Creating an event](#creating-an-event-create)
@@ -617,6 +624,7 @@ i.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed. (Refer to [Deleting a 
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
 ## Other Commands
 
 1. [Viewing help](#viewing-help--help)
@@ -688,11 +696,12 @@ This command has the same function as clicking the **_exit_** button in the top 
 Command: `exit`
 
 ---------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Customization
 
 1. [Changing between Light/Dark theme](#changing-between-lightdark-theme)
 2. [Setting a profile picture](#setting-a-profile-picture)
-3. [Changing the glow of the profile picture](#changing-the-_glow_-of-the-profile-picture-border)
+3. [Changing the glow of the profile picture](#changing-the-glow-of-the-profile-picture-border)
 
 Another key feature of **nustracker** is its ability to be customized greatly. This section covers how **nustracker** can be
 customized to your liking.
@@ -713,10 +722,7 @@ customized to your liking.
 
     *The **profile-pictures** folder is highlighted in blue*
 
-<br>
-
 3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. The image must be either a **.png** or a **.jpg** image.
-
 
 4. Rename the image to correspond to the **Student ID** of the student in **nustracker** that will use this profile picture.
 
@@ -727,20 +733,21 @@ customized to your liking.
    ![changed-profile-picture](images/user-guide/changed-profile-picture.PNG)
 
       *The updated student card (belonging to student with Student ID **e1111111** in **nustracker**)*
-      <br><br>
-   2. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
-   3. You're done!
+
+5. The profile picture will update once you type `refresh` into the command box, click the Refresh button, or restart **nustracker**.
+
+6. You're done!
 
   Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
 
-### Changing the _glow_ of the profile picture border
+### Changing the glow of the profile picture border
 
 **nustracker** allows you to change the color of the glow of the profile picture.
 
 1. Open up the **Settings** window either by clicking the **Settings** button or by typing in `settings` into the command box.
  
 
-2. Click the dropdown menu, and pick a color. You can pick a custom color as well. <br><br>
+2. Click the dropdown menu, and pick a color.
 
    ![pre-selected](images/user-guide/pre-selected.PNG)
 
@@ -752,7 +759,7 @@ the glow will be the default pink!).
 </div>
 
 
-
+<div style="page-break-after: always;"></div>
 ### Customization FAQs
  
 **Q**: I have added the image, but it doesn't appear. <br>
@@ -769,6 +776,7 @@ You have now learnt to customize **nustracker** to its fullest. Go ahead and pla
     
 
 ---------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Misc
 ### Saving the data
 
@@ -792,7 +800,7 @@ Please edit carefully! **nustracker** will not be able to load your data if any 
 We recommend that you make a backup of your original data file first just in case.
 </div>
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## FAQ
 
 **Q**: Is nustracker free?<br>
@@ -814,7 +822,7 @@ We recommend that you make a backup of your original data file first just in cas
 **A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a bug report, please visit the [issues](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues) page. Thank you for contributing to **nustracker**!
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## Command summary
 
 ### Student Commands
@@ -837,8 +845,8 @@ We recommend that you make a backup of your original data file first just in cas
 ----------------|-------------------------|-----------------|
 **[create](#creating-an-event-create)**  | Creates an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHMM_ |
 **[events](#listing-all-events--events)**  | Lists events | `events` |
-**[enroll](#enrolling-a-student--enroll)**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
-**[remove](#removing-a-student--remove)**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
+**[enroll](#enrolling-a-student-in-an-event--enroll)**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
+**[remove](#removing-a-student-from-an-event--remove)**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
 **[delete](#deleting-an-event--delete)**  | Deletes an event | `delete ev/EVENT_NAME` |
 
 ### Other Commands
