@@ -15,7 +15,7 @@ title: User Guide
 No more sleepless night deriving Excel formulas. Sound too good to be true? Well, nustracker does everything for you, preserving your energy— for a happier school life.
 </div>
 <p align="center">
-  <img src="images/Sample.jpg" />
+  <img src="images/Ui.png" />
 </p> <br>
 
 <h1 align="center">
@@ -26,7 +26,7 @@ Have a ton of events, each with an even more absurd number of participants? You'
 specializes in displaying events, each complete with student attendance and even a blacklist feature.
 </div>
 <p align="center">
-  <img src="images/Ui.png" />
+  <img src="images/user-guide/after-creating-event.png" />
 </p> <br>
 
 <h1 align="center">
