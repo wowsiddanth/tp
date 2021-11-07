@@ -701,7 +701,7 @@ Command: `exit`
 
 1. [Changing between Light/Dark theme](#changing-between-lightdark-theme)
 2. [Setting a profile picture](#setting-a-profile-picture)
-3. [Changing the glow of the profile picture](#changing-the-_glow_-of-the-profile-picture-border)
+3. [Changing the glow of the profile picture](#changing-the-glow-of-the-profile-picture-border)
 
 Another key feature of **nustracker** is its ability to be customized greatly. This section covers how **nustracker** can be
 customized to your liking.
@@ -845,8 +845,8 @@ We recommend that you make a backup of your original data file first just in cas
 ----------------|-------------------------|-----------------|
 **[create](#creating-an-event-create)**  | Creates an event | `create n/EVENT_NAME d/EVENT_DATE t/EVENT_TIME` _<br> Date format: DD-MM-YYYY <br> Time format: HHMM_ |
 **[events](#listing-all-events--events)**  | Lists events | `events` |
-**[enroll](#enrolling-a-student--enroll)**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
-**[remove](#removing-a-student--remove)**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
+**[enroll](#enrolling-a-student-in-an-event--enroll)**  | Adds a student to an event | `enroll id/STUDENT_ID ev/EVENT_NAME` |
+**[remove](#removing-a-student-from-an-event--remove)**  | Removes a student from an event | `remove id/STUDENT_ID ev/EVENT_NAME` |
 **[delete](#deleting-an-event--delete)**  | Deletes an event | `delete ev/EVENT_NAME` |
 
 ### Other Commands
