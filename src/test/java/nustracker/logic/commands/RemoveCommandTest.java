@@ -4,9 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_EVENT_NAME;
 import static nustracker.commons.core.Messages.MESSAGE_INVALID_STUDENTID;
 import static nustracker.commons.util.CollectionUtil.requireAllNonNull;
-import static nustracker.logic.commands.EnrollCommand.MESSAGE_ADD_TO_EVENT_SUCCESS;
-import static nustracker.logic.commands.EnrollCommand.MESSAGE_STUDENT_ALREADY_ENROLLED;
-import static nustracker.logic.commands.EnrollCommand.MESSAGE_STUDENT_ON_BLACKLIST;
+import static nustracker.logic.commands.RemoveCommand.MESSAGE_REMOVE_EVENT_SUCCESS;
+import static nustracker.logic.commands.RemoveCommand.MESSAGE_STUDENT_NOT_ALREADY_ENROLLED;
 import static nustracker.testutil.Assert.assertThrows;
 import static nustracker.testutil.TypicalAddressBook.getTypicalAddressBook;
 import static nustracker.testutil.TypicalEvents.EVENTNAME_INVALID;
@@ -16,7 +15,6 @@ import static nustracker.testutil.TypicalEvents.MATH_OLYMPIAD;
 import static nustracker.testutil.TypicalEvents.ORIENTATION;
 import static nustracker.testutil.TypicalEvents.SPORTS_CAMP;
 import static nustracker.testutil.TypicalStudents.GOD;
-import static nustracker.testutil.TypicalStudents.HANS;
 import static nustracker.testutil.TypicalStudents.STUDENTID_MISSING;
 import static nustracker.testutil.TypicalStudents.STUDENTID_ONE;
 import static nustracker.testutil.TypicalStudents.STUDENTID_TWO;
@@ -43,28 +41,26 @@ import nustracker.testutil.ModelStub;
 import nustracker.testutil.StudentBuilder;
 import nustracker.ui.MainWindow.CurrentlyShownList;
 
+public class RemoveCommandTest {
 
-/**
- * Contains methods for testing the event commands
- */
-class EnrollCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void constructor_nullParameters_throwsNullPointerException() {
 
-        assertThrows(NullPointerException.class, () -> new EnrollCommand(null, null));
-        assertThrows(NullPointerException.class, () -> new EnrollCommand(STUDENTID_ONE, null));
-        assertThrows(NullPointerException.class, () -> new EnrollCommand(null, EVENTNAME_ONE));
+        assertThrows(NullPointerException.class, () -> new RemoveCommand(null, null));
+        assertThrows(NullPointerException.class, () -> new RemoveCommand(STUDENTID_ONE, null));
+        assertThrows(NullPointerException.class, () -> new RemoveCommand(null, EVENTNAME_ONE));
 
     }
 
     @Test
-    public void execute_enrollStudent_enrollSuccess() {
-        EnrollCommand enrollCommand = new EnrollCommand(STUDENTID_ONE, MATH_OLYMPIAD.getName());
+    public void execute_removeStudent_removeSuccess() {
 
-        ModelStubEnrolledEvents compareModel = new ModelStubEnrolledEvents();
+        RemoveCommand removeCommand = new RemoveCommand(STUDENTID_ONE, MATH_OLYMPIAD.getName());
+
+        ModelStubRemoveEvents compareModel = new ModelStubRemoveEvents();
 
         Student currStudent = model.getStudent(STUDENTID_ONE);
         Event currEvent = model.getEvent(MATH_OLYMPIAD.getName());
@@ -75,13 +71,13 @@ class EnrollCommandTest {
         CommandResult actualCommandResult = null;
 
         try {
-            actualCommandResult = enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST);
+            actualCommandResult = removeCommand.execute(compareModel, CurrentlyShownList.STUDENTS_LIST);
         } catch (CommandException e) {
             fail("Command Exception should not be thrown.");
         }
 
         CommandResult expectedCommandResult = new CommandResult(String.format(
-                MESSAGE_ADD_TO_EVENT_SUCCESS,
+                MESSAGE_REMOVE_EVENT_SUCCESS,
                 currStudent.getName().toString(),
                 currStudent.getStudentId().getStudentIdString(),
                 currEvent.getName().getEventName()));
@@ -93,28 +89,11 @@ class EnrollCommandTest {
     }
 
     @Test
-    public void execute_enrollStudent_studentAlreadyEnrolled() {
-        EnrollCommand enrollCommand = new EnrollCommand(HANS.getStudentId(), MATH_OLYMPIAD.getName());
+    public void execute_removeStudent_studentNotAlreadyEnrolled() {
+        RemoveCommand removeCommand = new RemoveCommand(GOD.getStudentId(), SPORTS_CAMP.getName());
 
         CommandException expectedCommandException = new CommandException(String.format(
-                MESSAGE_STUDENT_ALREADY_ENROLLED,
-                HANS.getName().toString(),
-                HANS.getStudentId().getStudentIdString(),
-                MATH_OLYMPIAD.getName().getEventName()));
-
-
-        assertThrows(CommandException.class,
-                expectedCommandException.getMessage(), () ->
-                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
-
-    }
-
-    @Test
-    public void execute_enrollStudent_studentOnBlackList() {
-        EnrollCommand enrollCommand = new EnrollCommand(GOD.getStudentId(), SPORTS_CAMP.getName());
-
-        CommandException expectedCommandException = new CommandException(String.format(
-                MESSAGE_STUDENT_ON_BLACKLIST,
+                MESSAGE_STUDENT_NOT_ALREADY_ENROLLED,
                 GOD.getName().toString(),
                 GOD.getStudentId().getStudentIdString(),
                 SPORTS_CAMP.getName().getEventName()));
@@ -122,13 +101,15 @@ class EnrollCommandTest {
 
         assertThrows(CommandException.class,
                 expectedCommandException.getMessage(), () ->
-                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                        removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
+
+
     @Test
-    public void execute_enrollStudentIntoNonExistentEvent_throwsCommandException() {
-        EnrollCommand enrollCommand = new EnrollCommand(GOD.getStudentId(), EVENTNAME_INVALID);
+    public void execute_removeStudentFromNonExistentEvent_throwsCommandException() {
+        RemoveCommand removeCommand = new RemoveCommand(GOD.getStudentId(), EVENTNAME_INVALID);
 
         CommandException expectedCommandException = new CommandException(String.format(
                 MESSAGE_INVALID_EVENT_NAME,
@@ -137,13 +118,13 @@ class EnrollCommandTest {
 
         assertThrows(CommandException.class,
                 expectedCommandException.getMessage(), () ->
-                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                        removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
     @Test
-    public void execute_enrollNonExistentStudent_throwsCommandException() {
-        EnrollCommand enrollCommand = new EnrollCommand(STUDENTID_MISSING, ORIENTATION.getName());
+    public void execute_removeNonExistentStudent_throwsCommandException() {
+        RemoveCommand removeCommand = new RemoveCommand(STUDENTID_MISSING, ORIENTATION.getName());
 
         CommandException expectedCommandException = new CommandException(String.format(
                 MESSAGE_INVALID_STUDENTID,
@@ -152,19 +133,19 @@ class EnrollCommandTest {
 
         assertThrows(CommandException.class,
                 expectedCommandException.getMessage(), () ->
-                        enrollCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
+                        removeCommand.execute(model, CurrentlyShownList.STUDENTS_LIST));
 
     }
 
 
     @Test
     public void equals() {
-        final EnrollCommand standardCommand = new EnrollCommand(
+        final RemoveCommand standardCommand = new RemoveCommand(
                 STUDENTID_ONE,
                 EVENTNAME_ONE);
 
         // same values -> returns true
-        EnrollCommand commandWithSameValues = new EnrollCommand(
+        RemoveCommand commandWithSameValues = new RemoveCommand(
                 STUDENTID_ONE,
                 EVENTNAME_ONE);
         assertTrue(standardCommand.equals(commandWithSameValues));
@@ -179,12 +160,12 @@ class EnrollCommandTest {
         assertFalse(standardCommand.equals(new HelpCommand()));
 
         // different student ID -> returns false
-        assertFalse(standardCommand.equals(new EnrollCommand(
+        assertFalse(standardCommand.equals(new RemoveCommand(
                 STUDENTID_TWO,
                 EVENTNAME_ONE)));
 
         // different event -> returns false
-        assertFalse(standardCommand.equals(new EnrollCommand(
+        assertFalse(standardCommand.equals(new RemoveCommand(
                 STUDENTID_ONE,
                 EVENTNAME_TWO)));
     }
@@ -192,7 +173,7 @@ class EnrollCommandTest {
     /**
      * A Model Stub to easily create models to compare with.
      */
-    private class ModelStubEnrolledEvents extends ModelStub {
+    private class ModelStubRemoveEvents extends ModelStub {
         final AddressBook addressBook = getTypicalAddressBook();
 
         @Override
@@ -243,5 +224,4 @@ class EnrollCommandTest {
             return addressBook;
         }
     }
-
 }
