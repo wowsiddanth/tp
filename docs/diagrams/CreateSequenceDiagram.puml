@@ -27,7 +27,7 @@ activate CreateCommandParser
 CreateCommandParser --> AddressBookParser
 deactivate CreateCommandParser
 
-AddressBookParser -> CreateCommandParser : parse("create \nn/Orientation d/08-01-2021 t/1000")
+AddressBookParser -> CreateCommandParser : parse("n/Orientation d/08-01-2021 t/1000")
 activate CreateCommandParser
 
 ref over CreateCommandParser
