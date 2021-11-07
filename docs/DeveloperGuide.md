@@ -24,11 +24,6 @@ NUSTracker allows event directors to manage student events attendance informatio
 student base.
 
 
---------------------------------------------------------------------------------------------------------------------
-
-## **Acknowledgements**
-
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -56,7 +51,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/Main.java) and [`MainApp`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -112,7 +107,7 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -141,9 +136,9 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/model/Model.java)
 
-![Model Class Diagram](images/ModelClassDiagram.png)
+# ![Model Class Diagram](images/ModelClassDiagram.png)
 
 The `Model` component,
 
@@ -158,7 +153,7 @@ The `Model` component,
 
 ### Storage component
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/storage/Storage.java)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
@@ -264,6 +259,19 @@ The following sequence diagram shows how the enroll operation works:
 ![EnrollSequenceDiagram](images/EnrollSequenceDiagram.png)
 <br>_Sequence diagram for enrolling a student into an event_
 
+* Note that LogicManager is called using execute("enroll id/e0322322 ev/Sports Camp"). This information was truncated to reduce clutter in the diagram.<br>
+* For details of how the EnrollCommand internally enrolls a student into an event internally, please check out the corresponding activity diagram below.
+
+The following sequence diagram shows how a enroll operation gets its arguments from the prefixes:
+
+![EnrollParseArguments](images/EnrollParseArguments.png)
+<br>_Sequence diagram for parsing enroll command arguments_
+
+The following activity diagram shows how the enroll command enrolls a student into an event:
+![EnrollActivityDiagram](images/EnrollActivityDiagram.png)
+<br>_Activity diagram to show how the enroll command enrolls a student into an event_
+
+
 ### Filtering Feature
 
 This is a feature to allow the user to filter the data by different fields. Currently, the implementation allows the user to filter by student IDs, names, majors, years, or event.
@@ -297,6 +305,7 @@ The following sequence diagram shows how filtering by student ID works:
 <br>_Sequence diagram for filtering by student ID_
 
 * `FilterCommandParser` determines which field is used for filtering from the prefix that the user inputs (in this case the prefix is `id/`, hence `FilterCommandParser` calls `FilterIdCommand`)
+
 
 ### Exporting Feature
 
@@ -1031,7 +1040,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Download the jar file and copy into an empty folder
 
-    2. Double-click the jar file. <br>
+    2. Double-click the jar file. If you are using Mac, please start the .jar file via the terminal. <br>
    Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
