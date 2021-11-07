@@ -36,7 +36,7 @@ specializes in displaying events, each complete with student attendance and even
     We know you're tired of staring at grid boxes (because we are too). With nustracker, you can switch between a light and dark mode, and customizing profile picture glow. Get ready for the ultimate change in aesthetics, combined with functionality.
 </div><br>
 <p align="center">
-  <img src="images/user-guide/dark-theme.png" />
+  <img src="images/Ui-dark.png" />
 </p> <br>
 
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
