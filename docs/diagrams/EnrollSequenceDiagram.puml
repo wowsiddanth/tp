@@ -50,11 +50,9 @@ deactivate AddressBookParser
 LogicManager -> EnrollCommand : execute()
 activate EnrollCommand
 
-ref over EnrollCommand
-enroll student
-   into event
-end ref
-
+EnrollCommand -[hidden]->
+EnrollCommand -[hidden]->
+EnrollCommand -[hidden]->
 
 
 create CommandResult

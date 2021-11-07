@@ -75,7 +75,7 @@ via the terminal as well (but double-clicking should work fine).
    ![Ui](images/Ui.png)
 
 
-**nustracker** is now up and running on your system! To getting started, we suggest this flow:
+**nustracker** is now up and running on your system! To get started, we suggest this flow:
 1. [General Layout](#general-layout)
 2. [Basics of nustracker](#basics-of-nustracker)
 3. [List of Commands](#student-commands)

@@ -221,13 +221,17 @@ The following sequence diagram shows how the enroll operation works:
 ![EnrollSequenceDiagram](images/EnrollSequenceDiagram.png)
 <br>_Sequence diagram for enrolling a student into an event_
 
-* Note that LogicManager is called using execute("enroll \nid/e0322322 \nev/Sports Camp"). This information was truncated to reduce clutter in the diagram.<br>
+* Note that LogicManager is called using execute("enroll id/e0322322 ev/Sports Camp"). This information was truncated to reduce clutter in the diagram.<br>
+* For details of how the EnrollCommand internally enrolls a student into an event internally, please check out the activity diagram shown below.
 
 The following sequence diagram shows how a enroll operation gets its arguments from the prefixes:
 
 ![EnrollParseArguments](images/EnrollParseArguments.png)
-_Sequence diagram for parsing enroll command arguments_
+<br>_Sequence diagram for parsing enroll command arguments_
 
+The following activity diagram shows how the enroll command enrolls a student into an event:
+![EnrollActivityDiagram](images/EnrollActivityDiagram.png)
+<br>_Activity diagram to show how the enroll command enrolls a student into an event_
 
 
 
