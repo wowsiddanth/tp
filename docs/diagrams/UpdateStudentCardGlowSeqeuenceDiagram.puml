@@ -1,8 +1,10 @@
 @startuml
-participant ":StudentListPanel" as Foo
-participant ":ListView"         as Foo1
+!include style.puml
 
-box "UI" #e9afff
+participant ":StudentListPanel" as Foo UI_COLOR
+participant ":ListView"         as Foo1 UI_COLOR
+
+box "UI" UI_COLOR_T1
 participant Foo
 participant Foo1
 endbox
@@ -22,6 +24,8 @@ Foo -> Foo1 : setCellFactory()
 activate Foo1
 return
 return
+return
+
 return
 
 @enduml

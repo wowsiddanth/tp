@@ -5,9 +5,6 @@ title: Developer Guide
 
 ![developer-guide](images/developer-guide.png)
 
---------------------------------------------------------------------------------------------------------------------
-* Table of Contents
-{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -24,14 +21,22 @@ NUSTracker allows event directors to manage student events attendance informatio
 student base.
 
 
+--------------------------------------------------------------------------------------------------------------------
+* Table of Contents
+{:toc}
+
+
 
 --------------------------------------------------------------------------------------------------------------------
+
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Design**
 
@@ -138,7 +143,7 @@ How the parsing works:
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/model/Model.java)
 
-# ![Model Class Diagram](images/ModelClassDiagram.png)
+![Model Class Diagram](images/ModelClassDiagram.png)
 
 The `Model` component,
 
@@ -168,6 +173,8 @@ Classes used by multiple components are in the `nustracker.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
@@ -192,7 +199,7 @@ There are a few classes at play for the main process:
 
 The following sequence diagram shows the typical chain of events within the internal system, followed by a brief description.
 
-![GlowSequenceDiagram](diagrams/GlowSequenceDiagram.png)
+![GlowSequenceDiagram](images/GlowSequenceDiagram.png)
 
 1. When a color is selected (_change detected_), the `SettingsWindow#updateGlowColor()` is called. 
 2. There is a self-invocation of the `SettingsWindow#getGlowHexCode()` method, leading to the new  glow color hex code being retrieved by using `ColorPicker#getValue()`. 
@@ -200,7 +207,7 @@ The following sequence diagram shows the typical chain of events within the inte
 4. This valid value (assuming Step 3 returns true, else `ImageStorage.DEFAULT_COLOR` is used) is then used as a parameter when calling `StudentListPanel#updateGlow()`.
 
 Next, let's take a closer look at what happens within StudentListPanel.
-![UpdateStudentCardGlow](diagrams/UpdateStudentCardGlowSeqeuenceDiagram.png)
+![UpdateStudentCardGlow](images/UpdateStudentCardGlowSeqeuenceDiagram.png)
 
 1. When `StudentListPanel#updateGlowColor()` is called, there is a self-invocation of `StudentListPanel#refreshPanel()`.
 2. This then leads to _another_ self invocation of the `StudentListPanel#fillPanelWithCells()` method.
@@ -335,6 +342,7 @@ The following sequence diagram shows how the export operation works:
 
 In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. We would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
 
+<div style="page-break-after: always;"></div>
 
 ### \[Proposed\] Undo/redo feature
 
@@ -410,6 +418,8 @@ The following activity diagram summarizes what happens when a user executes a ne
     * Cons: We must ensure that the implementation of each individual command are correct.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -1024,6 +1034,8 @@ Use case ends.
 * **NUS**: An abbreviation for National University of Singapore.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
