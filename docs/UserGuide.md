@@ -62,7 +62,7 @@ These boxes warn you about important things! It is imperative that you read thes
 
 <h1 align="center"> Let's get started with nustracker!</h1><br>
 <div style="page-break-after: always;"></div>
-
+<h1> Table of contents </h1>
 * Table of Contents
 {:toc}
 
