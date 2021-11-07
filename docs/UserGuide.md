@@ -12,7 +12,7 @@ title: User Guide
     Manage students with ease.
 </h1>
 <div align="center">
-No more sleepless night deriving Excel formulas. Sound too good to be true? Well, nustracker does everything for you, preserving your energy— for a happier school life.
+No more sleepless night deriving Excel formulas. nustracker does everything for you, preserving your energy— for a happier school life.
 </div><br>
 <p align="center">
   <img src="images/Ui.png" />
@@ -22,18 +22,17 @@ No more sleepless night deriving Excel formulas. Sound too good to be true? Well
     Track event attendance.
 </h1>
 <div align="center">
-Have a ton of events, each with an even more absurd number of participants? You're in luck, because nustracker
-specializes in displaying events, each complete with student attendance and even a blacklist feature.
+nustracker specializes in displaying event information, each complete with student attendance and even a blacklist feature. Clean, silky management is here.
 </div><br>
 <p align="center">
-  <img src="images/user-guide/after-creating-event.png" />
-</p> <br>
+  <img src="images/Ui-dark.png" />
+</p> 
 
 <h1 align="center">
     Customize to your liking.
 </h1>
 <div align="center">
-    We know you're tired of staring at grid boxes (because we are too). With nustracker, you can switch between a light and dark mode, and customizing profile picture glow. Get ready for the ultimate change in aesthetics, combined with functionality.
+    We know you're tired of staring at grid boxes (because we are too). With nustracker, you can switch between a light and dark mode, and customize the profile picture glow. The time of customization is here.
 </div><br>
 <p align="center">
   <img src="images/Ui-dark.png" />
