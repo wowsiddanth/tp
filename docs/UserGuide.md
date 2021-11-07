@@ -16,11 +16,11 @@ No more sleepless night deriving Excel formulas. Sound too good to be true? Well
 </div><br>
 <p align="center">
   <img src="images/Ui.png" />
-</p> <br>
+</p> 
 
 <h1 align="center">
     Track event attendance.
-</h1><br>
+</h1>
 <div align="center">
 Have a ton of events, each with an even more absurd number of participants? You're in luck, because nustracker
 specializes in displaying events, each complete with student attendance and even a blacklist feature.
@@ -31,13 +31,13 @@ specializes in displaying events, each complete with student attendance and even
 
 <h1 align="center">
     Customize to your liking.
-</h1><br>
+</h1>
 <div align="center">
     We know you're tired of staring at grid boxes (because we are too). With nustracker, you can switch between a light and dark mode, and customizing profile picture glow. Get ready for the ultimate change in aesthetics, combined with functionality.
 </div><br>
 <p align="center">
   <img src="images/Ui-dark.png" />
-</p> <br>
+</p> 
 
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
