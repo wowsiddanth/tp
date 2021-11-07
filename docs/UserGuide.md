@@ -501,7 +501,7 @@ Command: `blacklist id/STUDENT_ID ev/EVENT_NAME`
 * Student ID need not exist in the database.
 * Event name has to exist in the database.
 * Student ID cannot be enrolled in event.
-  * Use the [remove](#removing-a-student--remove) command to un-enroll the student ID before running the `blacklist` command.
+  * Use the [remove](#removing-a-student-from-an-event--remove) command to un-enroll the student ID before running the `blacklist` command.
 
 Examples:
 * `blacklist id/e1234567 ev/Orientation Camp` blacklists the student ID e1234567 from the Orientation Camp event.
@@ -523,6 +523,7 @@ Examples:
 
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Event Commands
 
 1. [Creating an event](#creating-an-event-create)
@@ -623,6 +624,7 @@ i.e. `delete id/STUDENT_ID ev/EVENT_NAME` is not allowed. (Refer to [Deleting a 
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
 ## Other Commands
 
 1. [Viewing help](#viewing-help--help)
@@ -694,6 +696,7 @@ This command has the same function as clicking the **_exit_** button in the top 
 Command: `exit`
 
 ---------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Customization
 
 1. [Changing between Light/Dark theme](#changing-between-lightdark-theme)
@@ -719,10 +722,7 @@ customized to your liking.
 
     *The **profile-pictures** folder is highlighted in blue*
 
-<br>
-
 3. Open the _**profile-pictures**_ folder and add the image you want as a profile picture. The image must be either a **.png** or a **.jpg** image.
-
 
 4. Rename the image to correspond to the **Student ID** of the student in **nustracker** that will use this profile picture.
 
@@ -734,12 +734,12 @@ customized to your liking.
 
       *The updated student card (belonging to student with Student ID **e1111111** in **nustracker**)*
       <br><br>
-   2. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
-   3. You're done!
+   1. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
+   2. You're done!
 
   Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
 
-### Changing the _glow_ of the profile picture border
+### Changing the glow of the profile picture border
 
 **nustracker** allows you to change the color of the glow of the profile picture.
 
