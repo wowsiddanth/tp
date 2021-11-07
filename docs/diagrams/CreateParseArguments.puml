@@ -13,7 +13,7 @@ participant "d:EventDate" as EventDate MODEL_COLOR
 participant "t:EventTime" as EventTime MODEL_COLOR
 end box
 
-CreateCommandParser -> ArgumentTokenizer: tokenize("create n/Orientation d/08-01-2021 t/1000", \n "n/", "d/", "t/")
+CreateCommandParser -> ArgumentTokenizer: tokenize("n/Orientation d/08-01-2021 t/1000", \n "n/", "d/", "t/")
 activate ArgumentTokenizer
 
 ArgumentTokenizer --> CreateCommandParser: argMultiMap

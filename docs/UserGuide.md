@@ -2,6 +2,10 @@
 layout: page-noheader
 title: User Guide
 ---
+
+![user-guide](images/userguide.png)
+
+--------------------------------------------------------------------------------------------------------------------
 <p align="center">
 
   <img width="200" src="images/user-guide/nustracker-logo.PNG">
@@ -25,7 +29,7 @@ No more sleepless night deriving Excel formulas. nustracker does everything for 
 nustracker specializes in displaying event information, each complete with student attendance and even a blacklist feature. Clean, silky management is here.
 </div><br>
 <p align="center">
-  <img src="images/user-guide/images/user-guide/after-creating-event.png" />
+  <img src="images/user-guide/after-creating-event.png" />
 </p> 
 
 <h1 align="center">
@@ -73,8 +77,8 @@ These boxes warn you about important things! It is imperative that you read thes
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br><br>
 
-**For Mac OS users**: Please start the .jar file via the terminal (see: step 5 below). If you do not, the files may not be created due to 
-current Mac OS security restrictions on file creation. <br><br>
+**For macOS users**: Please start the .jar file via the terminal (see: step 5 below). If you do not, the files may not be created due to 
+current macOS security restrictions on file creation. <br><br>
 **For Windows users**: It is also recommended that the .jar be started
 via the terminal as well (but double-clicking should work fine).
 
@@ -233,7 +237,7 @@ After entering the command and pressing **Enter**, scroll all the way down using
 ![added-first-student](images/user-guide/add-student-aft-press-enter.png)
 
 Congratulations! You have just added your first student! Next, we will learn how to create an event and 
-eventually, how to added Sae Byeok as a participant!
+eventually, how to add Sae Byeok as a participant!
 
 ### Creating your first event
 
@@ -320,7 +324,7 @@ You're on your way to becoming an **nustracker** pro!
 * If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, `exit` and `clear`) will be ignored.<br>
+* Extraneous parameters for commands that do not take in parameters (such as `help`, `students`, `events`, and `exit`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 * Commands that take in parameters cannot contain extraneous prefixes nor slashes. This means none of the input parameters should contain any slashes, since slashes are used to identify prefixes.
@@ -804,7 +808,7 @@ We recommend that you make a backup of your original data file first just in cas
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous **nustracker** home folder.
 
 **Q**: Is my data in **nustracker** secure?<br>
-**A**: Yes! Your data is stored locally on your computer, so it cannot be stolen unless someone has physcial access to your computer.
+**A**: Yes! Your data is stored locally on your computer, so it cannot be stolen unless someone has physical access to your computer.
 
 **Q**: Do I need an internet connection to use nustracker?<br>
 **A**: No. An internet connection is not required. nustracker can work completely offline.

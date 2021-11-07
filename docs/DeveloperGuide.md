@@ -1,12 +1,13 @@
 ---
-layout: page
+layout: page-noheader
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
-
 
 ![developer-guide](images/developer-guide.png)
+
+--------------------------------------------------------------------------------------------------------------------
+* Table of Contents
+{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -273,6 +274,7 @@ This feature comes with the following classes:
 - nustracker.logic.parser.ExportCommandParser
 - nustracker.storage.Exporting
 
+
 The following sequence diagram shows how the export operation works:
 
 ![ExportSequenceDiagram](images/ExportSequenceDiagram.png)
@@ -289,7 +291,8 @@ The following sequence diagram shows how the export operation works:
     * Pros: Very structured, easy to extend and add new commands that require export. Easy to add new filetypes for exporting and change which filetypes different commands use.
     * Cons: Takes longer to implement than the other 2 options
 
-In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. I would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
+In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. We would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
+
 
 ### \[Proposed\] Undo/redo feature
 
@@ -445,8 +448,8 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 1. User types in command.
-2. System adds the user to the address book.
-3. System displays that user has been added, and corresponding details.
+2. nustracker adds the user to the address book.
+3. nustracker displays that user has been added, and corresponding details.
 
    Use case ends
 
@@ -454,6 +457,8 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 * 1a. User types in an invalid format.
     * 1a1. nustracker shows an error message, and displays the correct format to use.
 
+* 1b. A student with the same student ID, phone number or email already exists in nustracker.
+    * 1b1. nustracker shows an error message, and informs the user that a duplicate student already exists.<br>
       Use case ends.
 
 <br>
@@ -466,20 +471,18 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1. User requests to delete a specific student in the list
-2. System deletes the student, and informs user
-
+1. User requests to delete a specific student in the list.
+2. nustracker deletes the student, and informs user.<br>
     Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
-    * 1a1. nustracker shows an error message, and displays the correct format to use.
-
+    * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
       Use case ends
 
-* 1b. The student does not exist.
-  * 1b1. nustracker shows an error message, informing the user that the student does not exist.
 
+* 1b. The student does not exist.
+  * 1b1. nustracker shows an error message, informing the user that the student does not exist.<br>
     Use case ends.
 
 <br>
@@ -492,24 +495,20 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1.  User requests to filter students by multiple names
-2.  nustracker displays a list of students whose names contain the specified keywords
-
+1.  User requests to filter students by multiple names.
+2.  nustracker displays a list of students whose names contain the specified keywords.<br>
     Use case ends.
 
 **Extensions:**
 * 1a. User types an incorrect format of the command.
-
-    * 1a1. nustracker shows an error message with the correct format of the command.
-
+    * 1a1. nustracker shows an error message with the correct format of the command.<br>
         Use case ends.
+  
 
-* 2b. nustracker does not find any students with names containing the given keywords.
-
-    * 2b1. nustracker displays an empty list.
-
-        Use case ends.
-
+* 2a. nustracker does not find students with the specified name.
+    * 2a1. nustracker displays an empty list.<br>
+      Use case ends.
+  
 <br>
 
 **<u>Use case UC4 - Filter students by student ID</u>**
@@ -520,25 +519,30 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1.  User requests to filter students by multiple student IDs
-2.  nustracker displays a list of students whose student IDs contains the specified keywords
-
+1.  User requests to filter students by multiple student IDs.
+2.  nustracker displays a list of students whose student IDs contains the specified keywords.<br>
     Use case ends.
 
 **Extensions:**
 * 1a. User types an incorrect format of the command.
+    * 1a1. nustracker shows an error message with the correct format of the command.<br>
+      Use case ends.
 
-    * 1a1. nustracker shows an error message with the correct format of the command.
 
+* 1b. User types multiple prefixes to filter by.
+    * 1b1. nustracker shows an error message.<br>
+      Use case ends.
+
+
+* 2a. The list of students is empty.<br>
+  Use case ends.
+ 
+
+* 2b. nustracker does not find students with the specified Student IDs.
+    * 2b1. nustracker displays an empty list.<br>
         Use case ends.
-
-* 2a. nustracker does not find students with the specified Student IDs.
-
-    * 2a1. nustracker displays an empty list.
-
-        Use case ends.
-
-
+        
+      
 <br>
 
 **<u>Use case UC5 - Find the students attending a certain event</u>**
@@ -549,27 +553,31 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1.  User requests to filter students by event name
-2.  nustracker displays a list of students who are attending that event
-
+1.  User requests to filter students by event name.
+2.  nustracker displays a list of students who are attending that event.<br>
     Use case ends.
+
 
 **Extensions:**
 * 1a. User types an incorrect format of the command.
-    * 1a1. nustracker shows an error message with the correct format of the command.
+    * 1a1. nustracker shows an error message with the correct format of the command.<br>
+      Use case ends.
 
+
+* 1b. User types multiple prefixes to filter by.
+    * 1b1. nustracker shows an error message.<br>
+      Use case ends.
+
+
+* 2a. The list of students is empty.<br>
+  Use case ends.
+ 
+
+* 2b. nustracker does not find any students attending the specified event.
+    * 2b1. nustracker displays an empty list.<br>
         Use case ends.
 
- * 2a. nustracker does not find any students attending the specified event.
-    * 2a1. nustracker displays an empty list.
-        
-     Use case ends.
 
-* 2b. nustracker does not find any students with from the given keywords.
-    * 2b1. nustracker displays an empty list.
-
-        Use case ends.
-  
 <br>
 
 **<u>Use case UC6 - Filter students by year</u>**
@@ -580,128 +588,38 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1.  User requests to filter students by year
-2.  nustracker displays a list of students who are studying in that year
-
+1.  User requests to filter students by year.
+2.  nustracker displays a list of students who are studying in that year.<br>
     Use case ends.
 
 **Extensions:**
 * 1a. User types an incorrect format of the command.
+    * 1a1. nustracker shows an error message with the correct format of the command.<br>
+      Use case ends.
 
-    * 1a1. nustracker shows an error message with the correct format of the command.
-    
-        Use case ends.
-        
-* 1b. User enters an invalid value for year.
-    * 1b1. nustracker shows an error message that the year entered is invalid.
-        
-        Use case ends.
- 
-* 2a. nustracker does not find any students studying in the specified year.
-    * 2a1. nustracker displays an empty list.
 
-        Use case ends.
-    
-<br>
+* 1b. User types multiple prefixes to filter by.
+    * 1b1. nustracker shows an error message.<br>
+      Use case ends.
 
-**<u>Use case UC7 - Filter students by student ID</u>**
 
-**Preconditions:** -
+* 1c. User enters an invalid value for year.
+    * 1c1. nustracker shows an error message.<br>
+      Use case ends.
 
-**Guarantees:** The list of students is not altered
 
-**MSS:**
-
-1.  User requests to filter students by multiple student IDs
-2.  nustracker displays a list of students whose student IDs contains the specified keywords
-
-    Use case ends.
-
-**Extensions:**
-* 2a. The list of students is empty.
-
+* 2a. The list of students is empty.<br>
   Use case ends.
- 
-* 2b. nustracker does not find students with the specified Student IDs.
-    * 2b1. nustracker displays an empty list.
 
-        Use case ends.
-        
-* 2c. User types multiple prefixes to filter by.
-    * 2c1. nustracker shows an error message.
-    
-        Use case ends.
-
-<br>
-
-**<u>Use case UC8 - Find the students attending a certain event</u>**
-
-**Preconditions:** -
-
-**Guarantees:** The list of students is not altered
-
-**MSS:**
-
-1.  User requests to filter students by event name
-2.  nustracker displays a list of students who are attending that event
-
-    Use case ends.
-
-**Extensions:**
-* 2a. The list of students is empty.
-
-  Use case ends.
- 
-* 2b. nustracker does not find any students attending the specified event.
-
-    * 2b1. nustracker displays an empty list.
-
-        Use case ends.
-
-* 2c. User types multiple prefixes to filter by.
-
-    * 2c1. nustracker shows an error message.
-
-        Use case ends.
-
-<br>
-
-**<u>Use case UC9 - Filter students by year</u>**
-
-**Preconditions:** -
-
-**Guarantees:** The list of students is not altered
-
-**MSS:**
-
-1.  User requests to filter students by year
-2.  nustracker displays a list of students who are studying in that year
-
-    Use case ends.
-
-**Extensions:**
-* 2a. The list of students is empty.
-
-  Use case ends.
 
 * 2b. nustracker does not find any students studying in the specified year.
-    * 2b1. nustracker displays an empty list.
-
+    * 2b1. nustracker displays an empty list.<br>
         Use case ends.
-     
-* 2c. User types multiple prefixes to filter by.
-    * 2c1. nustracker shows an error message.
-
-        Use case ends.
-
-* 2d. User enters an invalid value for year.
-    * 2d1. nustracker shows an error message.
-
-        Use case ends.
+    
 
 <br>
 
-**<u>Use case UC10 - Filter students by major</u>**
+**<u>Use case UC7 - Filter students by major</u>**
 
 **Preconditions:** -
 
@@ -709,34 +627,38 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1.  User requests to filter students by majors
-2.  nustracker displays a list of students who are studying the specified major
-
+1.  User requests to filter students by majors.
+2.  nustracker displays a list of students who are studying the specified major.<br>
     Use case ends.
 
 **Extensions:**
-* 2a. The list of students is empty.
+* 1a. User types an incorrect format of the command.
+    * 1a1. nustracker shows an error message with the correct format of the command.<br>
+      Use case ends.
 
+      
+* 1b. User types multiple prefixes to filter by.
+    * 1b1. nustracker shows an error message.<br>
+      Use case ends.
+
+
+* 1c. User enters an invalid major.
+    * 1c1. nustracker shows an error message.<br>
+      Use case ends.
+
+
+* 2a. The list of students is empty.<br>
   Use case ends.
  
-* 2b. nustracker does not find any students studying the specified major.
-    * 2b1. nustracker displays an empty list.
 
+* 2b. nustracker does not find any students studying the specified major.
+    * 2b1. nustracker displays an empty list.<br>
         Use case ends.
-     
-* 2c. User types multiple prefixes to filter by.
-    * 2c1. nustracker shows an error message.
     
-        Use case ends.
-        
-* 2d. User enters an invalid major.
-    * 2d1. nustracker shows an error message.
-        
-        Use case ends.
 
 <br>
 
-**<u>Use case UC11 - Add an event</u>**
+**<u>Use case UC8 - Create an event</u>**
 
 **Preconditions:** -
 
@@ -744,27 +666,24 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1. User types in command
-2. nustracker adds the event to the address book
-3. nustracker displays that the event has been added, and corresponding details
-
+1. User types in command.
+2. nustracker adds the event to the address book.
+3. nustracker displays that the event has been added, and corresponding details.<br>
     Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
-  * 1a1. nustracker shows an error message, and displays the correct format to use.
-
+  * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
     Use case ends.
 
 
 * 1b. An event with the same name already exists in the address book.
-  * 1b1. nustracker shows an error message, informing the user that an event with the same name already exists.
-
+  * 1b1. nustracker shows an error message, informing the user that an event with the same name already exists.<br>
     Use case ends.
 
 <br>
 
-**<u>Use case UC12 - Delete an event</u>**
+**<u>Use case UC9 - Delete an event</u>**
 
 **Preconditions:** -
 
@@ -772,9 +691,10 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1. User types in command
-2. nustracker deletes the event from the address book
-3. nustracker displays that the event has been deleted, and corresponding details<br>
+1. User types in command.
+2. nustracker deletes the event from the address book.
+3. nustracker displays that the event has been deleted, and corresponding details.
+4. nustracker updates the students who are enrolled in the deleted event.<br>
    Use case ends.
 
 **Extensions:**
@@ -784,12 +704,13 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 
 * 1b. The event does not exist in the address book.
-    * 1b1. nustracker shows an error message, informing the user that the event does not exiss. <br>
+    * 1b1. nustracker shows an error message, informing the user that the event does not exist.<br>
     Use case ends.
+
 
 <br>
 
-**<u>Use case UC13 - Blacklist a student</u>**
+**<u>Use case UC10 - Blacklist a student</u>**
 
 **Preconditions:** -
 
@@ -797,10 +718,9 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1. User types in command
-2. nustracker adds student to the event's blacklist
-3. nustracker displays that the student has been blacklisted
-
+1. User types in command.
+2. nustracker adds student to the event's blacklist.
+3. nustracker displays that the student has been blacklisted.<br>
    Use case ends.
 
 **Extensions:**
@@ -823,9 +743,10 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     * 1d1. nustracker shows an error message, informing the user that the student is enrolled in the event.<br>
       Use case ends.
 
+
 <br>
 
-**<u>Use case UC14 - Whitelist a student</u>**
+**<u>Use case UC11 - Whitelist a student</u>**
 
 **Preconditions:** -
 
@@ -833,33 +754,30 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 
 **MSS:**
 
-1. User types in command
-2. nustracker removes student from the event's blacklist
-3. nustracker displays that the student has been removed from the blacklist
-
+1. User types in command.
+2. nustracker removes student from the event's blacklist.
+3. nustracker displays that the student has been removed from the blacklist.<br>
    Use case ends.
 
 **Extensions:**
 * 1a. User types in an invalid format
-    * 1a1. nustracker shows an error message, and displays the correct format to use.
-
+    * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
       Use case ends.
 
 
 * 1b. The event does not exist in the address book.
-    * 1b1. nustracker shows an error message, informing the user that the event does not exist.
-
+    * 1b1. nustracker shows an error message, informing the user that the event does not exist.<br>
       Use case ends.
 
 
 * 1c. The student is not in the event's blacklist.
-    * 1c1. nustracker shows an error message, informing the user that the student is not in the event's blacklist.
-
+    * 1c1. nustracker shows an error message, informing the user that the student is not in the event's blacklist.<br>
       Use case ends.
+  
 
 <br>
 
-**<u>Use case UC15 - Enroll a student into an event</u>**
+**<u>Use case UC12 - Enroll a student into an event</u>**
 
 **Preconditions:** -
 
@@ -870,8 +788,7 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 1.  User requests to enroll a student into an event.
 2.  nustracker updates the event to have this student as a participant.
 3.  nustracker updates the student to be enrolled into this event.
-4.  nustracker shows that the student has now been enrolled.
-
+4.  nustracker shows that the student has now been enrolled.<br>
     Use case ends.
 
 **Extensions:**
@@ -894,9 +811,10 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
     * 1d1. nustracker shows an error message, informing the user that the specified student is already currently enrolled.<br>
   Use case ends.
 
+
 <br>
 
-**<u>Use case UC16 - Remove a student from an event</u>**
+**<u>Use case UC13 - Remove a student from an event</u>**
 
 **Preconditions:** -
 
@@ -907,8 +825,7 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 1.  User requests to remove a student from an event.
 2.  nustracker updates the event to remove this student from being a participant.
 3.  nustracker updates the student to not be enrolled into this event anymore.
-4.  nustracker shows that the student has now been removed from the event.
-
+4.  nustracker shows that the student has now been removed from the event.<br>
     Use case ends.
 
 **Extensions:**
@@ -931,10 +848,34 @@ Use case ends.
     * 1d1. nustracker shows an error message, informing the user that the specified student cannot be removed from the event as the student is not a participant.<br>
 Use case ends.
 
+<br>
+
+**<u>Use case UC14 - Display event/student list</u>**
+
+**Preconditions:** -
+
+**Guarantees:** The full unfiltered event/student list is displayed.
+
+**MSS:**
+
+1. User enters a command to show event/student list.
+2. nustracker shows the full unfiltered event/student list.<br>
+   Use case ends.
+
+**Extensions:**
+* 1a. User types in an invalid format.
+    * 1a1. nustracker shows an error message, and displays the correct format to use.<br>
+      Use case ends.
+
+
+* 2a. The student list is filtered by a previous filter command.
+    * 2a1. nustracker overwrites the filter, and displays the full unfiltered student list.<br>
+      Use case ends.
+
 
 <br>
 
-**<u>Use case UC17 - Export emails</u>**
+**<u>Use case UC15 - Export emails</u>**
 
 **Preconditions:** -
 
@@ -944,8 +885,7 @@ Use case ends.
 
 1. User requests to export emails from a list of students and provides the name of the file to save it in.
 2. nustracker exports the emails and places them in a save file.
-3. nustracker shows a confirmation message that the emails have been successfully exported.
-
+3. nustracker shows a confirmation message that the emails have been successfully exported.<br>
     Use case ends.
 
 **Extensions:**
@@ -961,7 +901,7 @@ Use case ends.
 
 <br>
 
-**<u>Use case UC18 - Change profile picture glow color</u>**
+**<u>Use case UC16 - Change profile picture glow color</u>**
 
 **Preconditions:** There are students within nustracker.
 
@@ -977,7 +917,7 @@ Use case ends.
 
 <br>
 
-**<u>Use case UC19 - Change profile picture glow color _via_ the .json file</u>**
+**<u>Use case UC17 - Change profile picture glow color _via_ the .json file</u>**
 
 **Preconditions:** There are students within nustracker.
 
@@ -1000,7 +940,7 @@ Use case ends.
      
 <br>
 
-**<u>Use case UC20 - Set/Change profile picture</u>**
+**<u>Use case UC18 - Set/Change profile picture</u>**
 
 **Preconditions:** Image size is ideally less than 10mb, is a .png or .jpg image file, and is located within the profile-pictures folder that is created on system startup.
 
@@ -1023,8 +963,6 @@ Use case ends.
     * 4a3. User refreshes nustracker or restarts it.
       Steps 4a1 to 4a3 are repeated until correct image name is used.<br>
       Use case ends.
-
-<br>
 
 ### Non-Functional Requirements
 
@@ -1070,6 +1008,53 @@ testers are expected to do more *exploratory* testing.
     1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
+## Manual test cases:
+
+#### Create an event
+0. Assumptions: Sample data is loaded / Orientation Camp event exists in app.
+1. Test case 1: `create n/Orientation Camp d/10-08-2022 t/1030`
+   1. Expected: Error message saying event already exists is displayed.
+2. Test case 2: `create n/Practical Exam d/14-11-2021 t/1700`
+   1. Expected: Practical Exam event is created and displayed at the bottom of event list.
+
+#### Enrolling a student
+0. Assumptions: Sample data is loaded / Sports Camp event and Student with student ID e1234567 exist in app.
+1. Test case 1: `enroll id/e1234567 ev/This event does not exist`
+   1. Expected: Error message saying event does not exist is displayed.
+2. Test case 2: `enroll id/e1234567 ev/Sports Camp`
+    1. Expected: Student is enrolled into the Sports Camp event and student ID e1234567 is displayed in its enrolled list.
+
+#### Deleting an event
+0. Assumptions: Sample data is loaded / Math Olympiad event exists in app.
+1. Test case 1: `delete ev/This event does not exist`
+    1. Expected: Error message saying event does not exist is displayed.
+2. Test case 2: `delete ev/Math Olympiad`
+    1. Expected: The Math Olympiad event is deleted and removed from the event list.
+
+#### Deleting a student
+
+0. Assumptions: Sample data is loaded / Student with student ID e1234567 exists in app.
+1. Test case 1: `delete id/e1234567 ev/Orientation Camp`
+   1. Expected: Error message saying delete command can only delete either a student or event at one time is displayed.
+2. Test case 2: `delete id/e1234567`
+   1. Expected: Student with student ID "e1234567" is deleted and removed from the student list.
+
+#### Exporting a list of emails
+0. Assumptions: Sample data is loaded / The currently displayed student list is not empty.
+1. Test case 1: `export fn/Emails`
+   1. Expected: A file Emails.csv is created in the /data folder in your root directory where the app is run. The file will contain all the emails of the displayed students.
+
+#### Test command inputs
+1. Test extraneous prefixes:
+   1. `students n/abc`: command ignores prefix and executes as expected
+   2. `create n/Test event d/07-11-2021 t/1135 m/CS`: command does not accept extra prefixes and displayed invalid command message
+   3. `add n/Jeremy m/CS id/e9556882 y/4 p/90121325 e/jeremy@u.nus.edu p/84756230`: command takes the latest prefix and creates a new student with phone number 84756230
+
+    
+2. Test invalid prefixes
+   1. `delete id/1234567`: student ID requires an 'e' in front of 7 digits
+   2. `blacklist id/e1234567 ev/Orientation Camp!`: event name only allows alphanumeric characters and spaces
+   3. `add n/June m/BZA id/e8112233 y/1 p/81236540 e/june@a`: email's domain (after @) has to be at least 2 characters long
 
 ### Local Save File
 
@@ -1079,13 +1064,14 @@ named `addressbook.json` in the data folder, then open **nustracker** and type i
 </div>
 
 1. Proper handling of a corrupted JSON save file
-   
+
     1. Go to the folder containing the save data (The folder named: data) and open `addressbook.json`.
-    
+
     1. Choose a comma in the file and add a close curly brace character to the right of it like this: `,}`. Save your edits.
-    
+
     1. Re-launch the app by double-clicking the jar file.<br>
-    Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
+       Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
+
 
 1. Proper handling of a JSON save file with missing data
 
@@ -1096,23 +1082,24 @@ named `addressbook.json` in the data folder, then open **nustracker** and type i
     1. Re-launch the app by double-clicking the jar file.<br>
        Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
 
+
 1. Proper handling of a JSON save file with conflicting data
 
-    i. Go to the folder containing the save data (The folder named: data) and open `addressbook.json`.
+   i. Go to the folder containing the save data (The folder named: data) and open `addressbook.json`.
 
-    ii. Choose a student in the file and take note of his/her student ID.
-   
-    iii. Choose an event in the file, and add this student ID into both the participants list as well as the blacklist. 
-    
-    iv. If we choose a student with student ID `e0123456` and the event `Physics Camp`, the data in the JSON file should look like this:
-    <br>
-    
+   ii. Choose a student in the file and take note of his/her student ID.
+
+   iii. Choose an event in the file, and add this student ID into both the participants list as well as the blacklist.
+
+   iv. If we choose a student with student ID `e0123456` and the event `Physics Camp`, the data in the JSON file should look like this:
+   <br>
+
     ```
    Before:
     "participants" : [ ],
     "blacklist" : [ ]
     ```
-        
+
     ```
    After:
     "participants" : [ "e0123456" ],
@@ -1162,6 +1149,8 @@ Prerequisites: A student with Student ID `e*******` exists and currently has a p
 Expected: After using the `Refresh` command or restarting **nustracker**, the student's profile picture reverts to the default image.
 
 ### Saving data
+   1. Re-launch the app by double-clicking the jar file.<br>
+   Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
 
 
 
