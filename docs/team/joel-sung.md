@@ -22,30 +22,47 @@ Given below are my contributions to the project.
 * Contributions to UG:
   * Added documentation for all the enhancements I implemented.
   * Screenshot and edited the following general layout to help with illustration:
-  ![general-layout](../images/general-layout.png)
+  
+![general-layout](../images/user-guide/general-layout.png)
+
 * Contributions to DG:
   * Did the initial update of the DG with our new architecture involving events
   * UML diagrams edited:
 
-    ![general-layout](../images/DeleteSequenceDiagram.png)
+![Architecture Sequence Diagram](../images/ArchitectureSequenceDiagram.png)
 
-    ![general-layout](../images/UiClassDiagram.png)
+![general-layout](../images/DeleteSequenceDiagram.png)
 
-    ![general-layout](../images/ModelClassDiagram.png)
+![general-layout](../images/UiClassDiagram.png)
 
-    ![general-layout](../images/StorageClassDiagram.png)
+![general-layout](../images/ModelClassDiagram.png)
 
-  * Added/refined user stories for the enhancements I implemented
-  * Created use cases for all the enhancements I implemented
-  * Added test cases for manual testing using the `delete` command
-* Contributions to team-based tasks:
-  * Maintained the issue tracker: most issues were created and assigned by me
-  * In charge of the release of v1.3
-* Reviewing/mentoring contributions:
-  * [Reviewed many PRs and gave my feedback.](https://github.com/AY2122S1-CS2103T-T11-1/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
-  * These are some of the more significant ones:
-    * [PR #97](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/97)
-    * [PR #96](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/96)
-    * [PR #94](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/94)
-  * Responded to my teammate's feedback as well:
-    * [PR #30](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/30)
+![general-layout](../images/StorageClassDiagram.png)
+  * Add implementation of create feature
+    * UML diagrams used:
+    
+![CreateSequenceDiagram](../images/CreateSequenceDiagram.png)
+
+![CreateParseArguments](../images/CreateParseArguments.png)
+
+![AddEventToStorageSequenceDiagram](../images/AddEventToStorageSequenceDiagram.png)
+
+  * (continue) Contributions to DG:
+    * Edited diagrams for undo/redo proposed implementation
+    * Updated the product scope, target user profile and value proposition
+    * Added/refined user stories for the enhancements I implemented
+    * Created use cases for all the enhancements I implemented
+    * Formatted and corrected other use cases
+    * Added test cases for manual testing
+  * Contributions to team-based tasks:
+    * Maintained the issue tracker: most issues were created and assigned by me
+    * In charge of the release of v1.3
+  * Reviewing/mentoring contributions:
+    * [Reviewed many PRs and gave my feedback.](https://github.com/AY2122S1-CS2103T-T11-1/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
+    * These are some of them:
+      * [PR #142](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/142)
+      * [PR #97](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/97)
+      * [PR #96](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/96)
+      * [PR #94](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/94)
+    * Responded to my teammate's feedback as well:
+      * [PR #30](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/30)
