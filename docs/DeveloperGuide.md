@@ -222,7 +222,7 @@ The following sequence diagram shows how the enroll operation works:
 <br>_Sequence diagram for enrolling a student into an event_
 
 * Note that LogicManager is called using execute("enroll id/e0322322 ev/Sports Camp"). This information was truncated to reduce clutter in the diagram.<br>
-* For details of how the EnrollCommand internally enrolls a student into an event internally, please check out the activity diagram shown below.
+* For details of how the EnrollCommand internally enrolls a student into an event internally, please check out the corresponding activity diagram below.
 
 The following sequence diagram shows how a enroll operation gets its arguments from the prefixes:
 
@@ -941,7 +941,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Download the jar file and copy into an empty folder
 
-    2. Double-click the jar file. <br>
+    2. Double-click the jar file. If you are using Mac, please start the .jar file via the terminal. <br>
    Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences

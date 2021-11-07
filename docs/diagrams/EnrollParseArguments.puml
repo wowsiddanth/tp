@@ -12,9 +12,9 @@ participant "id:StudentId" as StudentId MODEL_COLOR
 participant "n:EventName" as EventName MODEL_COLOR
 end box
 
+activate EnrollCommandParser
 
-
-EnrollCommandParser -> ArgumentTokenizer: tokenize("id/e0322322 \nev/Sports Camp", \n "id/", "n/")
+EnrollCommandParser -> ArgumentTokenizer: tokenize("id/e0322322 \nev/Sports Camp", \n "id/", "ev/")
 activate ArgumentTokenizer
 
 ArgumentTokenizer --> EnrollCommandParser: argMultiMap
@@ -35,19 +35,21 @@ ParserUtil --> EnrollCommandParser: id
 deactivate ParserUtil
 
 'Parse EventName'
-EnrollCommandParser -> ParserUtil:parseEventName(argMultiMap.getValue("n/"))
+EnrollCommandParser -> ParserUtil:parseEventName(argMultiMap.getValue("ev/"))
 activate ParserUtil
 
 create EventName
 ParserUtil -> EventName: new EventName("Sports Camp")
 activate EventName
 
-EventName --> ParserUtil: n
+EventName --> ParserUtil: ev
 deactivate EventName
 
-ParserUtil --> EnrollCommandParser: n
+ParserUtil --> EnrollCommandParser: ev
 deactivate ParserUtil
 
+EnrollCommandParser -[hidden]-> ArgumentTokenizer
+deactivate EnrollCommandParser
 
 
 @enduml
