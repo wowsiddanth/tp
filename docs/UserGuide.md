@@ -16,6 +16,7 @@ No more sleepless nights deriving Excel formulas. nustracker does everything for
   <img src="images/Ui.png" />
 </p> 
 
+<div style="page-break-after: always;"></div>
 <h1 align="center">
     Track event attendance.
 </h1>
@@ -26,6 +27,7 @@ nustracker specializes in displaying event information, each complete with stude
   <img src="images/user-guide/after-creating-event.png" />
 </p> 
 
+<div style="page-break-after: always;"></div>
 <h1 align="center">
     Customize to your liking.
 </h1>
@@ -36,6 +38,7 @@ nustracker specializes in displaying event information, each complete with stude
   <img src="images/Ui-dark.png" />
 </p> 
 
+<div style="page-break-after: always;"></div>
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
 As an event director and student leader, you will be able to add students and events into **nustracker** and use it to keep track event attendance, blacklist students, etc. These are just _some_ of the features and there will be more to come in the future. **nustracker** is customized to your needs—simple, intuitive, and easy to pick up.
@@ -43,8 +46,6 @@ As an event director and student leader, you will be able to add students and ev
 All these things can be done through a simple and intuitive Command Line Interface (CLI), whilst being complimented by a detailed and elegant interface. 
 
 This document will guide you through on how to start using **nustracker**.
-
-<br>
 
 You might see text formatted within colored boxes, so here's a quick run-through what they mean:
 
@@ -59,14 +60,14 @@ These boxes will give you tips on how to use the application better.
 These boxes warn you about important things! It is imperative that you read these, otherwise bad things might happen.
 </div>
 
-<h1 align="center"> Let's get started with nustracker!</h1>
-
-<br><br>
+<h1 align="center"> Let's get started with nustracker!</h1><br>
+<div style="page-break-after: always;"></div>
 
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Getting Started
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Caution:** <br><br>
