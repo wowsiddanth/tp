@@ -28,13 +28,13 @@ Given below are my contributions to the project.
   * UML diagrams edited:
 
     ![general-layout](../images/DeleteSequenceDiagram.png)
-  
+
     ![general-layout](../images/UiClassDiagram.png)
-  
+
     ![general-layout](../images/ModelClassDiagram.png)
 
     ![general-layout](../images/StorageClassDiagram.png)
-  
+
   * Added/refined user stories for the enhancements I implemented
   * Created use cases for all the enhancements I implemented
   * Added test cases for manual testing using the `delete` command

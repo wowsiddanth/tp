@@ -36,11 +36,11 @@ Given below are my contributions to the project.
   * Changed the `delete` command such that when deleting students, that student would get removed from the participants list of all of that student's enrolled events.
   * Changed the `delete` command such that when deleting events, that event would get removed from the enrolled events of all participants.
   * Made the `filter` command work only when the students list is shown.
-  
+
 
 * **Contributions to the User Guide**: (Pull requests [\#61](), [\#110]())
     * Added documentation for the features `enroll`, `remove` and `delfiltered`. 
-  
+
 * **Contributions to the Developer Guide**: (Pull requests [\#32](), [\#80](), [\#100]())
     * Added Introduction section.
     * Added Target User Profile and Value Proposition. (From Team Discussions)
@@ -55,10 +55,6 @@ Given below are my contributions to the project.
   * Helped the team create product demo videos.
 
 * **Community**:
-  
+
   * PRs reviewed (with non-trivial review comments): [\#29](), [\#30](), [\#48]()
   * Reported bugs and suggestions for other teams in the class (examples: [1](https://github.com/AY2122S1-CS2103T-W17-2/tp/issues/157), [2](https://github.com/AY2122S1-CS2103T-W17-2/tp/issues/156), [3](https://github.com/AY2122S1-CS2103T-W17-2/tp/issues/155), [4](https://github.com/AY2122S1-CS2103T-W17-2/tp/issues/151), [5](https://github.com/AY2122S1-CS2103T-W17-2/tp/issues/149), [6](https://github.com/AY2122S1-CS2103T-W17-2/tp/issues/134), [7](https://github.com/AY2122S1-CS2103T-W17-2/tp/issues/125))
-  
-
-
-
