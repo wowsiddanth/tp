@@ -1,12 +1,13 @@
 ---
-layout: page
+layout: page-noheader
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
-
 
 ![developer-guide](images/developer-guide.png)
+
+--------------------------------------------------------------------------------------------------------------------
+* Table of Contents
+{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -230,6 +231,7 @@ This feature comes with the following classes:
 - nustracker.logic.parser.ExportCommandParser
 - nustracker.storage.Exporting
 
+
 The following sequence diagram shows how the export operation works:
 
 ![ExportSequenceDiagram](images/ExportSequenceDiagram.png)
@@ -247,6 +249,7 @@ The following sequence diagram shows how the export operation works:
     * Cons: Takes longer to implement than the other 2 options
 
 In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. I would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
+
 
 ### \[Proposed\] Undo/redo feature
 
