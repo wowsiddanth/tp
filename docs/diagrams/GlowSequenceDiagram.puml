@@ -4,7 +4,7 @@ participant ":ColorPicker"           as Foo1
 participant ":ImageEditor"           as Foo2
 participant ":StudentListPanel"      as Foo3
 
-box "Logic" #dcbcff
+box "UI" #e9afff
 participant Foo
 participant Foo1
 participant Foo2
@@ -26,10 +26,10 @@ activate Foo2
 return
 
 Foo -> Foo3 : updateGlow("glowColorHexCode":);
+ref over Foo3
+Update StudentCard glow
+end ref
 activate Foo3
-Foo3 -> Foo3: refreshPanel()
-activate Foo3
-return
 return
 
 @enduml

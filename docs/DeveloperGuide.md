@@ -178,25 +178,39 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Changing the profile picture glow feature
 
-This feature allows the user to change the color of the glow surrounding the profile pictures, which by default is a purplish/pink (**#e9affff**). The main mechanism behind this feature is the use of *EventHandlers*, provided by the JavaFX platform, to listen for color selections made by the user to update the glow accordingly.
+This feature allows the user to change the color of the glow surrounding the profile pictures, which by default is a purplish/pink (**#e9affff**). 
 
-These are the few main classes at play:
-* ColorPicker (default JavaFX class)
-* Settings Window
-* ImageEditor 
-* StudentListPanel
+The main mechanism behind this feature is the use of *EventHandlers*, provided by the JavaFX platform, to listen for color selections made by the user to update the glow accordingly. 
+
+A following is a snippet of how an EventHandler was attached to the ColorPicker (using **pseudoname** for ColorPicker.)
+`nameOfColorPicker.setOnAction(e -> {
+updateGlowColor(getGlowHexCode());})`
+
+Next, the main mechanism.
+
+There are a few classes at play for the main process:
+* `ColorPicker` (default JavaFX class)
+* `SettingsWindow`
+* `ImageEditor `
+* `StudentListPanel`
 
 The following sequence diagram shows the typical chain of events within the internal system, following by a brief description.
 
 ![GlowSequenceDiagram](diagrams/GlowSequenceDiagram.png)
 
-1. When a color is selected (_change detected_), the SettingsWindow#updateGlowColor() is called. 
-2. There is a self-invocation of the getGlowHexCode() method, leading to the new  glow color hex code being retrieved by using ColorPicker#getValue(). 
-3. This value is then verified using the ImageEditor#isValidColorHexCode().
-4. This valid value (assuming Step 3 returns true, else ImageStorage.*DEFAULT_COLOR* is used) is then used as a parameter when calling StudentListPanel#updateGlow(), which updates the _glowColorHexCode_ attribute and calls refreshPanel().
-5. Within the refreshPanel(), every studentCard is refreshed with the new glow color.
+1. When a color is selected (_change detected_), the `SettingsWindow#updateGlowColor()` is called. 
+2. There is a self-invocation of the `SettingsWindow#getGlowHexCode()` method, leading to the new  glow color hex code being retrieved by using `ColorPicker#getValue()`. 
+3. This value is then verified using the `ImageEditor#isValidColorHexCode()`.
+4. This valid value (assuming Step 3 returns true, else `ImageStorage.DEFAULT_COLOR` is used) is then used as a parameter when calling `StudentListPanel#updateGlow()`.
 
-This is just an abstracted, high-level view of how the glow color is updated. A more in-depth view might show how the color is updated within the StudentCard, which is not required to gain an understanding of this feature.
+Next, let's take a closer look at what happens within StudentListPanel.
+![UpdateStudentCardGlow](diagrams/UpdateStudentCardGlowSeqeuenceDiagram.png)
+
+1. When `StudentListPanel#updateGlowColor()` is called, there is a self-invocation of `StudentListPanel#refreshPanel()`.
+2. This then leads to _another_ self invocation of the `StudentListPanel#fillPanelWithCells()` method.
+3. Within the `StudentListPanel#fillPanelWithCells()` method, the `ListView#setItems()` and `ListView#setCellFactory()` methods are called. These methods—without going into too much detail—basically set the list that is used for ListView, and recreate every cell within in. For more information, please read the JavaFX documentation [here](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/ListView.html).
+
+That was an overall view of how this feature was implemented. Although there were retracted details, their absence will not undermine the understanding of the feature.
 
 **Design Considerations**
 
@@ -416,14 +430,14 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 **Guarantees:** New student info is saved, and displayed.
 
 **MSS:**
-1. User types in command
-2. System adds the user to the address book
-3. System displays that user has been added, and corresponding details
+1. User types in command.
+2. System adds the user to the address book.
+3. System displays that user has been added, and corresponding details.
 
    Use case ends
 
 **Extensions:**
-* 1a. User types in an invalid format
+* 1a. User types in an invalid format.
     * 1a1. nustracker shows an error message, and displays the correct format to use.
 
       Use case ends.
@@ -439,7 +453,7 @@ For all use cases below, the _System_ is **NUSTracker** and the _Actor_ is the *
 **MSS:**
 
 1. User requests to delete a specific student in the list
-2. nustracker deletes the student, and informs user
+2. System deletes the student, and informs user
 
     Use case ends.
 
@@ -906,7 +920,7 @@ Use case ends.
 
 <br>
 
-**<u>Use case UC17 - Exporting emails</u>**
+**<u>Use case UC17 - Export emails</u>**
 
 **Preconditions:** -
 
@@ -930,6 +944,71 @@ Use case ends.
     * 1b1. nustracker shows an error message, informing the user that the file name they have chosen is invalid.<br>
   Use case ends.
     
+
+<br>
+
+**<u>Use case UC18 - Change profile picture glow color</u>**
+
+**Preconditions:** There are students within nustracker.
+
+**Guarantees:** The profile picture glow color will change according to the user's input.
+
+**MSS:**
+
+1. User opens the Settings window.
+2. User opens the color picker, and selects color.
+3. System detects this change, and changes the profile picture glow color.
+
+   Use case ends.
+
+<br>
+
+**<u>Use case UC19 - Change profile picture glow color _via_ the .json file</u>**
+
+**Preconditions:** There are students within nustracker.
+
+**Guarantees:** The profile picture glow color will change according to the user's input.
+
+**MSS:**
+
+1. User closes nustracker.
+2. User opens the preferences.json file, and edits the profile color using a color hex code.
+3. System detects this change, and changes profile picture glow color.
+
+   Use case ends.
+
+* 3a. User uses an invalid color hex code. 
+    * 3a1. User opens nustracker.
+    * 3a1. nustracker detects an invalid hex code and uses the default color (#e9afff) instead.
+    * 3a2. User closes nustracker and sets hex code again.
+      Steps 3a1 to 3a2 are repeated until a valid color hex code is used.<br>
+      Use case ends.
+     
+<br>
+
+**<u>Use case UC20 - Set/Change profile picture</u>**
+
+**Preconditions:** Image size is ideally less than 10mb, is a .png or .jpg image file, and is located within the profile-pictures folder that is created on system startup.
+
+**Guarantees:** Student with the corresponding Student ID now has a profile picture.
+
+**MSS:**
+
+1. User selects the image that they want to set as the target student (_e1111111_)'s profile picture.
+2. User renames the image to `e1111111`.
+3. User refreshes nustracker or restarts it.
+4. nustracker detects this change, and sets the student's profile picture.
+
+   Use case ends.
+
+**Extensions:**
+
+* 4a. User renames the image wrongly
+    * 4a1. nustracker does not detect any changes, and student's profile picture is not updated.
+    * 4a2. User renames image again.<br>
+    * 4a3. User refreshes nustracker or restarts it.
+      Steps 4a1 to 4a3 are repeated until correct image name is used.<br>
+      Use case ends.
 
 <br>
 
