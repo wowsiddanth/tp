@@ -28,7 +28,7 @@ title: Yu Pei's Project Portfolio Page
 <br>
 
 * **Enhancements to UserGuide**:
-  * Constantly maintained the userGuide and made changes and updates for it to conform with our actual implementation (e.g. Adding command to the command summary and brushing up command descriptions)
+  * Constantly maintained the userGuide and made changes and updates for it to conform with our actual implementation (e.g. Adding command to the command summary and brushing up command descriptions, update screenshots when GUI has been changed)
   * Contributed to discussion on UserGuide overhaul to make it more user-friendly for people who are less familiar with technology.
 
 <br>
@@ -52,5 +52,6 @@ title: Yu Pei's Project Portfolio Page
     * [PR Review 1](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/61)
     * [PR Review 2](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/132)
   * Pointed out bugs / cosmetic issues in peers code and approached them to correct it
+  * Responded to my teammates comments on my PRs and initiated discussion to improve code quality
 
 
