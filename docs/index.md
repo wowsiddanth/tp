@@ -7,18 +7,21 @@ title: nustracker
 [![codecov](https://codecov.io/gh/AY2122S1-CS2103T-T11-1/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2122S1-CS2103T-T11-1/tp)
 
 
-<p align="center">
-  <img src="images/nustracker.png" />
-</p>
+![nustracker](images/nustracker.png)
 
+--------------------------------------------------------------------------------------------------------------------
 
-![Ui](images/Ui.png)
+![Ui](images/Ui.png) 
+
+![Ui](images/Ui1.png)
 
 **nustracker** is a desktop application, made for NUS event directors and student leaders of student organizations in NUS School of Computing to:
 * keep track
 * manage events
 
 that their members are a part of.
+
+<br>
 
 While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
@@ -32,13 +35,13 @@ While it has a GUI, most of the user interactions happen using a CLI (Command Li
 ------
 
 ### Getting Started With nustracker
-If you are interested in using nustracker, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
+If you are interested in using nustracker, head over to the [_Getting Started_ section of the **User Guide**](https://ay2122s1-cs2103t-t11-1.github.io/tp/UserGuide.html#getting-started).
 
 ### Developer Guide
-If you are interested about developing nustracker, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
+If you are interested about developing nustracker, the [**Developer Guide**](https://ay2122s1-cs2103t-t11-1.github.io/tp/DeveloperGuide.html) is a good place to start.
 
 ### About Us
-If you are interested in learning about the team behind nustracker, head over to the [**About Us** page](AboutUs.html).
+If you are interested in learning about the team behind nustracker, head over to the [**About Us** page](https://ay2122s1-cs2103t-t11-1.github.io/tp/AboutUs.html).
 
 ### Acknowledgements
 
