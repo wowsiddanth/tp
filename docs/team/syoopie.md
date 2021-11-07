@@ -43,7 +43,7 @@ title: Yu Pei's Project Portfolio Page
   * Constantly pushed for PRs to be merged, made sure that all PRs were properly reviewed before merging.
   * Created and assigned issues on multiple occasions when my own testing uncovered a new bug.
   * Did a full refactoring of Person -> Student to bring the language of the code more in line with our project.
-  * Set up the team repository and configured all the settings to allow for different workflows.
+  * Set up the team repository / organisation and configured all the settings to allow for different workflows.
   
 <br>
 
