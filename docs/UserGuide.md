@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page-noheader
 title: User Guide
 ---
 <p align="center">
