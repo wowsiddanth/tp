@@ -1,5 +1,6 @@
 ---
 layout: page
+title: User Guide
 ---
 <p align="center">
 
