@@ -1110,7 +1110,7 @@ testers are expected to do more *exploratory* testing.
    2. `blacklist id/e1234567 ev/Orientation Camp!`: event name only allows alphanumeric characters and spaces
    3. `add n/June m/BZA id/e8112233 y/1 p/81236540 e/june@a`: email's domain (after @) has to be at least 2 characters long
 
-### Local Save File
+#### Local Save File
 
 <div markdown="span" class="alert alert-info"> :label: **Note:** Before attempting these test cases related to the local save file, please
  set up **nustracker** to contain the sample data beforehand for the best experience. To do this, just delete the save file
@@ -1164,9 +1164,8 @@ named `addressbook.json` in the data folder, then open **nustracker** and type i
        Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
 
 
-### Manual test cases:
 
-### Deleting a student
+#### Deleting a student
 
 1. Deleting a student
 
@@ -1188,7 +1187,7 @@ named `addressbook.json` in the data folder, then open **nustracker** and type i
 
 2. _{ more test cases …​ }_
 
-### Changing the profile picture
+#### Changing the profile picture
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** 
 There are sample images provided within the .zip file you can utilize for testing.
@@ -1202,9 +1201,7 @@ Expected: After using the `Refresh` command or restarting **nustracker**, the st
 Prerequisites: A student with Student ID `e*******` exists and currently has a profile picture (_That is, there is an image in the **profile-pictures** with a name corresponding to the student's Student ID_).<br>
 Expected: After using the `Refresh` command or restarting **nustracker**, the student's profile picture reverts to the default image.
 
-### Saving data
-   1. Re-launch the app by double-clicking the jar file.<br>
-   Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
+
 
 
 
