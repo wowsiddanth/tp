@@ -207,6 +207,20 @@ _Sequence diagram for adding an event to UniqueEventList_
 * The UniqueEventList checks for duplicate events using the `hasEvent` method before adding the event.
 * After the event is added, the UI is immediately updated and the new event is reflected as an `EventCard` in the `EventListPanel`.
 
+### Enrolling a Student into an Event
+
+This is a feature to allow the user to enroll a student into an event. Currently, the implementation allows for each student to be enrolled into any chosen event as long as 
+he/she is not on that event's blacklist. A student could be enrolled into more than one event.
+
+This feature comes with the following classes:
+- nustracker.logic.commands.EnrollCommand
+- nustracker.logic.parser.EnrollCommandParser
+
+The following sequence diagram shows how the enroll operation works:
+![EnrollSequenceDiagram](images/EnrollSequenceDiagram.png)
+<br>_Sequence diagram for enrolling a student into an event_
+
+
 ### Exporting Feature
 
 This is a feature to allow the user to export a given data field. Currently, the implementation only works for emails and can only export a csv file.
@@ -887,7 +901,6 @@ testers are expected to do more *exploratory* testing.
     1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-
 ## Manual test cases:
 
 #### Create an event
@@ -929,16 +942,80 @@ testers are expected to do more *exploratory* testing.
    1. `students n/abc`: command ignores prefix and executes as expected
    2. `create n/Test event d/07-11-2021 t/1135 m/CS`: command does not accept extra prefixes and displayed invalid command message
    3. `add n/Jeremy m/CS id/e9556882 y/4 p/90121325 e/jeremy@u.nus.edu p/84756230`: command takes the latest prefix and creates a new student with phone number 84756230
-   
 
+    
 2. Test invalid prefixes
    1. `delete id/1234567`: student ID requires an 'e' in front of 7 digits
    2. `blacklist id/e1234567 ev/Orientation Camp!`: event name only allows alphanumeric characters and spaces
    3. `add n/June m/BZA id/e8112233 y/1 p/81236540 e/june@a`: email's domain (after @) has to be at least 2 characters long
-   
-## Saving data
 
-1. Dealing with missing/corrupted data files
+### Local Save File
 
-    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+<div markdown="span" class="alert alert-info"> :label: **Note:** Before attempting these test cases related to the local save file, please
+ set up **nustracker** to contain the sample data beforehand for the best experience. To do this, just delete the save file
+named `addressbook.json` in the data folder, then open **nustracker** and type in a command to save the sample data into a save file.
+</div>
+
+1. Proper handling of a corrupted JSON save file
+
+    1. Go to the folder containing the save data (The folder named: data) and open `addressbook.json`.
+
+    1. Choose a comma in the file and add a close curly brace character to the right of it like this: `,}`. Save your edits.
+
+    1. Re-launch the app by double-clicking the jar file.<br>
+       Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
+
+
+1. Proper handling of a JSON save file with missing data
+
+    1. Go to the folder containing the save data (The folder named: data) and open `addressbook.json`.
+
+    1. Choose a student in the file and delete one or more of the lines containing student data.
+
+    1. Re-launch the app by double-clicking the jar file.<br>
+       Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
+
+
+1. Proper handling of a JSON save file with conflicting data
+
+   i. Go to the folder containing the save data (The folder named: data) and open `addressbook.json`.
+
+   ii. Choose a student in the file and take note of his/her student ID.
+
+   iii. Choose an event in the file, and add this student ID into both the participants list as well as the blacklist.
+
+   iv. If we choose a student with student ID `e0123456` and the event `Physics Camp`, the data in the JSON file should look like this:
+   <br>
+
+    ```
+   Before:
+    "participants" : [ ],
+    "blacklist" : [ ]
+    ```
+
+    ```
+   After:
+    "participants" : [ "e0123456" ],
+    "blacklist" : [ "e0123456" ]
+    ```
+
+   v. Re-launch the app by double-clicking the jar file.<br>
+   Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

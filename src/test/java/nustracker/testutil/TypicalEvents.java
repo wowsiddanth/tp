@@ -30,12 +30,12 @@ public class TypicalEvents {
             .withDate("10-09-2021")
             .withTime("1200")
             .withParticipants("e9831818")
-            .withBlacklist("e0456789").build();
+            .withBlacklist("e0456789", "e0123456").build();
     public static final Event MATH_OLYMPIAD = new EventBuilder().withName("Math Olympiad")
             .withDate("05-03-2017")
             .withTime("1615")
             .withParticipants("e0322322", "e9123119", "e0123456")
-            .withBlacklist("e9123119").build();
+            .withBlacklist().build();
 
     // For delete event tests
     public static final EventName EVENTNAME_ONE = new EventName("Orientation Camp");

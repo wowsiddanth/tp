@@ -35,6 +35,7 @@ title: Yu Pei's Project Portfolio Page
 
 * **Enhancements to DeveloperGuide**:
   * Added use cases to developer guide.
+  * Added the [Exporting Feature](../DeveloperGuide.html#exporting-feature) section.
 
 <br>
 
