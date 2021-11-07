@@ -6,12 +6,6 @@ title: User Guide
 ![user-guide](images/userguide.png)
 
 --------------------------------------------------------------------------------------------------------------------
-<p align="center">
-
-  <img width="200" src="images/user-guide/nustracker-logo.PNG">
-
-</p>
-
 <h1 align="center">
     Manage students with ease.
 </h1>

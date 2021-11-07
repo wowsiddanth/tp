@@ -183,7 +183,7 @@ This feature allows the user to change the color of the glow surrounding the pro
 
 The main mechanism behind this feature is the use of *EventHandlers*, provided by the JavaFX platform, to listen for color selections made by the user to update the glow accordingly. 
 
-A following is a snippet of how an EventHandler was attached to the ColorPicker (using **pseudoname** for ColorPicker.)
+A following is a snippet of how an EventHandler was attached to the ColorPicker (using **pseudonym** for ColorPicker.)
 `nameOfColorPicker.setOnAction(e -> {
 updateGlowColor(getGlowHexCode());})`
 
@@ -195,7 +195,7 @@ There are a few classes at play for the main process:
 * `ImageEditor `
 * `StudentListPanel`
 
-The following sequence diagram shows the typical chain of events within the internal system, following by a brief description.
+The following sequence diagram shows the typical chain of events within the internal system, followed by a brief description.
 
 ![GlowSequenceDiagram](diagrams/GlowSequenceDiagram.png)
 
@@ -1089,7 +1089,7 @@ named `addressbook.json` in the data folder, then open **nustracker** and type i
 
    ii. Choose a student in the file and take note of his/her student ID.
 
-   iii. Choose an event in the file, and add this student ID into both the participants list as well as the blacklist.
+   iii. Choose an event in the file, and add this student ID into both the participants list and the blacklist.
 
    iv. If we choose a student with student ID `e0123456` and the event `Physics Camp`, the data in the JSON file should look like this:
    <br>
