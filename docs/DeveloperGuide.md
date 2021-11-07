@@ -911,7 +911,7 @@ Use case ends.
 
 1. User opens the Settings window.
 2. User opens the color picker, and selects color.
-3. System detects this change, and changes the profile picture glow color.
+3. nustracker detects this change, and changes the profile picture glow color.
 
    Use case ends.
 
@@ -927,7 +927,7 @@ Use case ends.
 
 1. User closes nustracker.
 2. User opens the preferences.json file, and edits the profile color using a color hex code.
-3. System detects this change, and changes profile picture glow color.
+3. nustracker detects this change, and changes profile picture glow color.
 
    Use case ends.
 
