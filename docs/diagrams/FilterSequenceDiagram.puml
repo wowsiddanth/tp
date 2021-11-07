@@ -28,7 +28,7 @@ activate FilterCommandParser
 FilterCommandParser --> AddressBookParser
 deactivate FilterCommandParser
 
-AddressBookParser -> FilterCommandParser : parse("fitler id/e0123456")
+AddressBookParser -> FilterCommandParser : parse("id/e0123456")
 activate FilterCommandParser
 
 loop #transparent i < studendIds length
