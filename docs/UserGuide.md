@@ -81,13 +81,13 @@ via the terminal as well (but double-clicking should work fine).
 
 <br> 
 
-**You finally have your hands on nustracker. Great! Let's learn how to use it now.**
+**You finally have your hands on nustracker. Great! Let's learn how to use it now.**<br>
 
 1. Ensure you have `Java 11` or above installed in your Computer. <br><br>
 
-2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). <br><br>
+2. Download the latest `nustracker.jar`, found under [Releases](https://github.com/AY2122S1-CS2103T-T11-1/tp/releases). 
 
-3. Copy the `nustracker.jar` to the folder you want to use as the _containing folder_ for **nustracker**. We recommend something easy to type, like _myfolder_.<br><br>
+3. Copy the `nustracker.jar` to the folder you want to use as the _containing folder_ for **nustracker**. We recommend something easy to type, like _myfolder_.
 
 4. For Windows Users (**macOS user see Step 5**)
     1. Double-click the jar file.<br><br>
@@ -96,7 +96,7 @@ via the terminal as well (but double-clicking should work fine).
    1. Open [Terminal](https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac).
    2. Navigate to the home folder created in **Step 3** using the terminal. For example, if your folder was created in Desktop and is called **myfolder**,
       you would type `cd /Desktop/myfolder/` to move to that folder. For more information, check: [_Go to a folder by entering its pathname_.](https://support.apple.com/en-sg/guide/mac-help/mchlp1236/mac)
-   3. Type the following command into the Terminal: `java -jar nustracker.jar`. <br><br>
+   3. Type the following command into the Terminal: `java -jar nustracker.jar`. 
 
 6. You should see the following (minus the profile pictures):
    ![Ui](images/Ui.png)
@@ -113,7 +113,7 @@ _If you are an experienced CLI user, you can jump straight to the [Command Summa
 Get ready for an unprecedented overhaul in student and event management using **nustracker**!
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## Features
 
 **nustracker** was designed to help the average overworked university student, who also has many important responsibilities outside the curriculum in clubs and societies—specifically **student and event management**.
@@ -142,7 +142,7 @@ Get ready for an unprecedented overhaul in student and event management using **
 
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## General Layout
 
 The following is a description of the general layout of **nustracker**.
@@ -186,6 +186,7 @@ The following is a description of the general layout of **nustracker**.
     The students, their information, and the events they are taking part in are displayed here.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Basics of nustracker
 
 <div markdown="span" class="alert alert-info"> :label:
