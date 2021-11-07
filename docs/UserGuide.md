@@ -733,9 +733,10 @@ customized to your liking.
    ![changed-profile-picture](images/user-guide/changed-profile-picture.PNG)
 
       *The updated student card (belonging to student with Student ID **e1111111** in **nustracker**)*
-      <br><br>
-   1. The profile picture will update once you **type `refresh` into the command box, click the Refresh button, or restart **nustracker****.
-   2. You're done!
+
+5. The profile picture will update once you type `refresh` into the command box, click the Refresh button, or restart **nustracker**.
+
+6. You're done!
 
   Although most image sizes will work perfectly fine, the best image sizes are 120px by 120px.
 
@@ -746,7 +747,7 @@ customized to your liking.
 1. Open up the **Settings** window either by clicking the **Settings** button or by typing in `settings` into the command box.
  
 
-2. Click the dropdown menu, and pick a color. You can pick a custom color as well. <br><br>
+2. Click the dropdown menu, and pick a color.
 
    ![pre-selected](images/user-guide/pre-selected.PNG)
 
@@ -758,7 +759,7 @@ the glow will be the default pink!).
 </div>
 
 
-
+<div style="page-break-after: always;"></div>
 ### Customization FAQs
  
 **Q**: I have added the image, but it doesn't appear. <br>
@@ -775,6 +776,7 @@ You have now learnt to customize **nustracker** to its fullest. Go ahead and pla
     
 
 ---------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 ## Misc
 ### Saving the data
 
@@ -798,7 +800,7 @@ Please edit carefully! **nustracker** will not be able to load your data if any 
 We recommend that you make a backup of your original data file first just in case.
 </div>
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## FAQ
 
 **Q**: Is nustracker free?<br>
@@ -820,7 +822,7 @@ We recommend that you make a backup of your original data file first just in cas
 **A**: We are committed to delivering well-made software and to achieve that, every single bug report counts. To submit a bug report, please visit the [issues](https://github.com/AY2122S1-CS2103T-T11-1/tp/issues) page. Thank you for contributing to **nustracker**!
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## Command summary
 
 ### Student Commands
