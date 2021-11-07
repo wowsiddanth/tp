@@ -12,6 +12,8 @@ participant "id:StudentId" as StudentId MODEL_COLOR
 participant "n:EventName" as EventName MODEL_COLOR
 end box
 
+
+
 EnrollCommandParser -> ArgumentTokenizer: tokenize("id/e0322322 \nev/Sports Camp", \n "id/", "n/")
 activate ArgumentTokenizer
 
