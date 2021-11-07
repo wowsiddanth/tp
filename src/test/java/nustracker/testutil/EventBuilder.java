@@ -8,6 +8,7 @@ import nustracker.model.event.EventDate;
 import nustracker.model.event.EventName;
 import nustracker.model.event.EventTime;
 import nustracker.model.event.Participant;
+import nustracker.model.student.StudentId;
 import nustracker.model.util.SampleDataUtil;
 
 /**
@@ -86,8 +87,8 @@ public class EventBuilder {
      * Parses the {@code studentId} and add it as a {@code Participant} to the {@code Event} that we are
      * building.
      */
-    public EventBuilder addParticipant(String studentId) {
-        Participant toAdd = new Participant(studentId);
+    public EventBuilder addParticipant(StudentId studentId) {
+        Participant toAdd = new Participant(studentId.getStudentIdString());
         Set<Participant> updatedParticipants = new HashSet<>(participants);
         updatedParticipants.add(toAdd);
         participants = updatedParticipants;
