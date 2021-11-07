@@ -31,6 +31,7 @@ You can reach us through the [team repository](https://github.com/AY2122S1-CS210
 [[portfolio](team/rehad-a.md)]
 
 * Role: Testing
+* Responsibilities: Ensures the testing of the project is done properly and covers a sufficient portion of the code.
 
 ### Elvis Teo
 
@@ -40,7 +41,7 @@ You can reach us through the [team repository](https://github.com/AY2122S1-CS210
 [[portfolio](team/tlchicken.md)]
 
 * Role: Scheduling and Tracking
-* Responsibilities:
+* Responsibilities: In charge of the Issue Tracker for the team's repo.
 
 ### Joel Sung
 

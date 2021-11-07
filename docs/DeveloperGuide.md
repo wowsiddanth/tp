@@ -5,9 +5,6 @@ title: Developer Guide
 
 ![developer-guide](images/developer-guide.png)
 
---------------------------------------------------------------------------------------------------------------------
-* Table of Contents
-{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -25,18 +22,21 @@ student base.
 
 
 --------------------------------------------------------------------------------------------------------------------
+* Table of Contents
+{:toc}
 
-## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
 --------------------------------------------------------------------------------------------------------------------
+
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Design**
 
@@ -56,7 +56,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/Main.java) and [`MainApp`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -112,7 +112,7 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -141,7 +141,7 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/model/Model.java)
 
 ![Model Class Diagram](images/ModelClassDiagram.png)
 
@@ -158,7 +158,7 @@ The `Model` component,
 
 ### Storage component
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2122S1-CS2103T-T11-1/tp/blob/master/src/main/java/nustracker/storage/Storage.java)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
@@ -172,6 +172,8 @@ The `Storage` component,
 Classes used by multiple components are in the `nustracker.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -197,7 +199,7 @@ There are a few classes at play for the main process:
 
 The following sequence diagram shows the typical chain of events within the internal system, followed by a brief description.
 
-![GlowSequenceDiagram](diagrams/GlowSequenceDiagram.png)
+![GlowSequenceDiagram](images/GlowSequenceDiagram.png)
 
 1. When a color is selected (_change detected_), the `SettingsWindow#updateGlowColor()` is called. 
 2. There is a self-invocation of the `SettingsWindow#getGlowHexCode()` method, leading to the new  glow color hex code being retrieved by using `ColorPicker#getValue()`. 
@@ -205,7 +207,7 @@ The following sequence diagram shows the typical chain of events within the inte
 4. This valid value (assuming Step 3 returns true, else `ImageStorage.DEFAULT_COLOR` is used) is then used as a parameter when calling `StudentListPanel#updateGlow()`.
 
 Next, let's take a closer look at what happens within StudentListPanel.
-![UpdateStudentCardGlow](diagrams/UpdateStudentCardGlowSeqeuenceDiagram.png)
+![UpdateStudentCardGlow](images/UpdateStudentCardGlowSeqeuenceDiagram.png)
 
 1. When `StudentListPanel#updateGlowColor()` is called, there is a self-invocation of `StudentListPanel#refreshPanel()`.
 2. This then leads to _another_ self invocation of the `StudentListPanel#fillPanelWithCells()` method.
@@ -264,6 +266,53 @@ The following sequence diagram shows how the enroll operation works:
 ![EnrollSequenceDiagram](images/EnrollSequenceDiagram.png)
 <br>_Sequence diagram for enrolling a student into an event_
 
+* Note that LogicManager is called using execute("enroll id/e0322322 ev/Sports Camp"). This information was truncated to reduce clutter in the diagram.<br>
+* For details of how the EnrollCommand internally enrolls a student into an event internally, please check out the corresponding activity diagram below.
+
+The following sequence diagram shows how a enroll operation gets its arguments from the prefixes:
+
+![EnrollParseArguments](images/EnrollParseArguments.png)
+<br>_Sequence diagram for parsing enroll command arguments_
+
+The following activity diagram shows how the enroll command enrolls a student into an event:
+![EnrollActivityDiagram](images/EnrollActivityDiagram.png)
+<br>_Activity diagram to show how the enroll command enrolls a student into an event_
+
+
+### Filtering Feature
+
+This is a feature to allow the user to filter the data by different fields. Currently, the implementation allows the user to filter by student IDs, names, majors, years, or event.
+
+This feature comes with the following classes:
+- nustracker.logic.commands.FilterCommand
+- nustracker.logic.commands.FilterEventCommand
+- nustracker.logic.commands.FilterIdCommand
+- nustracker.logic.commands.FilterMajorCommand
+- nustracker.logic.commands.FilterNameCommand
+- nustracker.logic.commands.FilterYearCommand
+- nustracker.logic.parser.FilterCommandParser
+- nustracker.model.student.EnrolledEventsContainsKeywordsPredicate
+- nustracker.model.student.MajorContainsKeywordsPredicate
+- nustracker.model.student.NameContainsKeywordsPredicate
+- nustracker.model.student.StudentIdContainsKeywordsPredicate
+- nustracker.model.student.YearContainsKeywordsPredicate
+
+The filter mechanism is facilitated by `FilterCommand`, an abstract class that extends `Command`.
+Each field that can be used for filtering is created as a new child class which extends `FilterCommand` (e.x. filtering by name is implemented in `FilterNameCommand`).
+Each one of these children classes has a predicate attribute which stores the keywords given by the user and uses them to filter the list of students.
+
+The following class diagram gives an overview on the design of the `filter` command
+![FilterClassDiagram](images/FilterClassDiagram.png)
+<br>_Class diagram for the filter command_
+
+* Notes that `FilterEventCommand` is the only class which extends `FilterCommand` and does not store a predicate, but an `EventName` instead.
+
+The following sequence diagram shows how filtering by student ID works:
+![FilterSequenceDiagram](images/FilterSequenceDiagram.png)
+<br>_Sequence diagram for filtering by student ID_
+
+* `FilterCommandParser` determines which field is used for filtering from the prefix that the user inputs (in this case the prefix is `id/`, hence `FilterCommandParser` calls `FilterIdCommand`)
+
 
 ### Exporting Feature
 
@@ -293,6 +342,7 @@ The following sequence diagram shows how the export operation works:
 
 In the end the first choice was chosen as it was more structured, and take less time to implement than alternative 3. We would consider alternative 3 to be the best long term option, and would implement it as such if time permitted.
 
+<div style="page-break-after: always;"></div>
 
 ### \[Proposed\] Undo/redo feature
 
@@ -368,6 +418,8 @@ The following activity diagram summarizes what happens when a user executes a ne
     * Cons: We must ensure that the implementation of each individual command are correct.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -983,6 +1035,8 @@ Use case ends.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
@@ -998,7 +1052,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Download the jar file and copy into an empty folder
 
-    2. Double-click the jar file. <br>
+    2. Double-click the jar file. If you are using Mac, please start the .jar file via the terminal. <br>
    Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
@@ -1056,7 +1110,7 @@ testers are expected to do more *exploratory* testing.
    2. `blacklist id/e1234567 ev/Orientation Camp!`: event name only allows alphanumeric characters and spaces
    3. `add n/June m/BZA id/e8112233 y/1 p/81236540 e/june@a`: email's domain (after @) has to be at least 2 characters long
 
-### Local Save File
+#### Local Save File
 
 <div markdown="span" class="alert alert-info"> :label: **Note:** Before attempting these test cases related to the local save file, please
  set up **nustracker** to contain the sample data beforehand for the best experience. To do this, just delete the save file
@@ -1110,9 +1164,8 @@ named `addressbook.json` in the data folder, then open **nustracker** and type i
        Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
 
 
-### Manual test cases:
 
-### Deleting a student
+#### Deleting a student
 
 1. Deleting a student
 
@@ -1134,7 +1187,7 @@ named `addressbook.json` in the data folder, then open **nustracker** and type i
 
 2. _{ more test cases …​ }_
 
-### Changing the profile picture
+#### Changing the profile picture
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** 
 There are sample images provided within the .zip file you can utilize for testing.
@@ -1148,9 +1201,7 @@ Expected: After using the `Refresh` command or restarting **nustracker**, the st
 Prerequisites: A student with Student ID `e*******` exists and currently has a profile picture (_That is, there is an image in the **profile-pictures** with a name corresponding to the student's Student ID_).<br>
 Expected: After using the `Refresh` command or restarting **nustracker**, the student's profile picture reverts to the default image.
 
-### Saving data
-   1. Re-launch the app by double-clicking the jar file.<br>
-   Expected: **nustracker** will not be able to load the data and the student and event lists are blank.
+
 
 
 
