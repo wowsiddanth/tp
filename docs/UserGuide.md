@@ -1,6 +1,5 @@
 ---
 layout: page
-title: User Guide
 ---
 <p align="center">
 
@@ -720,7 +719,7 @@ customized to your liking.
  
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Advanced users: You can manually input your own color hex code in preferences.json! (If it is incorrect,
-the glow will always appear white).
+the glow will be the default pink!).
 </div>
 
 
@@ -759,13 +758,9 @@ The folder `C:\Users\JohnDoe\data` is also where exported files are contained!
 
 **nustracker** data is saved as a JSON file. Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-danger">
-
-:exclamation: **Caution:**
+<div markdown="span" class="alert alert-danger"> :exclamation: **Caution:**
 Please edit carefully! **nustracker** will not be able to load your data if any errors are present. If you type a command while the application has no data, your own data will be overwritten. 
-
 We recommend that you make a backup of your original data file first just in case.
-
 </div>
 --------------------------------------------------------------------------------------------------------------------
 
