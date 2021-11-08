@@ -75,24 +75,21 @@ a brownfield project that extends the AddressBook3 project, which is around 10kL
     * Added _'Customization'_ section to the UG. ([#132](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/132/files))
     * Added _'General Layout'_ section to the UG. ([#132](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/132/files))
     * Edited _'Features'_ section of the UG. ([#123](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/123), [#223](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/223))
-    * Added feature introductions at the start of the UG: 
+    * Added feature introductions at the start of the UG: _Manage students with ease_, _Track event attendance_, and _Customize to your liking_. ([#268](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/268))
     * Added documentation for the features `add` and `delete`. ([#27](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/27))
     * Added documentation for the features `refresh` and `theme`. ([#144](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/144))
     * Rephrased many paragraphs, formatted whitespaces, etc. 
     
   * Developer Guide:
-    * Edited UML diagram for UI component, and added more description about the different components .([#102](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/102))
-    * Edited Developer Guide to add use cases for add student information, delete student information, changing profile picture glow, changing profile picture glow via the .json, and changing the profile picture.
-    * Added the _Changing the profile picture glow_ feature to the Developer Guide, under the _Implementation section_.
-    * Added two sequence diagrams (GlowSequenceDiagram.puml and UpdateStudentCardGlowSequenceDiagram.puml) under the _Changing the profile picture glow_ section.
+    * Edited UML diagram for UI component, and added more description about the different components . ([#102](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/102))
+    * Edited Developer Guide to add use cases for add student information, delete student information, changing profile picture glow, changing profile picture glow via the .json, and changing the profile picture. ([#253](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/253))
+    * Added the _Changing the profile picture glow_ feature to the Developer Guide, under the _Implementation section_. ([#253](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/253)) 
+    * Added two sequence diagrams (GlowSequenceDiagram.puml and UpdateStudentCardGlowSequenceDiagram.puml) under the _Changing the profile picture glow_ section. ([#253](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/253)) 
 
 
 * **Community**:
-   * Review and carried out code reviews: [https://bit.ly/3bM6MVx](https://bit.ly/3bM6MVx)
+   * Reviewed and carried out code reviews: [https://bit.ly/3bM6MVx](https://bit.ly/3bM6MVx)
+   * Made many PRs: [https://bit.ly/3bT32lc](https://bit.ly/3bT32lc)
    * PRs reviewed and approved: [\#58](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/58), [\#48](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/48), [\#46](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/46), [\#33](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/33), [\#96](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/93), [#98](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/98), [\#110](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/110), [\#215](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/215), [\#12](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/12), [\#80](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/80), [\#91](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/91), [\#105](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/105), [#129](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/129), [\#145](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/145).
    * PRs reviewed (with non-trivial review comments): [\#58](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/58), [\#48](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/48), [\#46](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/46), [\#33](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/33), [\#96](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/93), [#98](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/98), [\#110](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/110), [\#215](https://github.com/AY2122S1-CS2103T-T11-1/tp/pull/215).
-
-
-* **Tools**:
-  * Integrated a new GitHub plugin (CircleCI) to the team repo
 
