@@ -37,7 +37,6 @@ nustracker specializes in displaying event information, each complete with stude
 <p align="center">
   <img src="images/image3.jpg" />
 </p> 
-
 <div style="page-break-after: always;"></div>
 **nustracker** is a desktop application for NUS event directors and student leaders of student organizations in NUS School of Computing to manage students and events.
 
