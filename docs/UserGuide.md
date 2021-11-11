@@ -10,7 +10,9 @@ title: User Guide
     Manage students with ease.
 </h1>
 <div align="center">
+
 No more sleepless nights deriving Excel formulas. **nustracker** does everything for you, preserving your energy—for a happier school life.
+
 </div><br>
 <p align="center">
   <img src="images/image1.jpg" />
@@ -32,7 +34,9 @@ nustracker specializes in displaying event information, each complete with stude
     Customize to your liking.
 </h1>
 <div align="center">
+
     We know you're tired of staring at grid boxes (because we are too). With _nustracker_, you can switch between a light and dark mode, and customize the profile picture glow. Customization has never been simpler.
+
 </div><br>
 <p align="center">
   <img src="images/image3.jpg" />
