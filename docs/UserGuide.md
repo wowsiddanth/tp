@@ -10,7 +10,7 @@ title: User Guide
     Manage students with ease.
 </h1>
 <div align="center">
-No more sleepless nights deriving Excel formulas. nustracker does everything for you, preserving your energy—for a happier school life.
+No more sleepless nights deriving Excel formulas. **nustracker** does everything for you, preserving your energy—for a happier school life.
 </div><br>
 <p align="center">
   <img src="images/image1.jpg" />
